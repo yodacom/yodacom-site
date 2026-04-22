@@ -152,10 +152,13 @@
 					<div class="absolute -inset-4 -z-10 rounded-sm bg-ochre/10"></div>
 					<div class="absolute -bottom-3 -right-3 -z-10 h-full w-full rounded-sm border border-ochre/50"></div>
 					<img
-						src="https://jjblack.com/images/profile-pic.jpg"
+						src="/images/jeremy-headshot.png"
 						alt="Jeremy J. Black"
+						width="242"
+						height="308"
 						class="aspect-[4/5] w-full rounded-sm object-cover grayscale-[25%]"
-						loading="lazy"
+						loading="eager"
+						fetchpriority="high"
 					/>
 					<div class="mt-4 border-l border-ochre pl-4">
 						<div class="font-serif text-lg text-navy-ink">Jeremy J. Black</div>
