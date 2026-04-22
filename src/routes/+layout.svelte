@@ -14,7 +14,8 @@
 		{ href: '/', label: 'Home' },
 		{ href: '/research', label: 'Research' },
 		{ href: '/products', label: 'Products' },
-		{ href: '/about', label: 'About' }
+		{ href: '/about', label: 'About' },
+		{ href: '/contact', label: 'Contact' }
 	];
 
 	const currentPath = $derived($page.url.pathname);
@@ -121,6 +122,7 @@
 						<li><a href="/research" class="hover:text-navy-deep">Research</a></li>
 						<li><a href="/products" class="hover:text-navy-deep">Products</a></li>
 						<li><a href="/about" class="hover:text-navy-deep">About</a></li>
+						<li><a href="/contact" class="hover:text-navy-deep">Contact</a></li>
 						<li><a href="https://coinroc.com" class="hover:text-navy-deep">CoinRoc.com →</a></li>
 					</ul>
 				</div>

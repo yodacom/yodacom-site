@@ -17,7 +17,19 @@ Cloudflare Pages auto-detects `pnpm-lock.yaml` and uses `pnpm install`. If it ev
 
 ## Environment variables
 
-None. This is a pure static marketing site — no API keys, no secrets, no runtime config.
+The static pages themselves need none, but the `/api/contact` Cloudflare Pages Function does.
+Set these in Cloudflare Pages → Settings → Environment variables (Production scope):
+
+| Name                         | Required | Purpose                                                     |
+| ---------------------------- | -------- | ----------------------------------------------------------- |
+| `LOOPS_API_KEY`              | yes      | Loops.so API key (reuse the one from CoinRoc)               |
+| `LOOPS_CONTACT_TEMPLATE_ID`  | yes      | Transactional template id for the contact-form notification |
+| `CONTACT_DEST_EMAIL`         | no       | Where to route submissions. Defaults to `jb@yodacom.com`    |
+| `TURNSTILE_SECRET_KEY`       | no       | If set, enables Cloudflare Turnstile captcha verification   |
+
+The contact form degrades gracefully: if `LOOPS_API_KEY` or `LOOPS_CONTACT_TEMPLATE_ID` is
+missing, the function returns a 503 with a plain-English message asking the visitor to email
+`jb@yodacom.com` directly.
 
 ## Custom domain setup (yodacom.com)
 
@@ -49,7 +61,7 @@ Git reverts work too: `git revert <sha> && git push` triggers a fresh Pages buil
 
 - **Preview deployments use ephemeral `*.pages.dev` URLs.** Only the production deploy (branch = `main`) maps to `yodacom.com`.
 - **Build warns about `href="#"`** on three placeholder footer links (LinkedIn/X/RSS in `src/routes/+layout.svelte`). Non-blocking. Replace with real URLs or remove when social accounts are ready.
-- **Do not add server-only code** (no `+page.server.ts`, no `+server.ts`) — the static adapter cannot handle them. If a form or API is ever needed, route it to a separate subdomain / existing backend.
+- **Do not add SvelteKit server-only code** (no `+page.server.ts`, no `+server.ts`) — the static adapter cannot handle them. Server-side work belongs in **Cloudflare Pages Functions** under `/functions/` at repo root. See `functions/api/contact.ts` for the pattern: CF auto-detects the directory, deploys each file as an endpoint (`functions/api/contact.ts` → `POST /api/contact`), and the SvelteKit static build ignores it entirely.
 - **Tailwind v4 is used.** Theme is in `src/app.css` via `@theme`, not `tailwind.config.js`. CF Pages build container handles it fine — no special config required.
 
 ## Sanity check before each deploy
