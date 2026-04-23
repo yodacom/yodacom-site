@@ -76,6 +76,74 @@
 	</div>
 </section>
 
+<!-- THREE PRACTICES — Research, Products, Applied AI -->
+<section class="border-b border-rule/60 bg-paper">
+	<div class="mx-auto max-w-6xl px-6 py-20">
+		<div class="mb-12 max-w-2xl">
+			<div class="eyebrow mb-3"><span class="rule-ochre mr-2"></span>Three practices</div>
+			<h2 class="font-serif text-4xl font-500 leading-tight text-navy-ink">
+				One research house. Three lanes of work.
+			</h2>
+		</div>
+
+		<div class="grid gap-6 md:grid-cols-3">
+			<!-- Research pillar -->
+			<a
+				href="/research"
+				class="group relative flex flex-col rounded-sm border border-rule bg-paper p-7 transition hover:border-navy-deep/40 hover:shadow-[0_20px_60px_-30px_rgba(20,40,72,0.25)]"
+			>
+				<div class="eyebrow mb-3">Research</div>
+				<h3 class="mb-3 font-serif text-2xl leading-tight text-navy-ink group-hover:text-ochre-deep">
+					Research
+				</h3>
+				<p class="mb-5 flex-1 text-sm leading-relaxed text-slate">
+					Peer-reviewable methodology papers on portfolio theory, fuzzy logic, and the honest
+					cost of trading. Published under Yodacom Research.
+				</p>
+				<span class="text-xs font-semibold uppercase tracking-wider text-ochre-deep transition group-hover:text-navy-deep">
+					See the papers →
+				</span>
+			</a>
+
+			<!-- Products pillar -->
+			<a
+				href="/products"
+				class="group relative flex flex-col rounded-sm border border-rule bg-paper p-7 transition hover:border-navy-deep/40 hover:shadow-[0_20px_60px_-30px_rgba(20,40,72,0.25)]"
+			>
+				<div class="eyebrow mb-3">Products</div>
+				<h3 class="mb-3 font-serif text-2xl leading-tight text-navy-ink group-hover:text-ochre-deep">
+					Products
+				</h3>
+				<p class="mb-5 flex-1 text-sm leading-relaxed text-slate">
+					CoinRoc in production, VetTheTech in development, and an RIA decision-support tool
+					in build. Research-grade methodology, shipped as software.
+				</p>
+				<span class="text-xs font-semibold uppercase tracking-wider text-ochre-deep transition group-hover:text-navy-deep">
+					See the products →
+				</span>
+			</a>
+
+			<!-- Applied AI pillar -->
+			<a
+				href="/applied-ai"
+				class="group relative flex flex-col rounded-sm border border-rule bg-paper p-7 transition hover:border-navy-deep/40 hover:shadow-[0_20px_60px_-30px_rgba(20,40,72,0.25)]"
+			>
+				<div class="eyebrow mb-3">Applied AI</div>
+				<h3 class="mb-3 font-serif text-2xl leading-tight text-navy-ink group-hover:text-ochre-deep">
+					Applied AI
+				</h3>
+				<p class="mb-5 flex-1 text-sm leading-relaxed text-slate">
+					Forty years of practitioner depth at the intersection of quantitative finance and
+					emerging technology.
+				</p>
+				<span class="text-xs font-semibold uppercase tracking-wider text-ochre-deep transition group-hover:text-navy-deep">
+					Explore the practice →
+				</span>
+			</a>
+		</div>
+	</div>
+</section>
+
 <!-- PRODUCTS / RESEARCH PROJECTS -->
 <section class="border-b border-rule/60">
 	<div class="mx-auto max-w-6xl px-6 py-20">

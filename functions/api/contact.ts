@@ -53,6 +53,7 @@ const ALLOWED_TOPICS = [
 	'General',
 	'Research Inquiry',
 	'Products / CoinRoc',
+	'AI Practice / Advisory',
 	'Press / Media',
 	'Enterprise / RIA',
 	'Other'

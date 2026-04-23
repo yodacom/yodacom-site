@@ -1,8 +1,11 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
+
 	type Topic =
 		| 'General'
 		| 'Research Inquiry'
 		| 'Products / CoinRoc'
+		| 'AI Practice / Advisory'
 		| 'Press / Media'
 		| 'Enterprise / RIA'
 		| 'Other';
@@ -11,6 +14,7 @@
 		'General',
 		'Research Inquiry',
 		'Products / CoinRoc',
+		'AI Practice / Advisory',
 		'Press / Media',
 		'Enterprise / RIA',
 		'Other'
@@ -25,6 +29,15 @@
 	let message = $state('');
 	let website = $state(''); // honeypot — must stay empty
 	let pageLoadedAt = $state(Date.now());
+
+	// Preselect topic from ?topic=... query param (used by the Applied AI CTA)
+	onMount(() => {
+		const params = new URLSearchParams(window.location.search);
+		const requested = params.get('topic');
+		if (requested && (TOPICS as string[]).includes(requested)) {
+			topic = requested as Topic;
+		}
+	});
 
 	// --- ui state ---
 	let status = $state<Status>('idle');

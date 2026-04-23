@@ -11,10 +11,10 @@
 	let mobileOpen = $state(false);
 
 	const nav = [
-		{ href: '/', label: 'Home' },
+		{ href: '/about', label: 'About' },
 		{ href: '/research', label: 'Research' },
 		{ href: '/products', label: 'Products' },
-		{ href: '/about', label: 'About' },
+		{ href: '/applied-ai', label: 'Applied AI' },
 		{ href: '/contact', label: 'Contact' }
 	];
 
@@ -119,9 +119,10 @@
 				<div class="md:col-span-3">
 					<div class="eyebrow mb-4">Navigate</div>
 					<ul class="space-y-2 text-sm text-slate">
+						<li><a href="/about" class="hover:text-navy-deep">About</a></li>
 						<li><a href="/research" class="hover:text-navy-deep">Research</a></li>
 						<li><a href="/products" class="hover:text-navy-deep">Products</a></li>
-						<li><a href="/about" class="hover:text-navy-deep">About</a></li>
+						<li><a href="/applied-ai" class="hover:text-navy-deep">Applied AI</a></li>
 						<li><a href="/contact" class="hover:text-navy-deep">Contact</a></li>
 						<li><a href="https://coinroc.com" class="hover:text-navy-deep">CoinRoc.com →</a></li>
 					</ul>
