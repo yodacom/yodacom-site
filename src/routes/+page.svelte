@@ -105,23 +105,52 @@
 				</span>
 			</a>
 
-			<!-- Products pillar -->
-			<a
-				href="/products"
+			<!-- Products pillar (div, not anchor — contains nested brand links) -->
+			<div
 				class="group relative flex flex-col rounded-sm border border-rule bg-paper p-7 transition hover:border-navy-deep/40 hover:shadow-[0_20px_60px_-30px_rgba(20,40,72,0.25)]"
 			>
 				<div class="eyebrow mb-3">Products</div>
-				<h3 class="mb-3 font-serif text-2xl leading-tight text-navy-ink group-hover:text-ochre-deep">
+				<h3 class="mb-3 font-serif text-2xl leading-tight text-navy-ink">
 					Products
 				</h3>
-				<p class="mb-5 flex-1 text-sm leading-relaxed text-slate">
-					CoinRoc in production, VetTheTech in development, and an RIA decision-support tool
-					in build. Research-grade methodology, shipped as software.
+				<p class="mb-5 text-sm leading-relaxed text-slate">
+					Research-grade methodology, shipped as software. CoinRoc in production, VetTheTech in
+					development, and an RIA decision-support tool in build.
 				</p>
-				<span class="text-xs font-semibold uppercase tracking-wider text-ochre-deep transition group-hover:text-navy-deep">
+
+				<!-- Nested brand sub-items -->
+				<ul class="mb-5 flex-1 space-y-2 border-t border-rule/70 pt-4">
+					<li>
+						<a
+							href="https://coinroc.com"
+							class="flex items-baseline justify-between gap-2 text-xs text-slate transition hover:text-ochre-deep"
+						>
+							<span class="font-serif text-sm text-navy-ink group-hover:text-ochre-deep">CoinRoc</span>
+							<span class="text-[0.65rem] uppercase tracking-wider text-slate-light">
+								Live · since 2019 →
+							</span>
+						</a>
+					</li>
+					<li>
+						<a
+							href="/products"
+							class="flex items-baseline justify-between gap-2 text-xs text-slate transition hover:text-ochre-deep"
+						>
+							<span class="font-serif text-sm text-navy-ink group-hover:text-ochre-deep">VetTheTech</span>
+							<span class="text-[0.65rem] uppercase tracking-wider text-slate-light">
+								In development · Q3 2026 →
+							</span>
+						</a>
+					</li>
+				</ul>
+
+				<a
+					href="/products"
+					class="text-xs font-semibold uppercase tracking-wider text-ochre-deep transition hover:text-navy-deep"
+				>
 					See the products →
-				</span>
-			</a>
+				</a>
+			</div>
 
 			<!-- Applied AI pillar -->
 			<a
@@ -140,66 +169,6 @@
 					Explore the practice →
 				</span>
 			</a>
-		</div>
-	</div>
-</section>
-
-<!-- PRODUCTS / RESEARCH PROJECTS -->
-<section class="border-b border-rule/60">
-	<div class="mx-auto max-w-6xl px-6 py-20">
-		<div class="mb-12 flex items-end justify-between">
-			<div>
-				<div class="eyebrow mb-3"><span class="rule-ochre mr-2"></span>Currently publishing</div>
-				<h2 class="font-serif text-4xl font-500 text-navy-ink">Products &amp; research projects</h2>
-			</div>
-			<a href="/products" class="hidden text-xs font-semibold uppercase tracking-wider text-ochre-deep hover:text-navy-deep sm:inline">
-				All products →
-			</a>
-		</div>
-
-		<div class="grid gap-6 md:grid-cols-2">
-			<!-- CoinRoc card -->
-			<article class="group relative overflow-hidden rounded-sm border border-rule bg-paper transition hover:border-navy-deep/40 hover:shadow-[0_20px_60px_-30px_rgba(20,40,72,0.25)]">
-				<div class="aspect-[16/9] overflow-hidden border-b border-rule bg-navy-ink">
-					<img
-						src="https://res.cloudinary.com/yodacom/image/upload/v1570059114/coinrocSite_worbbi.png"
-						alt="CoinRoc 2019 original site"
-						class="h-full w-full object-cover object-top opacity-90 transition duration-700 group-hover:scale-[1.02] group-hover:opacity-100"
-						loading="lazy"
-					/>
-				</div>
-				<div class="p-7">
-					<div class="eyebrow mb-2">Research project · since 2019</div>
-					<h3 class="mb-3 font-serif text-2xl text-navy-ink">CoinRoc</h3>
-					<p class="mb-5 text-sm leading-relaxed text-slate">
-						A research-grade rating engine for crypto grid trading. Applies Modern Portfolio Theory
-						principles, correlation analysis, and cost-tier-aware backtesting to identify which
-						digital assets are suitable for grid-based strategies — and at what execution costs
-						they become viable.
-					</p>
-					<a href="/products" class="text-xs font-semibold uppercase tracking-wider text-ochre-deep transition hover:text-navy-deep">
-						Learn more →
-					</a>
-				</div>
-			</article>
-
-			<!-- VetTheTech card -->
-			<article class="relative rounded-sm border border-dashed border-slate-hair bg-cream p-7">
-				<div class="mb-2 flex items-center justify-between">
-					<div class="eyebrow text-slate-light">In development</div>
-					<span class="text-[0.65rem] uppercase tracking-widest text-slate-light">Q3 2026</span>
-				</div>
-				<h3 class="mb-3 font-serif text-2xl text-navy-ink">VetTheTech</h3>
-				<p class="mb-5 text-sm leading-relaxed text-slate">
-					Independent verification of trading algorithm claims. Think Consumer Reports for
-					"I have the winning algo" pitches — rigorous methodology, vendor-neutral, retail-accessible.
-					Built on the same walk-forward and cost-tier analysis developed for CoinRoc.
-				</p>
-				<div class="mt-auto flex items-center gap-2 text-xs text-slate-light">
-					<span class="h-1.5 w-1.5 animate-pulse rounded-full bg-ochre"></span>
-					Methodology under development
-				</div>
-			</article>
 		</div>
 	</div>
 </section>

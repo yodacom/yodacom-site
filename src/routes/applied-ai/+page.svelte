@@ -55,8 +55,8 @@
 		},
 		{
 			label: 'RIA decision-support tool — in build',
-			heading: 'A RAMCAP-shaped workflow for advisors.',
-			body: "A RAMCAP-shaped workflow for registered investment advisors who want a crypto sleeve they can actually explain to a client and a compliance officer. MVP ships in 5–7 weeks. Fuzzy outputs map to the DOL safe-harbor 6-factor framework — so the advisor's recommendation memo writes itself."
+			heading: 'Explainable multi-factor workflow for advisors.',
+			body: "A decision-support workflow for registered investment advisors who want a crypto sleeve they can actually explain to a client and a compliance officer. MVP ships in 5–7 weeks. Fuzzy inference outputs map directly to the DOL safe-harbor 6-factor framework — so the advisor's recommendation memo writes itself."
 		}
 	];
 

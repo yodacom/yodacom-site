@@ -44,7 +44,7 @@
 		{
 			year: '2019',
 			title: 'CoinRoc — research begins',
-			body: "Launched CoinRoc to apply correlation analysis and portfolio theory — the Ramcap thesis — to a new asset class. Yodacom's longest-running research project."
+			body: "Launched CoinRoc to apply correlation analysis and portfolio theory to a new asset class — digital assets and grid-based strategies. Yodacom's longest-running research project."
 		},
 		{
 			year: '2026',
@@ -344,9 +344,9 @@
 			<p class="text-sm leading-relaxed text-slate">
 				A rating and analysis platform for crypto grid trading, built for income-disciplined
 				investors, financial advisors, and anyone serious about separating cash-flow strategies
-				from mark-to-market noise. CoinRoc is the direct descendant of RAMCAP: the same correlation
-				discipline, the same honest accounting of cost and risk, applied to an asset class RAMCAP
-				could not have imagined.
+				from mark-to-market noise. CoinRoc carries forward four decades of correlation discipline
+				and honest cost-and-risk accounting — applied to an asset class that did not exist when
+				that discipline was first written down.
 			</p>
 		</article>
 
@@ -386,7 +386,7 @@
 		</h2>
 		<div class="space-y-5 font-serif text-[1.05rem] leading-[1.75] text-slate">
 			<p>
-				The bet Yodacom is making in 2026 is the same one RAMCAP made in 1985: that ordinary
+				The bet Yodacom is making in 2026 is the same one its founder made in 1985: that ordinary
 				investors and the advisors who serve them deserve tools built on honest math, transparent
 				assumptions, and a stated cost of being wrong. The difference is that the compute finally
 				works. The data finally works. The tooling finally works.
@@ -428,10 +428,10 @@
 		<p>
 			He founded <strong class="text-navy-ink">Yodacom</strong> in 2012 as a digital product
 			studio. <strong class="text-navy-ink">CoinRoc</strong>, started in 2019, is Yodacom's
-			longest-running research project — and the direct descendant of Ramcap's original thesis
-			that correlation analysis and portfolio theory can be applied systematically to identify
+			longest-running research project — built on the thesis Jeremy has practiced since 1984:
+			that correlation analysis and portfolio theory, applied systematically, can identify
 			suitable asset/strategy pairings. Today CoinRoc's focus is crypto grid trading; the
-			underlying discipline is the same one Jeremy has been practicing since 1984.
+			underlying discipline has not changed.
 		</p>
 		<p class="text-sm italic text-slate-light">
 			Education: Master of Divinity from Denver Theological Seminary;
