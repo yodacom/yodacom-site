@@ -431,7 +431,7 @@
 			longest-running research project — built on the thesis Jeremy has practiced since 1984:
 			that correlation analysis and portfolio theory, applied systematically, can identify
 			suitable asset/strategy pairings. Today CoinRoc's focus is crypto grid trading; the
-			underlying discipline has not changed.
+			underlying discipline has not changed — and it is the same framework behind the Yodacom reposition methodology.
 		</p>
 		<p class="text-sm italic text-slate-light">
 			Education: Master of Divinity from Denver Theological Seminary;
