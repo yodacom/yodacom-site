@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Yodacom logo — hybrid: vtracer Y body + clean SVG circles for red dots
+  Produced: 2026-04-26 by Sabine (Visual Content Creator, Yodacom AI Team)
+  Source body: yodacom-logo-vtracer.svg (visioncortex VTracer 0.6.12)
+  Dot cleanup: all 8 blobby vtracer dot paths removed; replaced with <circle> elements
+
+  ViewBox: 0 0 91 105 (matches vtracer output dimensions)
+  Background: transparent
+
+  Circle positions (tuned to match original PNG cluster tightness):
+    Top dot:   cx=46  cy=7   r=7    — centered above Y stem
+    Left dot:  cx=32  cy=21  r=6.5  — above inner-left arm, pulled in and up
+    Right dot: cx=60  cy=21  r=6.5  — above inner-right arm, pulled in and up
+  Color: #EE1111
+-->
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="91" height="105" viewBox="0 0 91 105">
+
+  <!-- Y body — vtracer path; right-arm staircase smoothed 2026-04-27 by Sabine -->
+  <!-- Original staircase (4 degenerate cubics creating notches on outer-right arm):
+       C87.633 4.209 85.161 6.834 81 10
+       C80.34 10 79.68 10 79 10
+       C79 10.66 79 11.32 79 12
+       C78.34 12 77.68 12 77 12
+       C76.865 12.369 76.865 12.369 76.181 14.237
+       Replaced with two smooth cubics flowing 81,10 → 77,12 → 76.181,14.237 -->
+  <path d="M0 0 C16.5 0 33 0 50 0 C44 8 44 8 42 10 C42.286 13.917 44.683 16.668 46.938 19.75 C47.648 20.735 48.358 21.72 49.09 22.734 C49.72 23.482 50.351 24.23 51 25 C51.66 25 52.32 25 53 25 C54.627 22.862 56.14 20.732 57.625 18.5 C58.045 17.88 58.465 17.26 58.898 16.621 C59.938 15.085 60.97 13.543 62 12 C60.595 8.785 58.913 6.72 56.375 4.312 C55.234 3.225 54.104 2.125 53 1 C53 0.67 53 0.34 53 0 C65.54 0 78.08 0 91 0 C87.633 4.209 85.161 6.834 81 10 C80 10.5 78.5 11.5 77 12 C76.865 12.369 76.865 12.369 76.181 14.237 C75.049 16.886 73.805 18.905 72.102 21.215 C71.54 21.984 70.978 22.753 70.398 23.545 C69.813 24.334 69.228 25.124 68.625 25.938 C58.122 40.227 58.122 40.227 57.438 44.562 C58.171 49.043 59.565 50.066 63 53 C64.404 54.409 65.799 55.826 67.188 57.25 C70.752 60.876 70.752 60.876 73 62 C73 62.66 73 63.32 73 64 C55.51 64 38.02 64 20 64 C20 63.34 20 62.68 20 62 C21.539 60.484 21.539 60.484 23.625 58.75 C24.349 58.125 25.074 57.5 25.82 56.855 C27.157 55.718 28.503 54.593 29.867 53.488 C32.795 50.931 33.959 49.169 34.875 45.375 C34.377 39.625 30.61 35.308 27.292 30.806 C25.895 28.853 24.591 26.854 23.289 24.836 C17.401 15.863 11.406 9.136 2.641 2.906 C1.769 2.277 0.898 1.648 0 1 C0 0.67 0 0.34 0 0 Z " fill="#A9BAA8" transform="translate(0,41)"/>
+
+  <!-- Red dots — clean circles replacing vtracer blobs -->
+  <circle cx="46" cy="7"  r="7"   fill="#EE1111"/>
+  <circle cx="32" cy="21" r="6.5" fill="#EE1111"/>
+  <circle cx="60" cy="21" r="6.5" fill="#EE1111"/>
+
+</svg>
