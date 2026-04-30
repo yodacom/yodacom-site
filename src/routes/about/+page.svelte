@@ -12,24 +12,24 @@
 			body: 'Taught Modern Portfolio Theory and asset allocation strategies. Lectured on MPT across the US, Canada, and New Zealand. Certified Financial Planner.'
 		},
 		{
-			year: '1985',
-			title: 'Built and sold Ramcap',
-			body: 'Risk Adjusted Multiple Capital Asset Allocation Program — one of the first MPT-driven risk software products for financial advisors. Written in Prolog, later ported to C and C++. Acquired 1990.'
+			year: '1984',
+			title: 'RAMCAP — The Intelligent Asset Allocator',
+			body: 'Risk Adjusted Multiple Capital Asset Allocation Program — developed and built in 1984 under Advanced Investment Software Inc (co-owned by Jeremy Black and Kenneth Covell; Jeremy served as President). One of the first MPT-driven risk tools for financial advisors, selling worldwide. Written in Prolog, later ported to C and C++. Sold in 1987 — still in use today.'
 		},
 		{
 			year: '1988',
 			title: 'Navigator Fund — WSJ-featured',
-			body: "Operated one of Colorado's first multi-manager commodity pools — an early multi-manager hedge fund — featured in The Wall Street Journal's best-performing-funds rankings during the 1989–1990 period."
+			body: "Operated in and helped form one of Colorado's first multi-manager commodity pools — an early multi-manager hedge fund — featured in The Wall Street Journal's best-performing-funds rankings during the 1989–1990 period."
 		},
 		{
 			year: '1998',
-			title: 'Pre-Google search engine company',
-			body: 'Built and sold an early web search engine company before the Google era.'
+			title: 'InfoHiway Inc. — acquired by RMI.net',
+			body: 'Left Wilson Associates in 1994 and co-founded InfoHiway — a distributed Perl-powered search engine with 1.3 million visitors by March 1995. Results featured "Fuzzy Relational Links" — a fuzzy-logic approach to query refinement before the terminology existed. In 1997, built AdCafe (a self-serve ad placement tool) and offered every indexed site paid top-5 placement — one of the first complete paid search systems on the web. The backlash from webmasters was fierce. Bill Gross was building the same model at the time; the InfoHiway announcement apparently put Jeremy on his radar, because Gross emailed personally: "have money, interested in buying your company." Jeremy chose RMI.net (Denver) over Idealab (California). GoTo.com launched months later and was credited with inventing paid search. Yahoo later acquired it for $1.63 billion. Acquired by RMI.net in June 1998 for $1.2 million in stock.'
 		},
 		{
 			year: '2001',
 			title: 'Aquatic Behaviour Technologies',
-			body: 'Patented underwater tracking technology — a digital sound-attraction device for Spiny Lobster combining RFID and marine acoustics.'
+			body: 'Developed tracking technology for a device his team created — a digital sound-attraction device for Spiny Lobster combining RFID and marine acoustics.'
 		},
 		{
 			year: '2010',
@@ -43,8 +43,18 @@
 		},
 		{
 			year: '2019',
-			title: 'CoinRoc — research begins',
-			body: "Launched CoinRoc to apply correlation analysis and portfolio theory to a new asset class — digital assets and grid-based strategies. Yodacom's longest-running research project."
+			title: 'CoinRoc MarketPulse — early experiment',
+			body: "First CoinRoc prototype: a live crypto price-ticker pulling BTC, ETH, XRP, LTC, EOS, and GNT from CoinMarketCap every 10 seconds. The interest was there. The tooling wasn't yet."
+		},
+		{
+			year: '2023',
+			title: 'CoinRoc — research platform begins',
+			body: "Conceptual development of the current research platform: grid trading analysis, correlation-based portfolio construction, and regime detection. AI and the data infrastructure had finally caught up."
+		},
+		{
+			year: '2025',
+			title: 'CoinRoc — published',
+			body: "CoinRoc launched as a full research platform: grid trading scoring, fee-tier disclosure, Efficient Frontier analysis, early-signal discovery, and market regime detection. Built on the same thesis practiced since 1984 — now with the compute to match."
 		},
 		{
 			year: '2026',
@@ -183,11 +193,10 @@
 			loading="lazy"
 		/>
 		<blockquote class="font-serif text-2xl italic leading-relaxed text-navy-ink sm:text-3xl">
-			"A Silverthorne-based developer building research-grade tools with the rigor of a
-			quantitative hedge fund — from the side of a mountain."
+			&ldquo;Jeremy Black, CEO of YodaCom, is always ahead of the next big thing in technology.&rdquo;
 		</blockquote>
 		<div class="mt-4 text-xs uppercase tracking-widest text-slate-light">
-			Summit Daily News — paraphrase, source archival in progress
+			Summit Daily News &mdash; October 2013
 		</div>
 	</div>
 </section>
@@ -205,9 +214,10 @@
 			theory. In code.
 		</p>
 		<p>
-			In 1985 he built <strong class="text-navy-ink">RAMCAP</strong> — Risk Adjusted Multiple
-			Capital Asset Allocation Program — through Advanced Investment Software, a company whose
-			tagline read "The Intelligent Software Company." RAMCAP was written in
+			In 1984 he built <strong class="text-navy-ink">RAMCAP</strong> — Risk Adjusted Multiple
+			Capital Asset Allocation Program — as President of Advanced Investment Software Inc,
+			co-founded with Kenneth Covell. RAMCAP sold worldwide and was acquired in 1987; it remains
+			in use today. It was written in
 			<strong class="text-navy-ink">Prolog</strong>, the leading AI and fuzzy-logic language of the
 			decade, and it was one of the first Modern Portfolio Theory–driven risk tools built for
 			financial advisors. It was ported to C and later C++ as the market shifted from Apple to
@@ -389,7 +399,7 @@
 				The bet Yodacom is making in 2026 is the same one its founder made in 1985: that ordinary
 				investors and the advisors who serve them deserve tools built on honest math, transparent
 				assumptions, and a stated cost of being wrong. The difference is that the compute finally
-				works. The data finally works. The tooling finally works.
+				works. The data finally works. The tooling finally works. The applied AI finally works.
 			</p>
 			<p class="font-serif text-xl italic text-navy-ink">
 				We spent forty years waiting for the other side of the arc to catch up. It has. This is
@@ -406,9 +416,10 @@
 
 	<div class="space-y-5 font-serif text-[1.05rem] leading-[1.75] text-slate">
 		<p>
-			In the 1980s Jeremy built <strong class="text-navy-ink">Ramcap</strong> (Risk Adjusted
-			Multiple Capital Asset Allocation Program) — one of the first Modern Portfolio Theory
-			risk-software products for financial advisors — and lectured on MPT across the US,
+			In 1984 Jeremy built <strong class="text-navy-ink">RAMCAP</strong> (Risk Adjusted
+			Multiple Capital Asset Allocation Program) as President of Advanced Investment Software Inc —
+			one of the first Modern Portfolio Theory risk-software products for financial advisors,
+			selling worldwide before being sold in 1987. He lectured on MPT across the US,
 			Canada, and New Zealand. He was a <strong class="text-navy-ink">Certified Financial
 			Planner</strong> and an <strong class="text-navy-ink">Adjunct Professor at the College
 			for Financial Planning</strong>, teaching Modern Portfolio Theory and asset allocation.
@@ -420,18 +431,28 @@
 			Street Journal's best-performing-funds rankings during the 1989–1990 period</strong>.
 		</p>
 		<p>
-			In the 1990s and 2000s Jeremy built and sold a pre-Google search engine company, patented
-			an underwater tracking device (for attracting Spiny Lobster with recorded marine sounds),
+			In the 1990s and 2000s Jeremy built and sold a pre-Google search engine company, developed
+			tracking technology for a device his team created (for attracting Spiny Lobster with recorded marine sounds),
 			and later created the Click and Call Network affiliate technology while serving as VP of
 			Digital Innovation at Full Circle.
 		</p>
 		<p>
-			He founded <strong class="text-navy-ink">Yodacom</strong> in 2012 as a digital product
-			studio. <strong class="text-navy-ink">CoinRoc</strong>, started in 2019, is Yodacom's
-			longest-running research project — built on the thesis Jeremy has practiced since 1984:
-			that correlation analysis and portfolio theory, applied systematically, can identify
-			suitable asset/strategy pairings. Today CoinRoc's focus is crypto grid trading; the
-			underlying discipline has not changed — and it is the same framework behind the Yodacom reposition methodology.
+			He founded <strong class="text-navy-ink">Yodacom</strong> in 2012 as a technology consulting
+			and digital product studio — building mobile and web applications for businesses, non-profits,
+			and event organizers. Working from Silverthorne, Colorado, Jeremy consulted with organizations
+			navigating the mobile revolution as smartphones restructured how businesses reached their
+			customers. In October 2013, Summit Daily News profiled him in its weekly Profiles column,
+			noting that he &ldquo;is always ahead of the next big thing in technology.&rdquo; Over
+			seven years the studio shipped more than ten public-facing products before Jeremy pivoted
+			the company toward its current research mission.
+		</p>
+		<p>
+			<strong class="text-navy-ink">CoinRoc</strong> began as a simple price-ticker
+			experiment in 2019. The research platform — grid trading analysis, portfolio construction,
+			and regime detection — was conceptually developed from 2023 and published in 2025, when AI
+			and the data infrastructure had finally caught up to the thesis Jeremy has practiced since
+			1984: that correlation analysis and newer developments to portfolio theory, applied
+			systematically, can identify suitable asset/strategy pairings.
 		</p>
 		<p class="text-sm italic text-slate-light">
 			Education: Master of Divinity from Denver Theological Seminary;

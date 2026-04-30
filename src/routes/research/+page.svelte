@@ -13,10 +13,18 @@
 			<h1 class="fade-up d1 mb-6 font-serif text-5xl font-500 leading-[1.05] tracking-tight text-navy-ink sm:text-6xl">
 				Research
 			</h1>
+			<!-- COPY OPTIONS (2026-04-28) — Original: "All papers ship with reproducible code and full methodology."
+			     Replaced with Option B (balanced). Swap notes:
+			     Option A (shortest): "All papers publish full methodology; implementation code is available to institutional subscribers."
+			     Option B (live — balanced): Two sentences below.
+			     Option C (explicit CTA): "All papers publish complete methodology — sufficient to reproduce every result independently. Implementation code and execution-ready notebooks are available through our institutional subscriber program; contact us to inquire."
+			-->
 			<p class="fade-up d2 max-w-2xl text-lg leading-relaxed text-slate">
 				Yodacom Research publishes quantitative studies on asset-class suitability, execution-cost
 				analysis, and strategy-selection methodologies. We publish negative results when the data
-				demands it. All papers ship with reproducible code and full methodology.
+				demands it. All papers publish complete methodology — sufficient to reproduce every result
+				independently. Implementation code is made available to institutional research partners and
+				subscribers.
 			</p>
 		</div>
 	</div>

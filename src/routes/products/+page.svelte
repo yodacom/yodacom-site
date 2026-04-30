@@ -38,7 +38,7 @@
 				</div>
 			</div>
 			<div class="md:col-span-5 md:p-10 p-7">
-				<div class="eyebrow mb-3">Flagship · since 2019</div>
+				<div class="eyebrow mb-3">Flagship · published 2025</div>
 				<h2 class="mb-4 font-serif text-4xl leading-tight text-navy-ink">CoinRoc</h2>
 				<p class="mb-4 text-sm leading-relaxed text-slate">
 					A crypto grid-trading rating engine with honest cost-tier disclosure. Identifies which
@@ -58,6 +58,49 @@
 			</div>
 		</div>
 	</article>
+
+	<!-- CoinRoc screenshot gallery — current platform (2025) -->
+	<div class="space-y-4">
+		<div class="eyebrow mb-1">CoinRoc · 2025 platform</div>
+		<p class="max-w-2xl text-sm text-slate">From a price ticker in 2019 to a full research platform. The thesis was always the same — the tooling finally caught up.</p>
+		<div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+			<figure class="group overflow-hidden rounded-sm border border-rule bg-paper">
+				<div class="aspect-[16/10] overflow-hidden bg-navy-ink/5">
+					<img src="/screenshots/Efficient-Frontier.png" alt="CoinRoc — Efficient Frontier Analysis"
+						class="h-full w-full object-cover object-top transition duration-300 group-hover:scale-[1.02]" loading="lazy" />
+				</div>
+				<figcaption class="px-4 py-3 text-[0.72rem] font-semibold uppercase tracking-widest text-slate-light">Efficient Frontier Analysis</figcaption>
+			</figure>
+			<figure class="group overflow-hidden rounded-sm border border-rule bg-paper">
+				<div class="aspect-[16/10] overflow-hidden bg-navy-ink/5">
+					<img src="/screenshots/Discovery-Page.png" alt="CoinRoc — Discovery"
+						class="h-full w-full object-cover object-top transition duration-300 group-hover:scale-[1.02]" loading="lazy" />
+				</div>
+				<figcaption class="px-4 py-3 text-[0.72rem] font-semibold uppercase tracking-widest text-slate-light">Discovery</figcaption>
+			</figure>
+			<figure class="group overflow-hidden rounded-sm border border-rule bg-paper">
+				<div class="aspect-[16/10] overflow-hidden bg-navy-ink/5">
+					<img src="/screenshots/Liquidity-Analysis.png" alt="CoinRoc — Liquidity Analysis"
+						class="h-full w-full object-cover object-top transition duration-300 group-hover:scale-[1.02]" loading="lazy" />
+				</div>
+				<figcaption class="px-4 py-3 text-[0.72rem] font-semibold uppercase tracking-widest text-slate-light">Liquidity Analysis</figcaption>
+			</figure>
+			<figure class="group overflow-hidden rounded-sm border border-rule bg-paper">
+				<div class="aspect-[16/10] overflow-hidden bg-navy-ink/5">
+					<img src="/screenshots/Return-Distribution-overtime.png" alt="CoinRoc — Return Distribution Over Time"
+						class="h-full w-full object-cover object-top transition duration-300 group-hover:scale-[1.02]" loading="lazy" />
+				</div>
+				<figcaption class="px-4 py-3 text-[0.72rem] font-semibold uppercase tracking-widest text-slate-light">Return Distribution Over Time</figcaption>
+			</figure>
+			<figure class="group overflow-hidden rounded-sm border border-rule bg-paper">
+				<div class="aspect-[16/10] overflow-hidden bg-navy-ink/5">
+					<img src="/screenshots/LTC-Sentiment-Score.png" alt="CoinRoc — Sentiment Score"
+						class="h-full w-full object-cover object-top transition duration-300 group-hover:scale-[1.02]" loading="lazy" />
+				</div>
+				<figcaption class="px-4 py-3 text-[0.72rem] font-semibold uppercase tracking-widest text-slate-light">Sentiment Score</figcaption>
+			</figure>
+		</div>
+	</div>
 
 	<!-- VetTheTech + Consulting — two-up -->
 	<div class="grid gap-6 md:grid-cols-2">
