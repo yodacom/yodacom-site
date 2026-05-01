@@ -385,6 +385,23 @@
 			already.
 		</p>
 	</div>
+
+	<!-- CoinRoc shortened presentation -->
+	<div class="mt-12 max-w-3xl">
+		<div class="eyebrow mb-2">CoinRoc · platform overview</div>
+		<div class="overflow-hidden rounded-sm border border-rule bg-paper">
+			<div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;">
+				<iframe
+					src="https://www.youtube.com/embed/l2eENaed8dM"
+					title="CoinRoc — Platform Overview (Shortened)"
+					allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+					allowfullscreen
+					loading="lazy"
+					style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;"
+				></iframe>
+			</div>
+		</div>
+	</div>
 </section>
 
 <!-- THE BET — closing statement -->

@@ -203,6 +203,23 @@
 		</p>
 	</div>
 
+	<!-- Client video -->
+	<div class="mt-12">
+		<div class="eyebrow mb-2">Applied AI · client deliverable</div>
+		<div class="max-w-2xl overflow-hidden rounded-sm border border-rule bg-paper">
+			<div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;">
+				<iframe
+					src="https://www.youtube.com/embed/lYoXqrgfNGg"
+					title="Applied AI — Client Video"
+					allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+					allowfullscreen
+					loading="lazy"
+					style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;"
+				></iframe>
+			</div>
+		</div>
+	</div>
+
 	<div class="mt-10 flex flex-wrap gap-3">
 		<a
 			href={contactHref}

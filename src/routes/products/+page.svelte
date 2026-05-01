@@ -102,6 +102,24 @@
 		</div>
 	</div>
 
+	<!-- CoinRoc presentation video -->
+	<div>
+		<div class="eyebrow mb-1">CoinRoc · overview presentation</div>
+		<p class="mb-4 max-w-2xl text-sm text-slate">A full walkthrough of the CoinRoc platform — methodology, scoring, and execution-cost analysis.</p>
+		<div class="overflow-hidden rounded-sm border border-rule bg-paper">
+			<div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;">
+				<iframe
+					src="https://www.youtube.com/embed/4FIy4bDDfjU"
+					title="CoinRoc — Platform Overview Presentation"
+					allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+					allowfullscreen
+					loading="lazy"
+					style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;"
+				></iframe>
+			</div>
+		</div>
+	</div>
+
 	<!-- VetTheTech + Consulting — two-up -->
 	<div class="grid gap-6 md:grid-cols-2">
 		<article class="rounded-sm border border-dashed border-slate-hair bg-cream p-8">
