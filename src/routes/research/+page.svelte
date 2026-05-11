@@ -38,6 +38,12 @@
 				<div class="eyebrow mb-3">Catalog</div>
 				<ol class="space-y-4 text-sm text-slate">
 					<li>
+						<a href="/research/ef-diversification" class="group block">
+							<div class="font-semibold text-navy-deep group-hover:text-navy transition">Research Note — EF Diversification</div>
+							<div class="text-xs text-slate-light">May 2026 · Published</div>
+						</a>
+					</li>
+					<li>
 						<div class="font-semibold text-navy-deep">Paper 1 — Gridium</div>
 						<div class="text-xs text-slate-light">In progress · Q2 2026</div>
 					</li>
@@ -51,6 +57,60 @@
 
 		<!-- Papers -->
 		<div class="space-y-10 md:col-span-8">
+
+			<!-- EF Diversification Research Note card -->
+			<article class="overflow-hidden rounded-sm border border-rule bg-paper shadow-[0_10px_40px_-25px_rgba(20,40,72,0.3)]">
+				<div class="grid grid-cols-5">
+					<!-- Cover -->
+					<div class="col-span-2 relative hidden items-center justify-center border-r border-rule bg-navy-ink p-6 sm:flex">
+						<div class="absolute inset-0 bg-topo-faint opacity-10"></div>
+						<div class="relative text-center text-cream">
+							<div class="mb-4 text-[0.6rem] uppercase tracking-[0.3em] text-ochre-soft">Yodacom Research</div>
+							<div class="mb-3 font-serif text-3xl font-500 italic text-cream leading-tight">Efficient<br/>Frontier</div>
+							<div class="mx-auto mb-4 h-px w-12 bg-ochre/70"></div>
+							<div class="text-[0.68rem] uppercase tracking-widest text-cream/60">Research Note</div>
+							<div class="mt-6 text-[0.68rem] uppercase tracking-widest text-cream/60">May 2026</div>
+						</div>
+					</div>
+					<!-- Metadata -->
+					<div class="col-span-5 p-7 sm:col-span-3 sm:p-8">
+						<div class="mb-4 flex flex-wrap items-center gap-2">
+							<span class="rounded-full bg-teal-500/10 px-3 py-1 text-[0.65rem] font-semibold uppercase tracking-widest text-teal-700">
+								Published
+							</span>
+							<span class="text-[0.68rem] uppercase tracking-widest text-slate-light">May 2026</span>
+						</div>
+						<h2 class="mb-4 font-serif text-2xl leading-snug text-navy-ink">
+							Gridium and the Efficient Frontier: Diversification Benefits Across Asset Classes
+						</h2>
+						<p class="mb-5 text-sm leading-relaxed text-slate">
+							We examine whether adding a crypto grid trading sleeve to a traditional equity/bond/gold
+							portfolio produces a measurable shift in the efficient frontier. Across nine
+							portfolio-years (2017–2025), we find near-zero correlation between grid strategy returns
+							and equity markets (&rho;&nbsp;=&nbsp;0.02 vs.&nbsp;SPY). The diversification benefit
+							is real but conditional: a 10–20% grid allocation improves portfolio Sharpe in
+							forward-looking scenarios where the strategy generates positive returns, with regime
+							filtering reducing crash-year exposure.
+						</p>
+
+						<dl class="mb-5 grid grid-cols-2 gap-x-4 gap-y-2 border-y border-rule py-4 text-xs text-slate">
+							<dt class="text-slate-light">Authors</dt><dd>Han Kessel, Jeremy J. Black</dd>
+							<dt class="text-slate-light">Window</dt><dd>2017–2025</dd>
+							<dt class="text-slate-light">Assets / Folds</dt><dd>17 symbols · 135 folds</dd>
+							<dt class="text-slate-light">Key finding</dt><dd>&rho;&nbsp;=&nbsp;0.02 vs. SPY</dd>
+						</dl>
+
+						<a
+							href="/research/ef-diversification"
+							class="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-ochre-deep transition hover:text-ochre"
+						>
+							Read research note
+							<svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+						</a>
+					</div>
+				</div>
+			</article>
+
 			<!-- Gridium card — publication-style -->
 			<article class="overflow-hidden rounded-sm border border-rule bg-paper shadow-[0_10px_40px_-25px_rgba(20,40,72,0.3)]">
 				<div class="grid grid-cols-5">
