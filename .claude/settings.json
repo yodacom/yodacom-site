@@ -1,0 +1,23 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__railway__get-logs",
+      "mcp__railway__list-deployments",
+      "mcp__railway__list-services",
+      "mcp__railway__list-projects",
+      "mcp__railway__list-variables",
+      "mcp__playwright__browser_take_screenshot",
+      "mcp__playwright__browser_navigate",
+      "mcp__playwright__browser_snapshot",
+      "mcp__playwright__browser_network_requests",
+      "Bash(git -C * status *)",
+      "Bash(git -C * log *)",
+      "Bash(git -C * diff *)",
+      "Bash(git -C * show *)",
+      "Bash(git -C * branch *)",
+      "Bash(cd /Users/jjb_imac/aiprojects/yodacom-site && git status *)",
+      "Bash(cd /Users/jjb_imac/aiprojects/yodacom-site && git log *)",
+      "Bash(cd /Users/jjb_imac/aiprojects/yodacom-site && git diff *)"
+    ]
+  }
+}
