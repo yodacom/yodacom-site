@@ -165,9 +165,10 @@
 		</p>
 		<p class="mb-8 text-base leading-relaxed text-slate">
 			The forward-looking curves (labeled "Forward +8%") model a scenario where the grid strategy
-			produces a modestly positive expected annual return of +8% — reflecting the mean of the
-			positive-return years (2020, 2021, 2024) with improved regime filtering reducing crash
-			exposure. Under this assumption, the 20% grid frontier moves meaningfully toward the
+			produces a modestly positive assumed annual return of +8% (net of retail-grade execution
+			costs as modeled in the walk-forward study — 0.40% maker / 0.60% taker / 0.05% slippage
+			on Binance.US tier) — reflecting the mean of the positive-return years (2020, 2021, 2024)
+			with improved regime filtering reducing crash exposure. Under this assumption, the 20% grid frontier moves meaningfully toward the
 			traditional curve, demonstrating the diversification benefit that the correlation number
 			suggests is available when the strategy is working.
 		</p>
@@ -245,10 +246,10 @@
 		</div>
 	</section>
 
-	<!-- ── Section 6: The Sweet Spot ──────────────────────────── -->
+	<!-- ── Section 6: Allocation Sensitivity ────────────────── -->
 	<section class="mb-14">
 		<div class="eyebrow mb-3">Section 6</div>
-		<h2 class="mb-6 font-serif text-2xl leading-snug text-navy-ink">The Sweet Spot</h2>
+		<h2 class="mb-6 font-serif text-2xl leading-snug text-navy-ink">Allocation Sensitivity: How Grid Weight Affects Portfolio Risk-Return</h2>
 
 		<p class="mb-8 text-base leading-relaxed text-slate">
 			The allocation sweep below shows portfolio Sharpe ratio (risk-free rate 4.5%) as grid
@@ -275,7 +276,7 @@
 			+8% annually with improved regime filtering, the picture changes: Sharpe peaks in the
 			10–20% range at approximately 0.95, a marginal improvement of +0.03 over the 0% grid
 			baseline of 0.92. Above 30%, traditional assets reassert dominance and Sharpe declines.
-			For advisors evaluating a grid sleeve, this is the number that matters: the benefit is
+			This correlation coefficient drives the theoretical case for diversification: the benefit is
 			real but modest, and it is entirely conditional on the strategy generating positive returns.
 		</p>
 	</section>
@@ -306,9 +307,10 @@
 			accrues. The regime-filtered results will be reported in Paper 1 when published.
 		</p>
 		<p class="text-base leading-relaxed text-slate">
-			The conditional case is the honest framing for advisors. If the strategy generates modestly
-			positive returns — approximately +8% annually, reflecting improved regime filtering — a
-			10–20% sleeve improves portfolio risk-adjusted return by roughly 0.03 Sharpe points. This
+			The conditional case is the honest framing for advisors. In the forward-looking scenario,
+			portfolios modeled with a 10–20% grid allocation show higher Sharpe ratios than the
+			all-traditional baseline — an improvement of roughly 0.03 Sharpe points, assuming a +8%
+			annualized grid return reflecting improved regime filtering. This
 			is not a prediction; it is a quantification of the tradeoff. The diversification benefit
 			is mathematically available because the correlation is near-zero; whether the strategy
 			actually generates positive returns going forward is a separate question that depends on
@@ -337,9 +339,23 @@
 				all estimates carry wide confidence intervals.
 			</p>
 			<p class="mt-4">
-				The forward-looking scenario (grid expected return = +8%) is a modeling assumption, not a
+				The forward-looking scenario (grid assumed return = +8%) is a modeling assumption, not a
 				forecast. Actual future grid strategy returns will depend on cryptocurrency market regimes,
 				execution quality, exchange fee structures, and factors not captured in this analysis.
+				Statements regarding future performance, including the forward-looking scenario modeled
+				herein, are illustrative assumptions only and do not constitute forecasts or projections.
+			</p>
+			<p class="mt-4">
+				Hypothetical performance results have many inherent limitations. No representation is made
+				that any account will or is likely to achieve profits or losses similar to those shown.
+			</p>
+			<p class="mt-4">
+				Cryptocurrency assets are subject to unique and evolving regulatory risks. Regulatory
+				changes could materially affect the viability or legality of grid trading strategies in
+				certain jurisdictions.
+			</p>
+			<p class="mt-4">
+				This article is not a solicitation to buy or sell any security or investment product.
 			</p>
 			<p class="mt-4">
 				Reproduction with attribution permitted.
@@ -633,7 +649,7 @@ const darkDefaults = {
           pointBackgroundColor: sweepHistorical.map(v => v >= 0 ? C_RED : '#7f1d1d'),
         },
         {
-          label: 'Forward-Looking (Grid Expected = +8%)',
+          label: 'Forward-Looking (Grid Assumed = +8%)',
           data: sweepForward,
           borderColor: C_TEAL,
           backgroundColor: 'rgba(20,184,166,0.06)',
