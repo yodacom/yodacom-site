@@ -275,7 +275,8 @@
 			Under the forward-looking scenario (teal line), where grid expected return is modeled at
 			+8% annually with improved regime filtering, the picture changes: Sharpe peaks in the
 			10–20% range at approximately 0.95, a marginal improvement of +0.03 over the 0% grid
-			baseline of 0.92. Above 30%, traditional assets reassert dominance and Sharpe declines.
+			baseline of 0.92 — a gain that is entirely conditional on the +8% forward-return assumption
+			and is not supported by the full nine-year historical record. Above 30%, traditional assets reassert dominance and Sharpe declines.
 			This correlation coefficient drives the theoretical case for diversification: the benefit is
 			real but modest, and it is entirely conditional on the strategy generating positive returns.
 		</p>
@@ -284,7 +285,7 @@
 	<!-- ── Section 7: Interpretation ──────────────────────────── -->
 	<section class="mb-14">
 		<div class="eyebrow mb-3">Section 7</div>
-		<h2 class="mb-6 font-serif text-2xl leading-snug text-navy-ink">Interpretation for Advisors</h2>
+		<h2 class="mb-6 font-serif text-2xl leading-snug text-navy-ink">Portfolio Construction Implications</h2>
 
 		<p class="mb-5 text-base leading-relaxed text-slate">
 			The near-zero correlation between grid strategy returns and equity markets is structural,
