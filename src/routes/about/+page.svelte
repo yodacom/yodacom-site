@@ -14,12 +14,12 @@
 		{
 			year: '1984',
 			title: 'RAMCAP — The Intelligent Asset Allocator',
-			body: 'Risk Adjusted Multiple Capital Asset Allocation Program — developed and built in 1984 under Advanced Investment Software Inc (co-owned by Jeremy Black and Kenneth Covell; Jeremy served as President). One of the first MPT-driven risk tools for financial advisors, selling worldwide. Written in Prolog, later ported to C and C++. Sold in 1987 — still in use today.'
+			body: 'Risk Adjusted Multiple Capital Asset Allocation Program — developed and built in 1984 under Advanced Investment Software Inc (co-owned by Jeremy Black and Kenneth Covell; Jeremy served as President). A desktop investment optimizer applying Modern Portfolio Theory across 230+ asset classes — one of the first of its kind for financial advisors, selling worldwide. Written in Prolog, later ported to C and C++. Sold in 1987 — still in use today.'
 		},
 		{
 			year: '1988',
 			title: 'Navigator Fund — WSJ-featured',
-			body: "Operated in and helped form one of Colorado's first multi-manager commodity pools — an early multi-manager hedge fund — featured in The Wall Street Journal's best-performing-funds rankings during the 1989–1990 period."
+			body: "Operated in and helped form one of Colorado's first multi-manager commodity pools — among the earliest multi-manager hedge funds in the country — featured in The Wall Street Journal's best-performing-funds rankings during the 1989–1990 period."
 		},
 		{
 			year: '1998',
@@ -29,17 +29,17 @@
 		{
 			year: '2001',
 			title: 'Aquatic Behaviour Technologies',
-			body: 'Developed tracking technology for a device his team created — a digital sound-attraction device for Spiny Lobster combining RFID and marine acoustics.'
+			body: "Developed tracking technology for a newly patented sonic device his team created for Spiny Lobster. The deeper story: in the course of the work, the team discovered what they came to call the \"lobster language\" — a previously unknown sonic signal that lobsters reliably respond to. That discovery became the core of the device, combining the embedded sonic signal with RFID tracking for commercial fisheries. A genuine scientific find wrapped inside an entrepreneurial project."
 		},
 		{
 			year: '2010',
 			title: 'VP Digital Innovation · Full Circle',
-			body: 'Created the Click and Call Network affiliate marketing and call-center routing technology.'
+			body: 'Served as DMTA (Digital Marketing Technology Architect) and VP of Digital Innovation. Created the Click and Call Network — a digital widget that tracked and managed connections between online shoppers, affiliate marketers, and call centers, routing intent in real time.'
 		},
 		{
 			year: '2012',
 			title: 'Founded Yodacom',
-			body: 'Digital product studio building mobile and web applications for businesses, non-profits, and events. 10+ shipped products between 2012 and 2019.'
+			body: 'Digital product studio building mobile and web applications for businesses, non-profits, and events. 10+ shipped products between 2012 and 2019, accumulating 50,000+ downloads across iPhone and Android.'
 		},
 		{
 			year: '2019',
@@ -298,10 +298,11 @@
 	<div class="mt-10 space-y-5 font-serif text-[1.05rem] leading-[1.75] text-slate">
 		<p>
 			Forty years on, the pattern is clear. A pre-Google search engine in the 1990s, built and
-			sold before search was a category. Mobile app development before the ecosystem
-			consolidated. Underwater RFID for commercial fisheries before IoT was a marketing word.
-			Every one of these sits on the same line: right idea, arrived slightly before the world was
-			ready to receive it.
+			sold before search was a category. A patented sonic device for commercial lobster fisheries —
+			built around a previously unknown acoustic signal lobsters respond to, a discovery the team
+			made in the course of the work itself. Mobile app development before the ecosystem
+			consolidated. Every one of these sits on the same line: right idea, arrived slightly before
+			the world was ready to receive it.
 		</p>
 		<p>
 			We have reframed that arc. It is not a series of near-misses. It is a scout's career. The
@@ -435,33 +436,43 @@
 		<p>
 			In 1984 Jeremy built <strong class="text-navy-ink">RAMCAP</strong> (Risk Adjusted
 			Multiple Capital Asset Allocation Program) as President of Advanced Investment Software Inc —
-			one of the first Modern Portfolio Theory risk-software products for financial advisors,
-			selling worldwide before being sold in 1987. He lectured on MPT across the US,
-			Canada, and New Zealand. He was a <strong class="text-navy-ink">Certified Financial
-			Planner</strong> and an <strong class="text-navy-ink">Adjunct Professor at the College
-			for Financial Planning</strong>, teaching Modern Portfolio Theory and asset allocation.
+			a desktop investment optimizer applying Modern Portfolio Theory across
+			<strong class="text-navy-ink">230+ asset classes</strong>, one of the first of its kind
+			for financial advisors, selling worldwide before being sold in 1987. He lectured on MPT
+			across the US, Canada, and New Zealand. He was a <strong class="text-navy-ink">Certified
+			Financial Planner</strong> and an <strong class="text-navy-ink">Adjunct Professor at the
+			College for Financial Planning</strong>, teaching Modern Portfolio Theory and asset allocation.
 		</p>
 		<p>
 			He left financial planning to run the <strong class="text-navy-ink">Navigator Fund</strong>,
-			one of Colorado's first multi-manager commodity pools — what today we would call an
-			early multi-manager hedge fund — <strong class="text-navy-ink">featured in The Wall
+			one of Colorado's first multi-manager commodity pools — among the earliest multi-manager
+			hedge funds in the country — <strong class="text-navy-ink">featured in The Wall
 			Street Journal's best-performing-funds rankings during the 1989–1990 period</strong>.
 		</p>
 		<p>
-			In the 1990s and 2000s Jeremy built and sold a pre-Google search engine company, developed
-			tracking technology for a device his team created (for attracting Spiny Lobster with recorded marine sounds),
-			and later created the Click and Call Network affiliate technology while serving as VP of
-			Digital Innovation at Full Circle.
+			In the 1990s and 2000s Jeremy built and sold a pre-Google search engine company, then
+			co-developed a newly patented sonic device for commercial Spiny Lobster fisheries. The
+			project produced an unexpected scientific find: the team discovered what they came to call
+			the <strong class="text-navy-ink">&ldquo;lobster language&rdquo;</strong> — a previously
+			unknown acoustic signal that lobsters reliably respond to. That signal became the core of
+			the device, paired with RFID tracking. He is a busy guy.
+		</p>
+		<p>
+			He later served as <strong class="text-navy-ink">DMTA (Digital Marketing Technology
+			Architect)</strong> and VP of Digital Innovation at Full Circle, where he created the
+			<strong class="text-navy-ink">Click and Call Network</strong> — a digital widget that
+			tracked and managed connections between online shoppers, affiliate marketers, and call
+			centers, routing purchase intent in real time.
 		</p>
 		<p>
 			He founded <strong class="text-navy-ink">Yodacom</strong> in 2012 as a technology consulting
 			and digital product studio — building mobile and web applications for businesses, non-profits,
 			and event organizers. Working from Silverthorne, Colorado, Jeremy consulted with organizations
 			navigating the mobile revolution as smartphones restructured how businesses reached their
-			customers. In October 2013, Summit Daily News profiled him in its weekly Profiles column,
-			noting that he &ldquo;is always ahead of the next big thing in technology.&rdquo; Over
-			seven years the studio shipped more than ten public-facing products before Jeremy pivoted
-			the company toward its current research mission.
+			customers. Over seven years the studio shipped more than ten public-facing products,
+			accumulating <strong class="text-navy-ink">50,000+ downloads across iPhone and Android</strong>.
+			In October 2013, Summit Daily News profiled him in its weekly Profiles column, noting that he
+			&ldquo;is always ahead of the next big thing in technology.&rdquo;
 		</p>
 		<p>
 			<strong class="text-navy-ink">CoinRoc</strong> began as a simple price-ticker
@@ -471,9 +482,15 @@
 			1984: that correlation analysis and newer developments to portfolio theory, applied
 			systematically, can identify suitable asset/strategy pairings.
 		</p>
-		<p class="text-sm italic text-slate-light">
-			Education: Master of Divinity from Denver Theological Seminary;
-			BS from Northern Arizona University.
+		<p>
+			One more thing worth knowing: Jeremy's academic background is in
+			<strong class="text-navy-ink">Social Science, Philosophy, and Theology</strong> — a
+			Master of Divinity from Denver Theological Seminary and a BS from Northern Arizona
+			University. He arrived at software through ideas, not the other way around. That trajectory
+			shapes how he evaluates technology: with the same skepticism a philosopher brings to a
+			strong-but-convenient argument, and the same curiosity a theologian brings to something
+			genuinely inexplicable. It makes for an unusual quantitative researcher. Probably the right
+			kind.
 		</p>
 	</div>
 </section>
