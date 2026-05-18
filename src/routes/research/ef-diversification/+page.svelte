@@ -376,6 +376,8 @@
 </article>
 
 <script>
+import { browser } from '$app/environment';
+
 // ── DATA ─────────────────────────────────────────────────────────────
 const years = [2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025];
 
@@ -426,6 +428,9 @@ const darkDefaults = {
   color: '#94a3b8',
   backgroundColor: 'transparent',
 };
+
+// ── CHARTS — browser-only (DOM not available during SSR) ─────────────
+if (browser) {
 
 // ── CHART: HEATMAP (HTML rendered) ───────────────────────────────────
 (function buildHeatmap() {
@@ -698,4 +703,6 @@ const darkDefaults = {
     },
   });
 })();
+
+} // end browser guard
 </script>

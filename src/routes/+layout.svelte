@@ -153,9 +153,9 @@
 			<div class="mt-14 flex flex-col gap-3 border-t border-rule/60 pt-6 text-xs text-slate-light sm:flex-row sm:items-center sm:justify-between">
 				<div>© 2026 Yodacom LLC · Silverthorne, Colorado · <a href="mailto:jb@yodacom.com" class="hover:text-navy-deep">jb@yodacom.com</a></div>
 				<div class="flex gap-4">
-					<a href="#" class="hover:text-navy-deep">LinkedIn</a>
-					<a href="#" class="hover:text-navy-deep">X</a>
-					<a href="#" class="hover:text-navy-deep">RSS</a>
+					<span class="cursor-default opacity-40" title="LinkedIn — coming soon">LinkedIn</span>
+					<span class="cursor-default opacity-40" title="X — coming soon">X</span>
+					<span class="cursor-default opacity-40" title="RSS — coming soon">RSS</span>
 				</div>
 			</div>
 		</div>

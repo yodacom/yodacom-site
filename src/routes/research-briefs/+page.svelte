@@ -180,16 +180,15 @@
 							<dd>Walk-forward, 6 venues</dd>
 						</dl>
 
-						<a
-							href="#"
-							aria-label="Read Brief 1 — Post-Only Grid Trading (PDF, opens when available)"
-							class="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-ochre-deep transition hover:text-ochre"
+						<span
+							aria-label="Read Brief 1 — Post-Only Grid Trading (PDF not yet available)"
+							class="inline-flex cursor-default items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-ochre-deep/40"
 						>
-							Read brief
+							PDF forthcoming
 							<svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
 								<path d="M3 8h10M9 4l4 4-4 4"/>
 							</svg>
-						</a>
+						</span>
 					</div>
 				</div>
 			</article>
@@ -257,16 +256,15 @@
 							<dd>v5 · 135 folds · 2017–2025</dd>
 						</dl>
 
-						<a
-							href="#"
-							aria-label="Read Brief 2 — Inventory Circuit Breaker (PDF, opens when available)"
-							class="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-ochre-deep transition hover:text-ochre"
+						<span
+							aria-label="Read Brief 2 — Inventory Circuit Breaker (PDF not yet available)"
+							class="inline-flex cursor-default items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-ochre-deep/40"
 						>
-							Read brief
+							PDF forthcoming
 							<svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
 								<path d="M3 8h10M9 4l4 4-4 4"/>
 							</svg>
-						</a>
+						</span>
 					</div>
 				</div>
 			</article>

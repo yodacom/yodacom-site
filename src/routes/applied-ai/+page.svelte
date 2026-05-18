@@ -203,21 +203,32 @@
 		</p>
 	</div>
 
-	<!-- Client video -->
+	<!-- CoinRoc — flagship applied AI product -->
 	<div class="mt-12">
-		<div class="eyebrow mb-2">Applied AI · client deliverable</div>
-		<div class="max-w-2xl overflow-hidden rounded-sm border border-rule bg-paper">
-			<div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;">
-				<iframe
-					src="https://www.youtube.com/embed/lYoXqrgfNGg"
-					title="Applied AI — Client Video"
-					allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-					allowfullscreen
+		<div class="eyebrow mb-2">Applied AI · in production</div>
+		<a
+			href="https://coinroc.com"
+			target="_blank"
+			rel="noopener noreferrer"
+			class="group block max-w-sm overflow-hidden rounded-sm border border-rule bg-paper transition hover:border-navy-deep/40 hover:shadow-[0_20px_60px_-30px_rgba(20,40,72,0.25)]"
+		>
+			<div class="flex items-center justify-center bg-navy-ink p-10">
+				<img
+					src="/images/coinroc-logo.png"
+					alt="CoinRoc"
+					class="h-16 w-auto object-contain"
 					loading="lazy"
-					style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;"
-				></iframe>
+				/>
 			</div>
-		</div>
+			<div class="px-6 py-4">
+				<p class="text-sm leading-relaxed text-slate">
+					CoinRoc — AI-powered crypto grid trading analysis
+				</p>
+				<span class="mt-2 block text-xs font-semibold uppercase tracking-wider text-ochre-deep transition group-hover:text-navy-deep">
+					Visit CoinRoc.com →
+				</span>
+			</div>
+		</a>
 	</div>
 
 	<div class="mt-10 flex flex-wrap gap-3">
