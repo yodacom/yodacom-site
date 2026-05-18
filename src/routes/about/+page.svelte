@@ -39,7 +39,7 @@
 		{
 			year: '2012',
 			title: 'Founded Yodacom',
-			body: 'Digital product studio building mobile and web applications for businesses, non-profits, and events. 10+ shipped products between 2012 and 2019, accumulating 50,000+ downloads across iPhone and Android.'
+			body: 'Research, development and consulting company pulling on the latest in finance and AI to help launch great products and personalities — serving financial advisors, events, non-profits, and local businesses. 10+ shipped products between 2012 and 2019, accumulating 50,000+ downloads across iPhone and Android.'
 		},
 		{
 			year: '2019',
@@ -465,12 +465,13 @@
 			centers, routing purchase intent in real time.
 		</p>
 		<p>
-			He founded <strong class="text-navy-ink">Yodacom</strong> in 2012 as a technology consulting
-			and digital product studio — building mobile and web applications for businesses, non-profits,
-			and event organizers. Working from Silverthorne, Colorado, Jeremy consulted with organizations
-			navigating the mobile revolution as smartphones restructured how businesses reached their
-			customers. Over seven years the studio shipped more than ten public-facing products,
-			accumulating <strong class="text-navy-ink">50,000+ downloads across iPhone and Android</strong>.
+			He founded <strong class="text-navy-ink">Yodacom</strong> in 2012 as a research, development
+			and consulting company pulling on the latest in finance and AI to help launch great products
+			and personalities — serving financial advisors, events, non-profits, and local businesses.
+			Working from Silverthorne, Colorado, Jeremy consulted with organizations navigating the mobile
+			revolution as smartphones restructured how businesses reached their customers. Over seven years
+			the studio shipped more than ten public-facing products, accumulating
+			<strong class="text-navy-ink">50,000+ downloads across iPhone and Android</strong>.
 			In October 2013, Summit Daily News profiled him in its weekly Profiles column, noting that he
 			&ldquo;is always ahead of the next big thing in technology.&rdquo;
 		</p>
