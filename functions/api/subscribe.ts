@@ -6,10 +6,11 @@
  *
  * Flow:
  *   1. Parse + validate JSON body — requires { email: string }
- *   2. Honeypot check (hidden "website" field must be empty)
- *   3. POST to Loops /contacts/create — adds the subscriber to the
+ *   2. IP-based rate limiting (10 attempts per 10 minutes per IP)
+ *   3. Honeypot check (hidden "website" field must be empty)
+ *   4. POST to Loops /contacts/create — adds the subscriber to the
  *      research-newsletter mailing list
- *   4. Return JSON { ok: true } or { ok: false, error: string }
+ *   5. Return JSON { ok: true } or { ok: false, error: string }
  *
  * This file is NOT a SvelteKit endpoint. It is a Cloudflare Pages Function.
  * Cloudflare auto-deploys anything under /functions alongside the prerendered
@@ -38,6 +39,36 @@ interface SubscribePayload {
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
+// --- Simple IP-based rate limiter ---
+const RATE_LIMIT_WINDOW_MS = 10 * 60 * 1000; // 10-minute window
+const RATE_LIMIT_MAX = 10; // max subscribe attempts per IP per window
+
+interface RateBucket {
+	count: number;
+	windowStart: number;
+}
+
+const rateBuckets = new Map<string, RateBucket>();
+
+function checkRateLimit(ip: string): { allowed: boolean; retryAfterSeconds: number } {
+	const now = Date.now();
+	const bucket = rateBuckets.get(ip);
+
+	if (!bucket || now - bucket.windowStart > RATE_LIMIT_WINDOW_MS) {
+		rateBuckets.set(ip, { count: 1, windowStart: now });
+		return { allowed: true, retryAfterSeconds: 0 };
+	}
+
+	if (bucket.count >= RATE_LIMIT_MAX) {
+		const retryAfterSeconds = Math.ceil((bucket.windowStart + RATE_LIMIT_WINDOW_MS - now) / 1000);
+		return { allowed: false, retryAfterSeconds };
+	}
+
+	bucket.count += 1;
+	return { allowed: true, retryAfterSeconds: 0 };
+}
+// --- end rate limiter ---
+
 function json(data: unknown, status = 200): Response {
 	return new Response(JSON.stringify(data), {
 		status,
@@ -55,6 +86,21 @@ type PagesFunction<E = unknown> = (ctx: {
 }) => Response | Promise<Response>;
 
 export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
+	// IP-based rate limiting — checked before any work is done
+	const clientIP = request.headers.get('CF-Connecting-IP') || request.headers.get('X-Forwarded-For') || 'unknown';
+	const rl = checkRateLimit(clientIP);
+	if (!rl.allowed) {
+		return new Response(JSON.stringify({ ok: false, error: 'Too many requests. Please try again later.' }), {
+			status: 429,
+			headers: {
+				'Content-Type': 'application/json',
+				'Access-Control-Allow-Origin': 'https://yodacom.com',
+				'Cache-Control': 'no-store',
+				'Retry-After': String(rl.retryAfterSeconds)
+			}
+		});
+	}
+
 	// Parse JSON
 	let raw: SubscribePayload;
 	try {
@@ -81,7 +127,7 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
 		return json(
 			{
 				ok: false,
-				error: 'Signup temporarily unavailable. Email jb@yodacom.com to subscribe manually.'
+				error: 'Signup temporarily unavailable. Please try again later.'
 			},
 			503
 		);
@@ -132,7 +178,7 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
 	} catch (e) {
 		console.error('[subscribe] Loops network error:', e);
 		return json(
-			{ ok: false, error: 'Network error. Please try again or email jb@yodacom.com.' },
+			{ ok: false, error: 'Network error. Please try again shortly.' },
 			502
 		);
 	}

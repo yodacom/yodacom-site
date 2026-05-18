@@ -41,7 +41,7 @@
 			} else {
 				subscribeStatus = 'error';
 				subscribeError =
-					data.error || 'Something went wrong. Please try again or email jb@yodacom.com.';
+					data.error || 'Something went wrong. Please try again shortly.';
 			}
 		} catch {
 			subscribeStatus = 'error';

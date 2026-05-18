@@ -5,11 +5,12 @@
  *
  * Flow:
  *   1. Parse + validate JSON body (server-side — mirrors client validation)
- *   2. Honeypot check (the hidden "website" field must be empty)
- *   3. Minimum dwell-time check (timestamp must be >= 2s old, defeats instant-submit bots)
- *   4. Optional Cloudflare Turnstile verification (enabled if TURNSTILE_SECRET_KEY is set)
- *   5. POST to Loops transactional API — delivers an email to jb@yodacom.com
- *   6. Return JSON { ok: true } or { ok: false, error: string }
+ *   2. IP-based rate limiting (5 submissions per 10 minutes per IP)
+ *   3. Honeypot check (the hidden "website" field must be empty)
+ *   4. Minimum dwell-time check (timestamp must be >= 2s old, defeats instant-submit bots)
+ *   5. Optional Cloudflare Turnstile verification (enabled if TURNSTILE_SECRET_KEY is set)
+ *   6. POST to Loops transactional API — delivers an email to the configured CONTACT_DEST_EMAIL
+ *   7. Return JSON { ok: true } or { ok: false, error: string }
  *
  * This file is NOT a SvelteKit endpoint. It is a Cloudflare Pages Function
  * and lives outside src/ so the static adapter ignores it. Cloudflare auto-
@@ -18,7 +19,7 @@
  * Required env vars (set in CF Pages → Settings → Environment variables):
  *   - LOOPS_API_KEY               (required)
  *   - LOOPS_CONTACT_TEMPLATE_ID   (required — the transactional template id)
- *   - CONTACT_DEST_EMAIL          (optional — defaults to jb@yodacom.com)
+ *   - CONTACT_DEST_EMAIL          (required — destination email for contact submissions)
  *   - TURNSTILE_SECRET_KEY        (optional — enables CF Turnstile check)
  */
 
@@ -62,6 +63,40 @@ const ALLOWED_TOPICS = [
 const MIN_DWELL_MS = 2000; // humans take at least 2 seconds to fill out a form
 const MAX_DWELL_MS = 1000 * 60 * 60 * 6; // 6h — stale page
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+// --- Simple IP-based rate limiter ---
+// Cloudflare Workers/Pages Functions run in a per-isolate context. The Map
+// persists for the lifetime of the isolate (minutes to hours), providing
+// reasonable short-window protection without an external store.
+const RATE_LIMIT_WINDOW_MS = 10 * 60 * 1000; // 10-minute window
+const RATE_LIMIT_MAX = 5; // max submissions per IP per window
+
+interface RateBucket {
+	count: number;
+	windowStart: number;
+}
+
+const rateBuckets = new Map<string, RateBucket>();
+
+function checkRateLimit(ip: string): { allowed: boolean; retryAfterSeconds: number } {
+	const now = Date.now();
+	const bucket = rateBuckets.get(ip);
+
+	if (!bucket || now - bucket.windowStart > RATE_LIMIT_WINDOW_MS) {
+		// New window
+		rateBuckets.set(ip, { count: 1, windowStart: now });
+		return { allowed: true, retryAfterSeconds: 0 };
+	}
+
+	if (bucket.count >= RATE_LIMIT_MAX) {
+		const retryAfterSeconds = Math.ceil((bucket.windowStart + RATE_LIMIT_WINDOW_MS - now) / 1000);
+		return { allowed: false, retryAfterSeconds };
+	}
+
+	bucket.count += 1;
+	return { allowed: true, retryAfterSeconds: 0 };
+}
+// --- end rate limiter ---
 
 function asString(v: unknown, fallback = ''): string {
 	return typeof v === 'string' ? v : fallback;
@@ -176,6 +211,20 @@ type PagesFunction<E = unknown> = (ctx: {
 }) => Response | Promise<Response>;
 
 export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
+	// IP-based rate limiting — checked before any work is done
+	const clientIP = request.headers.get('CF-Connecting-IP') || request.headers.get('X-Forwarded-For') || 'unknown';
+	const rl = checkRateLimit(clientIP);
+	if (!rl.allowed) {
+		return new Response(JSON.stringify({ ok: false, error: 'Too many requests. Please try again later.' }), {
+			status: 429,
+			headers: {
+				'Content-Type': 'application/json; charset=utf-8',
+				'Cache-Control': 'no-store',
+				'Retry-After': String(rl.retryAfterSeconds)
+			}
+		});
+	}
+
 	// Parse JSON
 	let raw: ContactPayload;
 	try {
@@ -217,13 +266,16 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
 	}
 
 	// Send via Loops
-	if (!env.LOOPS_API_KEY || !env.LOOPS_CONTACT_TEMPLATE_ID) {
-		console.error('[contact] LOOPS_API_KEY or LOOPS_CONTACT_TEMPLATE_ID not set');
+	if (!env.LOOPS_API_KEY || !env.LOOPS_CONTACT_TEMPLATE_ID || !env.CONTACT_DEST_EMAIL) {
+		const missing: string[] = [];
+		if (!env.LOOPS_API_KEY) missing.push('LOOPS_API_KEY');
+		if (!env.LOOPS_CONTACT_TEMPLATE_ID) missing.push('LOOPS_CONTACT_TEMPLATE_ID');
+		if (!env.CONTACT_DEST_EMAIL) missing.push('CONTACT_DEST_EMAIL');
+		console.error('[contact] Missing required env vars:', missing.join(', '));
 		return json(
 			{
 				ok: false,
-				error:
-					'Email service is not configured yet. Please email jb@yodacom.com directly.'
+				error: 'Email service is not configured. Please try again later.'
 			},
 			503
 		);
@@ -232,13 +284,13 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
 	const result = await sendViaLoops({
 		apiKey: env.LOOPS_API_KEY,
 		templateId: env.LOOPS_CONTACT_TEMPLATE_ID,
-		destEmail: env.CONTACT_DEST_EMAIL || 'jb@yodacom.com',
+		destEmail: env.CONTACT_DEST_EMAIL,
 		data
 	});
 
 	if (!result.ok) {
 		return json(
-			{ ok: false, error: 'Could not deliver your message. Please email jb@yodacom.com.' },
+			{ ok: false, error: 'Could not deliver your message. Please try again later.' },
 			502
 		);
 	}

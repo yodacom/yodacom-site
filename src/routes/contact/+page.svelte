@@ -124,13 +124,13 @@
 				status = 'error';
 				errorMsg =
 					data.error ||
-					'Something went wrong sending your message. Please email jb@yodacom.com directly.';
+					'Something went wrong sending your message. Please try again or use the direct email link below.';
 			}
 		} catch (e) {
 			console.error('[contact] submit failed:', e);
 			status = 'error';
 			errorMsg =
-				'Could not reach the server. Please check your connection or email jb@yodacom.com directly.';
+				'Could not reach the server. Please check your connection or use the direct email link below.';
 		}
 	}
 
@@ -186,9 +186,7 @@
 					<p class="mb-6 text-sm leading-relaxed text-slate">
 						Your message is on its way to Jeremy and the Yodacom team. You should hear back within
 						1–2 business days. If your inquiry is time-sensitive, you can also reach us directly at
-						<a href="mailto:jb@yodacom.com" class="font-semibold text-ochre-deep hover:text-navy-deep"
-							>jb@yodacom.com</a
-						>.
+						the email address listed in the sidebar.
 					</p>
 					<button
 						type="button"
