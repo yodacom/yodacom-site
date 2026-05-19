@@ -16,8 +16,11 @@
 		<p class="fade-up d2 mb-2 text-base leading-relaxed text-slate">
 			A Walk-Forward Validation of Regime-Gated Grid Strategies Across 17 Assets
 		</p>
-		<p class="fade-up d3 mb-6 text-base leading-relaxed text-slate">
-			Han Kessel &middot; Jeremy J. Black &middot; Yodacom Research
+		<p class="fade-up d3 mb-1 text-base leading-relaxed text-slate">
+			Jeremy J. Black &middot; Yodacom Research
+		</p>
+		<p class="fade-up d3 mb-6 text-sm text-slate/70">
+			Quantitative analysis by Yodacom AI Research Team
 		</p>
 		<p class="fade-up d4 max-w-2xl border-l-2 border-ochre/60 pl-4 text-base italic leading-relaxed text-slate">
 			We ran a walk-forward backtest of an adaptive grid trading strategy across 17 major
@@ -534,8 +537,8 @@
 		<div class="space-y-3 text-sm text-slate">
 			<p>
 				<strong class="text-navy-deep">Citation:</strong>
-				Kessel, H., &amp; Black, J. J. (2026). Intelligent Grid Trading: What 13 Years of Crypto
-				Data Actually Shows. <em>Yodacom Research pre-print.</em>
+				Black, J. J. (2026). Intelligent Grid Trading: What 13 Years of Crypto
+				Data Actually Shows. <em>Yodacom Research pre-print.</em> Quantitative analysis by Yodacom AI Research Team.
 			</p>
 			<p>
 				<strong class="text-navy-deep">Author:</strong>

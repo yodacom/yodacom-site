@@ -98,7 +98,7 @@
 						</p>
 
 						<dl class="mb-5 grid grid-cols-2 gap-x-4 gap-y-2 border-y border-rule py-4 text-xs text-slate">
-							<dt class="text-slate-light">Authors</dt><dd>Han Kessel, Jeremy J. Black</dd>
+							<dt class="text-slate-light">Authors</dt><dd>Jeremy J. Black &middot; Yodacom Research AI Team</dd>
 							<dt class="text-slate-light">Window</dt><dd>2011&ndash;2025</dd>
 							<dt class="text-slate-light">Assets / Folds</dt><dd>17 symbols · 135 folds</dd>
 							<dt class="text-slate-light">Key finding</dt><dd>100% bear-fold win rate</dd>
