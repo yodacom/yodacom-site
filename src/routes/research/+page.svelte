@@ -38,17 +38,23 @@
 				<div class="eyebrow mb-3">Catalog</div>
 				<ol class="space-y-4 text-sm text-slate">
 					<li>
+						<a href="/research/grid-trading-walk-forward-2026" class="group block">
+							<div class="font-semibold text-navy-deep group-hover:text-navy transition">Paper 1 — Walk-Forward Grid Validation</div>
+							<div class="text-xs text-slate-light">May 2026 · Published</div>
+						</a>
+					</li>
+					<li>
 						<a href="/research/ef-diversification" class="group block">
 							<div class="font-semibold text-navy-deep group-hover:text-navy transition">Research Note — EF Diversification</div>
 							<div class="text-xs text-slate-light">May 2026 · Published</div>
 						</a>
 					</li>
 					<li>
-						<div class="font-semibold text-navy-deep">Paper 1 — Gridium</div>
+						<div class="font-semibold text-navy-deep">Paper 2 — Gridium</div>
 						<div class="text-xs text-slate-light">In progress · Q2 2026</div>
 					</li>
 					<li>
-						<div class="font-semibold text-navy-deep">Paper 2 — Sortino Sensitivity</div>
+						<div class="font-semibold text-navy-deep">Paper 3 — Sortino Sensitivity</div>
 						<div class="text-xs text-slate-light">Planned</div>
 					</li>
 				</ol>
@@ -58,7 +64,58 @@
 		<!-- Papers -->
 		<div class="space-y-10 md:col-span-8">
 
-			<!-- EF Diversification Research Note card -->
+			<!-- Walk-Forward Grid Validation Paper 1 card -->
+			<article class="overflow-hidden rounded-sm border border-rule bg-paper shadow-[0_10px_40px_-25px_rgba(20,40,72,0.3)]">
+				<div class="grid grid-cols-5">
+					<!-- Cover -->
+					<div class="col-span-2 relative hidden items-center justify-center border-r border-rule bg-navy-ink p-6 sm:flex">
+						<div class="absolute inset-0 bg-topo-faint opacity-10"></div>
+						<div class="relative text-center text-cream">
+							<div class="mb-4 text-[0.6rem] uppercase tracking-[0.3em] text-ochre-soft">Yodacom Research</div>
+							<div class="mb-3 font-serif text-3xl font-500 italic text-cream leading-tight">Walk-Forward</div>
+							<div class="mx-auto mb-4 h-px w-12 bg-ochre/70"></div>
+							<div class="text-[0.68rem] uppercase tracking-widest text-cream/60">Paper № 1</div>
+							<div class="mt-6 text-[0.68rem] uppercase tracking-widest text-cream/60">May 2026</div>
+						</div>
+					</div>
+					<!-- Metadata -->
+					<div class="col-span-5 p-7 sm:col-span-3 sm:p-8">
+						<div class="mb-4 flex flex-wrap items-center gap-2">
+							<span class="rounded-full bg-teal-500/10 px-3 py-1 text-[0.65rem] font-semibold uppercase tracking-widest text-teal-700">
+								Published
+							</span>
+							<span class="text-[0.68rem] uppercase tracking-widest text-slate-light">May 2026</span>
+						</div>
+						<h2 class="mb-4 font-serif text-2xl leading-snug text-navy-ink">
+							Intelligent Grid Trading: What 13 Years of Crypto Data Actually Shows
+						</h2>
+						<p class="mb-5 text-sm leading-relaxed text-slate">
+							We ran a walk-forward backtest of an adaptive grid trading strategy across 17 major
+							cryptocurrencies, 13 years of daily data, and 135 valid test folds. The strategy posts
+							a 100% win rate against buy-and-hold in confirmed bear-market folds, with meaningful
+							capital preservation when markets fall. FIS v2 regime gating improved average alpha
+							from &minus;578% to &minus;464%. Forward confidence: 6.5/10.
+						</p>
+
+						<dl class="mb-5 grid grid-cols-2 gap-x-4 gap-y-2 border-y border-rule py-4 text-xs text-slate">
+							<dt class="text-slate-light">Authors</dt><dd>Han Kessel, Jeremy J. Black</dd>
+							<dt class="text-slate-light">Window</dt><dd>2011&ndash;2025</dd>
+							<dt class="text-slate-light">Assets / Folds</dt><dd>17 symbols · 135 folds</dd>
+							<dt class="text-slate-light">Key finding</dt><dd>100% bear-fold win rate</dd>
+						</dl>
+
+						<a
+							href="/research/grid-trading-walk-forward-2026"
+							class="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-ochre-deep transition hover:text-ochre"
+						>
+							Read paper № 1
+							<svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+						</a>
+					</div>
+				</div>
+			</article>
+
+						<!-- EF Diversification Research Note card -->
 			<article class="overflow-hidden rounded-sm border border-rule bg-paper shadow-[0_10px_40px_-25px_rgba(20,40,72,0.3)]">
 				<div class="grid grid-cols-5">
 					<!-- Cover -->
