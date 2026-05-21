@@ -1,6 +1,5 @@
 <svelte:head>
 	<title>Intelligent Grid Trading: What 13 Years of Crypto Data Actually Shows — Yodacom Research</title>
-	<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 </svelte:head>
 
 <!-- Article header -->
@@ -227,7 +226,7 @@
 			<div class="mb-1 text-[0.6rem] uppercase tracking-[0.25em] text-ochre-soft">Chart 1 — Sharpe by Year</div>
 			<div class="mb-4 text-sm font-medium text-cream/90">Average Sharpe Ratio per Calendar Year (135 valid folds)</div>
 			<div style="position: relative; height: 340px;">
-				<canvas id="sharpeChart"></canvas>
+				<canvas bind:this={sharpeCanvas}></canvas>
 			</div>
 		</div>
 		<p class="text-[0.72rem] italic text-slate-light">Backtested data — not investment advice. Sharpe = (annual return &minus; 0%) / annualized vol; risk-free rate set to 0 for crypto context.</p>
@@ -559,8 +558,11 @@
 
 </article>
 
-<script>
-import { browser } from '$app/environment';
+<script lang="ts">
+import { Chart, BarController, BarElement, CategoryScale, LinearScale, Tooltip } from 'chart.js';
+
+// Register only the components we need (tree-shaking friendly)
+Chart.register(BarController, BarElement, CategoryScale, LinearScale, Tooltip);
 
 // ── DATA ─────────────────────────────────────────────────────────────
 // Sharpe by year, sorted ascending (worst to best)
@@ -574,20 +576,15 @@ const sharpeRows = [
 	{ year: 2020, sharpe: +0.187, context: 'Only positive-Sharpe year' },
 ];
 
-// Colors
-const C_TEAL  = '#14b8a6';
-const C_RED   = '#ef4444';
+const C_TEAL = '#14b8a6';
+const C_RED  = '#ef4444';
 
-// ── CHARTS — browser-only ─────────────────────────────────────────────
-if (browser) {
+// ── Canvas binding ────────────────────────────────────────────────────
+let sharpeCanvas = $state<HTMLCanvasElement | null>(null);
 
-// ── CHART 1: SHARPE BY YEAR (horizontal bar) ─────────────────────────
-(function buildSharpeChart() {
-	const canvas = document.getElementById('sharpeChart');
-	if (!canvas) return;
-	const ctx = canvas.getContext('2d');
-
-	new Chart(ctx, {
+$effect(() => {
+	if (!sharpeCanvas) return;
+	const chart = new Chart(sharpeCanvas, {
 		type: 'bar',
 		data: {
 			labels: sharpeRows.map(r => String(r.year)),
@@ -595,7 +592,9 @@ if (browser) {
 				{
 					label: 'Avg Sharpe Ratio',
 					data: sharpeRows.map(r => r.sharpe),
-					backgroundColor: sharpeRows.map(r => r.sharpe >= 0 ? 'rgba(20,184,166,0.75)' : 'rgba(239,68,68,0.72)'),
+					backgroundColor: sharpeRows.map(r =>
+						r.sharpe >= 0 ? 'rgba(20,184,166,0.75)' : 'rgba(239,68,68,0.72)'
+					),
 					borderColor: sharpeRows.map(r => r.sharpe >= 0 ? C_TEAL : C_RED),
 					borderWidth: 1,
 					borderRadius: 3,
@@ -615,9 +614,9 @@ if (browser) {
 					titleColor: '#e2e8f0',
 					bodyColor: '#94a3b8',
 					callbacks: {
-						label: ctx => {
-							const row = sharpeRows[ctx.dataIndex];
-							return ` Sharpe ${ctx.parsed.x >= 0 ? '+' : ''}${ctx.parsed.x.toFixed(3)} — ${row.context}`;
+						label: (tooltipCtx) => {
+							const row = sharpeRows[tooltipCtx.dataIndex];
+							return ` Sharpe ${tooltipCtx.parsed.x >= 0 ? '+' : ''}${tooltipCtx.parsed.x.toFixed(3)} — ${row.context}`;
 						},
 					},
 				},
@@ -637,7 +636,7 @@ if (browser) {
 			},
 		},
 	});
-})();
 
-} // end browser guard
+	return () => chart.destroy();
+});
 </script>
