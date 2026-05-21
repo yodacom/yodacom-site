@@ -212,11 +212,11 @@
 			rel="noopener noreferrer"
 			class="group block max-w-sm overflow-hidden rounded-sm border border-rule bg-paper transition hover:border-navy-deep/40 hover:shadow-[0_20px_60px_-30px_rgba(20,40,72,0.25)]"
 		>
-			<div class="flex items-center justify-center bg-navy-ink p-10">
+			<div class="overflow-hidden bg-navy-ink">
 				<img
-					src="/images/coinroc-logo.png"
-					alt="CoinRoc"
-					class="h-16 w-auto object-contain"
+					src="/screenshots/Efficient-Frontier.png"
+					alt="CoinRoc — Efficient Frontier portfolio analysis"
+					class="h-auto w-full object-cover transition duration-500 group-hover:scale-[1.02]"
 					loading="lazy"
 				/>
 			</div>
