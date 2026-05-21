@@ -1,6 +1,5 @@
 <svelte:head>
 	<title>Gridium and the Efficient Frontier — Yodacom Research</title>
-	<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 </svelte:head>
 
 <!-- Article header -->
@@ -376,7 +375,11 @@
 </article>
 
 <script>
-import { browser } from '$app/environment';
+import { onMount } from 'svelte';
+import { Chart, LinearScale, PointElement, LineElement, BarElement, CategoryScale, Tooltip, Legend, ScatterController, LineController, BarController } from 'chart.js';
+
+// Register only the components we use (tree-shakeable — smaller bundle than 'chart.js/auto')
+Chart.register(LinearScale, PointElement, LineElement, BarElement, CategoryScale, Tooltip, Legend, ScatterController, LineController, BarController);
 
 // ── DATA ─────────────────────────────────────────────────────────────
 const years = [2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025];
@@ -429,8 +432,8 @@ const darkDefaults = {
   backgroundColor: 'transparent',
 };
 
-// ── CHARTS — browser-only (DOM not available during SSR) ─────────────
-if (browser) {
+// ── CHARTS — DOM access must happen after mount ───────────────────────
+onMount(() => {
 
 // ── CHART: HEATMAP (HTML rendered) ───────────────────────────────────
 (function buildHeatmap() {
@@ -704,5 +707,5 @@ if (browser) {
   });
 })();
 
-} // end browser guard
+}); // end onMount
 </script>
