@@ -183,7 +183,7 @@
 					] as row (row.metric)}
 						<tr class="border-b border-rule/50 last:border-0">
 							<td class="py-2.5 pr-6 font-medium text-navy-deep">{row.metric}</td>
-							<td class="py-2.5 {row.value.startsWith('−') ? 'text-red-600' : row.value.startsWith('+') ? 'text-teal-700' : ''} font-medium">{row.value}</td>
+							<td class="py-2.5 {row.value.startsWith('−') ? 'text-teal-600' : row.value.startsWith('+') ? 'text-teal-700' : ''} font-medium">{row.value}</td>
 						</tr>
 					{/each}
 				</tbody>
@@ -267,7 +267,7 @@
 						<tr class="border-b border-rule/50 last:border-0">
 							<td class="py-2.5 pr-6 font-medium text-navy-deep">{row.config}</td>
 							<td class="py-2.5 pr-6">{row.wr}</td>
-							<td class="py-2.5 text-red-600 font-medium">{row.alpha}</td>
+							<td class="py-2.5 text-teal-600 font-medium">{row.alpha}</td>
 						</tr>
 					{/each}
 				</tbody>
