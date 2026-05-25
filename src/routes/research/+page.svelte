@@ -50,11 +50,17 @@
 						</a>
 					</li>
 					<li>
-						<div class="font-semibold text-navy-deep">Paper 2 — Gridium</div>
+						<a href="/research/grid-vs-options-2026" class="group block">
+							<div class="font-semibold text-navy-deep group-hover:text-navy transition">Paper 2 — Grid vs. Options</div>
+							<div class="text-xs text-slate-light">May 2026 · Published</div>
+						</a>
+					</li>
+					<li>
+						<div class="font-semibold text-navy-deep">Paper 3 — Gridium</div>
 						<div class="text-xs text-slate-light">In progress · Q2 2026</div>
 					</li>
 					<li>
-						<div class="font-semibold text-navy-deep">Paper 3 — Sortino Sensitivity</div>
+						<div class="font-semibold text-navy-deep">Paper 4 — Sortino Sensitivity</div>
 						<div class="text-xs text-slate-light">Planned</div>
 					</li>
 				</ol>
@@ -162,6 +168,57 @@
 							class="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-ochre-deep transition hover:text-ochre"
 						>
 							Read research note
+							<svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+						</a>
+					</div>
+				</div>
+			</article>
+
+			<!-- Grid vs Options Paper 2 card -->
+			<article class="overflow-hidden rounded-sm border border-rule bg-paper shadow-[0_10px_40px_-25px_rgba(20,40,72,0.3)]">
+				<div class="grid grid-cols-5">
+					<!-- Cover -->
+					<div class="col-span-2 relative hidden items-center justify-center border-r border-rule bg-navy-ink p-6 sm:flex">
+						<div class="absolute inset-0 bg-topo-faint opacity-10"></div>
+						<div class="relative text-center text-cream">
+							<div class="mb-4 text-[0.6rem] uppercase tracking-[0.3em] text-ochre-soft">Yodacom Research</div>
+							<div class="mb-3 font-serif text-3xl font-500 italic text-cream leading-tight">Grid vs.<br/>Options</div>
+							<div class="mx-auto mb-4 h-px w-12 bg-ochre/70"></div>
+							<div class="text-[0.68rem] uppercase tracking-widest text-cream/60">Paper № 2</div>
+							<div class="mt-6 text-[0.68rem] uppercase tracking-widest text-cream/60">May 2026</div>
+						</div>
+					</div>
+					<!-- Metadata -->
+					<div class="col-span-5 p-7 sm:col-span-3 sm:p-8">
+						<div class="mb-4 flex flex-wrap items-center gap-2">
+							<span class="rounded-full bg-teal-500/10 px-3 py-1 text-[0.65rem] font-semibold uppercase tracking-widest text-teal-700">
+								Published
+							</span>
+							<span class="text-[0.68rem] uppercase tracking-widest text-slate-light">May 2026</span>
+						</div>
+						<h2 class="mb-4 font-serif text-2xl leading-snug text-navy-ink">
+							Crypto Grid Trading vs. Options for Income: An Honest Comparison
+						</h2>
+						<p class="mb-5 text-sm leading-relaxed text-slate">
+							Options strategies achieve higher Sharpe ratios than our grid strategy. We confirm this
+							and explain why Sharpe is the least interesting fact in this comparison. The complete
+							picture &mdash; tail risk, automation feasibility, capital requirements, and crisis
+							behavior &mdash; tells a more nuanced story. Neither strategy dominates; which one fits
+							depends on the investor.
+						</p>
+
+						<dl class="mb-5 grid grid-cols-2 gap-x-4 gap-y-2 border-y border-rule py-4 text-xs text-slate">
+							<dt class="text-slate-light">Authors</dt><dd>Han Kessel &middot; Jeremy J. Black</dd>
+							<dt class="text-slate-light">Window</dt><dd>2013&ndash;2025 (grid); 1986&ndash;2025 (options)</dd>
+							<dt class="text-slate-light">Assets / Folds</dt><dd>17 symbols &middot; 135 folds</dd>
+							<dt class="text-slate-light">Key finding</dt><dd>Sharpe gap is partly arithmetic, not alpha</dd>
+						</dl>
+
+						<a
+							href="/research/grid-vs-options-2026"
+							class="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-ochre-deep transition hover:text-ochre"
+						>
+							Read paper № 2
 							<svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
 						</a>
 					</div>
