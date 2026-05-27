@@ -793,6 +793,15 @@
 				periods correctly identified as not suitable for the strategy.
 			</p>
 		</div>
+
+		<p class="mb-5 text-base leading-relaxed text-slate">
+			The honest investor communication is this: the strategy has historically produced
+			double-digit returns in confirmed ranging markets. Such markets occurred roughly 28% of the
+			time in the modern era by Hurst classification. Active-period returns in this study ranged
+			from &minus;29.8% to +7.4%, with a median of +1.9%. The discovery projections represent
+			what the strategy does in its target environment; this study shows how often that environment
+			appeared and what the full-era blended outcome looks like.
+		</p>
 	</section>
 
 	<!-- ── Section 6: Modern Era vs Full History ────────────── -->
