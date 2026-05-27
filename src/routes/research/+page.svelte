@@ -56,6 +56,12 @@
 						</a>
 					</li>
 					<li>
+						<a href="/research/grid-modern-era-2026" class="group block">
+							<div class="font-semibold text-navy-deep group-hover:text-navy transition">Paper 8 — Modern Era 2019–2025</div>
+							<div class="text-xs text-slate-light">May 2026 · Published</div>
+						</a>
+					</li>
+					<li>
 						<div class="font-semibold text-navy-deep">Paper 3 — Gridium</div>
 						<div class="text-xs text-slate-light">In progress · Q2 2026</div>
 					</li>
@@ -219,6 +225,56 @@
 							class="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-ochre-deep transition hover:text-ochre"
 						>
 							Read paper № 2
+							<svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+						</a>
+					</div>
+				</div>
+			</article>
+
+			<!-- Modern Era Paper A8 card -->
+			<article class="overflow-hidden rounded-sm border border-rule bg-paper shadow-[0_10px_40px_-25px_rgba(20,40,72,0.3)]">
+				<div class="grid grid-cols-5">
+					<!-- Cover -->
+					<div class="col-span-2 relative hidden items-center justify-center border-r border-rule bg-navy-ink p-6 sm:flex">
+						<div class="absolute inset-0 bg-topo-faint opacity-10"></div>
+						<div class="relative text-center text-cream">
+							<div class="mb-4 text-[0.6rem] uppercase tracking-[0.3em] text-ochre-soft">Yodacom Research</div>
+							<div class="mb-3 font-serif text-3xl font-500 italic text-cream leading-tight">Modern<br/>Era</div>
+							<div class="mx-auto mb-4 h-px w-12 bg-ochre/70"></div>
+							<div class="text-[0.68rem] uppercase tracking-widest text-cream/60">Paper № 8</div>
+							<div class="mt-6 text-[0.68rem] uppercase tracking-widest text-cream/60">May 2026</div>
+						</div>
+					</div>
+					<!-- Metadata -->
+					<div class="col-span-5 p-7 sm:col-span-3 sm:p-8">
+						<div class="mb-4 flex flex-wrap items-center gap-2">
+							<span class="rounded-full bg-teal-500/10 px-3 py-1 text-[0.65rem] font-semibold uppercase tracking-widest text-teal-700">
+								Published
+							</span>
+							<span class="text-[0.68rem] uppercase tracking-widest text-slate-light">May 2026</span>
+						</div>
+						<h2 class="mb-4 font-serif text-2xl leading-snug text-navy-ink">
+							Grid Trading in the Modern Crypto Era: 2019&ndash;2025
+						</h2>
+						<p class="mb-5 text-sm leading-relaxed text-slate">
+							Walk-forward analysis of 85 folds across 17 assets in the modern crypto era. The FIS v2
+							gate held cash during 71.8% of periods &mdash; including all major bear years. Result:
+							100% bear-fold capital protection across all 29 folds where buy-and-hold fell more than
+							20%. Mean max drawdown: 1.0% vs. 25.0% for the always-on baseline.
+						</p>
+
+						<dl class="mb-5 grid grid-cols-2 gap-x-4 gap-y-2 border-y border-rule py-4 text-xs text-slate">
+							<dt class="text-slate-light">Authors</dt><dd>Han Kessel &middot; Jeremy J. Black</dd>
+							<dt class="text-slate-light">Window</dt><dd>2019&ndash;2025</dd>
+							<dt class="text-slate-light">Assets / Folds</dt><dd>17 symbols &middot; 85 folds</dd>
+							<dt class="text-slate-light">Key finding</dt><dd>100% bear-fold win rate, 1.0% mean drawdown</dd>
+						</dl>
+
+						<a
+							href="/research/grid-modern-era-2026"
+							class="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-ochre-deep transition hover:text-ochre"
+						>
+							Read paper № 8
 							<svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
 						</a>
 					</div>
