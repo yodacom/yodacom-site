@@ -1,8 +1,13 @@
+<script lang="ts">
+  import FigureExpand from '$lib/components/FigureExpand.svelte';
+</script>
+
 <svelte:head>
 	<title>Crypto Grid Trading vs. Options for Income: An Honest Comparison — Yodacom Research</title>
 </svelte:head>
 
 <!-- Cover banner -->
+<FigureExpand label="Expand cover figure">
 <div class="w-full overflow-x-auto">
 <svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg" style="display:block;width:100%;height:auto;">
   <defs>
@@ -145,6 +150,7 @@
   <text x="1160" y="614" fill="#5a6475" font-family="'Inter','Segoe UI',system-ui,sans-serif" font-size="10.5" letter-spacing="0.06em" text-anchor="end">A2  ·  PRE-PRINT  ·  MAY 2026</text>
 </svg>
 </div>
+</FigureExpand>
 
 <!-- Article header -->
 <section class="border-b border-rule/60 bg-topo">
@@ -272,6 +278,7 @@
 		<h2 class="mb-6 font-serif text-2xl leading-snug text-navy-ink">What the Sharpe Gap Actually Means</h2>
 
 		<!-- Figure 1: Sharpe context -->
+		<FigureExpand label="Expand Figure 1 — Sharpe Ratio in Context">
 		<div class="my-12 w-full overflow-x-auto">
 		<style>
 		  .f1 * { box-sizing: border-box; }
@@ -464,6 +471,7 @@
 		</div>
 		</div>
 		</div>
+		</FigureExpand>
 
 		<p class="mb-5 text-base leading-relaxed text-slate">
 			The CBOE PUT index has achieved approximately 0.64 Sharpe over its full history (inception
@@ -514,6 +522,7 @@
 		<h2 class="mb-6 font-serif text-2xl leading-snug text-navy-ink">Side-by-Side Comparison</h2>
 
 		<!-- Figure 2: Comparison card -->
+		<FigureExpand label="Expand Figure 2 — Strategy Comparison">
 		<div class="my-12 w-full overflow-x-auto">
 		<style>
 		  .f2 * { box-sizing: border-box; }
@@ -670,6 +679,7 @@
 		</div>
 		</div>
 		</div>
+		</FigureExpand>
 	</section>
 
 	<!-- ── Section 5: Tail Risk the Sharpe Misses ─────────────── -->
@@ -678,6 +688,7 @@
 		<h2 class="mb-6 font-serif text-2xl leading-snug text-navy-ink">The Tail Risk the Sharpe Ratio Misses</h2>
 
 		<!-- Figure 3: Tail risk timeline -->
+		<FigureExpand label="Expand Figure 3 — Tail Risk Events">
 		<div class="my-12 w-full overflow-x-auto">
 		<style>
 		  .f3 * { box-sizing: border-box; }
@@ -888,6 +899,7 @@
 		</div>
 		</div>
 		</div>
+		</FigureExpand>
 
 		<p class="mb-6 text-base leading-relaxed text-slate">
 			Three stress events frame this comparison better than any backtest metric.
