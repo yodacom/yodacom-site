@@ -62,6 +62,12 @@
 						</a>
 					</li>
 					<li>
+						<a href="/research/grid-blind-validation-2023-2025" class="group block">
+							<div class="font-semibold text-navy-deep group-hover:text-navy transition">Vault Test — Near-Blind Out-of-Sample Validation, 2023–2025</div>
+							<div class="text-xs text-slate-light">June 2026 · Published</div>
+						</a>
+					</li>
+					<li>
 						<a href="/research/fis-regime-detection-advisors" class="group block">
 							<div class="font-semibold text-navy-deep group-hover:text-navy transition">Paper 3 — FIS Regime Detection for Advisors</div>
 							<div class="text-xs text-slate-light">June 2026 · Published</div>
@@ -281,6 +287,56 @@
 							class="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-ochre-deep transition hover:text-ochre"
 						>
 							Read paper № 8
+							<svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+						</a>
+					</div>
+				</div>
+			</article>
+
+			<!-- Vault Test — Blind Validation companion card -->
+			<article class="overflow-hidden rounded-sm border border-rule bg-paper shadow-[0_10px_40px_-25px_rgba(20,40,72,0.3)]">
+				<div class="grid grid-cols-5">
+					<!-- Cover -->
+					<div class="col-span-2 relative hidden items-center justify-center border-r border-rule bg-navy-ink p-6 sm:flex">
+						<div class="absolute inset-0 bg-topo-faint opacity-10"></div>
+						<div class="relative text-center text-cream">
+							<div class="mb-4 text-[0.6rem] uppercase tracking-[0.3em] text-ochre-soft">Yodacom Research</div>
+							<div class="mb-3 font-serif text-3xl font-500 italic text-cream leading-tight">The<br/>Vault Test</div>
+							<div class="mx-auto mb-4 h-px w-12 bg-ochre/70"></div>
+							<div class="text-[0.68rem] uppercase tracking-widest text-cream/60">Companion to Paper 8</div>
+							<div class="mt-6 text-[0.68rem] uppercase tracking-widest text-cream/60">June 2026</div>
+						</div>
+					</div>
+					<!-- Metadata -->
+					<div class="col-span-5 p-7 sm:col-span-3 sm:p-8">
+						<div class="mb-4 flex flex-wrap items-center gap-2">
+							<span class="rounded-full bg-teal-500/10 px-3 py-1 text-[0.65rem] font-semibold uppercase tracking-widest text-teal-700">
+								Published
+							</span>
+							<span class="text-[0.68rem] uppercase tracking-widest text-slate-light">June 2026</span>
+						</div>
+						<h2 class="mb-4 font-serif text-2xl leading-snug text-navy-ink">
+							The Vault Test: Near-Blind Out-of-Sample Validation of CoinRoc&rsquo;s Three-State FIS, 2023&ndash;2025
+						</h2>
+						<p class="mb-5 text-sm leading-relaxed text-slate">
+							FIS thresholds locked before 2023, then run unchanged across 51 out-of-sample folds.
+							Three-state strategy mean: +3.8% vs. +0.6% two-state baseline. Bear-fold win rate:
+							100% (20/20). The direction guard prevents the momentum sleeve from firing into declining
+							markets by design &mdash; the protection story is unchanged from Paper 8.
+						</p>
+
+						<dl class="mb-5 grid grid-cols-2 gap-x-4 gap-y-2 border-y border-rule py-4 text-xs text-slate">
+							<dt class="text-slate-light">Authors</dt><dd>Han Kessel &middot; Lando (editorial)</dd>
+							<dt class="text-slate-light">Window</dt><dd>2023&ndash;2025 (out-of-sample)</dd>
+							<dt class="text-slate-light">Assets / Folds</dt><dd>17 symbols &middot; 51 folds</dd>
+							<dt class="text-slate-light">Key finding</dt><dd>+3.2 pp mean improvement, 100% bear-fold win rate</dd>
+						</dl>
+
+						<a
+							href="/research/grid-blind-validation-2023-2025"
+							class="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-ochre-deep transition hover:text-ochre"
+						>
+							Read the Vault Test
 							<svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
 						</a>
 					</div>
