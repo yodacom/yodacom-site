@@ -62,11 +62,17 @@
 						</a>
 					</li>
 					<li>
-						<div class="font-semibold text-navy-deep">Paper 3 — Gridium</div>
+						<a href="/research/fis-regime-detection-advisors" class="group block">
+							<div class="font-semibold text-navy-deep group-hover:text-navy transition">Paper 3 — FIS Regime Detection for Advisors</div>
+							<div class="text-xs text-slate-light">June 2026 · Published</div>
+						</a>
+					</li>
+					<li>
+						<div class="font-semibold text-navy-deep">Paper 4 — Gridium</div>
 						<div class="text-xs text-slate-light">In progress · Q2 2026</div>
 					</li>
 					<li>
-						<div class="font-semibold text-navy-deep">Paper 4 — Sortino Sensitivity</div>
+						<div class="font-semibold text-navy-deep">Paper 5 — Sortino Sensitivity</div>
 						<div class="text-xs text-slate-light">Planned</div>
 					</li>
 				</ol>
@@ -281,6 +287,57 @@
 				</div>
 			</article>
 
+			<!-- FIS Advisor Article B1 card -->
+			<article class="overflow-hidden rounded-sm border border-rule bg-paper shadow-[0_10px_40px_-25px_rgba(20,40,72,0.3)]">
+				<div class="grid grid-cols-5">
+					<!-- Cover -->
+					<div class="col-span-2 relative hidden items-center justify-center border-r border-rule bg-navy-ink p-6 sm:flex">
+						<div class="absolute inset-0 bg-topo-faint opacity-10"></div>
+						<div class="relative text-center text-cream">
+							<div class="mb-4 text-[0.6rem] uppercase tracking-[0.3em] text-ochre-soft">Yodacom Research</div>
+							<div class="mb-3 font-serif text-3xl font-500 italic text-cream leading-tight">FIS<br/>Regime</div>
+							<div class="mx-auto mb-4 h-px w-12 bg-ochre/70"></div>
+							<div class="text-[0.68rem] uppercase tracking-widest text-cream/60">Paper № 3</div>
+							<div class="mt-6 text-[0.68rem] uppercase tracking-widest text-cream/60">June 2026</div>
+						</div>
+					</div>
+					<!-- Metadata -->
+					<div class="col-span-5 p-7 sm:col-span-3 sm:p-8">
+						<div class="mb-4 flex flex-wrap items-center gap-2">
+							<span class="rounded-full bg-teal-500/10 px-3 py-1 text-[0.65rem] font-semibold uppercase tracking-widest text-teal-700">
+								Published
+							</span>
+							<span class="text-[0.68rem] uppercase tracking-widest text-slate-light">June 2026</span>
+						</div>
+						<h2 class="mb-4 font-serif text-2xl leading-snug text-navy-ink">
+							When the Market Trends Hard, Your Income Strategy Should Step Aside: A Rules-Based Regime Filter for Crypto Income
+						</h2>
+						<p class="mb-5 text-sm leading-relaxed text-slate">
+							In 2022, covered call income fell with equity. This paper examines whether crypto grid
+							trading with FIS regime detection offers a structurally different income mechanism &mdash;
+							one where income and risk do not share the same source. The ETH 2018 anchor case:
+							buy-and-hold &minus;82.4%, always-on grid &minus;61.6%, FIS-gated 0%. Written for
+							financial advisors navigating the income-in-retirement conversation.
+						</p>
+
+						<dl class="mb-5 grid grid-cols-2 gap-x-4 gap-y-2 border-y border-rule py-4 text-xs text-slate">
+							<dt class="text-slate-light">Author</dt><dd>Jeremy J. Black &middot; Yodacom Research</dd>
+							<dt class="text-slate-light">Window</dt><dd>2017&ndash;2025</dd>
+							<dt class="text-slate-light">Assets / Folds</dt><dd>17 symbols &middot; 135 folds</dd>
+							<dt class="text-slate-light">Key finding</dt><dd>FIS gating: &minus;24.2% avg &#8594; 0% in defensive periods</dd>
+						</dl>
+
+						<a
+							href="/research/fis-regime-detection-advisors"
+							class="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-ochre-deep transition hover:text-ochre"
+						>
+							Read paper № 3
+							<svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+						</a>
+					</div>
+				</div>
+			</article>
+
 			<!-- Gridium card — publication-style -->
 			<article class="overflow-hidden rounded-sm border border-rule bg-paper shadow-[0_10px_40px_-25px_rgba(20,40,72,0.3)]">
 				<div class="grid grid-cols-5">
@@ -291,7 +348,7 @@
 							<div class="mb-4 text-[0.6rem] uppercase tracking-[0.3em] text-ochre-soft">Yodacom Research</div>
 							<div class="mb-3 font-serif text-4xl font-500 italic text-cream">Gridium</div>
 							<div class="mx-auto mb-4 h-px w-12 bg-ochre/70"></div>
-							<div class="text-[0.68rem] uppercase tracking-widest text-cream/60">Paper № 1</div>
+							<div class="text-[0.68rem] uppercase tracking-widest text-cream/60">Paper № 4</div>
 							<div class="mt-6 text-[0.68rem] uppercase tracking-widest text-cream/60">Q2 2026</div>
 						</div>
 					</div>
