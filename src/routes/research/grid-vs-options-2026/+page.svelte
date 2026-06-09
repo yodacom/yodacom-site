@@ -99,8 +99,8 @@
     <circle cx="405" cy="200" r="4" fill="#00d4aa" opacity="0.7"/>
     <circle cx="465" cy="190" r="4" fill="#00d4aa" opacity="0.7"/>
   </g>
-  <rect x="50" y="458" width="230" height="26" rx="3" fill="#00d4aa" fill-opacity="0.12" stroke="#00d4aa" stroke-width="1" stroke-opacity="0.35"/>
-  <text x="165" y="475" fill="#00d4aa" font-family="'Inter','Segoe UI',system-ui,sans-serif" font-size="11" font-weight="700" text-anchor="middle" letter-spacing="0.12em">CRYPTO GRID TRADING</text>
+  <rect x="50" y="458" width="230" height="26" rx="3" fill="#00d4aa" fill-opacity="0.80" stroke="#00d4aa" stroke-width="1" stroke-opacity="0.9"/>
+  <text x="165" y="475" fill="#001a14" font-family="'Inter','Segoe UI',system-ui,sans-serif" font-size="11" font-weight="700" text-anchor="middle" letter-spacing="0.12em">CRYPTO GRID TRADING</text>
   <text x="60" y="505" fill="#8b949e" font-family="'Inter','Segoe UI',system-ui,sans-serif" font-size="10.5" letter-spacing="0.03em">CoinRoc FIS-gated · 135 walk-forward folds · 2013–2025</text>
   <text x="60" y="520" fill="#8b949e" font-family="'Inter','Segoe UI',system-ui,sans-serif" font-size="10" letter-spacing="0.03em">17 crypto assets · Full automation</text>
   <rect x="630" y="0" width="570" height="630" fill="url(#cb-rightPanel)"/>
@@ -117,10 +117,10 @@
     <rect x="875" y="424" width="14" height="8" rx="2" fill="#f0a020" opacity="0.55"/>
     <rect x="910" y="425" width="14" height="5" rx="2" fill="#f0a020" opacity="0.55"/>
     <rect x="945" y="425" width="14" height="3" rx="2" fill="#f0a020" opacity="0.55"/>
-    <text x="800" y="455" fill="#f0a020" font-family="'Inter','Segoe UI',system-ui,sans-serif" font-size="9.5" text-anchor="middle" letter-spacing="0.06em" opacity="0.7">&#x3B8;  PREMIUM DECAY</text>
   </g>
-  <rect x="920" y="458" width="210" height="26" rx="3" fill="#f0a020" fill-opacity="0.12" stroke="#f0a020" stroke-width="1" stroke-opacity="0.35"/>
-  <text x="1025" y="475" fill="#f0a020" font-family="'Inter','Segoe UI',system-ui,sans-serif" font-size="11" font-weight="700" text-anchor="middle" letter-spacing="0.12em">OPTIONS FOR INCOME</text>
+  <text x="800" y="455" fill="#f0a020" font-family="'Inter','Segoe UI',system-ui,sans-serif" font-size="9.5" text-anchor="middle" letter-spacing="0.06em" clip-path="url(#cb-rightClip)">&#x3B8;  PREMIUM DECAY</text>
+  <rect x="920" y="458" width="210" height="26" rx="3" fill="#f0a020" fill-opacity="0.80" stroke="#f0a020" stroke-width="1" stroke-opacity="0.9"/>
+  <text x="1025" y="475" fill="#1a1000" font-family="'Inter','Segoe UI',system-ui,sans-serif" font-size="11" font-weight="700" text-anchor="middle" letter-spacing="0.12em">OPTIONS FOR INCOME</text>
   <text x="650" y="505" fill="#8b949e" font-family="'Inter','Segoe UI',system-ui,sans-serif" font-size="10.5" letter-spacing="0.03em">CBOE BXM/PUT Index · Israelov &amp; Klein · 1986–2025</text>
   <text x="650" y="520" fill="#8b949e" font-family="'Inter','Segoe UI',system-ui,sans-serif" font-size="10" letter-spacing="0.03em">S&amp;P 500 underlying · Partial automation</text>
   <line x1="600" y1="0" x2="600" y2="630" stroke="url(#cb-dividerGrad)" stroke-width="1.2"/>

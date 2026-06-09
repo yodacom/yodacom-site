@@ -102,15 +102,15 @@
   <text x="60" y="268" font-family="'Inter','Segoe UI',sans-serif" font-size="15" fill="#7A90B0">Walk-Forward Validation of FIS v2 Gated Grid Strategy</text>
   <text x="60" y="290" font-family="'Inter','Segoe UI',sans-serif" font-size="14" fill="#5A7090">17 Assets &nbsp;&middot;&nbsp; 85 Folds &nbsp;&middot;&nbsp; 2-Year Train / 1-Year Test</text>
   <line x1="60" y1="308" x2="530" y2="308" stroke="url(#me-gridLineGrad)" stroke-width="1"/>
-  <text x="60" y="350" font-family="'Inter','Segoe UI',sans-serif" font-size="13" fill="#4A6080">The companion paper to A1 (2013&ndash;2025). Applies the current production</text>
-  <text x="60" y="368" font-family="'Inter','Segoe UI',sans-serif" font-size="13" fill="#4A6080">algorithm &mdash; FIS v2 Hurst gating, Variant C lower grace, 5-level burst</text>
-  <text x="60" y="386" font-family="'Inter','Segoe UI',sans-serif" font-size="13" fill="#4A6080">trailing &mdash; to the mature-market era only.</text>
-  <rect x="60" y="415" width="500" height="54" rx="6" fill="#0D1A2E" stroke="#2A4E6A" stroke-width="1"/>
-  <text x="80" y="438" font-family="'Inter','Segoe UI',sans-serif" font-size="13" font-weight="600" fill="#C8D8EC">Key finding: FIS gate preserved capital in all 29 bear folds.</text>
-  <text x="80" y="457" font-family="'Inter','Segoe UI',sans-serif" font-size="12" fill="#5A7090">Mean max drawdown reduced from 25.0% (always-on) to 1.0% (gated).</text>
-  <text x="60" y="520" font-family="'Inter','Segoe UI',sans-serif" font-size="11" fill="#2A4060">Han Kessel &mdash; Yodacom Research &nbsp;&middot;&nbsp; 2026-05-27</text>
-  <text x="1140" y="595" font-family="'Inter','Segoe UI',sans-serif" font-size="14" font-weight="700" fill="#1E3A5F" text-anchor="end" letter-spacing="0.06em">CoinRoc</text>
-  <text x="1140" y="612" font-family="'Inter','Segoe UI',sans-serif" font-size="10" fill="#0E2040" text-anchor="end" letter-spacing="0.06em">CRYPTO GRID ANALYSIS</text>
+  <text x="60" y="430" font-family="'Inter','Segoe UI',sans-serif" font-size="13" fill="#4A6080">The companion paper to A1 (2013&ndash;2025). Applies the current production</text>
+  <text x="60" y="448" font-family="'Inter','Segoe UI',sans-serif" font-size="13" fill="#4A6080">algorithm &mdash; FIS v2 Hurst gating, Variant C lower grace, 5-level burst</text>
+  <text x="60" y="466" font-family="'Inter','Segoe UI',sans-serif" font-size="13" fill="#4A6080">trailing &mdash; to the mature-market era only.</text>
+  <rect x="60" y="478" width="500" height="54" rx="6" fill="#0D1A2E" stroke="#2A4E6A" stroke-width="1"/>
+  <text x="80" y="501" font-family="'Inter','Segoe UI',sans-serif" font-size="13" font-weight="600" fill="#C8D8EC">Key finding: FIS gate preserved capital in all 29 bear folds.</text>
+  <text x="80" y="520" font-family="'Inter','Segoe UI',sans-serif" font-size="12" fill="#5A7090">Mean max drawdown reduced from 25.0% (always-on) to 1.0% (gated).</text>
+  <text x="60" y="555" font-family="'Inter','Segoe UI',sans-serif" font-size="11" fill="#2A4060">Han Kessel &mdash; Yodacom Research &nbsp;&middot;&nbsp; 2026-05-27</text>
+  <text x="1140" y="565" font-family="'Inter','Segoe UI',sans-serif" font-size="14" font-weight="700" fill="#1E3A5F" text-anchor="end" letter-spacing="0.06em">CoinRoc</text>
+  <text x="1140" y="580" font-family="'Inter','Segoe UI',sans-serif" font-size="10" fill="#0E2040" text-anchor="end" letter-spacing="0.06em">CRYPTO GRID ANALYSIS</text>
   <line x1="0" y1="0" x2="1200" y2="0" stroke="#00d4aa" stroke-width="2" opacity="0.3"/>
   <line x1="0" y1="629" x2="1200" y2="629" stroke="#3B82F6" stroke-width="2" opacity="0.2"/>
 </svg>
