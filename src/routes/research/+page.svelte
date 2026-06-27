@@ -74,6 +74,24 @@
 						</a>
 					</li>
 					<li>
+						<a href="/research/modern-market-2026" class="group block">
+							<div class="font-semibold text-navy-deep group-hover:text-navy transition">Article — Modern Market: What the 2020–2025 Cycle Reveals</div>
+							<div class="text-xs text-slate-light">June 2026 · Published</div>
+						</a>
+					</li>
+					<li>
+						<a href="/research/exchange-costs-2026" class="group block">
+							<div class="font-semibold text-navy-deep group-hover:text-navy transition">Paper B5 — Exchange Costs: The Hidden Variable</div>
+							<div class="text-xs text-slate-light">June 2026 · Published</div>
+						</a>
+					</li>
+					<li>
+						<a href="/research/lp-yield-2026" class="group block">
+							<div class="font-semibold text-navy-deep group-hover:text-navy transition">Research — LP Yield: Your Calculator Is Lying to You</div>
+							<div class="text-xs text-slate-light">June 2026 · Published</div>
+						</a>
+					</li>
+					<li>
 						<div class="font-semibold text-navy-deep">Paper 4 — Gridium</div>
 						<div class="text-xs text-slate-light">In progress · Q2 2026</div>
 					</li>
@@ -388,6 +406,120 @@
 							class="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-ochre-deep transition hover:text-ochre"
 						>
 							Read paper № 3
+							<svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+						</a>
+					</div>
+				</div>
+			</article>
+
+			<!-- Modern Market Article card -->
+			<article class="overflow-hidden rounded-sm border border-rule bg-paper shadow-[0_10px_40px_-25px_rgba(20,40,72,0.3)]">
+				<div class="grid grid-cols-5">
+					<div class="col-span-2 relative hidden items-center justify-center border-r border-rule bg-navy-ink p-6 sm:flex">
+						<div class="absolute inset-0 bg-topo-faint opacity-10"></div>
+						<div class="relative text-center text-cream">
+							<div class="mb-4 text-[0.6rem] uppercase tracking-[0.3em] text-ochre-soft">Yodacom Research</div>
+							<div class="mb-3 font-serif text-2xl font-500 italic text-cream leading-tight">Modern<br />Market</div>
+							<div class="mx-auto mb-4 h-px w-12 bg-ochre/70"></div>
+							<div class="text-[0.68rem] uppercase tracking-widest text-cream/60">Advisor Edition</div>
+							<div class="mt-6 text-[0.68rem] uppercase tracking-widest text-cream/60">June 2026</div>
+						</div>
+					</div>
+					<div class="col-span-5 p-7 sm:col-span-3 sm:p-8">
+						<div class="mb-4 flex flex-wrap items-center gap-2">
+							<span class="rounded-full bg-teal-500/10 px-3 py-1 text-[0.65rem] font-semibold uppercase tracking-widest text-teal-700">Published</span>
+							<span class="text-[0.68rem] uppercase tracking-widest text-slate-light">June 2026</span>
+						</div>
+						<h2 class="mb-4 font-serif text-2xl leading-snug text-navy-ink">
+							What the 2020–2025 Crypto Cycle Reveals About Rules-Based Income — And Why 2022 Changed the Conversation
+						</h2>
+						<p class="mb-5 text-sm leading-relaxed text-slate">
+							In 2022, Bitcoin fell 65% and the median crypto asset lost 72.7% of its value. An FIS&#x2122;-gated, rules-based grid system held flat and compounded — finishing the full cycle at $19,609 on a $10,000 start, edging the S&amp;P 500's $18,703. Here is the mechanism and what it means for the advisor conversation.
+						</p>
+						<dl class="mb-5 grid grid-cols-2 gap-x-4 gap-y-2 border-y border-rule py-4 text-xs text-slate">
+							<dt class="text-slate-light">Author</dt><dd>Jeremy J. Black, CFP &middot; Yodacom Research</dd>
+							<dt class="text-slate-light">Window</dt><dd>2020–2025 (complete modern cycle)</dd>
+							<dt class="text-slate-light">Key finding</dt><dd>L3 +11.9% CAGR vs. S&amp;P 500 +11.0% (simulated)</dd>
+							<dt class="text-slate-light">Audience</dt><dd>Financial advisors / RIAs</dd>
+						</dl>
+						<a href="/research/modern-market-2026" class="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-ochre-deep transition hover:text-ochre">
+							Read article
+							<svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+						</a>
+					</div>
+				</div>
+			</article>
+
+			<!-- Exchange Costs Paper B5 card -->
+			<article class="overflow-hidden rounded-sm border border-rule bg-paper shadow-[0_10px_40px_-25px_rgba(20,40,72,0.3)]">
+				<div class="grid grid-cols-5">
+					<div class="col-span-2 relative hidden items-center justify-center border-r border-rule bg-navy-ink p-6 sm:flex">
+						<div class="absolute inset-0 bg-topo-faint opacity-10"></div>
+						<div class="relative text-center text-cream">
+							<div class="mb-4 text-[0.6rem] uppercase tracking-[0.3em] text-ochre-soft">Yodacom Research</div>
+							<div class="mb-3 font-serif text-2xl font-500 italic text-cream leading-tight">Exchange<br />Costs</div>
+							<div class="mx-auto mb-4 h-px w-12 bg-ochre/70"></div>
+							<div class="text-[0.68rem] uppercase tracking-widest text-cream/60">Paper B5</div>
+							<div class="mt-6 text-[0.68rem] uppercase tracking-widest text-cream/60">June 2026</div>
+						</div>
+					</div>
+					<div class="col-span-5 p-7 sm:col-span-3 sm:p-8">
+						<div class="mb-4 flex flex-wrap items-center gap-2">
+							<span class="rounded-full bg-teal-500/10 px-3 py-1 text-[0.65rem] font-semibold uppercase tracking-widest text-teal-700">Published</span>
+							<span class="text-[0.68rem] uppercase tracking-widest text-slate-light">June 2026</span>
+						</div>
+						<h2 class="mb-4 font-serif text-2xl leading-snug text-navy-ink">
+							Exchange Costs, Maker/Taker Execution, and Their Quantified Impact on Grid Trading Returns
+						</h2>
+						<p class="mb-5 text-sm leading-relaxed text-slate">
+							A 37-fold difference in annual fees. A 35.2% taker fill rate under standard GTC orders. GTX post-only enforcement improved average grid returns from &minus;9.99% to +4.73% — with the mechanism being crash prevention, not fee saving. Full walk-forward study across 4 symbols, 36 folds, 2013–2025.
+						</p>
+						<dl class="mb-5 grid grid-cols-2 gap-x-4 gap-y-2 border-y border-rule py-4 text-xs text-slate">
+							<dt class="text-slate-light">Authors</dt><dd>Han Kessel &middot; Jeremy J. Black</dd>
+							<dt class="text-slate-light">Window</dt><dd>2013–2025</dd>
+							<dt class="text-slate-light">Assets / Folds</dt><dd>4 symbols · 36 folds</dd>
+							<dt class="text-slate-light">Key finding</dt><dd>GTX: &minus;9.99% &rarr; +4.73% avg return (+14.7pp)</dd>
+						</dl>
+						<a href="/research/exchange-costs-2026" class="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-ochre-deep transition hover:text-ochre">
+							Read paper B5
+							<svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+						</a>
+					</div>
+				</div>
+			</article>
+
+			<!-- LP Yield Research card -->
+			<article class="overflow-hidden rounded-sm border border-rule bg-paper shadow-[0_10px_40px_-25px_rgba(20,40,72,0.3)]">
+				<div class="grid grid-cols-5">
+					<div class="col-span-2 relative hidden items-center justify-center border-r border-rule bg-navy-ink p-6 sm:flex">
+						<div class="absolute inset-0 bg-topo-faint opacity-10"></div>
+						<div class="relative text-center text-cream">
+							<div class="mb-4 text-[0.6rem] uppercase tracking-[0.3em] text-ochre-soft">Yodacom Research</div>
+							<div class="mb-3 font-serif text-2xl font-500 italic text-cream leading-tight">LP Yield<br />Research</div>
+							<div class="mx-auto mb-4 h-px w-12 bg-ochre/70"></div>
+							<div class="text-[0.68rem] uppercase tracking-widest text-cream/60">LPIS Flagship</div>
+							<div class="mt-6 text-[0.68rem] uppercase tracking-widest text-cream/60">June 2026</div>
+						</div>
+					</div>
+					<div class="col-span-5 p-7 sm:col-span-3 sm:p-8">
+						<div class="mb-4 flex flex-wrap items-center gap-2">
+							<span class="rounded-full bg-teal-500/10 px-3 py-1 text-[0.65rem] font-semibold uppercase tracking-widest text-teal-700">Published</span>
+							<span class="text-[0.68rem] uppercase tracking-widest text-slate-light">June 2026</span>
+						</div>
+						<h2 class="mb-4 font-serif text-2xl leading-snug text-navy-ink">
+							Your LP Yield Calculator Is Lying to You: Impermanent Loss, Continuous Fee Income, and the CoinRoc Optimization Framework
+						</h2>
+						<p class="mb-5 text-sm leading-relaxed text-slate">
+							Uniswap v3 shows gross fee APY. It omits impermanent loss. Loesch et al. (2021) found LPs earned $199M in fees but incurred $260M in IL — net &minus;$61M. This paper presents the structured approach to concentrated LP that generates real fee income while keeping IL quantifiable. 5,000-iteration Monte Carlo. 9 data figures.
+						</p>
+						<dl class="mb-5 grid grid-cols-2 gap-x-4 gap-y-2 border-y border-rule py-4 text-xs text-slate">
+							<dt class="text-slate-light">Author</dt><dd>Lando &middot; Yodacom Research</dd>
+							<dt class="text-slate-light">Audience</dt><dd>Advisors, quant practitioners, DeFi participants</dd>
+							<dt class="text-slate-light">Key finding</dt><dd>B-tier Arbitrum FIS-gated: +15.2% net APY [+14.3%, +16.1% CI]</dd>
+							<dt class="text-slate-light">Novel finding</dt><dd>Rating inversion: A-tier worst LP candidates, B-tier sweet spot</dd>
+						</dl>
+						<a href="/research/lp-yield-2026" class="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-ochre-deep transition hover:text-ochre">
+							Read research
 							<svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
 						</a>
 					</div>

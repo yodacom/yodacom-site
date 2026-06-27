@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Figure 6 — Contingency Range: When It Helps and When It Does Not</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #0d1117;
+    font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+    color: #c9d1d9;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    padding: 40px 20px;
+  }
+  .figure-wrap { width: 940px; max-width: 100%; }
+  .fig-header { margin-bottom: 28px; }
+  .fig-label { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: #6e7681; margin-bottom: 6px; }
+  .fig-title {
+    font-family: 'SF Pro Display','Helvetica Neue',Arial,sans-serif;
+    font-size: 18px; font-weight: 600; color: #e6edf3; line-height: 1.3; margin-bottom: 6px;
+  }
+  .fig-subtitle {
+    font-family: 'SF Pro Text','Helvetica Neue',Arial,sans-serif;
+    font-size: 12.5px; color: #8b949e; line-height: 1.5;
+  }
+  .chart-area {
+    background: #161b22; border: 1px solid #21262d; border-radius: 8px;
+    padding: 32px 40px 28px; margin-bottom: 16px;
+  }
+  .panel-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+    margin-bottom: 24px;
+  }
+  .panel-label {
+    font-family: 'SF Pro Text','Helvetica Neue',Arial,sans-serif;
+    font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em;
+    padding: 8px 14px; border-radius: 4px; margin-bottom: 12px;
+    text-align: center; font-weight: 700;
+  }
+  .panel-label.good { background:#1c2b1a; color:#3fb950; }
+  .panel-label.bad { background:#2d1b1b; color:#da3633; }
+  .disclaimer {
+    font-family: 'SF Pro Text','Helvetica Neue',Arial,sans-serif;
+    font-size: 10.5px; color: #6e7681; line-height: 1.6;
+    border-top: 1px solid #21262d; padding-top: 12px; margin-top: 4px;
+  }
+  .disclaimer strong { color: #8b949e; }
+  .fis-rule {
+    background: #0d1117; border: 1px solid #21262d; border-radius: 6px;
+    padding: 16px 20px; margin-top: 20px;
+    font-family: 'SF Mono','Fira Code',monospace; font-size: 11.5px;
+    line-height: 1.8;
+  }
+  .fis-rule .rule-title {
+    font-family: 'SF Pro Text','Helvetica Neue',Arial,sans-serif;
+    font-size: 10px; text-transform: uppercase; letter-spacing: 0.1em;
+    color: #6e7681; margin-bottom: 10px;
+  }
+</style>
+</head>
+<body>
+<div class="figure-wrap">
+  <div class="fig-header">
+    <div class="fig-label">Figure 6 — Yodacom Research · LPIS Series · 2026-06-15</div>
+    <div class="fig-title">Contingency Range: It Earns on a Slow Drift — Not on a Crash</div>
+    <div class="fig-subtitle">Two price path scenarios · Primary LP range + contingency range (pre-set below lower band) · FIS gating determines when contingency deployment is appropriate</div>
+  </div>
+
+  <div class="chart-area">
+
+    <div class="panel-grid">
+
+      <!-- SCENARIO A: SLOW DRIFT — CONTINGENCY EARNS -->
+      <div>
+        <div class="panel-label good">Scenario A — Slow Drift Below Band · Contingency Range Earns</div>
+        <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;">
+          <!--
+            Price chart from left to right over time.
+            X axis = time (weeks), Y axis = price (normalized to entry=100)
+
+            Primary range: entry=100, Pa=70 (lower), Pb=140 (upper)
+            Contingency range: upper=70, lower=49 (−30% below primary lower = 70*0.70)
+
+            Price path A: starts at 100, ranges in primary for weeks 1-6, then slowly drifts down:
+              Wk1:100 Wk2:105 Wk3:98 Wk4:107 Wk5:95 Wk6:100 (in primary range, fees accumulating)
+              Wk7:88 Wk8:78 → exits primary lower band at ~70
+              Wk9:68 Wk10:65 Wk11:60 Wk12:58 (in contingency range, fees accumulating there)
+              Wk13:63 Wk14:70 Wk15:75 Wk16:80 → back into primary
+
+            Chart: x from 30 to 390, y from 20 to 280
+            Price 140=y20, price 40=y280 → 100pp = 260px, 2.6px/unit
+            y = 280 - (price-40)*2.6
+            y at 100 = 280-60*2.6=280-156=124
+            y at 140 = 280-100*2.6=280-260=20
+            y at 70 = 280-30*2.6=280-78=202
+            y at 49 = 280-9*2.6=280-23.4=257
+
+            X: 16 weeks, width 360px, 22.5px/week
+            x_week = 30 + (week-1)*22.5
+          -->
+
+          <!-- Primary range band (shaded) -->
+          <rect x="30" y="20" width="360" height="182" fill="#4A7FD4" opacity="0.06" rx="0"/>
+          <!-- Contingency range band -->
+          <rect x="30" y="202" width="360" height="55" fill="#3fb950" opacity="0.06" rx="0"/>
+
+          <!-- Band boundary lines -->
+          <!-- Pb (upper 140): y=20 -->
+          <line x1="30" y1="20" x2="390" y2="20" stroke="#4A7FD4" stroke-width="1" stroke-dasharray="4,3" opacity="0.4"/>
+          <!-- Entry (100): y=124 -->
+          <line x1="30" y1="124" x2="390" y2="124" stroke="#4A7FD4" stroke-width="1.5" stroke-dasharray="3,2" opacity="0.5"/>
+          <!-- Pa (lower 70): y=202 — primary lower bound, contingency upper bound -->
+          <line x1="30" y1="202" x2="390" y2="202" stroke="#E8A820" stroke-width="1.5" opacity="0.8"/>
+          <!-- Contingency lower (49): y=257 -->
+          <line x1="30" y1="257" x2="390" y2="257" stroke="#3fb950" stroke-width="1" stroke-dasharray="4,3" opacity="0.5"/>
+
+          <!-- Labels for bands -->
+          <text x="393" y="24" font-family="SF Mono,Fira Code,monospace" font-size="8" fill="#4A7FD4" opacity="0.7">+40%</text>
+          <text x="393" y="128" font-family="SF Mono,Fira Code,monospace" font-size="8" fill="#4A7FD4" opacity="0.7">Entry</text>
+          <text x="393" y="206" font-family="SF Mono,Fira Code,monospace" font-size="8" fill="#E8A820">−30%</text>
+          <text x="393" y="261" font-family="SF Mono,Fira Code,monospace" font-size="8" fill="#3fb950">−51%</text>
+
+          <!-- Band labels in-chart -->
+          <text x="32" y="35" font-family="'SF Pro Text','Helvetica Neue',Arial,sans-serif" font-size="8.5" fill="#4A7FD4" opacity="0.7">PRIMARY RANGE — earning fees</text>
+          <text x="32" y="217" font-family="'SF Pro Text','Helvetica Neue',Arial,sans-serif" font-size="8.5" fill="#3fb950" opacity="0.8">CONTINGENCY RANGE — earns on slow drift</text>
+
+          <!-- Price path: slow drift -->
+          <!-- Points: (week, price) → (x_week, y_price) -->
+          <!-- Wk1:100 x=30    y=124
+               Wk2:105 x=52.5  y=111
+               Wk3:98  x=75    y=128.8
+               Wk4:107 x=97.5  y=107.8
+               Wk5:95  x=120   y=137
+               Wk6:100 x=142.5 y=124
+               Wk7:88  x=165   y=155.2
+               Wk8:78  x=187.5 y=181.2  — nearing lower band
+               Wk9:68  x=210   y=207.2  — below primary, in contingency
+               Wk10:65 x=232.5 y=215
+               Wk11:60 x=255   y=228
+               Wk12:58 x=277.5 y=233.2
+               Wk13:63 x=300   y=220.2
+               Wk14:70 x=322.5 y=202    — at primary lower, mean-reverting
+               Wk15:80 x=345   y=176
+               Wk16:90 x=367.5 y=150 -->
+          <polyline
+            points="30,124 52.5,111 75,128.8 97.5,107.8 120,137 142.5,124 165,155.2 187.5,181.2 210,207.2 232.5,215 255,228 277.5,233.2 300,220.2 322.5,202 345,176 367.5,150"
+            fill="none" stroke="#e6edf3" stroke-width="2" stroke-linejoin="round"/>
+
+          <!-- Phase labels on price path -->
+          <!-- Phase 1: in primary range (weeks 1-6) -->
+          <rect x="31" y="55" width="130" height="18" fill="#1c2b45" rx="3" opacity="0.9"/>
+          <text x="96" y="67" text-anchor="middle" font-family="'SF Pro Text','Helvetica Neue',Arial,sans-serif" font-size="8.5" fill="#4A7FD4">Primary LP earns fees</text>
+
+          <!-- Arrow showing exit below primary band -->
+          <line x1="188" y1="181" x2="210" y2="202" stroke="#E8A820" stroke-width="1.5" marker-end="url(#arrow-y)"/>
+
+          <!-- Phase 2: in contingency range (weeks 9-14) -->
+          <rect x="205" y="238" width="130" height="26" fill="#1c2b1a" rx="3" opacity="0.9" stroke="#3fb950" stroke-width="0.75"/>
+          <text x="270" y="249" text-anchor="middle" font-family="'SF Pro Text','Helvetica Neue',Arial,sans-serif" font-size="8.5" fill="#3fb950">Contingency LP earns fees</text>
+          <text x="270" y="259" text-anchor="middle" font-family="SF Mono,Fira Code,monospace" font-size="7.5" fill="#3fb950" opacity="0.8">FIS still reads RANGING</text>
+
+          <!-- Phase 3: mean reversion back -->
+          <rect x="325" y="140" width="62" height="26" fill="#1c2b45" rx="3" opacity="0.9"/>
+          <text x="356" y="151" text-anchor="middle" font-family="'SF Pro Text','Helvetica Neue',Arial,sans-serif" font-size="8" fill="#4A7FD4">Mean</text>
+          <text x="356" y="161" text-anchor="middle" font-family="'SF Pro Text','Helvetica Neue',Arial,sans-serif" font-size="8" fill="#4A7FD4">reversion</text>
+
+          <defs>
+            <marker id="arrow-y" markerWidth="5" markerHeight="5" refX="2.5" refY="2.5" orient="auto">
+              <path d="M0,0 L5,2.5 L0,5 Z" fill="#E8A820"/>
+            </marker>
+          </defs>
+
+          <!-- FIS reading during contingency phase -->
+          <rect x="200" y="265" width="100" height="14" fill="#0d1117" rx="2"/>
+          <text x="250" y="274" text-anchor="middle" font-family="SF Mono,Fira Code,monospace" font-size="7.5" fill="#4A7FD4">Hurst&lt;0.5 · ADX&lt;20</text>
+
+          <!-- X axis label -->
+          <text x="210" y="295" text-anchor="middle" font-family="'SF Pro Text','Helvetica Neue',Arial,sans-serif" font-size="9" fill="#6e7681">Time (weeks)</text>
+        </svg>
+
+        <!-- Outcome summary -->
+        <div style="background:#1c2b1a;border:1px solid #3fb950;border-radius:5px;padding:12px;margin-top:12px;">
+          <div style="font-family:'SF Pro Text','Helvetica Neue',Arial,sans-serif;font-size:11px;color:#3fb950;font-weight:700;margin-bottom:6px;">Outcome: Contingency range earns</div>
+          <div style="font-family:'SF Pro Text','Helvetica Neue',Arial,sans-serif;font-size:11px;color:#c9d1d9;line-height:1.5;">
+            Price consolidates below primary lower band for several weeks. FIS continues to read RANGING (Hurst &lt;0.5, ADX &lt;20). Contingency LP captures fee income during the consolidation period. Capital in idle primary position is not entirely lost — contingency position is productive.
+          </div>
+          <div style="font-family:'SF Pro Text','Helvetica Neue',Arial,sans-serif;font-size:10px;color:#6e7681;margin-top:6px;">
+            Condition for this outcome: FIS regime signal remains RANGING after price exits primary band.
+          </div>
+        </div>
+      </div>
+
+      <!-- SCENARIO B: CRASH — CONTINGENCY DOES NOT HELP -->
+      <div>
+        <div class="panel-label bad">Scenario B — Sharp Crash · Contingency Range Does Not Help</div>
+        <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;">
+          <!--
+            Price path B: starts at 100, brief ranging then sharp crash
+            Wk1:100 Wk2:103 Wk3:97 Wk4:100 Wk5:95 (in primary range)
+            Wk6:85 Wk7:72 Wk8:65 → exits primary band at 70 (Wk7.5 approx)
+            Wk9:55 Wk10:48 Wk11:42 → blows through contingency band (40-70) in 1-2 days
+            Wk12:38 Wk13:35 Wk14:30 → well below contingency, both positions fully in crypto, IL accumulating
+            Wk15:32 Wk16:35
+
+            Same scale as panel A
+            y at 100 = 124, y at 70 = 202, y at 49 = 257, y at 30 = 280-(30-40)*2.6=280-(-26)...
+            Actually price 40 was bottom of scale. Let me extend to price 25.
+            y at price P = 280 - (P-25)*2.6 = 280 - P*2.6 + 65 = 345 - P*2.6
+            Check: P=100 → 345-260=85... not matching prior calc.
+
+            Let me redefine: chart y from 15 (top) to 285 (bottom), price range 30 to 145
+            115pp over 270px → 2.348px/pp
+            y = 285 - (P-30)*2.348
+            P=100: y=285-70*2.348=285-164.4=120.6
+            P=140: y=285-110*2.348=285-258.3=26.7
+            P=70: y=285-40*2.348=285-93.9=191.1
+            P=49: y=285-19*2.348=285-44.6=240.4
+            P=35: y=285-5*2.348=285-11.7=273.3
+          -->
+
+          <!-- Primary range band -->
+          <rect x="30" y="27" width="360" height="164" fill="#4A7FD4" opacity="0.06" rx="0"/>
+          <!-- Contingency range band -->
+          <rect x="30" y="191" width="360" height="49" fill="#3fb950" opacity="0.04" rx="0"/>
+          <!-- Below contingency = danger zone -->
+          <rect x="30" y="240" width="360" height="45" fill="#da3633" opacity="0.04" rx="0"/>
+
+          <!-- Band lines -->
+          <line x1="30" y1="27" x2="390" y2="27" stroke="#4A7FD4" stroke-width="1" stroke-dasharray="4,3" opacity="0.4"/>
+          <line x1="30" y1="121" x2="390" y2="121" stroke="#4A7FD4" stroke-width="1.5" stroke-dasharray="3,2" opacity="0.5"/>
+          <line x1="30" y1="191" x2="390" y2="191" stroke="#da3633" stroke-width="1.5" opacity="0.8"/>
+          <line x1="30" y1="240" x2="390" y2="240" stroke="#3fb950" stroke-width="1" stroke-dasharray="4,3" opacity="0.5"/>
+
+          <!-- Labels -->
+          <text x="393" y="31" font-family="SF Mono,Fira Code,monospace" font-size="8" fill="#4A7FD4" opacity="0.7">+40%</text>
+          <text x="393" y="125" font-family="SF Mono,Fira Code,monospace" font-size="8" fill="#4A7FD4" opacity="0.7">Entry</text>
+          <text x="393" y="195" font-family="SF Mono,Fira Code,monospace" font-size="8" fill="#da3633">−30%</text>
+          <text x="393" y="244" font-family="SF Mono,Fira Code,monospace" font-size="8" fill="#3fb950">−51%</text>
+
+          <text x="32" y="42" font-family="'SF Pro Text','Helvetica Neue',Arial,sans-serif" font-size="8.5" fill="#4A7FD4" opacity="0.7">PRIMARY RANGE</text>
+          <text x="32" y="206" font-family="'SF Pro Text','Helvetica Neue',Arial,sans-serif" font-size="8.5" fill="#6e7681">CONTINGENCY RANGE</text>
+          <text x="32" y="256" font-family="'SF Pro Text','Helvetica Neue',Arial,sans-serif" font-size="8.5" fill="#da3633">BELOW ALL RANGES — both positions idle + IL</text>
+
+          <!-- Price path: sharp crash -->
+          <!-- Points: (week, price)
+               Wk1:100→y=121  x=30
+               Wk2:103→y=114  x=52.5
+               Wk3:97→y=128   x=75
+               Wk4:100→y=121  x=97.5
+               Wk5:95→y=133   x=120
+               Wk6:85→y=156.5 x=142.5  — dropping fast
+               Wk7:70→y=191   x=165    — exits primary band
+               Wk8:55→y=226.5 x=187.5  — through contingency in 1 week
+               Wk9:42→y=257   x=210    — at bottom of contingency, exits
+               Wk10:35→y=273  x=232.5  — well below, both positions idle
+               Wk11:32→y=280  x=255
+               Wk12:30→y=285  x=277.5
+               Wk13:31→y=283  x=300
+               Wk14:33→y=278  x=322.5
+               Wk15:35→y=273  x=345
+               Wk16:38→y=266  x=367.5 -->
+          <polyline
+            points="30,121 52.5,114 75,128 97.5,121 120,133 142.5,157 165,191 187.5,226 210,257 232.5,273 255,280 277.5,285 300,283 322.5,278 345,273 367.5,266"
+            fill="none" stroke="#da3633" stroke-width="2.5" stroke-linejoin="round"/>
+
+          <!-- Phase annotations -->
+          <rect x="31" y="70" width="120" height="18" fill="#1c2b45" rx="3" opacity="0.9"/>
+          <text x="91" y="82" text-anchor="middle" font-family="'SF Pro Text','Helvetica Neue',Arial,sans-serif" font-size="8.5" fill="#4A7FD4">Primary LP: fees accruing</text>
+
+          <!-- Crash arrow -->
+          <line x1="142" y1="157" x2="165" y2="185" stroke="#da3633" stroke-width="2" stroke-dasharray="3,2"/>
+
+          <!-- Contingency transit marker (very narrow, ~1 week through) -->
+          <rect x="163" y="200" width="50" height="18" fill="#2d1b1b" rx="3" opacity="0.95"/>
+          <text x="188" y="212" text-anchor="middle" font-family="SF Mono,Fira Code,monospace" font-size="7.5" fill="#da3633">~1 week transit</text>
+
+          <!-- Below-range annotation -->
+          <rect x="232" y="265" width="130" height="28" fill="#2d1b1b" rx="3" opacity="0.95" stroke="#da3633" stroke-width="0.75"/>
+          <text x="297" y="277" text-anchor="middle" font-family="'SF Pro Text','Helvetica Neue',Arial,sans-serif" font-size="8.5" fill="#da3633">Both positions below range</text>
+          <text x="297" y="288" text-anchor="middle" font-family="SF Mono,Fira Code,monospace" font-size="7.5" fill="#da3633">IL accumulating on full crypto position</text>
+
+          <!-- FIS fires label -->
+          <rect x="165" y="191" width="80" height="14" fill="#2d1b1b" rx="2"/>
+          <text x="205" y="200" text-anchor="middle" font-family="SF Mono,Fira Code,monospace" font-size="7.5" fill="#da3633">FIS fires: TRENDING</text>
+
+          <!-- X axis label -->
+          <text x="210" y="295" text-anchor="middle" font-family="'SF Pro Text','Helvetica Neue',Arial,sans-serif" font-size="9" fill="#6e7681">Time (weeks)</text>
+        </svg>
+
+        <!-- Outcome summary -->
+        <div style="background:#2d1b1b;border:1px solid #da3633;border-radius:5px;padding:12px;margin-top:12px;">
+          <div style="font-family:'SF Pro Text','Helvetica Neue',Arial,sans-serif;font-size:11px;color:#da3633;font-weight:700;margin-bottom:6px;">Outcome: Contingency range earns almost nothing</div>
+          <div style="font-family:'SF Pro Text','Helvetica Neue',Arial,sans-serif;font-size:11px;color:#c9d1d9;line-height:1.5;">
+            Price crashes straight through the contingency band in approximately 1 week. Fee income from ~1 week at 30% gross APY: ≈0.6% of capital. Meanwhile, IL on primary position (out of range, fully in crypto) is accumulating. FIS fires TRENDING — if contingency was auto-deployed at the lower-band breach, it was a loss-amplifying second position, not a hedge.
+          </div>
+          <div style="font-family:'SF Pro Text','Helvetica Neue',Arial,sans-serif;font-size:10px;color:#6e7681;margin-top:6px;">
+            This is why the contingency range must be FIS-gated independently. The breach of the primary lower band does not itself justify deploying the contingency.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FIS contingency gating rule -->
+    <div class="fis-rule">
+      <div class="rule-title">FIS-gated contingency deployment logic (proposed, architecturally implementable with existing FuzzyBoundaryController)</div>
+      <div style="color:#3fb950;">IF FIS = RANGING <span style="color:#6e7681;">(Hurst &lt;0.5 AND ADX &lt;20):</span> <span style="color:#e6edf3;">deploy contingency range below primary band → await mean-reversion</span></div>
+      <div style="color:#da3633;margin-top:4px;">IF FIS = TRENDING <span style="color:#6e7681;">(Hurst &gt;0.6 OR ADX &gt;25):</span> <span style="color:#e6edf3;">do NOT deploy contingency; exit primary range; hold USDC</span></div>
+      <div style="color:#E8A820;margin-top:4px;">IF FIS = TRANSITIONAL: <span style="color:#e6edf3;">hold; reassess next week; do not deploy contingency</span></div>
+      <div style="margin-top:12px;font-family:'SF Pro Text','Helvetica Neue',Arial,sans-serif;font-size:10.5px;color:#8b949e;line-height:1.5;">
+        <strong style="color:#c9d1d9;">Critical clarification:</strong> The contingency range is NOT a hedge. If price falls below the primary band AND below the contingency band, both positions accumulate IL simultaneously — the maximum drawdown is additive, not reduced. The contingency position is a second bet in the same directional regime. It earns only when price consolidates below the primary band in a ranging market; it does not protect against a continuing downtrend.
+      </div>
+    </div>
+
+  </div>
+
+  <div class="disclaimer">
+    <strong>Mechanism disclosure:</strong> Contingency range diagram is illustrative — price paths are representative of the two described scenarios (slow drift vs. sharp crash), not derived from specific simulation outputs. Fee income estimate during 1-week contingency transit: 30% gross APY × 1/52 weeks = ~0.58% of LP capital deployed in contingency position. Contingency range FIS-gating logic is architecturally proposed in RES-LPIS-OPTIMIZE-01, Section 2d, as a parameter extension of the existing FuzzyBoundaryController — it requires one new output variable (contingency-range-deploy signal, 0–1) and is not currently implemented in production. The statement that FIS correctly identifies ranging vs. trending conditions approximately 73–85% of the time is based on Type I/II error rate parameters used in the simulation (15% Type I, 12% Type II). The contingency range concept should not be presented as a "hedge" or "downside protection" — it is a conditional income capture on a slow-drift consolidation below the primary range.
+  </div>
+</div>
+
+<!-- ── YODACOM RESEARCH WATERMARK ── -->
+<div style="position:fixed;bottom:20px;right:20px;width:90px;opacity:0.55;pointer-events:none;z-index:9999;" title="Yodacom Research">
+  <svg xmlns="http://www.w3.org/2000/svg" width="91" height="105" viewBox="0 0 91 105">
+    <path d="M0 0 C16.5 0 33 0 50 0 C44 8 44 8 42 10 C42.286 13.917 44.683 16.668 46.938 19.75 C47.648 20.735 48.358 21.72 49.09 22.734 C49.72 23.482 50.351 24.23 51 25 C51.66 25 52.32 25 53 25 C54.627 22.862 56.14 20.732 57.625 18.5 C58.045 17.88 58.465 17.26 58.898 16.621 C59.938 15.085 60.97 13.543 62 12 C60.595 8.785 58.913 6.72 56.375 4.312 C55.234 3.225 54.104 2.125 53 1 C53 0.67 53 0.34 53 0 C65.54 0 78.08 0 91 0 C87.633 4.209 85.161 6.834 81 10 C80 10.5 78.5 11.5 77 12 C76.865 12.369 76.865 12.369 76.181 14.237 C75.049 16.886 73.805 18.905 72.102 21.215 C71.54 21.984 70.978 22.753 70.398 23.545 C69.813 24.334 69.228 25.124 68.625 25.938 C58.122 40.227 58.122 40.227 57.438 44.562 C58.171 49.043 59.565 50.066 63 53 C64.404 54.409 65.799 55.826 67.188 57.25 C70.752 60.876 70.752 60.876 73 62 C73 62.66 73 63.32 73 64 C55.51 64 38.02 64 20 64 C20 63.34 20 62.68 20 62 C21.539 60.484 21.539 60.484 23.625 58.75 C24.349 58.125 25.074 57.5 25.82 56.855 C27.157 55.718 28.503 54.593 29.867 53.488 C32.795 50.931 33.959 49.169 34.875 45.375 C34.377 39.625 30.61 35.308 27.292 30.806 C25.895 28.853 24.591 26.854 23.289 24.836 C17.401 15.863 11.406 9.136 2.641 2.906 C1.769 2.277 0.898 1.648 0 1 C0 0.67 0 0.34 0 0 Z" fill="#E8EEF4" transform="translate(0,41)"/>
+    <circle cx="46" cy="7"  r="7"   fill="#EE1111"/>
+    <circle cx="32" cy="21" r="6.5" fill="#EE1111"/>
+    <circle cx="60" cy="21" r="6.5" fill="#EE1111"/>
+  </svg>
+</div>
+
+</body>
+</html>

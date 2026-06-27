@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Figure 3 — Fee Income vs. Impermanent Loss Decomposition</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #0d1117;
+    font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+    color: #c9d1d9;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    padding: 40px 20px;
+  }
+  .figure-wrap { width: 920px; max-width: 100%; }
+  .fig-header { margin-bottom: 28px; }
+  .fig-label { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: #6e7681; margin-bottom: 6px; }
+  .fig-title {
+    font-family: 'SF Pro Display','Helvetica Neue',Arial,sans-serif;
+    font-size: 18px; font-weight: 600; color: #e6edf3; line-height: 1.3; margin-bottom: 6px;
+  }
+  .fig-subtitle {
+    font-family: 'SF Pro Text','Helvetica Neue',Arial,sans-serif;
+    font-size: 12.5px; color: #8b949e; line-height: 1.5;
+  }
+  .chart-area {
+    background: #161b22; border: 1px solid #21262d; border-radius: 8px;
+    padding: 32px 40px 28px; margin-bottom: 16px;
+  }
+  .section-label {
+    font-family: 'SF Pro Text','Helvetica Neue',Arial,sans-serif;
+    font-size: 11px; color: #6e7681; text-transform: uppercase;
+    letter-spacing: 0.1em; margin-bottom: 20px;
+  }
+  .decomp-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    margin-bottom: 32px;
+  }
+  .tier-panel {
+    background: #0d1117; border: 1px solid #21262d; border-radius: 6px;
+    padding: 20px;
+  }
+  .tier-panel.highlight { border-color: #4A7FD4; }
+  .tier-label {
+    font-family: 'SF Pro Display','Helvetica Neue',Arial,sans-serif;
+    font-size: 13px; font-weight: 700; color: #e6edf3; margin-bottom: 4px;
+  }
+  .tier-coins {
+    font-family: 'SF Pro Text','Helvetica Neue',Arial,sans-serif;
+    font-size: 10.5px; color: #6e7681; margin-bottom: 16px;
+  }
+  .disclaimer {
+    font-family: 'SF Pro Text','Helvetica Neue',Arial,sans-serif;
+    font-size: 10.5px; color: #6e7681; line-height: 1.6;
+    border-top: 1px solid #21262d; padding-top: 12px; margin-top: 4px;
+  }
+  .disclaimer strong { color: #8b949e; }
+</style>
+</head>
+<body>
+<div class="figure-wrap">
+  <div class="fig-header">
+    <div class="fig-label">Figure 3 — Yodacom Research · LPIS Series · 2026-06-15</div>
+    <div class="fig-title">The Income-vs-IL Tension: What You Earn and What You Lose</div>
+    <div class="fig-subtitle">Annual LP capital decomposition · Gross fee income vs. IL drag vs. gas drag vs. net return · B-tier sweet spot (left) vs. A-tier majors (right) · FIS-gated, Arbitrum</div>
+  </div>
+
+  <div class="chart-area">
+    <div class="section-label">Annual return components as % of LP capital deployed (FIS-gated ranging periods)</div>
+
+    <svg viewBox="0 0 840 400" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;margin-bottom:28px;">
+      <!--
+        Two waterfall charts side-by-side.
+        Chart area: y from 30 to 360 = 330px height.
+        Scale: -20% to +40%, total 60pp. px_per_pp = 330/60 = 5.5
+        Zero line: y = 30 + 40*5.5 = 30 + 220 = 250
+
+        B-TIER: Arbitrum, FIS-gated
+          Gross fees: +28 to +35% (use midpoint +31.5%, annotate as range)
+          IL drag: -12 to -18% (midpoint -15%)
+          Gas drag: -0.3%
+          Net on LP capital: ~10-17% (midpoint ~16.2% = 31.5-15-0.3)
+
+        A-TIER: Arbitrum, FIS-gated
+          Gross fees: +20.2%
+          IL drag: -12.4%
+          Gas drag: -0.5%
+          Net on LP capital: +7.3%
+
+        LEFT panel X range: 60-390
+        RIGHT panel X range: 450-780
+
+        Waterfall bar positions left panel:
+          Gross fees: x=90, w=80
+          IL drag: x=220, w=80
+          Gas: x=350, w=80 (too wide, adjust)
+
+        Let me use simpler approach: 3 bars per panel at fixed x positions
+        Bar widths: 90px, gap 30px
+        Left panel starts x=70
+          Bar1: x=70 (gross fees, positive)
+          Bar2: x=200 (IL drag, negative)
+          Bar3: x=310 (gas, negative)
+          Net line at x=60-400
+
+        Right panel starts x=450
+          Bar1: x=450
+          Bar2: x=580
+          Bar3: x=690
+
+        Zero y = 250
+        Scale: 5.5px/pp
+
+        B-tier gross +31.5%: bar top y=250-31.5*5.5=250-173=77, height=173
+        B-tier IL -15%: bar top y=250, height=15*5.5=82.5, goes down to y=332.5
+        B-tier gas -0.3%: goes down 1.65px — too small to see visually. Show as 2px min + label
+        B-tier net +16.2%: dashed line at y=250-16.2*5.5=250-89.1=161
+
+        A-tier gross +20.2%: height=20.2*5.5=111, top y=250-111=139
+        A-tier IL -12.4%: height=68.2, top y=250, bottom y=318.2
+        A-tier gas -0.5%: height=2.75, effectively 3px
+        A-tier net +7.3%: y=250-7.3*5.5=250-40.2=209.8
+      -->
+
+      <!-- Y axis labels (left) -->
+      <text x="52" y="34" text-anchor="end" font-family="SF Mono,Fira Code,monospace" font-size="10" fill="#6e7681">+40%</text>
+      <text x="52" y="89" text-anchor="end" font-family="SF Mono,Fira Code,monospace" font-size="10" fill="#6e7681">+30%</text>
+      <text x="52" y="144" text-anchor="end" font-family="SF Mono,Fira Code,monospace" font-size="10" fill="#6e7681">+20%</text>
+      <text x="52" y="199" text-anchor="end" font-family="SF Mono,Fira Code,monospace" font-size="10" fill="#6e7681">+10%</text>
+      <text x="52" y="254" text-anchor="end" font-family="SF Mono,Fira Code,monospace" font-size="11" font-weight="600" fill="#8b949e">0%</text>
+      <text x="52" y="309" text-anchor="end" font-family="SF Mono,Fira Code,monospace" font-size="10" fill="#6e7681">−10%</text>
+      <text x="52" y="364" text-anchor="end" font-family="SF Mono,Fira Code,monospace" font-size="10" fill="#6e7681">−20%</text>
+
+      <!-- Grid lines -->
+      <line x1="58" y1="30" x2="840" y2="30" stroke="#21262d" stroke-width="0.75"/>
+      <line x1="58" y1="85" x2="840" y2="85" stroke="#21262d" stroke-width="0.75"/>
+      <line x1="58" y1="140" x2="840" y2="140" stroke="#21262d" stroke-width="0.75"/>
+      <line x1="58" y1="195" x2="840" y2="195" stroke="#21262d" stroke-width="0.75"/>
+      <line x1="58" y1="250" x2="840" y2="250" stroke="#3d444d" stroke-width="1.5"/>
+      <line x1="58" y1="305" x2="840" y2="305" stroke="#21262d" stroke-width="0.75"/>
+      <line x1="58" y1="360" x2="840" y2="360" stroke="#21262d" stroke-width="0.75"/>
+
+      <!-- Panel separator -->
+      <line x1="420" y1="20" x2="420" y2="385" stroke="#21262d" stroke-width="1" stroke-dasharray="4,4"/>
+
+      <!-- ===================== B-TIER LEFT PANEL ===================== -->
+
+      <!-- Panel label -->
+      <text x="240" y="18" text-anchor="middle" font-family="'SF Pro Display','Helvetica Neue',Arial,sans-serif" font-size="12" font-weight="700" fill="#4A7FD4">B-TIER — LP SWEET SPOT</text>
+      <text x="240" y="30" text-anchor="middle" font-family="'SF Pro Text','Helvetica Neue',Arial,sans-serif" font-size="9.5" fill="#6e7681">(simulation; proxy range not point estimate)</text>
+
+      <!-- Gross fee bar (+28–35%, show as range bar centered at ~31.5%) -->
+      <rect x="85" y="77" width="90" height="173" fill="#3fb950" opacity="0.85" rx="3"/>
+      <!-- Range cap lines at 28% and 35% -->
+      <line x1="85" y1="96" x2="175" y2="96" stroke="#3fb950" stroke-width="1.5" stroke-dasharray="3,2" opacity="0.6"/>
+      <line x1="85" y1="57" x2="175" y2="57" stroke="#3fb950" stroke-width="1.5" stroke-dasharray="3,2" opacity="0.6"/>
+
+      <text x="130" y="70" text-anchor="middle" font-family="SF Mono,Fira Code,monospace" font-size="11" font-weight="700" fill="#3fb950">+28–35%</text>
+      <text x="130" y="82" text-anchor="middle" font-family="SF Mono,Fira Code,monospace" font-size="9" fill="#3fb950" opacity="0.7">[simulation range]</text>
+      <text x="130" y="387" text-anchor="middle" font-family="'SF Pro Text','Helvetica Neue',Arial,sans-serif" font-size="10" fill="#3fb950">Gross Fees</text>
+
+      <!-- IL drag bar (−12 to −18%, show range centered at −15%) -->
+      <rect x="220" y="250" width="90" height="82" fill="#da3633" opacity="0.75" rx="3"/>
+      <!-- Range lines at -12% and -18% -->
+      <line x1="220" y1="316" x2="310" y2="316" stroke="#da3633" stroke-width="1.5" stroke-dasharray="3,2" opacity="0.5"/>
+      <line x1="220" y1="349" x2="310" y2="349" stroke="#da3633" stroke-width="1.5" stroke-dasharray="3,2" opacity="0.5"/>
+
+      <text x="265" y="344" text-anchor="middle" font-family="SF Mono,Fira Code,monospace" font-size="11" font-weight="700" fill="#da3633">−12–18%</text>
+      <text x="265" y="356" text-anchor="middle" font-family="SF Mono,Fira Code,monospace" font-size="9" fill="#da3633" opacity="0.7">[simulation range]</text>
+      <text x="265" y="387" text-anchor="middle" font-family="'SF Pro Text','Helvetica Neue',Arial,sans-serif" font-size="10" fill="#da3633">IL Drag</text>
+
+      <!-- Gas drag (−0.3%, visually thin bar + label) -->
+      <rect x="340" y="250" width="60" height="3" fill="#E8A820" opacity="0.8" rx="1"/>
+      <text x="370" y="268" text-anchor="middle" font-family="SF Mono,Fira Code,monospace" font-size="10" fill="#E8A820">−0.3%</text>
+      <text x="370" y="387" text-anchor="middle" font-family="'SF Pro Text','Helvetica Neue',Arial,sans-serif" font-size="10" fill="#E8A820">Gas</text>
+
+      <!-- Net return band (~+10–17% on LP capital) -->
+      <!-- Net range: fees_low - IL_high - gas = 28-18-0.3=9.7; fees_high - IL_low - gas = 35-12-0.3=22.7 -->
+      <!-- Using stated ~10-17% on LP capital from Han's text -->
+      <rect x="70" y="157" width="350" height="93" fill="#4A7FD4" opacity="0.08" rx="0"/>
+      <line x1="70" y1="157" x2="420" y2="157" stroke="#4A7FD4" stroke-width="1.5" stroke-dasharray="5,3" opacity="0.5"/>
+      <line x1="70" y1="250" x2="420" y2="250" stroke="#4A7FD4" stroke-width="1" stroke-dasharray="5,3" opacity="0.3"/>
+      <line x1="70" y1="195" x2="420" y2="195" stroke="#4A7FD4" stroke-width="2" stroke-dasharray="6,3" opacity="0.8"/>
+
+      <!-- Net label -->
+      <text x="70" y="152" font-family="SF Mono,Fira Code,monospace" font-size="10" fill="#4A7FD4" opacity="0.8">Net range upper ~+17%</text>
+      <text x="70" y="192" font-family="SF Mono,Fira Code,monospace" font-size="11" font-weight="700" fill="#4A7FD4">Net midpoint ~+13%</text>
+      <text x="70" y="261" font-family="SF Mono,Fira Code,monospace" font-size="10" fill="#4A7FD4" opacity="0.6">Net range lower ~+10%</text>
+
+      <!-- Fees/IL ratio annotation -->
+      <rect x="73" y="295" width="154" height="30" fill="#1c2b45" rx="4" opacity="0.95"/>
+      <text x="150" y="308" text-anchor="middle" font-family="'SF Pro Text','Helvetica Neue',Arial,sans-serif" font-size="10" fill="#4A7FD4" font-weight="600">Income-to-IL Ratio</text>
+      <text x="150" y="320" text-anchor="middle" font-family="SF Mono,Fira Code,monospace" font-size="11" fill="#e6edf3" font-weight="700">1.6x – 2.4x</text>
+
+
+      <!-- ===================== A-TIER RIGHT PANEL ===================== -->
+
+      <!-- Panel label -->
+      <text x="630" y="18" text-anchor="middle" font-family="'SF Pro Display','Helvetica Neue',Arial,sans-serif" font-size="12" font-weight="700" fill="#8b949e">A-TIER — MAJORS (ETH, BTC, SOL)</text>
+      <text x="630" y="30" text-anchor="middle" font-family="'SF Pro Text','Helvetica Neue',Arial,sans-serif" font-size="9.5" fill="#6e7681">(measured from simulation)</text>
+
+      <!-- Gross fee bar A-tier: +20.2%, height=111 -->
+      <rect x="465" y="139" width="90" height="111" fill="#3fb950" opacity="0.5" rx="3"/>
+      <text x="510" y="132" text-anchor="middle" font-family="SF Mono,Fira Code,monospace" font-size="11" font-weight="700" fill="#3fb950">+20.2%</text>
+      <text x="510" y="387" text-anchor="middle" font-family="'SF Pro Text','Helvetica Neue',Arial,sans-serif" font-size="10" fill="#3fb950">Gross Fees</text>
+
+      <!-- IL drag A-tier: −12.4%, height=68 -->
+      <rect x="600" y="250" width="90" height="68" fill="#da3633" opacity="0.55" rx="3"/>
+      <text x="645" y="330" text-anchor="middle" font-family="SF Mono,Fira Code,monospace" font-size="11" font-weight="700" fill="#da3633">−12.4%</text>
+      <text x="645" y="387" text-anchor="middle" font-family="'SF Pro Text','Helvetica Neue',Arial,sans-serif" font-size="10" fill="#da3633">IL Drag</text>
+
+      <!-- Gas drag A-tier: −0.5%, height=2.75 -->
+      <rect x="715" y="250" width="60" height="3" fill="#E8A820" opacity="0.7" rx="1"/>
+      <text x="745" y="268" text-anchor="middle" font-family="SF Mono,Fira Code,monospace" font-size="10" fill="#E8A820">−0.5%</text>
+      <text x="745" y="387" text-anchor="middle" font-family="'SF Pro Text','Helvetica Neue',Arial,sans-serif" font-size="10" fill="#E8A820">Gas</text>
+
+      <!-- Net A-tier: +7.3% on LP capital, line at y=250-40.2=209.8 -->
+      <line x1="450" y1="210" x2="840" y2="210" stroke="#8b949e" stroke-width="2" stroke-dasharray="6,3" opacity="0.7"/>
+      <text x="450" y="205" font-family="SF Mono,Fira Code,monospace" font-size="11" font-weight="700" fill="#8b949e">Net +7.3% on LP capital</text>
+      <text x="450" y="217" font-family="SF Mono,Fira Code,monospace" font-size="9.5" fill="#6e7681">= +4.9% on total capital (3-3-3)</text>
+
+      <!-- Fees/IL ratio annotation A -->
+      <rect x="452" y="295" width="136" height="30" fill="#21262d" rx="4"/>
+      <text x="520" y="308" text-anchor="middle" font-family="'SF Pro Text','Helvetica Neue',Arial,sans-serif" font-size="10" fill="#8b949e" font-weight="600">Income-to-IL Ratio</text>
+      <text x="520" y="320" text-anchor="middle" font-family="SF Mono,Fira Code,monospace" font-size="11" fill="#8b949e" font-weight="700">1.63x</text>
+
+      <!-- HODL benchmark line A-tier: +10.9% on total capital (but this chart is vs LP capital so adjust) -->
+      <!-- Note: showing HODL for reference, re-expressed as % per context -->
+      <text x="840" y="200" text-anchor="end" font-family="SF Mono,Fira Code,monospace" font-size="9" fill="#f0883e">HODL +10.9% (total cap)</text>
+      <line x1="450" y1="190" x2="840" y2="190" stroke="#f0883e" stroke-width="1" stroke-dasharray="3,3" opacity="0.4"/>
+
+    </svg>
+
+    <!-- Callout boxes below -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:4px;">
+      <div style="background:#0d1117;border:1px solid #4A7FD4;border-radius:6px;padding:16px;">
+        <div style="font-family:'SF Pro Text','Helvetica Neue',Arial,sans-serif;font-size:11px;color:#4A7FD4;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:8px;">B-tier key takeaway</div>
+        <div style="font-family:'SF Pro Text','Helvetica Neue',Arial,sans-serif;font-size:12px;color:#c9d1d9;line-height:1.5;">
+          In ranging regimes (FIS-gated deployment): for every dollar of IL you absorb, fee income returns 1.6–2.4 dollars. Net income is real but not a windfall — fees and IL are in <em>partial tension</em>, not canceling out.
+        </div>
+      </div>
+      <div style="background:#0d1117;border:1px solid #21262d;border-radius:6px;padding:16px;">
+        <div style="font-family:'SF Pro Text','Helvetica Neue',Arial,sans-serif;font-size:11px;color:#8b949e;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:8px;">A-tier key takeaway</div>
+        <div style="font-family:'SF Pro Text','Helvetica Neue',Arial,sans-serif;font-size:12px;color:#c9d1d9;line-height:1.5;">
+          A-tier (ETH, BTC, SOL) sit in the 0.05% fee tier — 6x lower gross fee income than B-tier. The IL drag is similar, so net on LP capital is only +7.3%. The 50/50 HODL alternative returns +10.9% with no management burden.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="disclaimer">
+    <strong>Simulation disclosure:</strong> B-tier values are stated as simulation ranges, not point estimates (gross fee +28–35%; IL −12–18%; net ~+10–17% on LP capital). A-tier values are simulation point estimates with 95% CI per RES-LPIS-EMPIRICAL-01 Table 3.2 (+7.3% net on LP capital). Capital model: 3-3-3 (2/3 LP deployed, 1/3 USDC). FIS-gated — deployed only in ranging regimes. Income-to-IL ratio measured during ranging deployment weeks only; overall annualized net accounts for weeks sat out. Tick-level historical data validation required before any investor-facing net APY point estimate (Priority 1, RES-LPIS-EMPIRICAL-01). Not a projection of future returns.
+  </div>
+</div>
+
+<!-- ── YODACOM RESEARCH WATERMARK ── -->
+<div style="position:fixed;bottom:20px;right:20px;width:90px;opacity:0.55;pointer-events:none;z-index:9999;" title="Yodacom Research">
+  <svg xmlns="http://www.w3.org/2000/svg" width="91" height="105" viewBox="0 0 91 105">
+    <path d="M0 0 C16.5 0 33 0 50 0 C44 8 44 8 42 10 C42.286 13.917 44.683 16.668 46.938 19.75 C47.648 20.735 48.358 21.72 49.09 22.734 C49.72 23.482 50.351 24.23 51 25 C51.66 25 52.32 25 53 25 C54.627 22.862 56.14 20.732 57.625 18.5 C58.045 17.88 58.465 17.26 58.898 16.621 C59.938 15.085 60.97 13.543 62 12 C60.595 8.785 58.913 6.72 56.375 4.312 C55.234 3.225 54.104 2.125 53 1 C53 0.67 53 0.34 53 0 C65.54 0 78.08 0 91 0 C87.633 4.209 85.161 6.834 81 10 C80 10.5 78.5 11.5 77 12 C76.865 12.369 76.865 12.369 76.181 14.237 C75.049 16.886 73.805 18.905 72.102 21.215 C71.54 21.984 70.978 22.753 70.398 23.545 C69.813 24.334 69.228 25.124 68.625 25.938 C58.122 40.227 58.122 40.227 57.438 44.562 C58.171 49.043 59.565 50.066 63 53 C64.404 54.409 65.799 55.826 67.188 57.25 C70.752 60.876 70.752 60.876 73 62 C73 62.66 73 63.32 73 64 C55.51 64 38.02 64 20 64 C20 63.34 20 62.68 20 62 C21.539 60.484 21.539 60.484 23.625 58.75 C24.349 58.125 25.074 57.5 25.82 56.855 C27.157 55.718 28.503 54.593 29.867 53.488 C32.795 50.931 33.959 49.169 34.875 45.375 C34.377 39.625 30.61 35.308 27.292 30.806 C25.895 28.853 24.591 26.854 23.289 24.836 C17.401 15.863 11.406 9.136 2.641 2.906 C1.769 2.277 0.898 1.648 0 1 C0 0.67 0 0.34 0 0 Z" fill="#E8EEF4" transform="translate(0,41)"/>
+    <circle cx="46" cy="7"  r="7"   fill="#EE1111"/>
+    <circle cx="32" cy="21" r="6.5" fill="#EE1111"/>
+    <circle cx="60" cy="21" r="6.5" fill="#EE1111"/>
+  </svg>
+</div>
+
+</body>
+</html>

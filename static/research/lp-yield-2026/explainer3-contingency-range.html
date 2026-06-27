@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Contingency Range — Concept Explainer</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: #FAFAF7;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    color: #1C1C1A;
+    padding: 52px 24px 80px;
+    min-height: 100vh;
+  }
+
+  .wrap {
+    width: 900px;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
+  /* ── HEADER ── */
+  .eyebrow {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #9B8E7A;
+    margin-bottom: 10px;
+  }
+  .page-title {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 34px;
+    font-weight: 700;
+    color: #1C1C1A;
+    line-height: 1.2;
+    margin-bottom: 10px;
+  }
+  .page-subtitle {
+    font-size: 15px;
+    color: #6B6659;
+    line-height: 1.6;
+    margin-bottom: 28px;
+    max-width: 620px;
+  }
+  .analogy-pill {
+    display: inline-block;
+    background: #F5F0E8;
+    border: 1px solid #E5E0D8;
+    border-radius: 22px;
+    padding: 9px 22px;
+    font-size: 13px;
+    font-style: italic;
+    color: #4A4640;
+    margin-bottom: 36px;
+  }
+
+  /* ── SECTION BANDS ── */
+  .band {
+    margin-bottom: 36px;
+  }
+  .band-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #E5E0D8;
+  }
+  .band-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    font-size: 13px;
+    font-weight: 700;
+    color: #fff;
+    flex-shrink: 0;
+  }
+  .num-amber  { background: #F5A623; }
+  .num-blue   { background: #4A7FD4; }
+  .num-green  { background: #3DAA6A; }
+  .num-slate  { background: #6B7A8D; }
+  .band-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: #1C1C1A;
+    line-height: 1.2;
+  }
+  .band-sub {
+    font-size: 11px;
+    color: #9B8E7A;
+    margin-top: 2px;
+  }
+
+  /* ── CALLOUT / DASHED NOTE ── */
+  .callout {
+    display: inline-block;
+    margin-top: 14px;
+    background: #F5F0E8;
+    border: 1px dashed #C8B99A;
+    border-radius: 8px;
+    padding: 8px 16px;
+    font-size: 11px;
+    font-style: italic;
+    color: #6B6659;
+  }
+
+  /* ── INSIGHT / HONESTY BOX ── */
+  .insight-box {
+    background: #F5F0E8;
+    border: 1.5px solid #C8B99A;
+    border-radius: 12px;
+    padding: 16px 20px;
+    margin-bottom: 16px;
+  }
+  .insight-box.amber-tint {
+    background: #FEF8EE;
+    border-color: #E8A820;
+  }
+  .insight-head {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #9B8E7A;
+    margin-bottom: 8px;
+  }
+  .insight-head.amber { color: #8A5A00; }
+  .insight-body {
+    font-size: 12.5px;
+    color: #4A4640;
+    line-height: 1.65;
+  }
+  .insight-body strong { color: #1C1C1A; }
+
+  /* ── DIAGRAM ROW ── */
+  .diagram-row {
+    display: flex;
+    gap: 32px;
+    align-items: flex-start;
+  }
+  .diagram-col-main { flex: 1.5; min-width: 0; }
+  .diagram-col-side { flex: 1; min-width: 0; }
+
+  /* ── STATE CARDS ── */
+  .state-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 16px;
+  }
+  .state-card {
+    border-radius: 10px;
+    padding: 13px 16px;
+    border: 1.5px solid #E5E0D8;
+    background: #F5F0E8;
+  }
+  .state-card.blue-tint  { background: #EBF1FB; border-color: #4A7FD4; }
+  .state-card.amber-tint { background: #FEF8EE; border-color: #E8A820; }
+  .state-card.muted      { background: #F5F0E8; border-color: #D8D0C4; opacity: 0.75; }
+  .state-label {
+    font-size: 9.5px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+  }
+  .state-label.blue  { color: #2A4F8A; }
+  .state-label.amber { color: #8A5A00; }
+  .state-label.gray  { color: #6B6659; }
+  .state-body {
+    font-size: 11.5px;
+    color: #4A4640;
+    line-height: 1.55;
+  }
+  .state-body strong { color: #1C1C1A; }
+  .g { color: #2A7A4A; font-weight: 600; }
+  .r { color: #A03020; font-weight: 600; }
+
+  /* ── ALLOCATION ROW ── */
+  .alloc-row {
+    display: flex;
+    gap: 12px;
+  }
+  .alloc-card {
+    border-radius: 10px;
+    padding: 14px 16px;
+  }
+  .alloc-card-primary {
+    flex: 3;
+    background: #EBF1FB;
+    border: 1.5px solid #4A7FD4;
+  }
+  .alloc-card-contingency {
+    flex: 1;
+    background: #FEF8EE;
+    border: 1.5px solid #E8A820;
+  }
+  .alloc-head {
+    font-size: 9.5px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .alloc-head-blue  { color: #2A4F8A; }
+  .alloc-head-amber { color: #8A5A00; }
+  .alloc-body {
+    font-size: 11px;
+    color: #4A4640;
+    line-height: 1.55;
+  }
+
+  /* ── DISCLAIMER ── */
+  .disclaimer {
+    font-size: 10.5px;
+    color: #9B8E7A;
+    line-height: 1.6;
+    border-top: 1px solid #E5E0D8;
+    padding-top: 14px;
+    margin-top: 8px;
+  }
+
+  /* ── sketch animation ── */
+  @media (prefers-reduced-motion: no-preference) {
+    .march-dash {
+      stroke-dasharray: 6 5;
+      animation: march 1.8s linear infinite;
+    }
+    @keyframes march {
+      to { stroke-dashoffset: -22; }
+    }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- ── PAGE HEADER ── -->
+  <div style="margin-bottom: 32px;">
+    <div class="eyebrow">Concept Explainer — Yodacom Research · LPIS Series · 2026-06-15</div>
+    <h1 class="page-title">The Contingency Range</h1>
+    <p class="page-subtitle">A pre-set secondary LP band outside the primary range — designed to earn on slow drift, not to protect against crashes. Proposed mechanism; not currently implemented in production.</p>
+    <span class="analogy-pill">Think of the contingency range as a backup lane: it catches gradual drift, but a sharp crash blows straight through it.</span>
+  </div>
+
+  <!-- ════════════════════════════════════════════ -->
+  <!-- BAND 1: Before vs. After diagram -->
+  <!-- ════════════════════════════════════════════ -->
+  <div class="band">
+    <div class="band-header">
+      <span class="band-num num-blue">1</span>
+      <div>
+        <div class="band-title">What the contingency range adds to the position</div>
+        <div class="band-sub">Before (primary range only) vs. After (primary + contingency bands)</div>
+      </div>
+    </div>
+
+    <div class="diagram-row">
+
+      <!-- LEFT: SVG diagram -->
+      <div class="diagram-col-main">
+        <svg viewBox="0 0 540 460" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;">
+          <defs>
+            <!-- Sketch filter for borders -->
+            <filter id="sk-band" x="-5%" y="-5%" width="110%" height="110%">
+              <feTurbulence type="fractalNoise" baseFrequency="0.038" numOctaves="4" seed="17" result="noise"/>
+              <feDisplacementMap in="SourceGraphic" in2="noise" scale="2.2" xChannelSelector="R" yChannelSelector="G"/>
+            </filter>
+            <!-- Sketch filter for axis line -->
+            <filter id="sk-axis" x="-2%" y="-2%" width="104%" height="104%">
+              <feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="3" seed="5" result="noise"/>
+              <feDisplacementMap in="SourceGraphic" in2="noise" scale="1.2" xChannelSelector="R" yChannelSelector="G"/>
+            </filter>
+            <!-- Arrow marker — warm dark -->
+            <marker id="arr-main" markerWidth="7" markerHeight="7" refX="5.5" refY="3" orient="auto">
+              <path d="M0,0 L0,6 L7,3 z" fill="#6B6659"/>
+            </marker>
+          </defs>
+
+          <!-- ── Price Y-axis ── -->
+          <line x1="88" y1="20" x2="88" y2="430" stroke="#C8B99A" stroke-width="1.5" filter="url(#sk-axis)"/>
+          <text x="56" y="24" text-anchor="middle" font-family="-apple-system,sans-serif" font-size="9" fill="#9B8E7A">Price</text>
+
+          <!-- Price level labels -->
+          <text x="83" y="32"  text-anchor="end" font-family="-apple-system,sans-serif" font-size="8.5" fill="#C87D00">$160</text>
+          <text x="83" y="96"  text-anchor="end" font-family="-apple-system,sans-serif" font-size="8.5" fill="#6B6659">$150</text>
+          <text x="83" y="220" text-anchor="end" font-family="-apple-system,sans-serif" font-size="8.5" fill="#1C1C1A" font-weight="700">$130</text>
+          <text x="83" y="344" text-anchor="end" font-family="-apple-system,sans-serif" font-size="8.5" fill="#6B6659">$110</text>
+          <text x="83" y="404" text-anchor="end" font-family="-apple-system,sans-serif" font-size="8.5" fill="#C87D00">$100</text>
+
+          <!-- Horizontal reference lines (warm tones) -->
+          <line x1="88" y1="28"  x2="450" y2="28"  stroke="#E8A82033" stroke-width="1" stroke-dasharray="3,3"/>
+          <line x1="88" y1="92"  x2="450" y2="92"  stroke="#D8D0C4"   stroke-width="1" stroke-dasharray="3,3"/>
+          <line x1="88" y1="216" x2="450" y2="216" stroke="#C8B99A"   stroke-width="1.5"/>
+          <line x1="88" y1="340" x2="450" y2="340" stroke="#D8D0C4"   stroke-width="1" stroke-dasharray="3,3"/>
+          <line x1="88" y1="400" x2="450" y2="400" stroke="#E8A82033" stroke-width="1" stroke-dasharray="3,3"/>
+
+          <!-- ── BEFORE column ── -->
+          <text x="185" y="12" text-anchor="middle" font-family="-apple-system,sans-serif" font-size="10" fill="#6B6659" font-weight="700">BEFORE</text>
+          <text x="185" y="22" text-anchor="middle" font-family="-apple-system,sans-serif" font-size="9"  fill="#9B8E7A" font-style="italic">primary range only</text>
+
+          <!-- Primary band fill + sketch border — BEFORE -->
+          <rect x="125" y="92" width="120" height="248" rx="6" fill="#4A7FD4" opacity="0.10"/>
+          <rect x="125" y="92" width="120" height="248" rx="6" fill="none" stroke="#4A7FD4" stroke-width="2" filter="url(#sk-band)"/>
+
+          <!-- Primary band label — BEFORE -->
+          <text x="185" y="192" text-anchor="middle" font-family="Georgia,serif" font-size="11" font-weight="700" fill="#2A4F8A">PRIMARY</text>
+          <text x="185" y="207" text-anchor="middle" font-family="Georgia,serif" font-size="11" font-weight="700" fill="#2A4F8A">RANGE</text>
+          <text x="185" y="222" text-anchor="middle" font-family="-apple-system,sans-serif" font-size="8.5" fill="#6B6659">$110 – $150</text>
+          <text x="185" y="236" text-anchor="middle" font-family="-apple-system,sans-serif" font-size="8.5" fill="#2A4F8A">FIS-gated LP active</text>
+
+          <!-- Out-of-range labels — BEFORE -->
+          <text x="185" y="60" text-anchor="middle" font-family="-apple-system,sans-serif" font-size="8.5" fill="#9B8E7A" font-style="italic">out-of-range →</text>
+          <text x="185" y="73" text-anchor="middle" font-family="-apple-system,sans-serif" font-size="8.5" fill="#A03020" font-weight="600">zero fees</text>
+          <text x="185" y="368" text-anchor="middle" font-family="-apple-system,sans-serif" font-size="8.5" fill="#9B8E7A" font-style="italic">out-of-range →</text>
+          <text x="185" y="381" text-anchor="middle" font-family="-apple-system,sans-serif" font-size="8.5" fill="#A03020" font-weight="600">zero fees</text>
+
+          <!-- Price path — BEFORE (drifts down, exits range) -->
+          <polyline points="185,216 192,234 199,222 207,250 215,268 223,288 231,308 239,328 247,348 255,368 263,386"
+                    fill="none" stroke="#9B8E7A" stroke-width="1.5" stroke-dasharray="4,2" opacity="0.6"/>
+          <!-- Exit dot — warm red -->
+          <circle cx="239" cy="340" r="4.5" fill="#A03020" opacity="0.85"/>
+          <text x="246" y="336" font-family="-apple-system,sans-serif" font-size="8" fill="#A03020">exits range</text>
+          <text x="246" y="347" font-family="-apple-system,sans-serif" font-size="8" fill="#A03020">→ zero income</text>
+
+          <!-- ── AFTER column ── -->
+          <text x="375" y="12" text-anchor="middle" font-family="-apple-system,sans-serif" font-size="10" fill="#8A5A00" font-weight="700">AFTER</text>
+          <text x="375" y="22" text-anchor="middle" font-family="-apple-system,sans-serif" font-size="9"  fill="#C87D00" font-style="italic">primary + contingency ranges</text>
+
+          <!-- Contingency upper band fill + sketch border — AFTER -->
+          <rect x="315" y="28" width="120" height="64" rx="6" fill="#F5A623" opacity="0.08"/>
+          <rect x="315" y="28" width="120" height="64" rx="6" fill="none" stroke="#E8A820" stroke-width="1.5" stroke-dasharray="5,3" filter="url(#sk-band)"/>
+          <text x="375" y="54" text-anchor="middle" font-family="-apple-system,sans-serif" font-size="8.5" fill="#8A5A00" font-weight="700">CONTINGENCY UPPER</text>
+          <text x="375" y="66" text-anchor="middle" font-family="-apple-system,sans-serif" font-size="8.5" fill="#C87D00">$150 – $160</text>
+          <text x="375" y="79" text-anchor="middle" font-family="-apple-system,sans-serif" font-size="8"   fill="#9B8E7A" font-style="italic">FIS-gated, smaller capital</text>
+
+          <!-- Primary band fill + sketch border — AFTER -->
+          <rect x="315" y="92" width="120" height="248" rx="6" fill="#4A7FD4" opacity="0.10"/>
+          <rect x="315" y="92" width="120" height="248" rx="6" fill="none" stroke="#4A7FD4" stroke-width="2" filter="url(#sk-band)"/>
+          <text x="375" y="202" text-anchor="middle" font-family="Georgia,serif" font-size="11" font-weight="700" fill="#2A4F8A">PRIMARY</text>
+          <text x="375" y="217" text-anchor="middle" font-family="Georgia,serif" font-size="11" font-weight="700" fill="#2A4F8A">RANGE</text>
+          <text x="375" y="232" text-anchor="middle" font-family="-apple-system,sans-serif" font-size="8.5" fill="#6B6659">$110 – $150</text>
+          <text x="375" y="246" text-anchor="middle" font-family="-apple-system,sans-serif" font-size="8.5" fill="#2A4F8A">FIS-gated LP active</text>
+
+          <!-- Contingency lower band fill + sketch border — AFTER -->
+          <rect x="315" y="340" width="120" height="62" rx="6" fill="#F5A623" opacity="0.08"/>
+          <rect x="315" y="340" width="120" height="62" rx="6" fill="none" stroke="#E8A820" stroke-width="1.5" stroke-dasharray="5,3" filter="url(#sk-band)"/>
+          <text x="375" y="365" text-anchor="middle" font-family="-apple-system,sans-serif" font-size="8.5" fill="#8A5A00" font-weight="700">CONTINGENCY LOWER</text>
+          <text x="375" y="377" text-anchor="middle" font-family="-apple-system,sans-serif" font-size="8.5" fill="#C87D00">$100 – $110</text>
+          <text x="375" y="390" text-anchor="middle" font-family="-apple-system,sans-serif" font-size="8"   fill="#9B8E7A" font-style="italic">FIS-gated, smaller capital</text>
+
+          <!-- Price path — AFTER (drifts down, catches lower contingency) -->
+          <polyline points="375,216 382,234 389,222 397,250 405,268 413,288 421,308 429,328 437,348 445,362 453,378"
+                    fill="none" stroke="#9B8E7A" stroke-width="1.5" stroke-dasharray="4,2" opacity="0.6"/>
+          <!-- Entry into contingency — warm amber dot -->
+          <circle cx="429" cy="340" r="4.5" fill="#C87D00" opacity="0.85"/>
+          <text x="436" y="336" font-family="-apple-system,sans-serif" font-size="8" fill="#C87D00">enters lower</text>
+          <text x="436" y="347" font-family="-apple-system,sans-serif" font-size="8" fill="#C87D00">contingency</text>
+          <text x="436" y="362" font-family="-apple-system,sans-serif" font-size="8" fill="#2A7A4A" font-weight="600">fees continue</text>
+
+          <!-- Divider arrow -->
+          <line x1="262" y1="216" x2="300" y2="216" stroke="#C8B99A" stroke-width="1.5" filter="url(#sk-axis)"/>
+          <polyline points="292,210 302,216 292,222" fill="none" stroke="#C8B99A" stroke-width="1.5"/>
+          <text x="281" y="208" text-anchor="middle" font-family="-apple-system,sans-serif" font-size="8" fill="#9B8E7A">add</text>
+          <text x="281" y="228" text-anchor="middle" font-family="-apple-system,sans-serif" font-size="8" fill="#C87D00" font-weight="600">contingency</text>
+
+        </svg>
+      </div>
+
+      <!-- RIGHT: three state cards -->
+      <div class="diagram-col-side">
+        <p style="font-size:10px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:#9B8E7A; margin-bottom:12px;">Three states the position can be in</p>
+
+        <div class="state-grid">
+
+          <div class="state-card blue-tint">
+            <div class="state-label blue">State 1 — Normal (most of the time)</div>
+            <div class="state-body">
+              <strong>Price inside primary range.</strong> Primary LP is active, earning fees. Contingency ranges are deployed but idle — out-of-range, earning nothing. <span class="g">This is the intended state.</span>
+            </div>
+          </div>
+
+          <div class="state-card amber-tint">
+            <div class="state-label amber">State 2 — Slow drift (contingency earns)</div>
+            <div class="state-body">
+              <strong>Price drifts slowly past the primary band.</strong> Primary LP exits its range and earns zero. <span class="g">The pre-deployed contingency range is already there — no action needed</span> — and begins collecting fee income as price oscillates within it. Requires ongoing trading volume in the contingency band.
+            </div>
+          </div>
+
+          <div class="state-card muted">
+            <div class="state-label gray">State 3 — Crash (contingency does NOT help)</div>
+            <div class="state-body">
+              <strong>Price gaps through the contingency band in a fast crash.</strong> No time to earn fees — price passes through too fast. <span class="r">The contingency range is not a hedge.</span> It holds the token and keeps buying it as price falls. In a sharp crash, IL losses exceed fee income. Do not describe it as downside protection.
+            </div>
+          </div>
+
+        </div>
+
+        <!-- FIS gate note -->
+        <div class="insight-box">
+          <div class="insight-head">FIS gate condition</div>
+          <div class="insight-body">
+            The contingency range is <strong>only deployed when the FIS signal confirms a ranging / mean-reverting regime</strong> below the primary band. If FIS detects a trending (directional) move, the contingency range should not be activated — that is the scenario where IL damage is highest and fee income is lowest.
+          </div>
+        </div>
+
+      </div>
+    </div><!-- /diagram-row -->
+
+    <div class="callout">The contingency range earns on slow oscillating drift — not on fast directional moves. The FIS gate is what distinguishes these two conditions.</div>
+  </div>
+
+  <!-- ════════════════════════════════════════════ -->
+  <!-- BAND 2: Honesty note -->
+  <!-- ════════════════════════════════════════════ -->
+  <div class="band">
+    <div class="band-header">
+      <span class="band-num num-amber">2</span>
+      <div>
+        <div class="band-title">Matlock's honesty note — preserved as written</div>
+        <div class="band-sub">The conditions under which this mechanism does and does not work</div>
+      </div>
+    </div>
+
+    <div class="insight-box amber-tint">
+      <div class="insight-head amber">What the contingency range actually does</div>
+      <div class="insight-body">
+        The contingency range <strong>earns on slow drift, not crashes.</strong> For the mechanism to generate net-positive income, price needs to oscillate within the contingency band long enough to collect fees that exceed IL from holding the downward-drifting token. In a sharp, fast price crash, this condition is not met. The contingency range is a <strong>fee-generation extension</strong> on gradual displacement — it is not a risk-management tool, and calling it one would be inaccurate.
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════════════ -->
+  <!-- BAND 3: Capital allocation -->
+  <!-- ════════════════════════════════════════════ -->
+  <div class="band">
+    <div class="band-header">
+      <span class="band-num num-slate">3</span>
+      <div>
+        <div class="band-title">Illustrative capital allocation</div>
+        <div class="band-sub">Not a recommendation — see disclaimer. Intended to show relative sizing logic.</div>
+      </div>
+    </div>
+
+    <div class="alloc-row">
+      <div class="alloc-card alloc-card-primary">
+        <div class="alloc-head alloc-head-blue">Primary range — 80–90% of capital</div>
+        <div class="alloc-body">Full FIS-gated LP in the primary band. This is where the simulation's core returns are generated. Upsizing this reduces flexibility but concentrates the earning band.</div>
+      </div>
+      <div class="alloc-card alloc-card-contingency">
+        <div class="alloc-head alloc-head-amber">Each contingency range — 5–10% of capital</div>
+        <div class="alloc-body">Small enough that IL in a crash does not overwhelm the primary position. Large enough to earn meaningful fee income on slow drift.</div>
+      </div>
+    </div>
+
+    <div class="callout">Keep each contingency band small. The risk is that a crash forces the contingency band to accumulate a falling token — the position size limits that damage.</div>
+  </div>
+
+  <!-- ── DISCLAIMER ── -->
+  <div class="disclaimer">
+    <strong style="color:#4A4640;">Illustrative concept only — proposed mechanism, not currently implemented in production.</strong> The contingency range is an architectural proposal described in the LPIS research paper. It has not been validated by tick-level historical data and has not been implemented in the CoinRoc production platform. Price levels ($100, $110, $130, $150, $160) shown in the diagram are illustrative only and do not represent any specific asset or simulation output. The statement that contingency ranges earn fee income during slow drift is a directional inference, not a simulation-measured result. The mechanism does not protect against sharp price crashes and must not be described as a hedge, downside protection, or risk management tool. Capital allocation percentages (80–90% / 5–10%) are illustrative; actual allocation decisions depend on individual risk tolerance and capital size. Not investment advice. Consult qualified advisors before deploying capital.
+  </div>
+
+</div><!-- /wrap -->
+
+<!-- ── YODACOM RESEARCH WATERMARK ── -->
+<div style="position:fixed;bottom:20px;right:20px;width:90px;opacity:0.55;pointer-events:none;z-index:9999;" title="Yodacom Research">
+  <svg xmlns="http://www.w3.org/2000/svg" width="91" height="105" viewBox="0 0 91 105">
+    <path d="M0 0 C16.5 0 33 0 50 0 C44 8 44 8 42 10 C42.286 13.917 44.683 16.668 46.938 19.75 C47.648 20.735 48.358 21.72 49.09 22.734 C49.72 23.482 50.351 24.23 51 25 C51.66 25 52.32 25 53 25 C54.627 22.862 56.14 20.732 57.625 18.5 C58.045 17.88 58.465 17.26 58.898 16.621 C59.938 15.085 60.97 13.543 62 12 C60.595 8.785 58.913 6.72 56.375 4.312 C55.234 3.225 54.104 2.125 53 1 C53 0.67 53 0.34 53 0 C65.54 0 78.08 0 91 0 C87.633 4.209 85.161 6.834 81 10 C80 10.5 78.5 11.5 77 12 C76.865 12.369 76.865 12.369 76.181 14.237 C75.049 16.886 73.805 18.905 72.102 21.215 C71.54 21.984 70.978 22.753 70.398 23.545 C69.813 24.334 69.228 25.124 68.625 25.938 C58.122 40.227 58.122 40.227 57.438 44.562 C58.171 49.043 59.565 50.066 63 53 C64.404 54.409 65.799 55.826 67.188 57.25 C70.752 60.876 70.752 60.876 73 62 C73 62.66 73 63.32 73 64 C55.51 64 38.02 64 20 64 C20 63.34 20 62.68 20 62 C21.539 60.484 21.539 60.484 23.625 58.75 C24.349 58.125 25.074 57.5 25.82 56.855 C27.157 55.718 28.503 54.593 29.867 53.488 C32.795 50.931 33.959 49.169 34.875 45.375 C34.377 39.625 30.61 35.308 27.292 30.806 C25.895 28.853 24.591 26.854 23.289 24.836 C17.401 15.863 11.406 9.136 2.641 2.906 C1.769 2.277 0.898 1.648 0 1 C0 0.67 0 0.34 0 0 Z" fill="#A9BAA8" transform="translate(0,41)"/>
+    <circle cx="46" cy="7"  r="7"   fill="#EE1111"/>
+    <circle cx="32" cy="21" r="6.5" fill="#EE1111"/>
+    <circle cx="60" cy="21" r="6.5" fill="#EE1111"/>
+  </svg>
+</div>
+
+</body>
+</html>

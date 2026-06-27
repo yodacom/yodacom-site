@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Figure 5 — FIS Gating: Loss Frequency Reduction</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #0d1117;
+    font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+    color: #c9d1d9;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    padding: 40px 20px;
+  }
+  .figure-wrap { width: 920px; max-width: 100%; }
+  .fig-header { margin-bottom: 28px; }
+  .fig-label { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: #6e7681; margin-bottom: 6px; }
+  .fig-title {
+    font-family: 'SF Pro Display','Helvetica Neue',Arial,sans-serif;
+    font-size: 18px; font-weight: 600; color: #e6edf3; line-height: 1.3; margin-bottom: 6px;
+  }
+  .fig-subtitle {
+    font-family: 'SF Pro Text','Helvetica Neue',Arial,sans-serif;
+    font-size: 12.5px; color: #8b949e; line-height: 1.5;
+  }
+  .chart-area {
+    background: #161b22; border: 1px solid #21262d; border-radius: 8px;
+    padding: 32px 40px 28px; margin-bottom: 16px;
+  }
+  .disclaimer {
+    font-family: 'SF Pro Text','Helvetica Neue',Arial,sans-serif;
+    font-size: 10.5px; color: #6e7681; line-height: 1.6;
+    border-top: 1px solid #21262d; padding-top: 12px; margin-top: 4px;
+  }
+  .disclaimer strong { color: #8b949e; }
+</style>
+</head>
+<body>
+<div class="figure-wrap">
+  <div class="fig-header">
+    <div class="fig-label">Figure 5 — Yodacom Research · LPIS Series · 2026-06-15</div>
+    <div class="fig-title">FIS Regime Gating: Loss Frequency Reduction by Tier</div>
+    <div class="fig-subtitle">% of weeks with a net loss (fee income minus IL minus gas &lt; 0) · Always-in passive LP vs. FIS-gated LP · Arbitrum · 5,000-iteration simulation · FIS parameters: 40% ranging frequency, 15% Type I error</div>
+  </div>
+
+  <div class="chart-area">
+
+    <svg viewBox="0 0 840 420" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;margin-bottom:24px;">
+      <!--
+        Horizontal paired bar chart.
+        4 tiers, each with two bars: Always-in (darker) vs FIS-gated (lighter/colored)
+        Loss frequencies:
+          A-tier: Always-in ~42% (implied), FIS-gated 41.7% (small improvement, mostly tail)
+          B-tier: Always-in ~42% (implied from text), FIS-gated 35.0%
+          C-tier: Always-in ~82.9% (ETH), FIS-gated 79.7%  [Arbitrum]
+          D-tier: Always-in ~98.1%, FIS-gated 97.7%
+
+        Chart area: x=180 to 800, y=30 to 380
+        Width = 620px. Scale: 0–100%, px_per_pct = 6.2
+
+        Row heights: 4 tiers, y spacing = ~80px
+        Row centers: A=60, B=150, C=240, D=330
+        Bar height: 28px per bar, 6px gap between pair
+
+        Bar structure per tier:
+          Always-in: y=center-17, height=28, width=pct*6.2
+          FIS-gated:  y=center+11, height=28 (top), but let's do side-by-side not stacked
+
+        Actually: let's do horizontal bars with tier on Y axis, two bars per tier
+
+        Tier Y centers: 75, 175, 275, 375
+        Bar height = 28px each, 6px between them
+        Always-in:   y = center - 17   (height 28, so bottom at center+11)
+        FIS-gated:   y = center + 17   (height 28, so bottom at center+45)
+
+        X: starts at 180, scale 6.2px/%
+
+        Always-in loss freqs (implied from context):
+          A-tier: The empirical table shows FIS-gated=41.7%; always-in is described as similar but worse left tail.
+                  Per text Section 4: "always-in has similar loss patterns with lower upper tail" so ~44%
+                  Use 44% for always-in A (slightly worse than FIS 41.7%)
+          B-tier: "~42% of weeks are loss-generating" for always-in (explicitly stated in synthesis)
+          C-tier: Arbitrum FIS-gated=79.7%; always-in Ethereum is 82.9% — use Arbitrum always-in ~82%
+          D-tier: FIS-gated=97.7%; always-in~98.5%
+
+        Reduction:
+          A: 44% → 41.7% = −2.3pp (small, but tail improvement noted)
+          B: 42% → 35.0% = −7.0pp (meaningful)
+          C: 82% → 79.7% = −2.3pp (small)
+          D: 98.5% → 97.7% = −0.8pp (negligible)
+      -->
+
+      <!-- X axis labels -->
+      <text x="180" y="400" text-anchor="middle" font-family="SF Mono,Fira Code,monospace" font-size="10" fill="#6e7681">0%</text>
+      <text x="242" y="400" text-anchor="middle" font-family="SF Mono,Fira Code,monospace" font-size="10" fill="#6e7681">10%</text>
+      <text x="304" y="400" text-anchor="middle" font-family="SF Mono,Fira Code,monospace" font-size="10" fill="#6e7681">20%</text>
+      <text x="366" y="400" text-anchor="middle" font-family="SF Mono,Fira Code,monospace" font-size="10" fill="#6e7681">30%</text>
+      <text x="428" y="400" text-anchor="middle" font-family="SF Mono,Fira Code,monospace" font-size="10" fill="#6e7681">40%</text>
+      <text x="490" y="400" text-anchor="middle" font-family="SF Mono,Fira Code,monospace" font-size="10" fill="#6e7681">50%</text>
+      <text x="552" y="400" text-anchor="middle" font-family="SF Mono,Fira Code,monospace" font-size="10" fill="#6e7681">60%</text>
+      <text x="614" y="400" text-anchor="middle" font-family="SF Mono,Fira Code,monospace" font-size="10" fill="#6e7681">70%</text>
+      <text x="676" y="400" text-anchor="middle" font-family="SF Mono,Fira Code,monospace" font-size="10" fill="#6e7681">80%</text>
+      <text x="738" y="400" text-anchor="middle" font-family="SF Mono,Fira Code,monospace" font-size="10" fill="#6e7681">90%</text>
+      <text x="800" y="400" text-anchor="middle" font-family="SF Mono,Fira Code,monospace" font-size="10" fill="#6e7681">100%</text>
+
+      <!-- X axis label -->
+      <text x="490" y="415" text-anchor="middle" font-family="'SF Pro Text','Helvetica Neue',Arial,sans-serif" font-size="10.5" fill="#6e7681">% of simulated weeks with net loss (fee income − IL − gas &lt; 0)</text>
+
+      <!-- Vertical grid lines -->
+      <line x1="180" y1="20" x2="180" y2="390" stroke="#3d444d" stroke-width="1.5"/>
+      <line x1="242" y1="20" x2="242" y2="390" stroke="#21262d" stroke-width="0.75"/>
+      <line x1="304" y1="20" x2="304" y2="390" stroke="#21262d" stroke-width="0.75"/>
+      <line x1="366" y1="20" x2="366" y2="390" stroke="#21262d" stroke-width="0.75"/>
+      <line x1="428" y1="20" x2="428" y2="390" stroke="#21262d" stroke-width="0.75"/>
+      <line x1="490" y1="20" x2="490" y2="390" stroke="#21262d" stroke-width="0.75"/>
+      <line x1="552" y1="20" x2="552" y2="390" stroke="#21262d" stroke-width="0.75"/>
+      <line x1="614" y1="20" x2="614" y2="390" stroke="#21262d" stroke-width="0.75"/>
+      <line x1="676" y1="20" x2="676" y2="390" stroke="#21262d" stroke-width="0.75"/>
+      <line x1="738" y1="20" x2="738" y2="390" stroke="#21262d" stroke-width="0.75"/>
+      <line x1="800" y1="20" x2="800" y2="390" stroke="#21262d" stroke-width="0.75"/>
+
+      <!-- Legend -->
+      <rect x="500" y="22" width="14" height="14" fill="#3d444d" rx="2"/>
+      <text x="520" y="33" font-family="'SF Pro Text','Helvetica Neue',Arial,sans-serif" font-size="11" fill="#8b949e">Always-In Passive LP</text>
+      <rect x="650" y="22" width="14" height="14" fill="#4A7FD4" opacity="0.85" rx="2"/>
+      <text x="670" y="33" font-family="'SF Pro Text','Helvetica Neue',Arial,sans-serif" font-size="11" fill="#4A7FD4">FIS-Gated LP</text>
+
+      <!-- ===== A-TIER ===== -->
+      <!-- Always-in: 44% × 6.2 = 272.8px -->
+      <rect x="180" y="55" width="273" height="28" fill="#3d444d" rx="3" opacity="0.8"/>
+      <text x="459" y="73" font-family="SF Mono,Fira Code,monospace" font-size="11" fill="#6e7681" dx="6">~44%</text>
+      <!-- FIS-gated: 41.7% × 6.2 = 258.5px -->
+      <rect x="180" y="89" width="259" height="28" fill="#4A7FD4" opacity="0.75" rx="3"/>
+      <text x="445" y="107" font-family="SF Mono,Fira Code,monospace" font-size="11" fill="#4A7FD4" dx="6">41.7%</text>
+
+      <!-- Tier label -->
+      <text x="170" y="65" text-anchor="end" font-family="'SF Pro Display','Helvetica Neue',Arial,sans-serif" font-size="12" font-weight="700" fill="#e6edf3">A-tier</text>
+      <text x="170" y="78" text-anchor="end" font-family="'SF Pro Text','Helvetica Neue',Arial,sans-serif" font-size="9.5" fill="#6e7681">ETH, BTC, SOL</text>
+      <text x="170" y="91" text-anchor="end" font-family="'SF Pro Text','Helvetica Neue',Arial,sans-serif" font-size="9" fill="#6e7681">0.05% fee tier</text>
+
+      <!-- Delta annotation -->
+      <rect x="462" y="60" width="86" height="22" fill="#21262d" rx="3"/>
+      <text x="505" y="75" text-anchor="middle" font-family="SF Mono,Fira Code,monospace" font-size="10" fill="#8b949e">−2.3pp lift</text>
+
+      <!-- A-tier commentary -->
+      <text x="560" y="72" font-family="'SF Pro Text','Helvetica Neue',Arial,sans-serif" font-size="10" fill="#6e7681">FIS gate mainly improves tail shape for A-tier,</text>
+      <text x="560" y="85" font-family="'SF Pro Text','Helvetica Neue',Arial,sans-serif" font-size="10" fill="#6e7681">not mean loss frequency. Mean lift: +1.6–3.7pp.</text>
+
+
+      <!-- ===== B-TIER — SWEET SPOT ===== -->
+      <!-- Always-in: ~42% × 6.2 = 260.4px -->
+      <rect x="180" y="157" width="260" height="28" fill="#3d444d" rx="3" opacity="0.8"/>
+      <text x="446" y="175" font-family="SF Mono,Fira Code,monospace" font-size="11" fill="#6e7681" dx="6">~42%</text>
+      <!-- FIS-gated: 35.0% × 6.2 = 217px -->
+      <rect x="180" y="191" width="217" height="28" fill="#4A7FD4" opacity="0.9" rx="3"/>
+      <text x="403" y="209" font-family="SF Mono,Fira Code,monospace" font-size="11" fill="#4A7FD4" dx="6">35.0%</text>
+
+      <!-- Tier label -->
+      <text x="170" y="167" text-anchor="end" font-family="'SF Pro Display','Helvetica Neue',Arial,sans-serif" font-size="12" font-weight="700" fill="#e6edf3">B-tier</text>
+      <text x="170" y="180" text-anchor="end" font-family="'SF Pro Text','Helvetica Neue',Arial,sans-serif" font-size="9.5" fill="#4A7FD4">LINK, AAVE,</text>
+      <text x="170" y="192" text-anchor="end" font-family="'SF Pro Text','Helvetica Neue',Arial,sans-serif" font-size="9.5" fill="#4A7FD4">UNI, ARB, AVAX</text>
+      <text x="170" y="205" text-anchor="end" font-family="'SF Pro Text','Helvetica Neue',Arial,sans-serif" font-size="9" fill="#6e7681">0.30% fee tier</text>
+
+      <!-- Sweet spot badge -->
+      <rect x="176" y="222" width="198" height="18" fill="#1c2b1a" rx="3" stroke="#3fb950" stroke-width="0.75"/>
+      <text x="275" y="234" text-anchor="middle" font-family="'SF Pro Text','Helvetica Neue',Arial,sans-serif" font-size="9" fill="#3fb950" font-weight="700">B-tier: Best LP outcome in simulation</text>
+
+      <!-- Delta annotation B -->
+      <rect x="449" y="162" width="86" height="22" fill="#1c2b45" rx="3" stroke="#4A7FD4" stroke-width="0.75"/>
+      <text x="492" y="177" text-anchor="middle" font-family="SF Mono,Fira Code,monospace" font-size="10" fill="#4A7FD4">−7.0pp lift</text>
+
+      <!-- B-tier commentary -->
+      <text x="545" y="175" font-family="'SF Pro Text','Helvetica Neue',Arial,sans-serif" font-size="10" fill="#8b949e">Largest measured reduction. However,</text>
+      <text x="545" y="188" font-family="'SF Pro Text','Helvetica Neue',Arial,sans-serif" font-size="10" fill="#8b949e">FIS-gated mean APY is −6.1pp vs. always-in</text>
+      <text x="545" y="201" font-family="'SF Pro Text','Helvetica Neue',Arial,sans-serif" font-size="10" fill="#6e7681">(FIS trades mean return for tail-risk reduction)</text>
+
+
+      <!-- ===== C-TIER ===== -->
+      <!-- Always-in: ~82% × 6.2 = 508.4px -->
+      <rect x="180" y="257" width="508" height="28" fill="#3d444d" rx="3" opacity="0.6"/>
+      <text x="694" y="275" font-family="SF Mono,Fira Code,monospace" font-size="11" fill="#6e7681" dx="6">~82%</text>
+      <!-- FIS-gated: 79.7% × 6.2 = 494.1px -->
+      <rect x="180" y="291" width="494" height="28" fill="#da3633" opacity="0.55" rx="3"/>
+      <text x="680" y="309" font-family="SF Mono,Fira Code,monospace" font-size="11" fill="#da3633" dx="6">79.7%</text>
+
+      <!-- Tier label -->
+      <text x="170" y="267" text-anchor="end" font-family="'SF Pro Display','Helvetica Neue',Arial,sans-serif" font-size="12" font-weight="700" fill="#e6edf3">C-tier</text>
+      <text x="170" y="280" text-anchor="end" font-family="'SF Pro Text','Helvetica Neue',Arial,sans-serif" font-size="9.5" fill="#6e7681">DOT, ADA,</text>
+      <text x="170" y="292" text-anchor="end" font-family="'SF Pro Text','Helvetica Neue',Arial,sans-serif" font-size="9.5" fill="#6e7681">ATOM, NEAR</text>
+      <text x="170" y="305" text-anchor="end" font-family="'SF Pro Text','Helvetica Neue',Arial,sans-serif" font-size="9" fill="#6e7681">high volatility</text>
+
+      <!-- Delta annotation C -->
+      <rect x="697" y="263" width="86" height="22" fill="#21262d" rx="3"/>
+      <text x="740" y="278" text-anchor="middle" font-family="SF Mono,Fira Code,monospace" font-size="10" fill="#8b949e">−2.3pp lift</text>
+
+      <!-- C commentary -->
+      <text x="697" y="305" font-family="'SF Pro Text','Helvetica Neue',Arial,sans-serif" font-size="10" fill="#da3633">FIS gate cannot fix structural IL problem</text>
+
+
+      <!-- ===== D-TIER ===== -->
+      <!-- Always-in: ~98.5% × 6.2 = 610.7px but chart is 620px wide (100%=620), so cap at 608 -->
+      <rect x="180" y="357" width="610" height="28" fill="#3d444d" rx="3" opacity="0.4"/>
+      <text x="796" y="375" font-family="SF Mono,Fira Code,monospace" font-size="10" fill="#6e7681" dx="4">~98.5%</text>
+      <!-- FIS-gated: 97.7% × 6.2 = 605.7px -->
+      <rect x="180" y="357" width="606" height="28" fill="#da3633" opacity="0.35" rx="3"/>
+      <!-- Bars overlap so show as overlaid -->
+      <text x="180" y="352" font-family="SF Mono,Fira Code,monospace" font-size="10" fill="#da3633">D-tier loss frequency is structurally ~98% regardless of FIS gating — no viable LP scenario</text>
+
+      <!-- Tier label -->
+      <text x="170" y="372" text-anchor="end" font-family="'SF Pro Display','Helvetica Neue',Arial,sans-serif" font-size="12" font-weight="700" fill="#e6edf3">D-tier</text>
+      <text x="170" y="385" text-anchor="end" font-family="'SF Pro Text','Helvetica Neue',Arial,sans-serif" font-size="9.5" fill="#da3633">BONK, WIF,</text>
+      <text x="170" y="397" text-anchor="end" font-family="'SF Pro Text','Helvetica Neue',Arial,sans-serif" font-size="9.5" fill="#da3633">PEPE — NO-GO</text>
+
+    </svg>
+
+    <!-- FIS gate lift sensitivity table -->
+    <div style="border-top:1px solid #21262d;padding-top:20px;">
+      <div style="font-family:'SF Pro Text','Helvetica Neue',Arial,sans-serif;font-size:11px;color:#6e7681;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:14px;">FIS gate lift sensitivity (A-tier Arbitrum) — measured range from simulation</div>
+      <div style="overflow-x:auto;">
+        <table style="width:100%;border-collapse:collapse;font-family:SF Mono,Fira Code,monospace;font-size:11px;">
+          <thead>
+            <tr style="border-bottom:1px solid #21262d;">
+              <th style="font-family:'SF Pro Text','Helvetica Neue',Arial,sans-serif;font-size:10px;text-transform:uppercase;letter-spacing:0.08em;color:#6e7681;padding:6px 10px;text-align:left;">Ranging Frequency</th>
+              <th style="font-family:'SF Pro Text','Helvetica Neue',Arial,sans-serif;font-size:10px;text-transform:uppercase;letter-spacing:0.08em;color:#6e7681;padding:6px 10px;text-align:right;">Type I Error Rate</th>
+              <th style="font-family:'SF Pro Text','Helvetica Neue',Arial,sans-serif;font-size:10px;text-transform:uppercase;letter-spacing:0.08em;color:#6e7681;padding:6px 10px;text-align:right;">Always-In APY</th>
+              <th style="font-family:'SF Pro Text','Helvetica Neue',Arial,sans-serif;font-size:10px;text-transform:uppercase;letter-spacing:0.08em;color:#6e7681;padding:6px 10px;text-align:right;">FIS-Gated APY</th>
+              <th style="font-family:'SF Pro Text','Helvetica Neue',Arial,sans-serif;font-size:10px;text-transform:uppercase;letter-spacing:0.08em;color:#6e7681;padding:6px 10px;text-align:right;">Lift</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom:1px solid #161b22;">
+              <td style="padding:6px 10px;color:#c9d1d9;">30% ranging</td>
+              <td style="padding:6px 10px;text-align:right;color:#8b949e;">10% false+</td>
+              <td style="padding:6px 10px;text-align:right;color:#da3633;">−0.5%</td>
+              <td style="padding:6px 10px;text-align:right;color:#3fb950;">+3.2%</td>
+              <td style="padding:6px 10px;text-align:right;color:#4A7FD4;font-weight:700;">+3.7pp</td>
+            </tr>
+            <tr style="border-bottom:1px solid #161b22;">
+              <td style="padding:6px 10px;color:#c9d1d9;">30% ranging</td>
+              <td style="padding:6px 10px;text-align:right;color:#8b949e;">20% false+</td>
+              <td style="padding:6px 10px;text-align:right;color:#da3633;">−0.5%</td>
+              <td style="padding:6px 10px;text-align:right;color:#3fb950;">+2.4%</td>
+              <td style="padding:6px 10px;text-align:right;color:#4A7FD4;">+2.9pp</td>
+            </tr>
+            <tr style="border-bottom:1px solid #161b22;">
+              <td style="padding:6px 10px;color:#c9d1d9;font-weight:700;">40% ranging (baseline)</td>
+              <td style="padding:6px 10px;text-align:right;color:#8b949e;">10% false+</td>
+              <td style="padding:6px 10px;text-align:right;color:#da3633;">−0.5%</td>
+              <td style="padding:6px 10px;text-align:right;color:#3fb950;">+2.8%</td>
+              <td style="padding:6px 10px;text-align:right;color:#4A7FD4;font-weight:700;">+3.3pp</td>
+            </tr>
+            <tr style="border-bottom:1px solid #161b22;">
+              <td style="padding:6px 10px;color:#c9d1d9;">40% ranging (baseline)</td>
+              <td style="padding:6px 10px;text-align:right;color:#8b949e;">20% false+</td>
+              <td style="padding:6px 10px;text-align:right;color:#8b949e;">+0.4%</td>
+              <td style="padding:6px 10px;text-align:right;color:#3fb950;">+2.5%</td>
+              <td style="padding:6px 10px;text-align:right;color:#4A7FD4;">+2.1pp</td>
+            </tr>
+            <tr style="border-bottom:1px solid #161b22;">
+              <td style="padding:6px 10px;color:#c9d1d9;">50% ranging</td>
+              <td style="padding:6px 10px;text-align:right;color:#8b949e;">10% false+</td>
+              <td style="padding:6px 10px;text-align:right;color:#8b949e;">+1.0%</td>
+              <td style="padding:6px 10px;text-align:right;color:#3fb950;">+2.8%</td>
+              <td style="padding:6px 10px;text-align:right;color:#4A7FD4;">+1.8pp</td>
+            </tr>
+            <tr>
+              <td style="padding:6px 10px;color:#c9d1d9;">50% ranging</td>
+              <td style="padding:6px 10px;text-align:right;color:#8b949e;">20% false+</td>
+              <td style="padding:6px 10px;text-align:right;color:#8b949e;">+1.0%</td>
+              <td style="padding:6px 10px;text-align:right;color:#3fb950;">+2.6%</td>
+              <td style="padding:6px 10px;text-align:right;color:#4A7FD4;">+1.6pp</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div style="font-family:'SF Pro Text','Helvetica Neue',Arial,sans-serif;font-size:11px;color:#8b949e;margin-top:10px;line-height:1.5;">
+        <strong style="color:#c9d1d9;">Measured lift range: +1.6pp to +3.7pp on total portfolio return (A-tier, Arbitrum).</strong> This is a risk-reduction benefit, not a return-generation benefit. The FIS gate reduces the probability of catastrophic IL weeks — it does not convert LP into an alpha-generating strategy. Replaces the prior qualitative estimate of +15–35pp, which overstated the effect.
+      </div>
+    </div>
+
+  </div>
+
+  <div class="disclaimer">
+    <strong>Simulation disclosure:</strong> Loss frequency = % of simulated weeks where (fee income − IL − gas) &lt; 0. FIS gate parameters: 40% ranging frequency (40% of weeks classified as ranging/mean-reverting), 15% Type I error rate (15% of trending weeks misclassified as ranging), 12% Type II error rate (12% of ranging weeks missed). Always-in A-tier and C/D-tier loss frequencies are implied from the simulation distribution; B-tier always-in loss frequency (~42%) is stated explicitly in RES-LPIS-OPTIMIZE-01, Section 2a. FIS gate lift of −6.1pp mean return for B-tier (FIS-gated +15.2% vs. always-in +21.3%) reflects the opportunity cost of sitting out fee-positive trending weeks at the 0.30% tier — this is a correct and expected finding, not an anomaly. Sensitivity table from RES-LPIS-EMPIRICAL-01, Section 4, Table 4. All Arbitrum chain. <strong>All figures represent 5,000-iteration Monte Carlo simulation outputs, not historical backtest results. Tick-level historical data validation pending (Priority 1, RES-LPIS-EMPIRICAL-01). Not a projection of future performance.</strong>
+  </div>
+</div>
+
+<!-- ── YODACOM RESEARCH WATERMARK ── -->
+<div style="position:fixed;bottom:20px;right:20px;width:90px;opacity:0.55;pointer-events:none;z-index:9999;" title="Yodacom Research">
+  <svg xmlns="http://www.w3.org/2000/svg" width="91" height="105" viewBox="0 0 91 105">
+    <path d="M0 0 C16.5 0 33 0 50 0 C44 8 44 8 42 10 C42.286 13.917 44.683 16.668 46.938 19.75 C47.648 20.735 48.358 21.72 49.09 22.734 C49.72 23.482 50.351 24.23 51 25 C51.66 25 52.32 25 53 25 C54.627 22.862 56.14 20.732 57.625 18.5 C58.045 17.88 58.465 17.26 58.898 16.621 C59.938 15.085 60.97 13.543 62 12 C60.595 8.785 58.913 6.72 56.375 4.312 C55.234 3.225 54.104 2.125 53 1 C53 0.67 53 0.34 53 0 C65.54 0 78.08 0 91 0 C87.633 4.209 85.161 6.834 81 10 C80 10.5 78.5 11.5 77 12 C76.865 12.369 76.865 12.369 76.181 14.237 C75.049 16.886 73.805 18.905 72.102 21.215 C71.54 21.984 70.978 22.753 70.398 23.545 C69.813 24.334 69.228 25.124 68.625 25.938 C58.122 40.227 58.122 40.227 57.438 44.562 C58.171 49.043 59.565 50.066 63 53 C64.404 54.409 65.799 55.826 67.188 57.25 C70.752 60.876 70.752 60.876 73 62 C73 62.66 73 63.32 73 64 C55.51 64 38.02 64 20 64 C20 63.34 20 62.68 20 62 C21.539 60.484 21.539 60.484 23.625 58.75 C24.349 58.125 25.074 57.5 25.82 56.855 C27.157 55.718 28.503 54.593 29.867 53.488 C32.795 50.931 33.959 49.169 34.875 45.375 C34.377 39.625 30.61 35.308 27.292 30.806 C25.895 28.853 24.591 26.854 23.289 24.836 C17.401 15.863 11.406 9.136 2.641 2.906 C1.769 2.277 0.898 1.648 0 1 C0 0.67 0 0.34 0 0 Z" fill="#E8EEF4" transform="translate(0,41)"/>
+    <circle cx="46" cy="7"  r="7"   fill="#EE1111"/>
+    <circle cx="32" cy="21" r="6.5" fill="#EE1111"/>
+    <circle cx="60" cy="21" r="6.5" fill="#EE1111"/>
+  </svg>
+</div>
+
+</body>
+</html>

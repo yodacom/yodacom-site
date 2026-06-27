@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Figure 1 — LP Performance by CoinRoc Rating Tier</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #0d1117;
+    font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+    color: #c9d1d9;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    padding: 40px 20px;
+  }
+  .figure-wrap {
+    width: 900px;
+    max-width: 100%;
+  }
+  .fig-header {
+    margin-bottom: 28px;
+  }
+  .fig-label {
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #6e7681;
+    margin-bottom: 6px;
+  }
+  .fig-title {
+    font-family: 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: #e6edf3;
+    line-height: 1.3;
+    margin-bottom: 6px;
+  }
+  .fig-subtitle {
+    font-family: 'SF Pro Text', 'Helvetica Neue', Arial, sans-serif;
+    font-size: 12.5px;
+    color: #8b949e;
+    line-height: 1.5;
+  }
+  .chart-area {
+    background: #161b22;
+    border: 1px solid #21262d;
+    border-radius: 8px;
+    padding: 32px 40px 24px 40px;
+    margin-bottom: 16px;
+  }
+  .legend {
+    display: flex;
+    gap: 24px;
+    margin-bottom: 28px;
+    flex-wrap: wrap;
+  }
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-family: 'SF Pro Text', 'Helvetica Neue', Arial, sans-serif;
+    font-size: 11.5px;
+    color: #8b949e;
+  }
+  .legend-swatch {
+    width: 12px;
+    height: 12px;
+    border-radius: 2px;
+    flex-shrink: 0;
+  }
+  .legend-line {
+    width: 20px;
+    height: 2px;
+    flex-shrink: 0;
+  }
+  .disclaimer {
+    font-family: 'SF Pro Text', 'Helvetica Neue', Arial, sans-serif;
+    font-size: 10.5px;
+    color: #6e7681;
+    line-height: 1.6;
+    border-top: 1px solid #21262d;
+    padding-top: 12px;
+    margin-top: 4px;
+  }
+  .disclaimer strong { color: #8b949e; }
+</style>
+</head>
+<body>
+<div class="figure-wrap">
+  <div class="fig-header">
+    <div class="fig-label">Figure 1 — Yodacom Research · LPIS Series · 2026-06-15</div>
+    <div class="fig-title">Rating Inversion: Higher-Rated Coins Are Worse LP Candidates</div>
+    <div class="fig-subtitle">FIS-gated net APY on total capital vs. 50/50 HODL benchmark, by CoinRoc coin rating tier · Arbitrum · $5,000 capital · 5,000-iteration Monte Carlo simulation</div>
+  </div>
+
+  <div class="chart-area">
+    <div class="legend">
+      <div class="legend-item">
+        <div class="legend-swatch" style="background:#4A7FD4;"></div>
+        <span>FIS-Gated LP Net APY</span>
+      </div>
+      <div class="legend-item">
+        <div class="legend-swatch" style="background:#3fb950;opacity:0.35;"></div>
+        <span>Always-In LP Net APY</span>
+      </div>
+      <div class="legend-item">
+        <div class="legend-line" style="background:#f0883e;"></div>
+        <span>50/50 HODL Benchmark</span>
+      </div>
+    </div>
+
+    <svg viewBox="0 0 820 380" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;">
+      <defs>
+        <marker id="arr" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto">
+          <path d="M0,0 L6,3 L0,6 Z" fill="#f0883e"/>
+        </marker>
+      </defs>
+
+      <!-- Grid lines -->
+      <!-- Y axis labels: we cover −70% to +50%, total 120pp. Height = 300px. 1pp = 2.5px. Zero at y=350 (bottom of positive zone) -->
+      <!-- scale: y_pixel = 200 + (0 - value) * 2.5 => zero_y = 200, and 1pp up = -2.5px -->
+      <!-- let's use: chart top y=20, chart bottom y=340, range = −70 to +50, 120pp total, px_per_pp = 320/120 = 2.667 -->
+      <!-- zero_y = 20 + (50/120)*320 = 20+133 = 153 -->
+
+      <!-- Horizontal reference lines -->
+      <!-- +50% line: y=20 -->
+      <!-- +40% line: y=20+10*2.667=47 -->
+      <!-- +20% line: y=20+30*2.667=100 -->
+      <!-- 0% line: y=153 -->
+      <!-- -20% line: y=153+20*2.667=206 -->
+      <!-- -40% line: y=153+40*2.667=260 -->
+      <!-- -60% line: y=153+60*2.667=313 -->
+      <!-- -70% line: y=340 -->
+
+      <line x1="80" y1="47" x2="780" y2="47" stroke="#21262d" stroke-width="1"/>
+      <line x1="80" y1="100" x2="780" y2="100" stroke="#21262d" stroke-width="1"/>
+      <line x1="80" y1="153" x2="780" y2="153" stroke="#3d444d" stroke-width="1.5"/>
+      <line x1="80" y1="206" x2="780" y2="206" stroke="#21262d" stroke-width="1"/>
+      <line x1="80" y1="260" x2="780" y2="260" stroke="#21262d" stroke-width="1"/>
+      <line x1="80" y1="313" x2="780" y2="313" stroke="#21262d" stroke-width="1"/>
+
+      <!-- Y axis labels -->
+      <text x="72" y="51" text-anchor="end" font-family="SF Mono,Fira Code,monospace" font-size="10" fill="#6e7681">+40%</text>
+      <text x="72" y="104" text-anchor="end" font-family="SF Mono,Fira Code,monospace" font-size="10" fill="#6e7681">+20%</text>
+      <text x="72" y="157" text-anchor="end" font-family="SF Mono,Fira Code,monospace" font-size="10" fill="#8b949e">0%</text>
+      <text x="72" y="210" text-anchor="end" font-family="SF Mono,Fira Code,monospace" font-size="10" fill="#6e7681">−20%</text>
+      <text x="72" y="264" text-anchor="end" font-family="SF Mono,Fira Code,monospace" font-size="10" fill="#6e7681">−40%</text>
+      <text x="72" y="317" text-anchor="end" font-family="SF Mono,Fira Code,monospace" font-size="10" fill="#6e7681">−60%</text>
+
+      <!-- Zero line label -->
+      <text x="786" y="157" font-family="SF Mono,Fira Code,monospace" font-size="9" fill="#6e7681">0%</text>
+
+      <!--
+        Tiers: A, B, C, D
+        X positions (center of group):
+          A: 175   B: 360   C: 545   D: 730
+        Bar width per group: 50px each, 8px gap between pair
+
+        Values (zero_y=153, px_per_pp=2.667):
+        A: FIS-gated=+3.1%  => y_top=153-3.1*2.667=153-8.3=145, height=8.3
+           Always-in=+4.9%  => y_top=153-4.9*2.667=153-13.1=140, height=13.1
+           HODL=+10.9%      => y_hodl=153-10.9*2.667=153-29.1=124
+
+        B: FIS-gated=+15.5% => y_top=153-15.5*2.667=153-41.3=112, height=41.3
+           Always-in=+21.3% => y_top=153-21.3*2.667=153-56.8=96, height=56.8
+           HODL=+15.8%      => y_hodl=153-15.8*2.667=153-42.1=111
+
+        C: FIS-gated=-24.2% => y_top=153, height=24.2*2.667=64.5, goes DOWN
+           Always-in=-23.3% => y_top=153, height=62.1
+           HODL=+20.7%      => y_hodl=153-20.7*2.667=153-55.2=98
+
+        D: FIS-gated=-60.6% => height=60.6*2.667=161.6 (goes down from 153 to 314.6)
+           Always-in=-53.6% => height=143.1
+           HODL=+42.2%      => y_hodl=153-42.2*2.667=153-112.5=41 (near top)
+      -->
+
+      <!-- === TIER A === -->
+      <!-- Always-in bar (muted green) -->
+      <rect x="150" y="140" width="46" height="13" fill="#3fb950" opacity="0.35" rx="2"/>
+      <!-- FIS-gated bar (blue) -->
+      <rect x="200" y="145" width="46" height="8" fill="#4A7FD4" opacity="0.9" rx="2"/>
+      <!-- HODL line (orange) -->
+      <line x1="140" y1="124" x2="256" y2="124" stroke="#f0883e" stroke-width="2" stroke-dasharray="4,3"/>
+
+      <!-- Value labels A -->
+      <text x="173" y="134" text-anchor="middle" font-family="SF Mono,Fira Code,monospace" font-size="10" fill="#3fb950" opacity="0.7">+4.9%</text>
+      <text x="223" y="138" text-anchor="middle" font-family="SF Mono,Fira Code,monospace" font-size="10" fill="#4A7FD4">+3.1%</text>
+      <text x="198" y="118" text-anchor="middle" font-family="SF Mono,Fira Code,monospace" font-size="10" fill="#f0883e">HODL +10.9%</text>
+
+      <!-- X label A -->
+      <text x="198" y="370" text-anchor="middle" font-family="'SF Pro Display','Helvetica Neue',Arial,sans-serif" font-size="12" font-weight="600" fill="#e6edf3">A-tier</text>
+      <text x="198" y="383" text-anchor="middle" font-family="'SF Pro Text','Helvetica Neue',Arial,sans-serif" font-size="9.5" fill="#6e7681">ETH, BTC, SOL</text>
+
+      <!-- Loss freq annotation A -->
+      <rect x="148" y="158" width="100" height="16" fill="#21262d" rx="3"/>
+      <text x="198" y="169" text-anchor="middle" font-family="SF Mono,Fira Code,monospace" font-size="9" fill="#8b949e">Loss freq 42.4%</text>
+
+
+      <!-- === TIER B — THE SWEET SPOT === -->
+      <!-- Always-in bar -->
+      <rect x="335" y="96" width="46" height="57" fill="#3fb950" opacity="0.35" rx="2"/>
+      <!-- FIS-gated bar -->
+      <rect x="385" y="112" width="46" height="41" fill="#4A7FD4" opacity="0.9" rx="2"/>
+      <!-- HODL line -->
+      <line x1="324" y1="111" x2="442" y2="111" stroke="#f0883e" stroke-width="2" stroke-dasharray="4,3"/>
+
+      <!-- Value labels B -->
+      <text x="358" y="89" text-anchor="middle" font-family="SF Mono,Fira Code,monospace" font-size="10" fill="#3fb950" opacity="0.7">+21.3%</text>
+      <text x="408" y="105" text-anchor="middle" font-family="SF Mono,Fira Code,monospace" font-size="10" fill="#4A7FD4">+15.5%</text>
+      <text x="383" y="104" text-anchor="middle" font-family="SF Mono,Fira Code,monospace" font-size="9" fill="#f0883e">HODL +15.8%</text>
+
+      <!-- Sweet spot callout -->
+      <rect x="315" y="158" width="140" height="28" fill="#1c2b1a" rx="4" stroke="#3fb950" stroke-width="1" opacity="0.9"/>
+      <text x="385" y="170" text-anchor="middle" font-family="'SF Pro Text','Helvetica Neue',Arial,sans-serif" font-size="10" fill="#3fb950" font-weight="600">LP SWEET SPOT</text>
+      <text x="385" y="181" text-anchor="middle" font-family="SF Mono,Fira Code,monospace" font-size="9" fill="#3fb950" opacity="0.8">Loss freq 34.9%</text>
+
+      <!-- X label B -->
+      <text x="383" y="370" text-anchor="middle" font-family="'SF Pro Display','Helvetica Neue',Arial,sans-serif" font-size="12" font-weight="600" fill="#e6edf3">B-tier</text>
+      <text x="383" y="383" text-anchor="middle" font-family="'SF Pro Text','Helvetica Neue',Arial,sans-serif" font-size="9.5" fill="#6e7681">LINK, AAVE, UNI, ARB, AVAX</text>
+
+
+      <!-- === TIER C === -->
+      <!-- Always-in bar (goes negative) -->
+      <rect x="520" y="153" width="46" height="62" fill="#3fb950" opacity="0.25" rx="2"/>
+      <!-- FIS-gated bar -->
+      <rect x="570" y="153" width="46" height="65" fill="#4A7FD4" opacity="0.5" rx="2"/>
+      <!-- HODL line -->
+      <line x1="509" y1="98" x2="626" y2="98" stroke="#f0883e" stroke-width="2" stroke-dasharray="4,3"/>
+
+      <!-- Value labels C -->
+      <text x="543" y="225" text-anchor="middle" font-family="SF Mono,Fira Code,monospace" font-size="10" fill="#3fb950" opacity="0.6">−23.3%</text>
+      <text x="593" y="228" text-anchor="middle" font-family="SF Mono,Fira Code,monospace" font-size="10" fill="#4A7FD4" opacity="0.7">−24.2%</text>
+      <text x="567" y="90" text-anchor="middle" font-family="SF Mono,Fira Code,monospace" font-size="10" fill="#f0883e">HODL +20.7%</text>
+
+      <!-- Loss freq annotation C -->
+      <rect x="515" y="228" width="116" height="16" fill="#21262d" rx="3"/>
+      <text x="573" y="239" text-anchor="middle" font-family="SF Mono,Fira Code,monospace" font-size="9" fill="#da3633">Loss freq 79.7–82.9%</text>
+
+      <!-- X label C -->
+      <text x="568" y="370" text-anchor="middle" font-family="'SF Pro Display','Helvetica Neue',Arial,sans-serif" font-size="12" font-weight="600" fill="#e6edf3">C-tier</text>
+      <text x="568" y="383" text-anchor="middle" font-family="'SF Pro Text','Helvetica Neue',Arial,sans-serif" font-size="9.5" fill="#6e7681">DOT, ADA, ATOM, NEAR, INJ</text>
+
+
+      <!-- === TIER D === -->
+      <!-- Always-in bar -->
+      <rect x="706" y="153" width="46" height="143" fill="#3fb950" opacity="0.15" rx="2"/>
+      <!-- FIS-gated bar — extends to ~315 -->
+      <rect x="756" y="153" width="44" height="162" fill="#4A7FD4" opacity="0.35" rx="2"/>
+      <!-- HODL line (very high +42.2%) -->
+      <line x1="695" y1="41" x2="810" y2="41" stroke="#f0883e" stroke-width="2" stroke-dasharray="4,3"/>
+
+      <!-- Value labels D -->
+      <text x="729" y="306" text-anchor="middle" font-family="SF Mono,Fira Code,monospace" font-size="10" fill="#3fb950" opacity="0.5">−53.6%</text>
+      <text x="779" y="325" text-anchor="middle" font-family="SF Mono,Fira Code,monospace" font-size="10" fill="#4A7FD4" opacity="0.5">−60.6%</text>
+      <text x="752" y="33" text-anchor="middle" font-family="SF Mono,Fira Code,monospace" font-size="10" fill="#f0883e">HODL +42.2%</text>
+
+      <!-- Catastrophic loss annotation D -->
+      <rect x="698" y="318" width="116" height="16" fill="#2d1b1b" rx="3" stroke="#da3633" stroke-width="0.5"/>
+      <text x="756" y="329" text-anchor="middle" font-family="SF Mono,Fira Code,monospace" font-size="9" fill="#da3633">Loss freq 97.7%</text>
+
+      <!-- X label D -->
+      <text x="753" y="370" text-anchor="middle" font-family="'SF Pro Display','Helvetica Neue',Arial,sans-serif" font-size="12" font-weight="600" fill="#e6edf3">D-tier</text>
+      <text x="753" y="383" text-anchor="middle" font-family="'SF Pro Text','Helvetica Neue',Arial,sans-serif" font-size="9.5" fill="#6e7681">BONK, WIF, PEPE</text>
+
+      <!-- Zero line label -->
+      <text x="82" y="148" font-family="SF Mono,Fira Code,monospace" font-size="9" fill="#8b949e">Zero return</text>
+
+    </svg>
+  </div>
+
+  <div class="disclaimer">
+    <strong>Simulation disclosure:</strong> Based on 5,000-iteration Monte Carlo simulation calibrated to live GeckoTerminal pool data (2026-06-15). Capital: $5,000 on Arbitrum. Strategy A = always-in passive LP. Strategy B = FIS-gated LP (deploy only in ranging regimes). Strategy C = 50/50 HODL. Net APY on total capital using 3-3-3 model (2/3 deployed). 95% confidence intervals: A-tier FIS-gated [+2.7%, +3.4%]; B-tier FIS-gated [+14.3%, +16.1%]; C-tier FIS-gated [−25.4%, −23.6%]; D-tier FIS-gated [−61.3%, −60.3%]. Tick-level historical data validation pending (Priority 1, RES-LPIS-EMPIRICAL-01). Not a projection of future returns. See full methodology at RES-LPIS-EMPIRICAL-01.
+  </div>
+</div>
+
+<!-- ── YODACOM RESEARCH WATERMARK ── -->
+<div style="position:fixed;bottom:20px;right:20px;width:90px;opacity:0.55;pointer-events:none;z-index:9999;" title="Yodacom Research">
+  <svg xmlns="http://www.w3.org/2000/svg" width="91" height="105" viewBox="0 0 91 105">
+    <path d="M0 0 C16.5 0 33 0 50 0 C44 8 44 8 42 10 C42.286 13.917 44.683 16.668 46.938 19.75 C47.648 20.735 48.358 21.72 49.09 22.734 C49.72 23.482 50.351 24.23 51 25 C51.66 25 52.32 25 53 25 C54.627 22.862 56.14 20.732 57.625 18.5 C58.045 17.88 58.465 17.26 58.898 16.621 C59.938 15.085 60.97 13.543 62 12 C60.595 8.785 58.913 6.72 56.375 4.312 C55.234 3.225 54.104 2.125 53 1 C53 0.67 53 0.34 53 0 C65.54 0 78.08 0 91 0 C87.633 4.209 85.161 6.834 81 10 C80 10.5 78.5 11.5 77 12 C76.865 12.369 76.865 12.369 76.181 14.237 C75.049 16.886 73.805 18.905 72.102 21.215 C71.54 21.984 70.978 22.753 70.398 23.545 C69.813 24.334 69.228 25.124 68.625 25.938 C58.122 40.227 58.122 40.227 57.438 44.562 C58.171 49.043 59.565 50.066 63 53 C64.404 54.409 65.799 55.826 67.188 57.25 C70.752 60.876 70.752 60.876 73 62 C73 62.66 73 63.32 73 64 C55.51 64 38.02 64 20 64 C20 63.34 20 62.68 20 62 C21.539 60.484 21.539 60.484 23.625 58.75 C24.349 58.125 25.074 57.5 25.82 56.855 C27.157 55.718 28.503 54.593 29.867 53.488 C32.795 50.931 33.959 49.169 34.875 45.375 C34.377 39.625 30.61 35.308 27.292 30.806 C25.895 28.853 24.591 26.854 23.289 24.836 C17.401 15.863 11.406 9.136 2.641 2.906 C1.769 2.277 0.898 1.648 0 1 C0 0.67 0 0.34 0 0 Z" fill="#E8EEF4" transform="translate(0,41)"/>
+    <circle cx="46" cy="7"  r="7"   fill="#EE1111"/>
+    <circle cx="32" cy="21" r="6.5" fill="#EE1111"/>
+    <circle cx="60" cy="21" r="6.5" fill="#EE1111"/>
+  </svg>
+</div>
+
+</body>
+</html>
