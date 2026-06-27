@@ -102,7 +102,7 @@
 </FigureExpand>
 
 <!-- Back link + breadcrumb -->
-<div class="mx-auto max-w-4xl px-6 pt-10">
+<div class="mx-auto max-w-3xl px-6 sm:px-10 pt-10">
 	<a href="/research" class="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-ochre-deep transition hover:text-ochre">
 		<svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 8H3M7 12l-4-4 4-4"/></svg>
 		All research
@@ -110,7 +110,7 @@
 </div>
 
 <!-- Article header -->
-<header class="mx-auto max-w-4xl px-6 pt-8 pb-4">
+<header class="mx-auto max-w-3xl px-6 sm:px-10 pt-8 pb-4">
 	<div class="mb-5 flex flex-wrap items-center gap-2">
 		<span class="rounded-full bg-teal-500/10 px-3 py-1 text-[0.65rem] font-semibold uppercase tracking-widest text-teal-700">Published</span>
 		<span class="text-[0.68rem] uppercase tracking-widest text-slate-light">June 2026 · Advisor Edition</span>
@@ -130,7 +130,7 @@
 </header>
 
 <!-- Article body -->
-<article class="mx-auto max-w-4xl px-6 pb-20 prose prose-slate max-w-none
+<article class="mx-auto max-w-3xl px-6 sm:px-10 pb-20 prose prose-lg prose-slate max-w-none
 	prose-headings:font-serif prose-headings:text-navy-ink
 	prose-h2:text-2xl prose-h2:mt-10 prose-h2:mb-4
 	prose-h3:text-xl prose-h3:mt-8 prose-h3:mb-3
