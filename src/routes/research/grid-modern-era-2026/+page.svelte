@@ -7,7 +7,11 @@
 	<meta name="description" content="Walk-forward analysis of 85 folds across 17 assets in the modern crypto era. 100% bear-fold capital protection. FIS regime gating. Three-state strategy preview." />
 	<meta property="og:title" content="Grid Trading in the Modern Crypto Era: 2019–2025 | Yodacom Research" />
 	<meta property="og:description" content="Walk-forward analysis of 85 folds across 17 assets in the modern crypto era. 100% bear-fold capital protection. FIS regime gating. Three-state strategy preview." />
-	<meta property="og:image" content="/research/modern-era-cover.png" />
+	<meta property="og:image" content="/research/grid-modern-era-2026/cover.png" />
+	<meta property="og:image:width" content="1200" />
+	<meta property="og:image:height" content="630" />
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:image" content="/research/grid-modern-era-2026/cover.png" />
 </svelte:head>
 
 <!-- Cover banner -->
