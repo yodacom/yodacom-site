@@ -932,8 +932,7 @@
 			<p class="text-base leading-relaxed text-slate">
 				Second, the parabolic detector used in this research was calibrated using 2021 price
 				history as the design case; any estimate that includes 2021 folds carries in-sample bias.
-				The full three-state analysis is the subject of a companion paper currently under internal
-				review. The disclosure here is intentional: we are showing readers the direction of the
+				The full three-state analysis is the subject of a <a href="/research/grid-blind-validation-2023-2025" class="text-ochre-deep underline hover:text-ochre transition">companion paper now published</a>. The disclosure here is intentional: we are showing readers the direction of the
 				research, not presenting it as a completed result.
 			</p>
 		</div>

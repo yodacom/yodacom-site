@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Figure 1 — Three-Strategy Year-by-Year Comparison | The Vault Test</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #0F1B35;
+    font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+    color: #E8EDF5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 24px;
+    min-height: 100vh;
+  }
+  .figure-container {
+    width: 100%;
+    max-width: 860px;
+    background: #0F1B35;
+    border: 1px solid #1E3A5F;
+    border-radius: 10px;
+    padding: 40px 48px 48px;
+  }
+  .fig-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #3B82F6;
+    margin-bottom: 8px;
+  }
+  h1 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #F0F4FC;
+    margin-bottom: 4px;
+    line-height: 1.3;
+  }
+  .subtitle {
+    font-size: 13px;
+    color: #7A90B0;
+    margin-bottom: 36px;
+  }
+  .blind-badge {
+    display: inline-block;
+    padding: 3px 10px;
+    background: #1A2E4A;
+    border: 1px solid #3B82F6;
+    border-radius: 12px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: #60A5FA;
+    text-transform: uppercase;
+    vertical-align: middle;
+    margin-left: 8px;
+  }
+</style>
+</head>
+<body>
+<div class="figure-container">
+  <div class="fig-label">Figure 1 &nbsp;·&nbsp; The Vault Test</div>
+  <h1>Three-Strategy Mean Return by Year <span class="blind-badge">Near-Blind Forward Validation</span></h1>
+  <div class="subtitle">2023–2025 out-of-sample window &nbsp;·&nbsp; 51 folds (17 assets × 3 test years) &nbsp;·&nbsp; All strategy parameters locked on 2019–2022 training data</div>
+
+  <!--
+    DATA (from Lando publish package §5):
+    Year | B&H Mean | Two-State | Three-State
+    2023 | +102.2%  | -0.6%     | +10.5%
+    2024 | +88.8%   | +3.3%     | +3.8%
+    2025 | -22.3%   | +0.2%     | +0.2% excl ZEC / +5.4% incl ZEC (partial-year)
+
+    Chart geometry:
+    ViewBox: 0 0 760 460
+    Plot area: x=90 to 700 (610px wide), y=30 to 370 (340px tall)
+    Y range: -25% to +110% → total span = 135%
+    px-per-pct: 340 / 135 = 2.519
+    Y=0% → y = 370 - 25 * 2.519 = 370 - 62.98 = 307.02 ≈ 307
+    Y=+25%  → y = 307 - 25*2.519 = 244
+    Y=+50%  → y = 307 - 50*2.519 = 181
+    Y=+75%  → y = 307 - 75*2.519 = 118
+    Y=+100% → y = 307 - 100*2.519 = 55
+    Y=-25%  → y = 307 + 25*2.519 = 370
+
+    Bar widths: 44px, gap between bars in group: 6px, gap between groups: 60px
+    Group centres at x=183, x=390, x=597
+    Group 1 (2023): bars at x=90+3=93, 143, 193 (left edge of each bar, width=44)
+      B&H: 93
+      Two-State: 143
+      Three-State: 193
+    Group 2 (2024): bars at 300, 350, 400
+    Group 3 (2025): bars at 507, 557, 607
+
+    Bar Y positions:
+    2023 B&H +102.2%: h=102.2*2.519=257.4, y=307-257=50
+    2023 Two-State -0.6%: going down, h=0.6*2.519=1.5≈2, y=307
+    2023 Three-State +10.5%: h=10.5*2.519=26.4, y=307-26=281
+
+    2024 B&H +88.8%: h=88.8*2.519=223.7, y=307-224=83
+    2024 Two-State +3.3%: h=3.3*2.519=8.3, y=307-8=299
+    2024 Three-State +3.8%: h=3.8*2.519=9.6, y=307-10=297
+
+    2025 B&H -22.3%: going down, h=22.3*2.519=56.2, y=307
+    2025 Two-State +0.2%: h=0.5, y=306.5≈306
+    2025 Three-State (excl ZEC) +0.2%: h=0.5; (incl ZEC) +5.4%: h=13.6, y=293
+    → show +0.2% bar with annotation for ZEC
+  -->
+
+  <svg viewBox="0 0 760 460" width="100%" xmlns="http://www.w3.org/2000/svg" style="overflow:visible">
+    <defs>
+      <linearGradient id="bhGradPos" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#6B7280" stop-opacity="0.7"/>
+        <stop offset="100%" stop-color="#374151" stop-opacity="0.5"/>
+      </linearGradient>
+      <linearGradient id="bhGradNeg" x1="0" y1="1" x2="0" y2="0">
+        <stop offset="0%" stop-color="#EF4444" stop-opacity="0.6"/>
+        <stop offset="100%" stop-color="#7F1D1D" stop-opacity="0.4"/>
+      </linearGradient>
+      <linearGradient id="twoStatePos" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#3B82F6" stop-opacity="0.9"/>
+        <stop offset="100%" stop-color="#1D4ED8" stop-opacity="0.7"/>
+      </linearGradient>
+      <linearGradient id="twoStateNeg" x1="0" y1="1" x2="0" y2="0">
+        <stop offset="0%" stop-color="#F59E0B" stop-opacity="0.8"/>
+        <stop offset="100%" stop-color="#92400E" stop-opacity="0.5"/>
+      </linearGradient>
+      <linearGradient id="threeStateGrad" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#10B981" stop-opacity="0.95"/>
+        <stop offset="100%" stop-color="#065F46" stop-opacity="0.75"/>
+      </linearGradient>
+    </defs>
+
+    <!-- === GRID LINES === -->
+    <line x1="90" y1="307" x2="700" y2="307" stroke="#2A4E6A" stroke-width="1.5"/>
+    <line x1="90" y1="244" x2="700" y2="244" stroke="#1A2E4A" stroke-width="1" stroke-dasharray="4,4"/>
+    <line x1="90" y1="181" x2="700" y2="181" stroke="#1A2E4A" stroke-width="1" stroke-dasharray="4,4"/>
+    <line x1="90" y1="118" x2="700" y2="118" stroke="#1A2E4A" stroke-width="1" stroke-dasharray="4,4"/>
+    <line x1="90" y1="55"  x2="700" y2="55"  stroke="#1A2E4A" stroke-width="1" stroke-dasharray="4,4"/>
+    <line x1="90" y1="370" x2="700" y2="370" stroke="#1A2E4A" stroke-width="1" stroke-dasharray="4,4"/>
+
+    <!-- === Y AXIS LABELS === -->
+    <text x="82" y="311" font-family="Inter,sans-serif" font-size="10" fill="#5A7090" text-anchor="end">0%</text>
+    <text x="82" y="248" font-family="Inter,sans-serif" font-size="10" fill="#5A7090" text-anchor="end">+25%</text>
+    <text x="82" y="185" font-family="Inter,sans-serif" font-size="10" fill="#5A7090" text-anchor="end">+50%</text>
+    <text x="82" y="122" font-family="Inter,sans-serif" font-size="10" fill="#5A7090" text-anchor="end">+75%</text>
+    <text x="82" y="59"  font-family="Inter,sans-serif" font-size="10" fill="#5A7090" text-anchor="end">+100%</text>
+    <text x="82" y="374" font-family="Inter,sans-serif" font-size="10" fill="#8A6060" text-anchor="end">−25%</text>
+    <text x="26" y="210" font-family="Inter,sans-serif" font-size="11" fill="#7A90B0" text-anchor="middle" transform="rotate(-90,26,210)">Mean Return (17-fold year)</text>
+
+    <!-- ================ GROUP 1: 2023 ================ -->
+    <!-- B&H +102.2%: y=50, h=257 -->
+    <rect x="93" y="50" width="44" height="257" rx="3" fill="url(#bhGradPos)" opacity="0.8"/>
+    <text x="115" y="42" font-family="Inter,sans-serif" font-size="10" fill="#9CA3AF" text-anchor="middle">+102%</text>
+
+    <!-- Two-State -0.6%: tiny negative bar below zero -->
+    <rect x="143" y="307" width="44" height="2" rx="1" fill="url(#twoStateNeg)"/>
+    <text x="165" y="323" font-family="Inter,sans-serif" font-size="10" fill="#F59E0B" text-anchor="middle">−0.6%</text>
+
+    <!-- Three-State +10.5%: y=281, h=26 -->
+    <rect x="193" y="281" width="44" height="26" rx="3" fill="url(#threeStateGrad)"/>
+    <text x="215" y="274" font-family="Inter,sans-serif" font-size="11" font-weight="700" fill="#10B981" text-anchor="middle">+10.5%</text>
+
+    <!-- Group label -->
+    <text x="183" y="396" font-family="Inter,sans-serif" font-size="14" font-weight="700" fill="#C8D8EC" text-anchor="middle">2023</text>
+    <text x="183" y="411" font-family="Inter,sans-serif" font-size="10" fill="#5A7090" text-anchor="middle">recovery year</text>
+
+    <!-- Annotation callout: STXUSD dominated -->
+    <rect x="197" y="252" width="148" height="20" rx="3" fill="#071210" stroke="#065F46" stroke-width="1" opacity="0.95"/>
+    <text x="271" y="266" font-family="Inter,sans-serif" font-size="9" fill="#4A8060" text-anchor="middle">STXUSD 2023 sleeve (+60.5%) drives result</text>
+    <line x1="215" y1="281" x2="240" y2="272" stroke="#065F46" stroke-width="1" opacity="0.6"/>
+
+    <!-- ================ GROUP 2: 2024 ================ -->
+    <!-- B&H +88.8%: y=83, h=224 -->
+    <rect x="300" y="83" width="44" height="224" rx="3" fill="url(#bhGradPos)" opacity="0.8"/>
+    <text x="322" y="75" font-family="Inter,sans-serif" font-size="10" fill="#9CA3AF" text-anchor="middle">+89%</text>
+
+    <!-- Two-State +3.3%: y=299, h=8 -->
+    <rect x="350" y="299" width="44" height="8" rx="2" fill="url(#twoStatePos)"/>
+    <text x="372" y="291" font-family="Inter,sans-serif" font-size="10" fill="#60A5FA" text-anchor="middle">+3.3%</text>
+
+    <!-- Three-State +3.8%: y=297, h=10 -->
+    <rect x="400" y="297" width="44" height="10" rx="2" fill="url(#threeStateGrad)"/>
+    <text x="422" y="289" font-family="Inter,sans-serif" font-size="10" fill="#10B981" text-anchor="middle">+3.8%</text>
+
+    <!-- Group label -->
+    <text x="390" y="396" font-family="Inter,sans-serif" font-size="14" font-weight="700" fill="#C8D8EC" text-anchor="middle">2024</text>
+    <text x="390" y="411" font-family="Inter,sans-serif" font-size="10" fill="#5A7090" text-anchor="middle">bull cycle</text>
+
+    <!-- Annotation: most grid activity -->
+    <rect x="330" y="270" width="144" height="20" rx="3" fill="#0a1425" stroke="#1E3A5F" stroke-width="1" opacity="0.95"/>
+    <text x="402" y="284" font-family="Inter,sans-serif" font-size="9" fill="#4A7090" text-anchor="middle">6 active grid folds · most distributed</text>
+
+    <!-- ================ GROUP 3: 2025 ================ -->
+    <!-- B&H -22.3%: going down, y=307, h=56 -->
+    <rect x="507" y="307" width="44" height="56" rx="3" fill="url(#bhGradNeg)" opacity="0.8"/>
+    <text x="529" y="376" font-family="Inter,sans-serif" font-size="10" fill="#EF4444" text-anchor="middle">−22%</text>
+
+    <!-- Two-State +0.2%: negligible positive, show as thin line -->
+    <rect x="557" y="306" width="44" height="1" rx="1" fill="url(#twoStatePos)"/>
+    <text x="579" y="300" font-family="Inter,sans-serif" font-size="10" fill="#60A5FA" text-anchor="middle">+0.2%</text>
+
+    <!-- Three-State: plot +0.2% excl ZEC bar, annotate ZEC uplift -->
+    <rect x="607" y="306" width="44" height="1" rx="1" fill="url(#threeStateGrad)"/>
+    <!-- ZEC uplift dashed overlay: +5.4% incl ZEC means extra h=13.6, y=293 -->
+    <rect x="607" y="293" width="44" height="14" rx="2" fill="#10B981" opacity="0.25" stroke="#10B981" stroke-width="1" stroke-dasharray="3,2"/>
+    <text x="629" y="289" font-family="Inter,sans-serif" font-size="9" font-weight="700" fill="#4A8060" text-anchor="middle">+5.4%</text>
+    <text x="629" y="300" font-family="Inter,sans-serif" font-size="9" fill="#2A5040" text-anchor="middle">incl. ZEC ‡</text>
+    <text x="629" y="311" font-family="Inter,sans-serif" font-size="10" fill="#10B981" text-anchor="middle">+0.2%</text>
+    <text x="629" y="322" font-family="Inter,sans-serif" font-size="9" fill="#2A5040" text-anchor="middle">excl. ZEC</text>
+
+    <!-- Group label -->
+    <text x="597" y="396" font-family="Inter,sans-serif" font-size="14" font-weight="700" fill="#C8D8EC" text-anchor="middle">2025</text>
+    <text x="597" y="411" font-family="Inter,sans-serif" font-size="10" fill="#5A7090" text-anchor="middle">bear-dominated ‡ partial-year</text>
+
+    <!-- ZEC footnote callout -->
+    <rect x="480" y="240" width="218" height="36" rx="4" fill="#071210" stroke="#F59E0B" stroke-width="1" opacity="0.95"/>
+    <text x="589" y="255" font-family="Inter,sans-serif" font-size="9" font-weight="700" fill="#A07020" text-anchor="middle">‡ ZECUSD 2025 — ongoing fold</text>
+    <text x="589" y="267" font-family="Inter,sans-serif" font-size="9" fill="#6A5020" text-anchor="middle">Data cutoff 2026-05-26. Excl. ZEC: +2.0% mean</text>
+
+    <!-- === LEGEND === -->
+    <rect x="90" y="432" width="14" height="10" rx="2" fill="#6B7280" opacity="0.7"/>
+    <text x="110" y="442" font-family="Inter,sans-serif" font-size="11" fill="#A0B8C8">Buy-and-Hold (17-fold year mean)</text>
+    <rect x="300" y="432" width="14" height="10" rx="2" fill="#3B82F6" opacity="0.85"/>
+    <text x="320" y="442" font-family="Inter,sans-serif" font-size="11" fill="#A0B8C8">Two-State Fuzzy Inference System</text>
+    <rect x="530" y="432" width="14" height="10" rx="2" fill="#10B981" opacity="0.9"/>
+    <text x="550" y="442" font-family="Inter,sans-serif" font-size="11" fill="#A0B8C8">Three-State FIS (+ sleeve)</text>
+
+    <!-- 51-fold summary line -->
+    <text x="395" y="456" font-family="Inter,sans-serif" font-size="10" fill="#2A4060" text-anchor="middle">51-fold mean: B&amp;H +46.2% · Two-State +0.6% · Three-State +3.8% (+2.0% excl. ZECUSD 2025 ongoing fold)</text>
+
+  </svg>
+
+  <!-- Summary statistics table -->
+  <div style="margin-top:24px; overflow-x:auto;">
+    <table style="width:100%; border-collapse:collapse; font-size:12px;">
+      <thead>
+        <tr style="border-bottom:1px solid #1E3A5F;">
+          <th style="padding:8px 12px; text-align:left; font-size:10px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:#5A7090;">Metric — all 51 folds</th>
+          <th style="padding:8px 12px; text-align:right; color:#9CA3AF;">Buy-and-Hold</th>
+          <th style="padding:8px 12px; text-align:right; color:#60A5FA;">Two-State FIS</th>
+          <th style="padding:8px 12px; text-align:right; color:#10B981;">Three-State FIS</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="border-bottom:1px solid #0E1E34;">
+          <td style="padding:8px 12px; color:#7A90B0;">Mean return (all 51 folds)</td>
+          <td style="padding:8px 12px; text-align:right; color:#9CA3AF;">+46.2%</td>
+          <td style="padding:8px 12px; text-align:right; color:#60A5FA;">+0.6%</td>
+          <td style="padding:8px 12px; text-align:right; color:#10B981; font-weight:700;">+3.8%</td>
+        </tr>
+        <tr style="border-bottom:1px solid #0E1E34;">
+          <td style="padding:8px 12px; color:#7A90B0;">Mean return (excl. ZECUSD 2025 ongoing)</td>
+          <td style="padding:8px 12px; text-align:right; color:#9CA3AF;">—</td>
+          <td style="padding:8px 12px; text-align:right; color:#60A5FA;">—</td>
+          <td style="padding:8px 12px; text-align:right; color:#10B981;">+2.0%</td>
+        </tr>
+        <tr style="border-bottom:1px solid #0E1E34;">
+          <td style="padding:8px 12px; color:#7A90B0;">Folds with positive return</td>
+          <td style="padding:8px 12px; text-align:right; color:#9CA3AF;">29 (56.9%)</td>
+          <td style="padding:8px 12px; text-align:right; color:#60A5FA;">15 (29.4%)</td>
+          <td style="padding:8px 12px; text-align:right; color:#10B981; font-weight:700;">25 (49.0%)</td>
+        </tr>
+        <tr style="border-bottom:1px solid #0E1E34;">
+          <td style="padding:8px 12px; color:#7A90B0;">Folds negative</td>
+          <td style="padding:8px 12px; text-align:right; color:#EF4444;">22 (43.1%)</td>
+          <td style="padding:8px 12px; text-align:right; color:#60A5FA;">2 (3.9%)</td>
+          <td style="padding:8px 12px; text-align:right; color:#10B981;">2 (3.9%)</td>
+        </tr>
+        <tr>
+          <td style="padding:8px 12px; color:#7A90B0;">Bear-fold win rate (20 folds)</td>
+          <td style="padding:8px 12px; text-align:right; color:#EF4444;">—</td>
+          <td style="padding:8px 12px; text-align:right; color:#60A5FA;">100% (20/20)</td>
+          <td style="padding:8px 12px; text-align:right; color:#10B981; font-weight:700;">100% (20/20)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Compliance footnote -->
+  <div style="margin-top:16px; padding:12px 16px; background:#080e1c; border-radius:6px; border-left:3px solid #F59E0B;">
+    <span style="font-size:11px; color:#7A6030; font-weight:600;">Simulated / Backtested Performance. </span>
+    <span style="font-size:11px; color:#4A4030;">All values are simulated/backtested estimates under the walk-forward methodology described in the study. Parameters were locked on 2019–2022 training data before any 2023–2025 prices were observed. Residual in-sample bias exists from parabolic detector calibration on 2021 events. The ZECUSD 2025 fold is ongoing (data cutoff 2026-05-26) and the +80.7% sleeve contribution may change materially. Past simulated performance does not guarantee future results.</span>
+  </div>
+
+  <div style="margin-top:12px; font-size:10px; color:#2A4060; text-align:right;">
+    Yodacom Research · The Vault Test 2023–2025 · grid-blind-validation-2023-2025
+  </div>
+</div>
+</body>
+</html>

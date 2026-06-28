@@ -381,17 +381,18 @@
 
 		<!-- Figure 1 -->
 		<h3 class="mb-4 font-serif text-lg text-navy-ink">Three-Strategy Comparison, Year by Year</h3>
-		<figure class="my-8">
-			<img
-				src="/research/blind-validation/fig1.png"
-				alt="Figure 1: Grouped bar chart comparing Buy-and-Hold, Two-State FIS, and Three-State FIS mean returns by year (2023, 2024, 2025). Three-State shows +10.5% in 2023 (dominated by STXUSD sleeve), +3.8% in 2024, and near-zero in 2025 excluding ZECUSD ongoing fold."
+		<div class="my-8 not-prose w-full">
+			<div class="text-xs font-semibold uppercase tracking-wider text-slate-light mb-2">Figure 1 &mdash; Three-Strategy Comparison, Year by Year</div>
+			<iframe
+				src="/research/grid-blind-validation-2023-2025/fig1-three-strategy.html"
+				title="Figure 1 — Year-by-year mean returns: Buy-and-Hold, Two-State FIS, Three-State FIS (2023–2025). Three-State +10.5% in 2023 dominated by STXUSD sleeve; 2025 reflects partial-year data."
+				class="w-full rounded border border-rule"
+				style="height: 520px; border: none;"
 				loading="lazy"
-				style="width:100%;height:auto;border-radius:8px;display:block;"
-			/>
-			<figcaption class="mt-3 text-xs text-slate-light">
-				Figure 1 &mdash; Year-by-year mean returns across the three variants. 2023 three-state result dominated by STXUSD 2023 sleeve (+60.5%). 2025 bar reflects partial-year data (data cutoff 2026-05-26). All values are simulated/backtested estimates. Past performance does not guarantee future results.
-			</figcaption>
-		</figure>
+				scrolling="no"
+			></iframe>
+			<div class="text-xs text-slate-light mt-2 italic">Year-by-year mean returns across the three variants. 2023 three-state result dominated by STXUSD 2023 sleeve (+60.5%). 2025 bar reflects partial-year data (data cutoff 2026-05-26). All values are simulated/backtested estimates. Past performance does not guarantee future results.</div>
+		</div>
 
 		<h3 class="mb-4 font-serif text-lg text-navy-ink">4.2 Bear-Fold Detail (20 folds)</h3>
 		<p class="mb-5 text-base leading-relaxed text-slate">
@@ -409,17 +410,18 @@
 		</p>
 
 		<!-- Figure 2 -->
-		<figure class="my-8">
-			<img
-				src="/research/blind-validation/fig2.png"
-				alt="Figure 2: Capital protection chart showing 12 illustrative of 20 bear folds. Three lines: Buy-and-Hold ending value, Two-State FIS, Three-State FIS. Lines 2 and 3 are identical — the direction guard prevents sleeve fires on all bear folds. Dollar impact callout: DOGEUSD 2025 B&H = $3,610, CoinRoc = $9,070, Difference = $5,460."
+		<div class="my-8 not-prose w-full">
+			<div class="text-xs font-semibold uppercase tracking-wider text-slate-light mb-2">Figure 2 &mdash; Capital Protection: Bear-Fold Universe, $10,000 Starting Account</div>
+			<iframe
+				src="/research/grid-blind-validation-2023-2025/fig2-capital-protection.html"
+				title="Figure 2 — Capital protection: 20 bear folds from 2023–2025 out-of-sample window. 100% simulated bear-fold win rate. The direction guard prevents the momentum sleeve from firing on bear folds. DOGEUSD 2025: B&H $3,610 vs CoinRoc $9,070."
+				class="w-full rounded border border-rule"
+				style="height: 540px; border: none;"
 				loading="lazy"
-				style="width:100%;height:auto;border-radius:8px;display:block;"
-			/>
-			<figcaption class="mt-3 text-xs text-slate-light">
-				Figure 2 &mdash; Capital protection story: 12 illustrative of 20 bear folds (win rate 20/20), $10,000 starting account. The Two-State and Three-State lines are identical &mdash; the direction guard prevents the momentum sleeve from firing on bear folds by design. All values are simulated/backtested estimates. Actual results may differ. Past simulated performance does not guarantee future results.
-			</figcaption>
-		</figure>
+				scrolling="no"
+			></iframe>
+			<div class="text-xs text-slate-light mt-2 italic">Capital protection story: 20 bear folds (win rate 20/20), $10,000 starting account. The Two-State and Three-State outcomes are identical on bear folds &mdash; the direction guard prevents the momentum sleeve from firing into declining markets by design. All values are simulated/backtested estimates. Actual results may differ. Past simulated performance does not guarantee future results.</div>
+		</div>
 
 		<h3 class="mb-4 font-serif text-lg text-navy-ink">4.3 Parabolic Events in the Out-of-Sample Window</h3>
 		<div class="mb-8 overflow-x-auto">
@@ -583,17 +585,18 @@
 
 		<!-- Figure 3 -->
 		<h3 class="mb-4 font-serif text-lg text-navy-ink">6.4 Competitive Positioning Matrix</h3>
-		<figure class="my-8">
-			<img
-				src="/research/blind-validation/fig3.png"
-				alt="Figure 3: Competitive positioning matrix. 2x2 quadrant diagram. X-axis: Research Validation Quality (single-path backtest to blind walk-forward). Y-axis: Algorithm Sophistication (static grid to regime-adaptive plus momentum sleeve). CoinRoc positions in upper-right quadrant. Competitor positions are qualitative assessments based on publicly available product documentation as of June 2026."
+		<div class="my-8 not-prose w-full">
+			<div class="text-xs font-semibold uppercase tracking-wider text-slate-light mb-2">Figure 3 &mdash; Competitive Positioning Matrix</div>
+			<iframe
+				src="/research/grid-blind-validation-2023-2025/fig3-competitive-matrix.html"
+				title="Figure 3 — Competitive positioning matrix: Algorithm Sophistication vs Research Validation Quality. CoinRoc 2-state and 3-state in upper-right. Competitor positions qualitative, based on publicly available documentation as of June 2026."
+				class="w-full rounded border border-rule"
+				style="height: 560px; border: none;"
 				loading="lazy"
-				style="width:100%;height:auto;border-radius:8px;display:block;"
-			/>
-			<figcaption class="mt-3 text-xs text-slate-light">
-				Figure 3 &mdash; Competitive positioning matrix. Competitor positions are qualitative assessments based on publicly available product documentation as of June 2026. CoinRoc has not independently tested competitor systems. Positions do not represent a formal evaluation or ranking and may not reflect recent platform updates.
-			</figcaption>
-		</figure>
+				scrolling="no"
+			></iframe>
+			<div class="text-xs text-slate-light mt-2 italic">Competitive positioning matrix. Competitor positions are qualitative assessments based on publicly available product documentation as of June 2026. CoinRoc has not independently tested competitor systems. Positions do not represent a formal evaluation or ranking and may not reflect recent platform updates.</div>
+		</div>
 	</section>
 
 	<!-- Section 7 — Limitations -->

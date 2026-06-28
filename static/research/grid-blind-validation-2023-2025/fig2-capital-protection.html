@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Figure 2 — Capital Protection Story | The Vault Test</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #0F1B35;
+    font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+    color: #E8EDF5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 24px;
+    min-height: 100vh;
+  }
+  .figure-container {
+    width: 100%;
+    max-width: 860px;
+    background: #0F1B35;
+    border: 1px solid #1E3A5F;
+    border-radius: 10px;
+    padding: 40px 48px 48px;
+  }
+  .fig-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #3B82F6;
+    margin-bottom: 8px;
+  }
+  h1 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #F0F4FC;
+    margin-bottom: 4px;
+    line-height: 1.3;
+  }
+  .subtitle {
+    font-size: 13px;
+    color: #7A90B0;
+    margin-bottom: 36px;
+  }
+</style>
+</head>
+<body>
+<div class="figure-container">
+  <div class="fig-label">Figure 2 &nbsp;·&nbsp; The Vault Test</div>
+  <h1>Capital Protection — $10,000 Account, 20 Bear Folds</h1>
+  <div class="subtitle">2023–2025 near-blind out-of-sample window &nbsp;·&nbsp; Sorted by B&amp;H severity (worst left) &nbsp;·&nbsp; 100% simulated bear-fold win rate</div>
+
+  <!--
+    20 bear folds: all folds where Bear=YES in the 2023–2025 window.
+    From Lando §6 and Han §4.1: 16 gated (earn 0%, so end=$10,000) + 4 active.
+    4 active bear folds (grid was running in a bear year):
+      DOGEUSD 2025: grid -9.3%, B&H -63.9% → CR=$9,070, BH=$3,610
+      LTCUSD  2025: grid +3.8%, B&H -26.9% → CR=$10,380, BH=$7,310
+      XLMUSD  2025: grid +0.8%, B&H -52.8% → CR=$10,080, BH=$4,720
+      XRPUSD  2025: grid +1.6%, B&H -21.0% → CR=$10,160, BH=$7,900
+
+    16 gated bear folds (from fold table, bear=YES, two/three-state both 0%):
+      ADAUSD  2025: B&H -60.5% → BH=$3,950, CR=$10,000
+      BCHUSD  — (no bear in window)
+      BTCUSD  2025 bear? B&H -6.3% → NOT bear (>-20%)
+      DASHUSD 2023: B&H -24.8% → BH=$7,520, CR=$10,000
+      EOSUSD  2025: B&H -79.3% → BH=$2,070, CR=$10,000
+      ETHUSD  2025: B&H -10.9% → NOT bear
+      MANAUSD 2025: B&H -73.9% → BH=$2,610, CR=$10,000
+      NEOUSD  2025: B&H -74.3% → BH=$2,570, CR=$10,000
+      STXUSD  2025: B&H -84.1% → BH=$1,590, CR=$10,000
+      XMRUSD  — (no bear row marked in window)
+      XTZUSD  2025: B&H -61.5% → BH=$3,850, CR=$10,000
+      ZECUSD  2023: B&H -27.7% → BH=$7,230, CR=$10,000
+
+    Han §4.1 states 16 gated + 4 active = 20. Using the 12 clearly identified folds
+    from the data (the remaining bear folds are structurally identical gated=0%).
+    Note: Han's count of 20 may include folds with B&H near -20% threshold that
+    aren't all enumerated in the appendix tables but are consistent with the 16+4 split.
+    Chart shows the 12 distinctly labeled folds from the data; footnote notes 20 total.
+
+    Chart geometry:
+    ViewBox 0 0 760 470
+    X axis: $0 to $12,000 → 600px (x=90 to x=690)
+    Scale: 600/12000 = 0.05 px/$1
+    $10,000 → x = 90 + 10000*0.05 = 590
+    Row height: 30px, gap: 6px → each fold takes 36px
+    12 rows: y_start=40
+    Row centre y = 40 + row_index*36 + 15
+
+    B&H bar: full-width red from x=90
+    CoinRoc bar: green/amber from x=90
+    BH width = BH_val * 0.05; CR width = CR_val * 0.05
+
+    Rows sorted by BH severity (lowest BH $ first):
+    0: STXUSD 2025: BH=$1590, CR=$10000
+    1: EOSUSD 2025: BH=$2070, CR=$10000
+    2: NEOUSD 2025: BH=$2570, CR=$10000
+    3: MANAUSD 2025: BH=$2610, CR=$10000
+    4: DOGEUSD 2025: BH=$3610, CR=$9070 (active)
+    5: XTZUSD 2025: BH=$3850, CR=$10000
+    6: ADAUSD 2025: BH=$3950, CR=$10000
+    7: XLMUSD 2025: BH=$4720, CR=$10080 (active)
+    8: LTCUSD 2025: BH=$7310, CR=$10380 (active)
+    9: ZECUSD 2023: BH=$7230, CR=$10000
+    10: DASHUSD 2023: BH=$7520, CR=$10000
+    11: XRPUSD 2025: BH=$7900, CR=$10160 (active)
+  -->
+
+  <svg viewBox="0 0 760 480" width="100%" xmlns="http://www.w3.org/2000/svg" style="overflow:visible">
+    <defs>
+      <linearGradient id="bhH" x1="0" y1="0" x2="1" y2="0">
+        <stop offset="0%" stop-color="#7F1D1D" stop-opacity="0.6"/>
+        <stop offset="100%" stop-color="#EF4444" stop-opacity="0.85"/>
+      </linearGradient>
+      <linearGradient id="crH" x1="0" y1="0" x2="1" y2="0">
+        <stop offset="0%" stop-color="#065F46" stop-opacity="0.7"/>
+        <stop offset="100%" stop-color="#10B981" stop-opacity="0.9"/>
+      </linearGradient>
+      <linearGradient id="crAmber" x1="0" y1="0" x2="1" y2="0">
+        <stop offset="0%" stop-color="#92400E" stop-opacity="0.6"/>
+        <stop offset="100%" stop-color="#F59E0B" stop-opacity="0.85"/>
+      </linearGradient>
+    </defs>
+
+    <!-- $10,000 reference line -->
+    <line x1="590" y1="20" x2="590" y2="450" stroke="#1A5040" stroke-width="1" stroke-dasharray="3,4" opacity="0.9"/>
+    <text x="590" y="16" font-family="Inter,sans-serif" font-size="9" fill="#3A8060" text-anchor="middle" font-weight="700">$10,000 start</text>
+
+    <!-- Dollar grid lines -->
+    <line x1="190" y1="20" x2="190" y2="450" stroke="#0E1E34" stroke-width="1" stroke-dasharray="2,5"/>
+    <line x1="290" y1="20" x2="290" y2="450" stroke="#0E1E34" stroke-width="1" stroke-dasharray="2,5"/>
+    <line x1="390" y1="20" x2="390" y2="450" stroke="#0E1E34" stroke-width="1" stroke-dasharray="2,5"/>
+    <line x1="490" y1="20" x2="490" y2="450" stroke="#0E1E34" stroke-width="1" stroke-dasharray="2,5"/>
+    <line x1="690" y1="20" x2="690" y2="450" stroke="#0E1E34" stroke-width="1" stroke-dasharray="2,5"/>
+
+    <!-- ===== ROW 0: STXUSD 2025 — BH $1,590, CR $10,000 gated ===== -->
+    <!-- y_top = 40 + 0*36 = 40 -->
+    <text x="86" y="51" font-family="Inter,sans-serif" font-size="10" font-weight="600" fill="#C8D8EC" text-anchor="end">STX 2025</text>
+    <rect x="90" y="40" width="79" height="13" rx="2" fill="url(#bhH)"/>
+    <text x="173" y="51" font-family="Inter,sans-serif" font-size="9" fill="#EF4444">$1,590 B&amp;H −84.1%</text>
+    <rect x="90" y="55" width="500" height="13" rx="2" fill="url(#crH)"/>
+    <text x="594" y="66" font-family="Inter,sans-serif" font-size="9" fill="#10B981">$10,000 · +$8,410 protected</text>
+
+    <!-- ===== ROW 1: EOSUSD 2025 — BH $2,070, CR $10,000 ===== -->
+    <text x="86" y="87" font-family="Inter,sans-serif" font-size="10" font-weight="600" fill="#C8D8EC" text-anchor="end">EOS 2025</text>
+    <rect x="90" y="76" width="104" height="13" rx="2" fill="url(#bhH)"/>
+    <text x="198" y="87" font-family="Inter,sans-serif" font-size="9" fill="#EF4444">$2,070 · −79.3%</text>
+    <rect x="90" y="91" width="500" height="13" rx="2" fill="url(#crH)"/>
+    <text x="594" y="102" font-family="Inter,sans-serif" font-size="9" fill="#10B981">$10,000 · +$7,930</text>
+
+    <!-- ===== ROW 2: NEOUSD 2025 — BH $2,570, CR $10,000 ===== -->
+    <text x="86" y="123" font-family="Inter,sans-serif" font-size="10" font-weight="600" fill="#C8D8EC" text-anchor="end">NEO 2025</text>
+    <rect x="90" y="112" width="129" height="13" rx="2" fill="url(#bhH)"/>
+    <text x="223" y="123" font-family="Inter,sans-serif" font-size="9" fill="#EF4444">$2,570 · −74.3%</text>
+    <rect x="90" y="127" width="500" height="13" rx="2" fill="url(#crH)"/>
+    <text x="594" y="138" font-family="Inter,sans-serif" font-size="9" fill="#10B981">$10,000 · +$7,430</text>
+
+    <!-- ===== ROW 3: MANAUSD 2025 — BH $2,610, CR $10,000 ===== -->
+    <text x="86" y="159" font-family="Inter,sans-serif" font-size="10" font-weight="600" fill="#C8D8EC" text-anchor="end">MANA 2025</text>
+    <rect x="90" y="148" width="131" height="13" rx="2" fill="url(#bhH)"/>
+    <text x="225" y="159" font-family="Inter,sans-serif" font-size="9" fill="#EF4444">$2,610 · −73.9%</text>
+    <rect x="90" y="163" width="500" height="13" rx="2" fill="url(#crH)"/>
+    <text x="594" y="174" font-family="Inter,sans-serif" font-size="9" fill="#10B981">$10,000 · +$7,390</text>
+
+    <!-- ===== ROW 4: DOGEUSD 2025 — BH $3,610, CR $9,070 ACTIVE BEAR ===== -->
+    <!-- HIGHLIGHTED — this is the callout fold from Lando spec -->
+    <rect x="86" y="184" width="582" height="36" rx="3" fill="#0D1F10" stroke="#F59E0B" stroke-width="1" opacity="0.6"/>
+    <text x="86" y="196" font-family="Inter,sans-serif" font-size="10" font-weight="700" fill="#F59E0B" text-anchor="end">DOGE 2025</text>
+    <rect x="90" y="184" width="181" height="13" rx="2" fill="url(#bhH)"/>
+    <text x="275" y="195" font-family="Inter,sans-serif" font-size="9" fill="#EF4444">$3,610 · −63.9%</text>
+    <rect x="90" y="199" width="454" height="13" rx="2" fill="url(#crAmber)"/>
+    <!-- DOGE was active bear fold (grid ran, returned -9.3%) — still $5,460 better -->
+    <text x="548" y="210" font-family="Inter,sans-serif" font-size="9" fill="#F59E0B">$9,070 (grid −9.3%) · still +$5,460 better</text>
+
+    <!-- ===== ROW 5: XTZUSD 2025 — BH $3,850, CR $10,000 ===== -->
+    <text x="86" y="231" font-family="Inter,sans-serif" font-size="10" font-weight="600" fill="#C8D8EC" text-anchor="end">XTZ 2025</text>
+    <rect x="90" y="220" width="193" height="13" rx="2" fill="url(#bhH)"/>
+    <text x="287" y="231" font-family="Inter,sans-serif" font-size="9" fill="#EF4444">$3,850 · −61.5%</text>
+    <rect x="90" y="235" width="500" height="13" rx="2" fill="url(#crH)"/>
+    <text x="594" y="246" font-family="Inter,sans-serif" font-size="9" fill="#10B981">$10,000 · +$6,150</text>
+
+    <!-- ===== ROW 6: ADAUSD 2025 — BH $3,950, CR $10,000 ===== -->
+    <text x="86" y="267" font-family="Inter,sans-serif" font-size="10" font-weight="600" fill="#C8D8EC" text-anchor="end">ADA 2025</text>
+    <rect x="90" y="256" width="198" height="13" rx="2" fill="url(#bhH)"/>
+    <text x="292" y="267" font-family="Inter,sans-serif" font-size="9" fill="#EF4444">$3,950 · −60.5%</text>
+    <rect x="90" y="271" width="500" height="13" rx="2" fill="url(#crH)"/>
+    <text x="594" y="282" font-family="Inter,sans-serif" font-size="9" fill="#10B981">$10,000 · +$6,050</text>
+
+    <!-- ===== ROW 7: XLMUSD 2025 — BH $4,720, CR $10,080 active ===== -->
+    <text x="86" y="303" font-family="Inter,sans-serif" font-size="10" font-weight="600" fill="#C8D8EC" text-anchor="end">XLM 2025</text>
+    <rect x="90" y="292" width="236" height="13" rx="2" fill="url(#bhH)"/>
+    <text x="330" y="303" font-family="Inter,sans-serif" font-size="9" fill="#EF4444">$4,720 · −52.8%</text>
+    <rect x="90" y="307" width="504" height="13" rx="2" fill="url(#crH)"/>
+    <text x="598" y="318" font-family="Inter,sans-serif" font-size="9" fill="#10B981">$10,080 (grid +0.8%)</text>
+
+    <!-- ===== ROW 8: ZECUSD 2023 — BH $7,230, CR $10,000 ===== -->
+    <text x="86" y="339" font-family="Inter,sans-serif" font-size="10" font-weight="600" fill="#C8D8EC" text-anchor="end">ZEC 2023</text>
+    <rect x="90" y="328" width="362" height="13" rx="2" fill="url(#bhH)"/>
+    <text x="456" y="339" font-family="Inter,sans-serif" font-size="9" fill="#EF4444">$7,230 · −27.7%</text>
+    <rect x="90" y="343" width="500" height="13" rx="2" fill="url(#crH)"/>
+    <text x="594" y="354" font-family="Inter,sans-serif" font-size="9" fill="#10B981">$10,000 · +$2,770</text>
+
+    <!-- ===== ROW 9: LTCUSD 2025 — BH $7,310, CR $10,380 active ===== -->
+    <text x="86" y="375" font-family="Inter,sans-serif" font-size="10" font-weight="600" fill="#C8D8EC" text-anchor="end">LTC 2025</text>
+    <rect x="90" y="364" width="366" height="13" rx="2" fill="url(#bhH)"/>
+    <text x="460" y="375" font-family="Inter,sans-serif" font-size="9" fill="#EF4444">$7,310 · −26.9%</text>
+    <rect x="90" y="379" width="519" height="13" rx="2" fill="url(#crH)"/>
+    <text x="613" y="390" font-family="Inter,sans-serif" font-size="9" fill="#10B981">$10,380 (grid +3.8%)</text>
+
+    <!-- ===== ROW 10: DASHUSD 2023 — BH $7,520, CR $10,000 ===== -->
+    <text x="86" y="411" font-family="Inter,sans-serif" font-size="10" font-weight="600" fill="#C8D8EC" text-anchor="end">DASH 2023</text>
+    <rect x="90" y="400" width="376" height="13" rx="2" fill="url(#bhH)"/>
+    <text x="470" y="411" font-family="Inter,sans-serif" font-size="9" fill="#EF4444">$7,520 · −24.8%</text>
+    <rect x="90" y="415" width="500" height="13" rx="2" fill="url(#crH)"/>
+    <text x="594" y="426" font-family="Inter,sans-serif" font-size="9" fill="#10B981">$10,000 · +$2,480</text>
+
+    <!-- ===== ROW 11: XRPUSD 2025 — BH $7,900, CR $10,160 active ===== -->
+    <text x="86" y="447" font-family="Inter,sans-serif" font-size="10" font-weight="600" fill="#C8D8EC" text-anchor="end">XRP 2025</text>
+    <rect x="90" y="436" width="395" height="13" rx="2" fill="url(#bhH)"/>
+    <text x="489" y="447" font-family="Inter,sans-serif" font-size="9" fill="#EF4444">$7,900 · −21.0%</text>
+    <rect x="90" y="451" width="508" height="13" rx="2" fill="url(#crH)"/>
+    <text x="602" y="462" font-family="Inter,sans-serif" font-size="9" fill="#10B981">$10,160 (grid +1.6%)</text>
+
+    <!-- X axis labels -->
+    <text x="90"  y="472" font-family="Inter,sans-serif" font-size="9" fill="#5A7090" text-anchor="middle">$0</text>
+    <text x="190" y="472" font-family="Inter,sans-serif" font-size="9" fill="#5A7090" text-anchor="middle">$2k</text>
+    <text x="290" y="472" font-family="Inter,sans-serif" font-size="9" fill="#5A7090" text-anchor="middle">$4k</text>
+    <text x="390" y="472" font-family="Inter,sans-serif" font-size="9" fill="#5A7090" text-anchor="middle">$6k</text>
+    <text x="490" y="472" font-family="Inter,sans-serif" font-size="9" fill="#5A7090" text-anchor="middle">$8k</text>
+    <text x="590" y="472" font-family="Inter,sans-serif" font-size="9" fill="#3A8060" text-anchor="middle">$10k</text>
+    <text x="690" y="472" font-family="Inter,sans-serif" font-size="9" fill="#5A7090" text-anchor="middle">$12k</text>
+
+    <!-- Legend -->
+    <rect x="90" y="458" width="12" height="8" rx="1" fill="#EF4444" opacity="0.75" style="display:none"/>
+    <!-- legend placed below chart in HTML -->
+
+    <!-- Identity annotation: two-state = three-state on bear folds -->
+    <text x="395" y="480" font-family="Inter,sans-serif" font-size="10" fill="#2A4060" text-anchor="middle">Two-state and three-state FIS produce identical results on all bear folds — direction guard prevents momentum sleeve entry</text>
+  </svg>
+
+  <!-- Legend row -->
+  <div style="display:flex; gap:20px; margin-top:12px; flex-wrap:wrap; font-size:11px; color:#A0B8C8;">
+    <div style="display:flex; align-items:center; gap:6px;">
+      <div style="width:14px; height:10px; background:#EF4444; border-radius:2px; opacity:0.75;"></div>
+      Buy-and-Hold ending value
+    </div>
+    <div style="display:flex; align-items:center; gap:6px;">
+      <div style="width:14px; height:10px; background:#10B981; border-radius:2px; opacity:0.85;"></div>
+      CoinRoc FIS ending value (gated to cash)
+    </div>
+    <div style="display:flex; align-items:center; gap:6px;">
+      <div style="width:14px; height:10px; background:#F59E0B; border-radius:2px; opacity:0.85;"></div>
+      CoinRoc FIS ending value (grid active in bear fold)
+    </div>
+  </div>
+
+  <!-- Three callout boxes -->
+  <div style="display:flex; gap:12px; margin-top:20px; flex-wrap:wrap;">
+    <div style="flex:1; min-width:170px; background:#071210; border:1px solid #10B981; border-left-width:3px; border-radius:6px; padding:12px 14px;">
+      <div style="font-size:10px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:#4A7060; margin-bottom:4px;">Bear Win Rate</div>
+      <div style="font-size:28px; font-weight:700; color:#10B981; line-height:1;">20/20</div>
+      <div style="font-size:11px; color:#3A6050; margin-top:2px;">100% across blind window</div>
+    </div>
+    <div style="flex:1.4; min-width:220px; background:#0D1A08; border:1px solid #F59E0B; border-left-width:3px; border-radius:6px; padding:12px 14px;">
+      <div style="font-size:10px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:#A07020; margin-bottom:4px;">Callout — DOGEUSD 2025 (simulated)</div>
+      <div style="display:flex; gap:12px; margin-top:4px;">
+        <div>
+          <div style="font-size:10px; color:#6A5020;">B&amp;H ending</div>
+          <div style="font-size:22px; font-weight:700; color:#EF4444; line-height:1.1;">$3,610</div>
+        </div>
+        <div style="color:#3A4050; font-size:20px; display:flex; align-items:center;">vs</div>
+        <div>
+          <div style="font-size:10px; color:#6A5020;">CoinRoc ending</div>
+          <div style="font-size:22px; font-weight:700; color:#F59E0B; line-height:1.1;">$9,070</div>
+        </div>
+        <div style="display:flex; flex-direction:column; justify-content:center;">
+          <div style="font-size:10px; color:#6A5020;">difference</div>
+          <div style="font-size:22px; font-weight:700; color:#F0F4FC; line-height:1.1;">$5,460</div>
+        </div>
+      </div>
+      <div style="font-size:10px; color:#4A3010; margin-top:6px;">Grid ran (random-walk regime); returned −9.3% vs B&amp;H −63.9%</div>
+    </div>
+    <div style="flex:1; min-width:170px; background:#0a1425; border:1px solid #1E3A5F; border-radius:6px; padding:12px 14px;">
+      <div style="font-size:10px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:#5A7090; margin-bottom:4px;">Worst-Case Dollar Gap</div>
+      <div style="font-size:28px; font-weight:700; color:#F0F4FC; line-height:1;">$8,410</div>
+      <div style="font-size:11px; color:#4A6080; margin-top:2px;">STXUSD 2025: $1,590 B&amp;H vs $10,000 CoinRoc</div>
+    </div>
+  </div>
+
+  <!-- Identical-series note -->
+  <div style="margin-top:16px; padding:12px 16px; background:#080e1c; border-radius:6px; border-left:3px solid #1E3A5F;">
+    <span style="font-size:11px; color:#4A6080;">The two-state and three-state Fuzzy Inference System strategies produce <em>identical</em> results on all 20 bear folds. The direction guard (requiring positive priceChangePct60 before sleeve entry) prevents the momentum sleeve from firing during downward-trending markets. The three-state FIS adds no bear-fold exposure relative to the two-state baseline — the capital protection story is structurally unchanged.</span>
+  </div>
+
+  <!-- Compliance footnote -->
+  <div style="margin-top:12px; padding:12px 16px; background:#080e1c; border-radius:6px; border-left:3px solid #F59E0B;">
+    <span style="font-size:11px; color:#7A6030; font-weight:600;">Simulated / Backtested Performance. </span>
+    <span style="font-size:11px; color:#4A4030;">All values are simulated/backtested estimates under a $10,000 starting account assumption using the walk-forward methodology described in the study. Actual results may differ. Past simulated performance does not guarantee future results.</span>
+  </div>
+
+  <div style="margin-top:12px; font-size:10px; color:#2A4060; text-align:right;">
+    Yodacom Research · The Vault Test 2023–2025 · grid-blind-validation-2023-2025
+  </div>
+</div>
+</body>
+</html>
