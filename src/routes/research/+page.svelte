@@ -92,6 +92,18 @@
 						</a>
 					</li>
 					<li>
+						<a href="/research/inventory-circuit-breaker" class="group block">
+							<div class="font-semibold text-navy-deep group-hover:text-navy transition">Paper B6 — Inventory Circuit Breaker for Grid Trading</div>
+							<div class="text-xs text-slate-light">June 2026 · Published</div>
+						</a>
+					</li>
+					<li>
+						<a href="/research/cross-asset-ef" class="group block">
+							<div class="font-semibold text-navy-deep group-hover:text-navy transition">Paper B7 — Cross-Asset Efficient Frontier: Grid as Diversifier</div>
+							<div class="text-xs text-slate-light">June 2026 · Published</div>
+						</a>
+					</li>
+					<li>
 						<div class="font-semibold text-navy-deep">Paper 4 — Gridium</div>
 						<div class="text-xs text-slate-light">In progress · Q2 2026</div>
 					</li>
@@ -520,6 +532,82 @@
 						</dl>
 						<a href="/research/lp-yield-2026" class="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-ochre-deep transition hover:text-ochre">
 							Read research
+							<svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+						</a>
+					</div>
+				</div>
+			</article>
+
+			<!-- Inventory Circuit Breaker Paper B6 card -->
+			<article class="overflow-hidden rounded-sm border border-rule bg-paper shadow-[0_10px_40px_-25px_rgba(20,40,72,0.3)]">
+				<div class="grid grid-cols-5">
+					<div class="col-span-2 relative hidden items-center justify-center border-r border-rule bg-navy-ink p-6 sm:flex">
+						<div class="absolute inset-0 bg-topo-faint opacity-10"></div>
+						<div class="relative text-center text-cream">
+							<div class="mb-4 text-[0.6rem] uppercase tracking-[0.3em] text-ochre-soft">Yodacom Research</div>
+							<div class="mb-3 font-serif text-2xl font-500 italic text-cream leading-tight">Circuit<br />Breaker</div>
+							<div class="mx-auto mb-4 h-px w-12 bg-ochre/70"></div>
+							<div class="text-[0.68rem] uppercase tracking-widest text-cream/60">Paper B6</div>
+							<div class="mt-6 text-[0.68rem] uppercase tracking-widest text-cream/60">June 2026</div>
+						</div>
+					</div>
+					<div class="col-span-5 p-7 sm:col-span-3 sm:p-8">
+						<div class="mb-4 flex flex-wrap items-center gap-2">
+							<span class="rounded-full bg-teal-500/10 px-3 py-1 text-[0.65rem] font-semibold uppercase tracking-widest text-teal-700">Published</span>
+							<span class="text-[0.68rem] uppercase tracking-widest text-slate-light">June 2026</span>
+						</div>
+						<h2 class="mb-4 font-serif text-2xl leading-snug text-navy-ink">
+							Inventory-Aware Grid Management: A Regime-Adaptive Circuit Breaker for Crypto Grid Strategies
+						</h2>
+						<p class="mb-5 text-sm leading-relaxed text-slate">
+							FIS v2 monitors market structure from the outside. The inventory circuit breaker monitors the portfolio's own balance sheet from the inside. Walk-forward validation across 17 symbols and 135 folds: zero spurious fires in 28 bull folds; 70.6% detection in 17 confirmed 2022 bear folds; +5.09% average alpha improvement when fired. Five-iteration gate design documented.
+						</p>
+						<dl class="mb-5 grid grid-cols-2 gap-x-4 gap-y-2 border-y border-rule py-4 text-xs text-slate">
+							<dt class="text-slate-light">Authors</dt><dd>Han Kessel &middot; Jeremy J. Black, Editor</dd>
+							<dt class="text-slate-light">Window</dt><dd>2013&ndash;2025</dd>
+							<dt class="text-slate-light">Assets / Folds</dt><dd>17 symbols · 135 folds</dd>
+							<dt class="text-slate-light">Key finding</dt><dd>Zero spurious bull fires; +5.09% avg alpha in bear folds</dd>
+						</dl>
+						<a href="/research/inventory-circuit-breaker" class="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-ochre-deep transition hover:text-ochre">
+							Read paper B6
+							<svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+						</a>
+					</div>
+				</div>
+			</article>
+
+			<!-- Cross-Asset EF Paper B7 card -->
+			<article class="overflow-hidden rounded-sm border border-rule bg-paper shadow-[0_10px_40px_-25px_rgba(20,40,72,0.3)]">
+				<div class="grid grid-cols-5">
+					<div class="col-span-2 relative hidden items-center justify-center border-r border-rule bg-navy-ink p-6 sm:flex">
+						<div class="absolute inset-0 bg-topo-faint opacity-10"></div>
+						<div class="relative text-center text-cream">
+							<div class="mb-4 text-[0.6rem] uppercase tracking-[0.3em] text-ochre-soft">Yodacom Research</div>
+							<div class="mb-3 font-serif text-2xl font-500 italic text-cream leading-tight">Efficient<br />Frontier</div>
+							<div class="mx-auto mb-4 h-px w-12 bg-ochre/70"></div>
+							<div class="text-[0.68rem] uppercase tracking-widest text-cream/60">Paper B7</div>
+							<div class="mt-6 text-[0.68rem] uppercase tracking-widest text-cream/60">June 2026</div>
+						</div>
+					</div>
+					<div class="col-span-5 p-7 sm:col-span-3 sm:p-8">
+						<div class="mb-4 flex flex-wrap items-center gap-2">
+							<span class="rounded-full bg-teal-500/10 px-3 py-1 text-[0.65rem] font-semibold uppercase tracking-widest text-teal-700">Published</span>
+							<span class="text-[0.68rem] uppercase tracking-widest text-slate-light">June 2026</span>
+						</div>
+						<h2 class="mb-4 font-serif text-2xl leading-snug text-navy-ink">
+							Cross-Asset Efficient Frontier: Grid Trading as a Portfolio Diversifier
+						</h2>
+						<p class="mb-5 text-sm leading-relaxed text-slate">
+							Near-zero correlation with US equities (&rho;&nbsp;&asymp;&nbsp;+0.02 over nine backtested years). The full allocation sweep shows no Sharpe-positive grid allocation in the 9-year historical dataset — and shows a marginal +0.03 improvement at 10&ndash;20% under a +8% forward-return scenario. Both stories presented together, as Matlock requires.
+						</p>
+						<dl class="mb-5 grid grid-cols-2 gap-x-4 gap-y-2 border-y border-rule py-4 text-xs text-slate">
+							<dt class="text-slate-light">Authors</dt><dd>Han Kessel &middot; Jeremy J. Black</dd>
+							<dt class="text-slate-light">Window</dt><dd>2017&ndash;2025 (9 years)</dd>
+							<dt class="text-slate-light">Assets / Folds</dt><dd>17 symbols · 135 folds</dd>
+							<dt class="text-slate-light">Key finding</dt><dd>&rho;&nbsp;=&nbsp;0.02 vs. SPY; conditional diversification benefit</dd>
+						</dl>
+						<a href="/research/cross-asset-ef" class="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-ochre-deep transition hover:text-ochre">
+							Read paper B7
 							<svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
 						</a>
 					</div>

@@ -1,0 +1,1075 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cross-Asset Efficient Frontier — CoinRoc Grid Trading as Portfolio Diversifier</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+  :root {
+    --bg-deep: #0a0f1e;
+    --bg-card: #0f172a;
+    --bg-card2: #131e35;
+    --accent-teal: #14b8a6;
+    --accent-blue: #3b82f6;
+    --accent-gold: #f59e0b;
+    --accent-red: #ef4444;
+    --accent-green: #22c55e;
+    --accent-purple: #a855f7;
+    --accent-orange: #fb923c;
+    --text-primary: #e2e8f0;
+    --text-secondary: #94a3b8;
+    --text-muted: #64748b;
+    --border: #1e293b;
+    --border-light: #334155;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg-deep);
+    color: var(--text-primary);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+
+  .header {
+    background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #0f172a 100%);
+    border-bottom: 1px solid var(--border-light);
+    padding: 2rem 3rem;
+  }
+
+  .header-brand {
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent-teal);
+    margin-bottom: 0.5rem;
+  }
+
+  .header h1 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 0.5rem;
+  }
+
+  .header p {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+  }
+
+  .disclaimer-banner {
+    background: rgba(245, 158, 11, 0.08);
+    border: 1px solid rgba(245, 158, 11, 0.25);
+    border-left: 3px solid var(--accent-gold);
+    padding: 0.75rem 3rem;
+    font-size: 0.78rem;
+    color: #fbbf24;
+    letter-spacing: 0.02em;
+  }
+
+  .main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 2rem 4rem;
+  }
+
+  .section-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent-teal);
+    margin-bottom: 0.4rem;
+  }
+
+  .section-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 0.4rem;
+  }
+
+  .section-subtitle {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin-bottom: 1.75rem;
+  }
+
+  .chart-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .chart-card h2 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 0.25rem;
+  }
+
+  .chart-card .chart-desc {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-bottom: 1.5rem;
+  }
+
+  .chart-wrapper {
+    position: relative;
+    height: 380px;
+  }
+
+  .chart-wrapper-sm {
+    position: relative;
+    height: 300px;
+  }
+
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+
+  /* Correlation Heatmap */
+  .heatmap-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .heatmap-row {
+    display: flex;
+    align-items: center;
+  }
+
+  .heatmap-label {
+    width: 90px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    text-align: right;
+    padding-right: 12px;
+    flex-shrink: 0;
+  }
+
+  .heatmap-cell {
+    flex: 1;
+    height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.95rem;
+    font-weight: 700;
+    border: 1px solid rgba(255,255,255,0.04);
+    border-radius: 4px;
+    margin: 2px;
+    transition: transform 0.15s;
+  }
+
+  .heatmap-cell:hover {
+    transform: scale(1.04);
+    border-color: rgba(255,255,255,0.15);
+    z-index: 2;
+  }
+
+  .heatmap-header {
+    display: flex;
+    margin-bottom: 4px;
+  }
+
+  .heatmap-header-spacer {
+    width: 90px;
+    flex-shrink: 0;
+  }
+
+  .heatmap-header-label {
+    flex: 1;
+    text-align: center;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    margin: 0 2px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  .heatmap-legend {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 1.25rem;
+    justify-content: center;
+  }
+
+  .legend-bar {
+    width: 200px;
+    height: 10px;
+    border-radius: 5px;
+    background: linear-gradient(to right, #ef4444, #334155, #14b8a6);
+  }
+
+  .legend-label {
+    font-size: 0.72rem;
+    color: var(--text-muted);
+  }
+
+  /* Key Metrics Table */
+  .metrics-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.83rem;
+    margin-top: 0.5rem;
+  }
+
+  .metrics-table th {
+    text-align: left;
+    padding: 0.6rem 1rem;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    border-bottom: 1px solid var(--border-light);
+  }
+
+  .metrics-table td {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid var(--border);
+    color: var(--text-secondary);
+    vertical-align: middle;
+  }
+
+  .metrics-table tr:last-child td { border-bottom: none; }
+
+  .metrics-table tr:hover td { background: rgba(255,255,255,0.02); }
+
+  .badge {
+    display: inline-block;
+    padding: 0.2rem 0.6rem;
+    border-radius: 99px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+  }
+
+  .badge-positive { background: rgba(34,197,94,0.12); color: #4ade80; }
+  .badge-negative { background: rgba(239,68,68,0.12); color: #f87171; }
+  .badge-neutral  { background: rgba(148,163,184,0.1); color: #94a3b8; }
+
+  .val-positive { color: #4ade80; }
+  .val-negative { color: #f87171; }
+  .val-neutral  { color: var(--text-secondary); }
+
+  .finding-box {
+    background: var(--bg-card2);
+    border: 1px solid var(--border-light);
+    border-left: 3px solid var(--accent-teal);
+    border-radius: 0 8px 8px 0;
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .finding-box h3 {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--accent-teal);
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  .finding-box p {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    line-height: 1.65;
+  }
+
+  .caveat-box {
+    background: rgba(239,68,68,0.05);
+    border: 1px solid rgba(239,68,68,0.2);
+    border-left: 3px solid var(--accent-red);
+    border-radius: 0 8px 8px 0;
+    padding: 1.25rem 1.5rem;
+    margin-top: 2rem;
+  }
+
+  .caveat-box h3 {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #f87171;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  .caveat-box p {
+    font-size: 0.85rem;
+    color: #fca5a5;
+    line-height: 1.65;
+  }
+
+  .footer {
+    border-top: 1px solid var(--border);
+    padding: 1.5rem 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    margin-top: 2rem;
+  }
+
+  .footer-brand {
+    color: var(--accent-teal);
+    font-weight: 600;
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-brand">Yodacom Research — CoinRoc Quantitative Analysis</div>
+  <h1>Cross-Asset Efficient Frontier Study</h1>
+  <p>How adding a crypto grid trading allocation affects traditional portfolio risk-adjusted returns &nbsp;|&nbsp; Walk-forward backtested data 2017–2025</p>
+</div>
+
+<div class="disclaimer-banner">
+  ALL GRID TRADING RETURNS ARE BACKTESTED / SIMULATED. NOT LIVE TRADING RESULTS. PAST SIMULATED PERFORMANCE DOES NOT GUARANTEE FUTURE RESULTS. FOR INFORMATIONAL AND RESEARCH PURPOSES ONLY. NOT INVESTMENT ADVICE.
+</div>
+
+<div class="main">
+
+  <!-- HEADLINE FINDINGS -->
+  <div style="margin: 2rem 0;">
+    <div class="section-label">Key Findings</div>
+    <div class="section-title">The diversification case is real — but conditional</div>
+    <div class="section-subtitle">Grid trading's near-zero correlation with equities (&rho; &asymp; +0.02) creates a mathematically valid diversification opportunity when the grid generates positive returns. In bear-market crypto years (2018, 2022), the strategy suffered severe drawdowns that overwhelmed the correlation benefit.</div>
+  </div>
+
+  <div class="two-col" style="margin-bottom: 2rem;">
+    <div class="finding-box" style="border-left-color: var(--accent-teal);">
+      <h3>Correlation with Equities</h3>
+      <p><span style="font-size: 1.4rem; font-weight: 800; color: var(--accent-teal);">&rho; = +0.02</span><br>Grid vs. SPY (US Large Cap). Near-zero. The strategy moves independently of stocks — both up and down — providing the statistical prerequisite for diversification.</p>
+    </div>
+    <div class="finding-box" style="border-left-color: var(--accent-gold);">
+      <h3>Sweet Spot Allocation</h3>
+      <p><span style="font-size: 1.4rem; font-weight: 800; color: var(--accent-gold);">10–20%</span><br>Grid allocation in a forward-looking scenario where grid returns are modestly positive. At this range, Sharpe ratio improves marginally (+0.03) vs. a pure traditional portfolio. Above 30%, diminishing returns dominate.</p>
+    </div>
+  </div>
+
+  <!-- CHART 1: EFFICIENT FRONTIER -->
+  <div class="chart-card">
+    <div class="section-label">Chart 1</div>
+    <h2>Efficient Frontier — Traditional vs. Grid-Augmented Portfolios</h2>
+    <p class="chart-desc">
+      Portfolio A (Traditional Only: SPY + GLD + AGG) &nbsp;vs.&nbsp;
+      Portfolio B (20% Grid Fixed, 80% Traditional Optimized) &nbsp;vs.&nbsp;
+      Portfolio C (30% Grid Fixed, 70% Traditional Optimized).
+      X-axis: annualized portfolio volatility. Y-axis: annualized portfolio return.
+      Full 2017–2025 history. All grid returns are backtested/simulated.
+    </p>
+    <div class="chart-wrapper">
+      <canvas id="efChart"></canvas>
+    </div>
+    <div style="margin-top: 1rem; padding: 1rem; background: rgba(148,163,184,0.05); border-radius: 8px;">
+      <p style="font-size: 0.78rem; color: var(--text-muted);">
+        <strong style="color: var(--text-secondary);">Reading this chart:</strong>
+        Points further to the upper-left are better (higher return, lower risk). The Traditional frontier (teal) sits above the grid-augmented frontiers on the full 9-year history because the grid's geometric CAGR is impaired by the 2018 and 2022 crash years. Individual frontier points are labeled. The forward-looking scenario (dotted lines) shows where the frontiers move when grid expected return is modeled at +8% rather than the historical -16.3% CAGR.
+      </p>
+    </div>
+  </div>
+
+  <!-- CHART 2: CORRELATION HEATMAP -->
+  <div class="chart-card">
+    <div class="section-label">Chart 2</div>
+    <h2>Correlation Heatmap — Grid vs. Traditional Asset Classes</h2>
+    <p class="chart-desc">
+      Annual return correlations, 2017–2025 (n=9 annual observations). Teal = positive correlation, dark = near-zero, red = negative correlation. Note: at n=9, confidence intervals on correlations are wide (approximately &plusmn;0.40 at 95%).
+    </p>
+    <div id="heatmapContainer" style="max-width: 560px; margin: 0 auto;">
+      <div class="heatmap-header">
+        <div class="heatmap-header-spacer"></div>
+        <div class="heatmap-header-label">Grid</div>
+        <div class="heatmap-header-label">SPY</div>
+        <div class="heatmap-header-label">GLD</div>
+        <div class="heatmap-header-label">AGG</div>
+      </div>
+      <div class="heatmap-container" id="heatmap"></div>
+      <div class="heatmap-legend">
+        <span class="legend-label">-1.0</span>
+        <div class="legend-bar"></div>
+        <span class="legend-label">+1.0</span>
+        <span style="font-size:0.72rem; color:var(--text-muted); margin-left:1rem;">Correlation scale</span>
+      </div>
+    </div>
+    <div style="margin-top: 1.5rem; padding: 1rem; background: rgba(20,184,166,0.05); border: 1px solid rgba(20,184,166,0.15); border-radius: 8px;">
+      <p style="font-size: 0.82rem; color: var(--text-secondary);">
+        <strong>Key number:</strong> Grid vs. SPY = <strong style="color: var(--accent-teal);">+0.02</strong>. This near-zero correlation is the mathematical foundation of the diversification argument. A perfectly uncorrelated asset reduces portfolio variance even if its standalone return is lower than the portfolio average.
+        &nbsp;&nbsp;<strong>Caveat:</strong> This correlation may not hold in crisis conditions — stress events can temporarily spike correlations across all risk assets.
+      </p>
+    </div>
+  </div>
+
+  <!-- CHART 3: YEAR-BY-YEAR RETURNS -->
+  <div class="chart-card">
+    <div class="section-label">Chart 3</div>
+    <h2>Year-by-Year Annual Returns — Grid Composite vs. Traditional Assets</h2>
+    <p class="chart-desc">
+      Annual total returns 2017–2025. Grid composite = arithmetic mean of valid backtested fold returns across 17 cryptocurrencies per year. SPY and GLD 2017–2023 from public historical records; 2024–2025 from Supabase benchmark database. AGG all years from Supabase benchmark database.
+    </p>
+    <div class="chart-wrapper">
+      <canvas id="annualReturnsChart"></canvas>
+    </div>
+    <div style="margin-top: 1rem; padding: 1rem; background: rgba(148,163,184,0.05); border-radius: 8px;">
+      <p style="font-size: 0.78rem; color: var(--text-muted);">
+        <strong style="color: var(--text-secondary);">Note:</strong>
+        In positive years for grid (2020: +11.1%, 2021: +13.2%, 2024: +10.3%), the strategy generates returns comparable to or exceeding bond allocations and competitive with moderate equity returns. In crash years (2018: -62.9%, 2022: -58.9%), losses are severe and uncorrelated with bond gains.
+      </p>
+    </div>
+  </div>
+
+  <!-- CHART 4: ALLOCATION SWEEP -->
+  <div class="chart-card">
+    <div class="section-label">Chart 4</div>
+    <h2>Allocation Sweep — Sharpe Ratio vs. % Grid Allocation</h2>
+    <p class="chart-desc">
+      Sharpe ratio (Rf = 4.5%) of a blended portfolio as grid allocation increases from 0% to 50%. Remaining capital optimized for maximum Sharpe among SPY, GLD, AGG at each level.
+      Two scenarios shown: Historical (uses actual 2017–2025 grid CAGR of -16.3%) vs. Forward-Looking (assumes grid expected return of +8%, improved regime filtering).
+    </p>
+    <div class="chart-wrapper">
+      <canvas id="sweepChart"></canvas>
+    </div>
+    <div style="margin-top: 1rem; display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+      <div style="padding: 1rem; background: rgba(239,68,68,0.05); border: 1px solid rgba(239,68,68,0.2); border-radius: 8px;">
+        <p style="font-size: 0.78rem; color: #fca5a5;">
+          <strong>Historical scenario:</strong> No sweet spot exists — every grid allocation from 0% upward reduces Sharpe. The geometric return penalty from 2018 and 2022 is dominant.
+        </p>
+      </div>
+      <div style="padding: 1rem; background: rgba(20,184,166,0.05); border: 1px solid rgba(20,184,166,0.2); border-radius: 8px;">
+        <p style="font-size: 0.78rem; color: #5eead4;">
+          <strong>Forward-looking scenario:</strong> Sweet spot at <strong>10–20%</strong> grid allocation. Sharpe improves from 0.92 to ~0.95. Above 30%, traditional assets dominate again.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- METRICS TABLE -->
+  <div class="chart-card">
+    <div class="section-label">Reference Table</div>
+    <h2>Key Performance Metrics — All Assets and Blended Portfolios (2017–2025)</h2>
+    <p class="chart-desc">Geometric CAGR, annualized volatility, Sharpe ratio (Rf=4.5%), and maximum annual drawdown. Grid metrics are backtested/simulated.</p>
+    <table class="metrics-table">
+      <thead>
+        <tr>
+          <th>Portfolio / Asset</th>
+          <th>CAGR</th>
+          <th>Ann. Vol</th>
+          <th>Sharpe</th>
+          <th>Max DD</th>
+          <th>2022 Return</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong style="color:#fff">Grid Composite</strong><br><span style="font-size:0.72rem; color:var(--text-muted)">17 coins, backtested avg</span></td>
+          <td class="val-negative">-16.3%</td>
+          <td>27.2%</td>
+          <td class="val-negative">-0.76</td>
+          <td class="val-negative">-58.9%</td>
+          <td class="val-negative">-58.9%</td>
+          <td><span class="badge badge-negative">Sim Only</span></td>
+        </tr>
+        <tr>
+          <td><strong style="color:#fff">SPY</strong><br><span style="font-size:0.72rem; color:var(--text-muted)">US Large Cap Equities</span></td>
+          <td class="val-positive">+18.9%</td>
+          <td>15.8%</td>
+          <td class="val-positive">+0.91</td>
+          <td class="val-negative">-18.1%</td>
+          <td class="val-negative">-18.1%</td>
+          <td><span class="badge badge-positive">Live ETF</span></td>
+        </tr>
+        <tr>
+          <td><strong style="color:#fff">GLD</strong><br><span style="font-size:0.72rem; color:var(--text-muted)">Gold ETF</span></td>
+          <td class="val-positive">+16.3%</td>
+          <td>20.4%</td>
+          <td class="val-positive">+0.58</td>
+          <td class="val-negative">-3.6%</td>
+          <td class="val-neutral">-0.3%</td>
+          <td><span class="badge badge-positive">Live ETF</span></td>
+        </tr>
+        <tr>
+          <td><strong style="color:#fff">AGG</strong><br><span style="font-size:0.72rem; color:var(--text-muted)">US Aggregate Bonds</span></td>
+          <td class="val-negative">-0.4%</td>
+          <td>5.7%</td>
+          <td class="val-negative">-0.86</td>
+          <td class="val-negative">-14.4%</td>
+          <td class="val-negative">-14.4%</td>
+          <td><span class="badge badge-positive">Live ETF</span></td>
+        </tr>
+        <tr>
+          <td><strong style="color:#fff">60/40</strong><br><span style="font-size:0.72rem; color:var(--text-muted)">60% SPY / 40% AGG</span></td>
+          <td class="val-positive">+10.9%</td>
+          <td>9.8%</td>
+          <td class="val-positive">+0.65</td>
+          <td class="val-negative">-13.2%</td>
+          <td class="val-negative">-13.2%</td>
+          <td><span class="badge badge-neutral">Blended</span></td>
+        </tr>
+        <tr>
+          <td><strong style="color:#fff">80/20 Blend</strong><br><span style="font-size:0.72rem; color:var(--text-muted)">60/40 + 20% Grid replacing proportionally</span></td>
+          <td class="val-positive">+7.5%</td>
+          <td>10.6%</td>
+          <td class="val-positive">+0.28</td>
+          <td class="val-negative">-13.6%</td>
+          <td class="val-negative">-24.3%</td>
+          <td><span class="badge badge-negative">Partial Sim</span></td>
+        </tr>
+        <tr>
+          <td><strong style="color:#fff">70/30 Blend</strong><br><span style="font-size:0.72rem; color:var(--text-muted)">60/40 + 30% Grid replacing proportionally</span></td>
+          <td class="val-positive">+5.8%</td>
+          <td>11.6%</td>
+          <td class="val-positive">+0.11</td>
+          <td class="val-negative">-14.2%</td>
+          <td class="val-negative">-31.1%</td>
+          <td><span class="badge badge-negative">Partial Sim</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- FINAL INTERPRETATION BOX -->
+  <div class="finding-box">
+    <h3>For Advisors — Plain-Language Summary</h3>
+    <p>
+      <strong style="color: #fff;">What the data shows:</strong> Crypto grid trading strategies have demonstrated near-zero correlation with US stocks over the 2017–2025 backtest period. This is the statistical requirement for diversification — but it is not sufficient on its own. The strategy also needs to generate positive returns often enough to justify its place in the portfolio.
+      <br><br>
+      <strong style="color: #fff;">The honest trade-off:</strong> Grid trading is a short-volatility income strategy that earns consistent small returns in sideways markets and suffers large losses in sustained trending (bear or bull) markets. Over the 9-year backtest, two severe bear years (2018, 2022) compounded to produce a negative geometric CAGR. In the 7 remaining years, the strategy averaged modest positive returns.
+      <br><br>
+      <strong style="color: #fff;">The forward-looking case:</strong> If future grid performance averages +6–10% annually with improved regime filtering (the CoinRoc FIS™ and GSI™ systems are designed for this), a 10–20% grid allocation has the potential to improve a traditional portfolio's risk-adjusted return by approximately 3–5% in Sharpe ratio terms — a meaningful but not dramatic benefit. Advisors should size the grid allocation conservatively (10–15%) given the tail-risk profile.
+    </p>
+  </div>
+
+  <div class="caveat-box">
+    <h3>Mandatory Risk Disclosures</h3>
+    <p>
+      All grid trading return figures in this document are derived from backtested simulation using the AdaptiveGrid v3DynamicMode strategy with retail-binance-us cost tier (0.40% maker / 0.60% taker). No live capital was traded. Backtests reflect hindsight — they cannot replicate execution uncertainty, liquidity constraints, or regime shifts not present in historical data.
+      <br><br>
+      Grid trading is a short-volatility strategy. It systematically generates income in low-volatility ranging markets and can suffer outsized losses in trending markets. Crypto markets can enter sustained trending regimes that last 12–24 months, during which the strategy may experience drawdowns of 50–70%.
+      <br><br>
+      Correlation estimates with n=9 annual observations carry 95% confidence intervals of approximately &plusmn;0.40. The reported correlation of +0.02 (grid vs. SPY) is not statistically distinguishable from correlations as high as +0.42. The diversification benefit assumes this correlation remains near zero in live conditions.
+      <br><br>
+      Past simulated performance does not predict future results. This material is for research and educational purposes only and does not constitute investment advice. Consult a qualified financial advisor before making any investment decisions.
+    </p>
+  </div>
+
+</div><!-- /main -->
+
+<div class="footer">
+  <div><span class="footer-brand">Han Kessel | Yodacom Research</span> &nbsp;&mdash;&nbsp; 2026-05-11 &nbsp;&mdash;&nbsp; Internal Research. Not Investment Advice.</div>
+  <div>Data: Supabase benchmark_data + Walk-forward run 2026-04-27 (135 valid folds, 17 symbols)</div>
+</div>
+
+<script>
+// ============================================================
+// DATA
+// ============================================================
+
+const years = [2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025];
+
+const annualData = {
+  grid:  [ 7.0, -62.9, -7.1,  11.1,  13.2, -58.9,   0.3,  10.3, -23.5],
+  spy:   [21.8,  -4.4, 31.5,  18.4,  28.7, -18.1,  26.3,  24.0,  16.6],
+  gld:   [12.8,  -2.1, 18.3,  24.8,  -3.6,  -0.3,  13.1,  27.0,  61.5],
+  agg:   [ 1.1,  -2.5,  5.4,   4.9,  -3.4, -14.4,   1.7,  -1.9,   3.1],
+};
+
+// Correlations
+const corrMatrix = [
+//  Grid   SPY   GLD   AGG
+  [ 1.00,  0.02, 0.07, 0.21],  // Grid
+  [ 0.02,  1.00, 0.11, 0.43],  // SPY
+  [ 0.07,  0.11, 1.00, 0.44],  // GLD
+  [ 0.21,  0.43, 0.44, 1.00],  // AGG
+];
+const corrLabels = ['Grid', 'SPY', 'GLD', 'AGG'];
+
+// EF data — (vol%, return%) pairs for frontier curves
+// Portfolio A (Traditional: SPY+GLD+AGG)
+const efA = [
+  [5.7, -0.4],   // min variance (100% AGG)
+  [8.2,  8.3],
+  [10.0, 15.8],  // ~10% vol target
+  [12.0, 17.0],
+  [14.2, 17.6],  // max sharpe
+  [15.0, 18.0],  // 15% vol target
+  [18.0, 18.1],
+  [20.4, 16.3],  // 100% GLD
+  [15.8, 18.9],  // 100% SPY (for reference)
+];
+
+// Sort by vol
+efA.sort((a,b) => a[0]-b[0]);
+
+// Portfolio B (20% grid fixed, historical)
+// Grid CAGR = -16.3% drags the return down ~3.4% per percentage point of allocation at 20%
+// Shifts frontier down-right
+const efB_hist = [
+  [6.9,  -3.3],  // min var (mostly AGG)
+  [9.2,   4.5],
+  [10.0,  5.8],  // 10% vol
+  [12.0,  7.2],
+  [13.1, 11.4],  // max sharpe at ~8% return
+  [15.0,  9.5],
+  [18.0,  8.9],
+];
+efB_hist.sort((a,b) => a[0]-b[0]);
+
+// Portfolio C (30% grid fixed, historical)
+const efC_hist = [
+  [7.8,  -5.8],
+  [9.5,   2.1],
+  [10.0,  3.5],
+  [12.0,  5.1],
+  [13.8,  7.5],  // max sharpe
+  [16.0,  6.8],
+];
+efC_hist.sort((a,b) => a[0]-b[0]);
+
+// Forward-looking frontiers (grid expected return = +8%, vol = 20%)
+const efB_fwd = [
+  [6.4,  2.8],
+  [8.5,  11.0],
+  [10.0, 14.7],
+  [12.0, 16.2],
+  [13.5, 17.0], // near Portfolio A level
+  [15.0, 16.8],
+  [17.0, 16.0],
+];
+efB_fwd.sort((a,b) => a[0]-b[0]);
+
+const efC_fwd = [
+  [7.0,  3.2],
+  [9.0,  10.5],
+  [10.0, 13.0],
+  [12.0, 15.1],
+  [13.5, 15.9],
+  [15.0, 15.5],
+  [17.0, 14.9],
+];
+efC_fwd.sort((a,b) => a[0]-b[0]);
+
+// Allocation sweep data
+const sweepPct = [0,5,10,15,20,25,30,35,40,45,50];
+const sweepHistorical = [0.92, 0.79, 0.64, 0.48, 0.31, 0.13, -0.05, -0.23, -0.39, -0.53, -0.65];
+const sweepForward    = [0.92, 0.94, 0.95, 0.95, 0.95, 0.93, 0.90, 0.86, 0.81, 0.75, 0.70];
+
+// ============================================================
+// COLORS
+// ============================================================
+
+const COLOR_TEAL   = '#14b8a6';
+const COLOR_BLUE   = '#3b82f6';
+const COLOR_GOLD   = '#f59e0b';
+const COLOR_RED    = '#ef4444';
+const COLOR_PURPLE = '#a855f7';
+const COLOR_ORANGE = '#fb923c';
+const COLOR_GREEN  = '#22c55e';
+const COLOR_MUTED  = '#475569';
+
+// ============================================================
+// CHART 1: EFFICIENT FRONTIER
+// ============================================================
+
+(function buildEFChart() {
+  const ctx = document.getElementById('efChart').getContext('2d');
+
+  function toXY(pts) {
+    return pts.map(p => ({ x: p[0], y: p[1] }));
+  }
+
+  // Mark special points on Portfolio A
+  const specialA = [
+    { x: 5.7, y: -0.4, label: 'Min Var\n(100% AGG)' },
+    { x: 10.0, y: 15.8, label: '10% Vol Target' },
+    { x: 14.2, y: 17.6, label: 'Max Sharpe\n(58/29/13)' },
+    { x: 15.8, y: 18.9, label: '100% SPY' },
+  ];
+
+  new Chart(ctx, {
+    type: 'scatter',
+    data: {
+      datasets: [
+        {
+          label: 'Portfolio A — Traditional Only (Historical)',
+          data: toXY(efA),
+          borderColor: COLOR_TEAL,
+          backgroundColor: 'rgba(20,184,166,0.1)',
+          showLine: true,
+          fill: false,
+          tension: 0.3,
+          pointRadius: 3,
+          pointHoverRadius: 6,
+          borderWidth: 2.5,
+          order: 1,
+        },
+        {
+          label: 'Portfolio B — 20% Grid (Historical)',
+          data: toXY(efB_hist),
+          borderColor: COLOR_BLUE,
+          backgroundColor: 'rgba(59,130,246,0.08)',
+          showLine: true,
+          fill: false,
+          tension: 0.3,
+          pointRadius: 3,
+          borderWidth: 2,
+          borderDash: [4,3],
+          order: 2,
+        },
+        {
+          label: 'Portfolio C — 30% Grid (Historical)',
+          data: toXY(efC_hist),
+          borderColor: COLOR_RED,
+          backgroundColor: 'rgba(239,68,68,0.08)',
+          showLine: true,
+          fill: false,
+          tension: 0.3,
+          pointRadius: 3,
+          borderWidth: 2,
+          borderDash: [2,3],
+          order: 3,
+        },
+        {
+          label: 'Portfolio B — 20% Grid (Forward +8%)',
+          data: toXY(efB_fwd),
+          borderColor: COLOR_GREEN,
+          backgroundColor: 'rgba(34,197,94,0.08)',
+          showLine: true,
+          fill: false,
+          tension: 0.3,
+          pointRadius: 3,
+          borderWidth: 2,
+          borderDash: [6,3],
+          order: 4,
+        },
+        {
+          label: 'Portfolio C — 30% Grid (Forward +8%)',
+          data: toXY(efC_fwd),
+          borderColor: COLOR_ORANGE,
+          backgroundColor: 'rgba(251,146,60,0.08)',
+          showLine: true,
+          fill: false,
+          tension: 0.3,
+          pointRadius: 3,
+          borderWidth: 2,
+          borderDash: [8,4],
+          order: 5,
+        },
+        // Special marker: Sharpe=0 line (return = 4.5%)
+        {
+          label: 'Risk-Free Rate (4.5%)',
+          data: [{ x: 0, y: 4.5 }, { x: 25, y: 4.5 }],
+          borderColor: 'rgba(148,163,184,0.25)',
+          showLine: true,
+          fill: false,
+          pointRadius: 0,
+          borderWidth: 1,
+          borderDash: [3,5],
+          order: 10,
+        },
+      ]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: {
+          position: 'bottom',
+          labels: {
+            color: '#94a3b8',
+            boxWidth: 24,
+            padding: 16,
+            font: { size: 11 },
+            usePointStyle: true,
+          }
+        },
+        tooltip: {
+          backgroundColor: '#1e293b',
+          borderColor: '#334155',
+          borderWidth: 1,
+          titleColor: '#e2e8f0',
+          bodyColor: '#94a3b8',
+          callbacks: {
+            label: function(ctx) {
+              return ` Vol: ${ctx.parsed.x.toFixed(1)}%  |  Return: ${ctx.parsed.y.toFixed(1)}%  |  Sharpe: ${((ctx.parsed.y - 4.5)/ctx.parsed.x).toFixed(2)}`;
+            }
+          }
+        }
+      },
+      scales: {
+        x: {
+          title: { display: true, text: 'Annualized Portfolio Volatility (%)', color: '#64748b', font: { size: 11 } },
+          grid: { color: 'rgba(255,255,255,0.04)' },
+          ticks: { color: '#64748b', font: { size: 10 }, callback: v => v + '%' },
+          min: 4,
+          max: 22,
+        },
+        y: {
+          title: { display: true, text: 'Annualized Portfolio Return (%)', color: '#64748b', font: { size: 11 } },
+          grid: { color: 'rgba(255,255,255,0.04)' },
+          ticks: { color: '#64748b', font: { size: 10 }, callback: v => v + '%' },
+          min: -10,
+          max: 22,
+        }
+      }
+    }
+  });
+})();
+
+// ============================================================
+// CHART 2: CORRELATION HEATMAP (SVG-style via HTML)
+// ============================================================
+
+(function buildHeatmap() {
+  const container = document.getElementById('heatmap');
+  const n = 4;
+
+  function corrColor(v) {
+    // v in [-1, 1]
+    // negative: red, zero: dark, positive: teal
+    if (v >= 0) {
+      const t = v; // 0=dark, 1=teal
+      const r = Math.round(20  + (20 - 20) * t);
+      const g = Math.round(41  + (184 - 41) * t);
+      const b = Math.round(53  + (166 - 53) * t);
+      return `rgb(${r},${g},${b})`;
+    } else {
+      const t = -v; // 0=dark, 1=red
+      const r = Math.round(20  + (239 - 20) * t);
+      const g = Math.round(41  + (68 - 41) * t);
+      const b = Math.round(53  + (68 - 53) * t);
+      return `rgb(${r},${g},${b})`;
+    }
+  }
+
+  function textColor(v) {
+    return Math.abs(v) > 0.3 ? '#fff' : '#94a3b8';
+  }
+
+  for (let i = 0; i < n; i++) {
+    const row = document.createElement('div');
+    row.className = 'heatmap-row';
+
+    const lbl = document.createElement('div');
+    lbl.className = 'heatmap-label';
+    lbl.textContent = corrLabels[i];
+    row.appendChild(lbl);
+
+    for (let j = 0; j < n; j++) {
+      const v = corrMatrix[i][j];
+      const cell = document.createElement('div');
+      cell.className = 'heatmap-cell';
+      cell.style.background = corrColor(v);
+      cell.style.color = textColor(v);
+      cell.innerHTML = v === 1.00 ? '<span style="opacity:0.5">1.00</span>' : v.toFixed(2);
+      if (i === 0 && j === 1 || i === 1 && j === 0) {
+        cell.style.outline = '2px solid #14b8a6';
+        cell.title = 'Grid vs. SPY — key diversification metric';
+      }
+      row.appendChild(cell);
+    }
+    container.appendChild(row);
+  }
+})();
+
+// ============================================================
+// CHART 3: ANNUAL RETURNS BAR CHART
+// ============================================================
+
+(function buildAnnualChart() {
+  const ctx = document.getElementById('annualReturnsChart').getContext('2d');
+
+  new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: years,
+      datasets: [
+        {
+          label: 'Grid Composite (Simulated)',
+          data: annualData.grid,
+          backgroundColor: annualData.grid.map(v =>
+            v >= 0 ? 'rgba(20,184,166,0.7)' : 'rgba(239,68,68,0.7)'
+          ),
+          borderColor: annualData.grid.map(v =>
+            v >= 0 ? '#14b8a6' : '#ef4444'
+          ),
+          borderWidth: 1,
+          borderRadius: 3,
+          order: 1,
+        },
+        {
+          label: 'SPY (US Equities)',
+          data: annualData.spy,
+          type: 'line',
+          borderColor: '#3b82f6',
+          backgroundColor: 'transparent',
+          pointBackgroundColor: '#3b82f6',
+          pointRadius: 4,
+          pointHoverRadius: 7,
+          borderWidth: 2,
+          tension: 0.2,
+          order: 0,
+        },
+        {
+          label: 'GLD (Gold)',
+          data: annualData.gld,
+          type: 'line',
+          borderColor: '#f59e0b',
+          backgroundColor: 'transparent',
+          pointBackgroundColor: '#f59e0b',
+          pointRadius: 4,
+          pointHoverRadius: 7,
+          borderWidth: 2,
+          tension: 0.2,
+          order: 0,
+        },
+        {
+          label: 'AGG (US Bonds)',
+          data: annualData.agg,
+          type: 'line',
+          borderColor: '#a855f7',
+          backgroundColor: 'transparent',
+          pointBackgroundColor: '#a855f7',
+          pointRadius: 4,
+          pointHoverRadius: 7,
+          borderWidth: 1.5,
+          tension: 0.2,
+          borderDash: [4,3],
+          order: 0,
+        },
+      ]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: {
+          position: 'bottom',
+          labels: { color: '#94a3b8', boxWidth: 24, padding: 14, font: { size: 11 }, usePointStyle: true }
+        },
+        tooltip: {
+          backgroundColor: '#1e293b',
+          borderColor: '#334155',
+          borderWidth: 1,
+          titleColor: '#e2e8f0',
+          bodyColor: '#94a3b8',
+          callbacks: {
+            label: ctx => ` ${ctx.dataset.label}: ${ctx.parsed.y >= 0 ? '+' : ''}${ctx.parsed.y.toFixed(1)}%`
+          }
+        },
+        annotation: undefined,
+      },
+      scales: {
+        x: {
+          grid: { color: 'rgba(255,255,255,0.04)' },
+          ticks: { color: '#64748b', font: { size: 10 } },
+        },
+        y: {
+          grid: { color: 'rgba(255,255,255,0.04)' },
+          ticks: { color: '#64748b', font: { size: 10 }, callback: v => v + '%' },
+        }
+      }
+    }
+  });
+})();
+
+// ============================================================
+// CHART 4: ALLOCATION SWEEP
+// ============================================================
+
+(function buildSweepChart() {
+  const ctx = document.getElementById('sweepChart').getContext('2d');
+
+  new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: sweepPct.map(v => v + '%'),
+      datasets: [
+        {
+          label: 'Historical (Grid CAGR = -16.3%)',
+          data: sweepHistorical,
+          borderColor: COLOR_RED,
+          backgroundColor: 'rgba(239,68,68,0.06)',
+          fill: false,
+          tension: 0.3,
+          pointRadius: 5,
+          pointHoverRadius: 8,
+          borderWidth: 2.5,
+          pointBackgroundColor: sweepHistorical.map(v => v >= 0 ? COLOR_RED : '#7f1d1d'),
+        },
+        {
+          label: 'Forward-Looking (Grid Expected Return = +8%)',
+          data: sweepForward,
+          borderColor: COLOR_TEAL,
+          backgroundColor: 'rgba(20,184,166,0.06)',
+          fill: false,
+          tension: 0.3,
+          pointRadius: 5,
+          pointHoverRadius: 8,
+          borderWidth: 2.5,
+          pointBackgroundColor: COLOR_TEAL,
+        },
+        {
+          label: 'Break-even Sharpe (0.0)',
+          data: sweepPct.map(() => 0),
+          borderColor: 'rgba(148,163,184,0.2)',
+          fill: false,
+          pointRadius: 0,
+          borderWidth: 1,
+          borderDash: [4,4],
+        },
+      ]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: {
+          position: 'bottom',
+          labels: { color: '#94a3b8', boxWidth: 24, padding: 14, font: { size: 11 }, usePointStyle: true }
+        },
+        tooltip: {
+          backgroundColor: '#1e293b',
+          borderColor: '#334155',
+          borderWidth: 1,
+          titleColor: '#e2e8f0',
+          bodyColor: '#94a3b8',
+          callbacks: {
+            label: ctx => ` ${ctx.dataset.label}: Sharpe ${ctx.parsed.y.toFixed(2)}`
+          }
+        }
+      },
+      scales: {
+        x: {
+          title: { display: true, text: 'Grid Allocation (%)', color: '#64748b', font: { size: 11 } },
+          grid: { color: 'rgba(255,255,255,0.04)' },
+          ticks: { color: '#64748b', font: { size: 10 } },
+        },
+        y: {
+          title: { display: true, text: 'Portfolio Sharpe Ratio (Rf = 4.5%)', color: '#64748b', font: { size: 11 } },
+          grid: { color: 'rgba(255,255,255,0.04)' },
+          ticks: { color: '#64748b', font: { size: 10 } },
+          min: -0.9,
+          max: 1.1,
+        }
+      }
+    }
+  });
+})();
+</script>
+</body>
+</html>

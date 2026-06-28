@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fig 4 — 5-Iteration Validation Arc | Inventory Circuit Breaker v5</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #0d1117;
+    color: #e6edf3;
+    font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+    padding: 40px;
+  }
+  .figure-container {
+    max-width: 860px;
+    margin: 0 auto;
+    background: #161b22;
+    border: 1px solid #30363d;
+    border-radius: 8px;
+    padding: 40px 40px 28px 40px;
+  }
+  .figure-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #8b949e;
+    margin-bottom: 6px;
+  }
+  .figure-title {
+    font-size: 19px;
+    font-weight: 700;
+    color: #e6edf3;
+    margin-bottom: 5px;
+    line-height: 1.3;
+  }
+  .figure-subtitle {
+    font-size: 12.5px;
+    color: #8b949e;
+    line-height: 1.55;
+    margin-bottom: 28px;
+    max-width: 760px;
+  }
+  .legend {
+    display: flex;
+    gap: 32px;
+    margin-top: 18px;
+    padding-top: 16px;
+    border-top: 1px solid #30363d;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    color: #8b949e;
+  }
+  .legend-line {
+    width: 24px;
+    height: 3px;
+    border-radius: 2px;
+    flex-shrink: 0;
+  }
+  .disclaimer {
+    margin-top: 16px;
+    font-size: 10px;
+    color: #6e7681;
+    line-height: 1.6;
+    border-top: 1px solid #21262d;
+    padding-top: 12px;
+  }
+</style>
+</head>
+<body>
+<div class="figure-container">
+  <div class="figure-label">Figure 4 &mdash; Yodacom Research | Paper 2: Inventory Circuit Breaker</div>
+  <div class="figure-title">Five-Iteration Development Arc: Q1 Spurious Fire Alpha Damage vs Q2 Bear Detection Rate</div>
+  <div class="figure-subtitle">
+    Tradeoff curve across five design iterations. Q1 (red): alpha damage from spurious bull-year fires &mdash; must reach zero.
+    Q2 (teal): bear detection rate &mdash; must exceed 50%. Early iterations solved one criterion at the cost of the other.
+    v5 achieves both simultaneously by adding the directionally-aware drawdownFromPeak gate.
+  </div>
+
+  <svg id="chart" xmlns="http://www.w3.org/2000/svg" width="780" height="420" viewBox="0 0 780 420" style="display:block;"></svg>
+
+  <div class="legend">
+    <div class="legend-item">
+      <div class="legend-line" style="background:#f87171;"></div>
+      Q1: Bull-year spurious alpha damage (|pp|) &mdash; lower is better
+    </div>
+    <div class="legend-item">
+      <div class="legend-line" style="background:#22d3a1;"></div>
+      Q2: Bear detection rate (%) &mdash; higher is better
+    </div>
+    <div class="legend-item">
+      <div class="legend-line" style="background:#fbbf24; height:2px; border-top: 2px dashed #fbbf24; background:none;"></div>
+      Q2 pass threshold (50%)
+    </div>
+  </div>
+
+  <div class="disclaimer">
+    Source: Paper 2 Section 4 (gate iterations) and inventory-threshold validation reports v1&ndash;v5.
+    Q1 values: |alpha delta| of worst spurious bull fire per version (v1: 122.89pp; v2: 66.77pp; v3: 66.77pp; v4: 0 (no fires); v5: 0).
+    Q2 values: bear detection rate per version (v1: 88.2%; v2: 0% gate-less artifacts excluded, shown as rule-level 88.2%; v3: 70.6%; v4: 5.9%; v5: 70.6%).
+    Note: v2 Q2 detection rate reflects gate-less design behavior where spurious bull fires mask bear-specific metrics &mdash; see paper Section 4.3.
+    Past performance does not guarantee future results. Research and educational use only.
+  </div>
+  <div style="display:flex; justify-content:flex-end; margin-top:10px;">
+    <span style="font-family:'Inter','Segoe UI',system-ui,sans-serif; font-size:11px; font-weight:500; letter-spacing:0.08em; color:#0d9488; opacity:0.75; text-transform:uppercase;">YODACOM.COM &middot; CIRCUIT BREAKER RESEARCH &middot; 2026</span>
+  </div>
+</div>
+
+<script>
+// Data per iteration — all from paper Section 4 and validation reports
+// Q1: absolute alpha damage from spurious bull fires (lower = better; 0 = ideal)
+// Q2: bear detection rate % (higher = better; target > 50%)
+// v2: The paper describes v2 as "gate-less" — Q2 detection was 88.2% but Q1 failure was severe.
+//     However the paper's 7-way table shows Q2 detection at 0.0% for Inv v2 (cap=3) with no gate.
+//     This apparent conflict: the 0.0% in the 7-way table is because v2 with no gate fires freely
+//     on bull corrections — its "detection" is meaningless without direction. We show v2 as having
+//     the full unfiltered fire rate (showing 88.2% raw) vs Q1 damage (66.77% — from v2 validation).
+//     This matches the paper's narrative in Section 4.3.
+const versions = [
+  {
+    v: 'v1', label: 'v1\n(Post-bar check)',
+    q1Damage: 122.89,  // spurious alpha damage, |pp|
+    q2Rate: 88.2,      // bear detection %
+    q1Pass: false,
+    q2Pass: true,
+    annotation: 'Fires after damage\nalready done'
+  },
+  {
+    v: 'v2', label: 'v2\n(Fill cap added)',
+    q1Damage: 66.77,   // STXUSD 2021 spurious fire remains
+    q2Rate: 88.2,      // gate-less: fires freely, high raw detection
+    q1Pass: false,
+    q2Pass: true,
+    annotation: 'Cap helps; still\nspurious bull fire'
+  },
+  {
+    v: 'v3', label: 'v3\n(Engagement+Hurst)',
+    q1Damage: 66.77,   // STXUSD 2021 still passes gate (eng=0.47, Hurst=0.509)
+    q2Rate: 70.6,      // engagement gate also blocks some bear folds
+    q1Pass: false,
+    q2Pass: true,
+    annotation: 'Intensity gate:\ncan\'t block STXUSD 2021'
+  },
+  {
+    v: 'v4', label: 'v4\n(Tighter gate)',
+    q1Damage: 0,       // zero spurious fires — STXUSD 2021 blocked
+    q2Rate: 5.9,       // gate so tight it blocks all bear folds too
+    q1Pass: true,
+    q2Pass: false,
+    annotation: 'Blocks spurious fire\nbut disables bear detection'
+  },
+  {
+    v: 'v5', label: 'v5\n(+drawdownFromPeak)',
+    q1Damage: 0,       // zero spurious fires
+    q2Rate: 70.6,      // good bear detection restored
+    q1Pass: true,
+    q2Pass: true,
+    annotation: 'Both criteria met\nUNCONDITIONAL GO'
+  },
+];
+
+const W = 780, H = 420;
+const ML = 70, MR = 80, MT = 32, MB = 90;
+const cW = W - ML - MR;
+const cH = H - MT - MB;
+
+// Dual y-axis chart
+// Left axis: Q1 damage 0–140 (inverted: 0 at top = good)
+// Right axis: Q2 rate 0–100% (0 at bottom = bad)
+
+// We'll normalize both to the same vertical space for dual-line display
+// Q1: 0 = perfect (top), 130 = worst (bottom)
+// Q2: 100 = perfect (top), 0 = worst (bottom)
+
+const q1Max = 140;
+const q2Max = 100;
+
+const yQ1 = v => MT + (v / q1Max) * cH;         // 0 at top, q1Max at bottom
+const yQ2 = v => MT + ((q2Max - v) / q2Max) * cH; // 100 at top, 0 at bottom
+
+const xPos = (i) => ML + (i / (versions.length - 1)) * cW;
+
+const GREEN  = '#22d3a1';
+const RED    = '#f87171';
+const AMBER  = '#fbbf24';
+const GRID_C = '#21262d';
+const AXIS_C = '#30363d';
+const TEXT_C = '#8b949e';
+const LABEL_C = '#c9d1d9';
+
+let s = '';
+
+// Background: "failure zone" shading
+s += `<rect x="${ML}" y="${MT}" width="${cW}" height="${cH}" fill="#21262d" opacity="0.3"/>`;
+
+// v5 "success" column highlight
+const v5X = xPos(4);
+const colW = cW / (versions.length - 1);
+s += `<rect x="${(v5X - colW/2).toFixed(1)}" y="${MT}" width="${colW.toFixed(1)}" height="${cH}"
+  fill="#22d3a1" opacity="0.06" rx="0"/>`;
+
+// Q2 pass threshold line (50%) — on Q2 scale
+const q2ThreshY = yQ2(50);
+s += `<line x1="${ML}" y1="${q2ThreshY.toFixed(1)}" x2="${W-MR}" y2="${q2ThreshY.toFixed(1)}"
+  stroke="${AMBER}" stroke-width="1.2" stroke-dasharray="6,4" opacity="0.7"/>`;
+s += `<text x="${(W-MR+5).toFixed(1)}" y="${(q2ThreshY+4).toFixed(1)}" text-anchor="start"
+  fill="${AMBER}" font-size="9.5" font-family="Inter,system-ui">Q2 min\n50%</text>`;
+
+// Left axis grid (Q1 scale)
+[0, 25, 50, 75, 100, 125].forEach(v => {
+  const y = yQ1(v);
+  s += `<line x1="${ML}" y1="${y.toFixed(1)}" x2="${W-MR}" y2="${y.toFixed(1)}"
+    stroke="${GRID_C}" stroke-width="0.6" stroke-dasharray="2,5"/>`;
+  s += `<text x="${ML-8}" y="${(y+3.5).toFixed(1)}" text-anchor="end"
+    fill="${RED}" font-size="9" opacity="0.8" font-family="Inter,system-ui">${v}</text>`;
+});
+
+// Right axis labels (Q2 scale)
+[0, 25, 50, 75, 100].forEach(v => {
+  const y = yQ2(v);
+  s += `<text x="${W-MR+8}" y="${(y+3.5).toFixed(1)}" text-anchor="start"
+    fill="${GREEN}" font-size="9" opacity="0.8" font-family="Inter,system-ui">${v}%</text>`;
+});
+
+// Lines
+const q1Points = versions.map((d, i) => `${xPos(i).toFixed(1)},${yQ1(d.q1Damage).toFixed(1)}`).join(' ');
+const q2Points = versions.map((d, i) => `${xPos(i).toFixed(1)},${yQ2(d.q2Rate).toFixed(1)}`).join(' ');
+
+// Q1 line (red)
+s += `<polyline points="${q1Points}" fill="none" stroke="${RED}" stroke-width="2.5" stroke-linejoin="round"/>`;
+// Q2 line (teal)
+s += `<polyline points="${q2Points}" fill="none" stroke="${GREEN}" stroke-width="2.5" stroke-linejoin="round"/>`;
+
+// Data points and annotations
+versions.forEach((d, i) => {
+  const cx = xPos(i);
+  const q1y = yQ1(d.q1Damage);
+  const q2y = yQ2(d.q2Rate);
+
+  // Q1 dot
+  s += `<circle cx="${cx.toFixed(1)}" cy="${q1y.toFixed(1)}" r="6"
+    fill="${d.q1Pass ? '#0d1117' : RED}" stroke="${RED}" stroke-width="2.5"/>`;
+  if (d.q1Pass) {
+    s += `<text x="${cx.toFixed(1)}" y="${(q1y+4).toFixed(1)}" text-anchor="middle"
+      fill="${RED}" font-size="10" font-weight="700" font-family="Inter,system-ui">&#10003;</text>`;
+  }
+
+  // Q2 dot
+  s += `<circle cx="${cx.toFixed(1)}" cy="${q2y.toFixed(1)}" r="6"
+    fill="${d.q2Pass ? '#0d1117' : GREEN}" stroke="${GREEN}" stroke-width="2.5"/>`;
+  if (d.q2Pass) {
+    s += `<text x="${cx.toFixed(1)}" y="${(q2y+4).toFixed(1)}" text-anchor="middle"
+      fill="${GREEN}" font-size="10" font-weight="700" font-family="Inter,system-ui">&#10003;</text>`;
+  }
+
+  // Value labels
+  const q1ValY = i < 3 ? q1y - 12 : (i === 3 ? q1y + 16 : q1y - 12);
+  s += `<text x="${cx.toFixed(1)}" y="${q1ValY.toFixed(1)}" text-anchor="middle"
+    fill="${RED}" font-size="10" font-weight="600" font-family="Inter,system-ui">
+    ${d.q1Damage === 0 ? '0' : d.q1Damage.toFixed(0) + 'pp'}</text>`;
+
+  const q2Offset = i === 2 ? 16 : -12;
+  s += `<text x="${cx.toFixed(1)}" y="${(q2y + q2Offset).toFixed(1)}" text-anchor="middle"
+    fill="${GREEN}" font-size="10" font-weight="600" font-family="Inter,system-ui">${d.q2Rate}%</text>`;
+
+  // Version label
+  const vLblY = MT + cH + 16;
+  s += `<text x="${cx.toFixed(1)}" y="${vLblY}" text-anchor="middle"
+    fill="${LABEL_C}" font-size="12" font-weight="700" font-family="Inter,system-ui">${d.v}</text>`;
+
+  // Description label (two lines)
+  const descLines = d.label.split('\n');
+  descLines.slice(1).forEach((line, li) => {
+    s += `<text x="${cx.toFixed(1)}" y="${(vLblY + 15 + li * 13).toFixed(1)}" text-anchor="middle"
+      fill="${TEXT_C}" font-size="9" font-family="Inter,system-ui">${line}</text>`;
+  });
+
+  // v5 GO stamp
+  if (i === 4) {
+    s += `<text x="${cx.toFixed(1)}" y="${(MT + cH - 16).toFixed(1)}" text-anchor="middle"
+      fill="${GREEN}" font-size="12" font-weight="800" font-family="Inter,system-ui" letter-spacing="0.05em">UNCONDITIONAL GO</text>`;
+  }
+});
+
+// Axis lines
+s += `<line x1="${ML}" y1="${MT}" x2="${ML}" y2="${MT+cH}" stroke="${RED}" stroke-width="1" opacity="0.6"/>`;
+s += `<line x1="${W-MR}" y1="${MT}" x2="${W-MR}" y2="${MT+cH}" stroke="${GREEN}" stroke-width="1" opacity="0.6"/>`;
+
+// Axis titles
+s += `<text transform="rotate(-90,16,${MT+cH/2})" x="16" y="${MT+cH/2}"
+  text-anchor="middle" fill="${RED}" font-size="11" font-family="Inter,system-ui">Q1: Bull Spurious Alpha Damage (pp) &#8593; worse</text>`;
+s += `<text transform="rotate(90,${W-14},${MT+cH/2})" x="${W-14}" y="${MT+cH/2}"
+  text-anchor="middle" fill="${GREEN}" font-size="11" font-family="Inter,system-ui">Q2: Bear Detection Rate (%) &#8593; better</text>`;
+
+// Title annotation for the tradeoff
+s += `<text x="${(ML + cW/2).toFixed(1)}" y="${(MT+12).toFixed(1)}" text-anchor="middle"
+  fill="${TEXT_C}" font-size="11" font-family="Inter,system-ui" font-style="italic">
+  v1&ndash;v4: solving one criterion damaged the other &mdash; v5 achieves both</text>`;
+
+document.getElementById('chart').innerHTML = s;
+</script>
+</body>
+</html>

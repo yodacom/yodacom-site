@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fig 2 — Bull Fold Drawdown Distribution | Inventory Circuit Breaker v5</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #0d1117;
+    color: #e6edf3;
+    font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+    padding: 40px;
+  }
+  .figure-container {
+    max-width: 900px;
+    margin: 0 auto;
+    background: #161b22;
+    border: 1px solid #30363d;
+    border-radius: 8px;
+    padding: 40px 40px 28px 40px;
+  }
+  .figure-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #8b949e;
+    margin-bottom: 6px;
+  }
+  .figure-title {
+    font-size: 19px;
+    font-weight: 700;
+    color: #e6edf3;
+    margin-bottom: 5px;
+    line-height: 1.3;
+  }
+  .figure-subtitle {
+    font-size: 12.5px;
+    color: #8b949e;
+    line-height: 1.55;
+    margin-bottom: 28px;
+    max-width: 780px;
+  }
+  .insight-box {
+    background: #0d2818;
+    border: 1px solid #22d3a1;
+    border-radius: 6px;
+    padding: 14px 18px;
+    margin-bottom: 24px;
+    font-size: 13px;
+    color: #22d3a1;
+    line-height: 1.5;
+  }
+  .insight-box strong { color: #4ade80; }
+  .legend {
+    display: flex;
+    gap: 28px;
+    margin-top: 18px;
+    padding-top: 16px;
+    border-top: 1px solid #30363d;
+    flex-wrap: wrap;
+  }
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    color: #8b949e;
+  }
+  .legend-swatch {
+    width: 14px;
+    height: 14px;
+    border-radius: 2px;
+    flex-shrink: 0;
+  }
+  .disclaimer {
+    margin-top: 16px;
+    font-size: 10px;
+    color: #6e7681;
+    line-height: 1.6;
+    border-top: 1px solid #21262d;
+    padding-top: 12px;
+  }
+</style>
+</head>
+<body>
+<div class="figure-container">
+  <div class="figure-label">Figure 2 &mdash; Yodacom Research | Paper 2: Inventory Circuit Breaker</div>
+  <div class="figure-title">Bull Fold Gate Analysis: drawdownFromPeak at 35% Inventory Threshold Breach</div>
+  <div class="figure-subtitle">
+    Distribution of portfolio drawdown-from-peak at the bar where the 35% inventory threshold is first breached, across all 28 confirmed bull folds (buy-and-hold &gt; +50%, test years 2020&ndash;2021).
+    The vertical dashed line marks the &minus;15% gate threshold. Zero observations cross it &mdash; confirming the v5 gate blocks all spurious bull-year fires.
+  </div>
+
+  <div class="insight-box">
+    <strong>Key finding:</strong> In every bull fold, the portfolio drawdown-from-peak at the moment of 35% inventory threshold breach ranges from &minus;2% to &minus;14% &mdash; entirely below the &minus;15% gate.
+    The gate correctly reads bull corrections as "not yet a confirmed directional bear." Zero spurious fires in 28 bull folds.
+  </div>
+
+  <svg id="chart" xmlns="http://www.w3.org/2000/svg" width="820" height="400" viewBox="0 0 820 400" style="display:block;"></svg>
+
+  <div class="legend">
+    <div class="legend-item">
+      <div class="legend-swatch" style="background:#38bdf8; opacity:0.8;"></div>
+      Bull folds: drawdown at 35% threshold breach
+    </div>
+    <div class="legend-item">
+      <div class="legend-swatch" style="background:#f87171;"></div>
+      v5 gate threshold (&minus;15%)
+    </div>
+    <div class="legend-item">
+      <div class="legend-swatch" style="background:#22d3a1;"></div>
+      "Safe zone" (above gate) &mdash; no fire possible
+    </div>
+  </div>
+
+  <div class="disclaimer">
+    Source: Paper 2 Section 5.2 and inventory-threshold-v5-validation-2026-04-28.md. 28 confirmed bull folds (B&amp;H &gt; +50%, 2020&ndash;2021).
+    drawdownFromPeak values estimated from paper text (range: &minus;2% to &minus;14%); individual fold values not tabulated in source data &mdash;
+    distribution shown is illustrative of reported range, not raw observed values per fold. Gate threshold (&minus;15%) is exact.
+    Past performance does not guarantee future results. Research and educational use only.
+  </div>
+  <div style="display:flex; justify-content:flex-end; margin-top:10px;">
+    <span style="font-family:'Inter','Segoe UI',system-ui,sans-serif; font-size:11px; font-weight:500; letter-spacing:0.08em; color:#0d9488; opacity:0.75; text-transform:uppercase;">YODACOM.COM &middot; CIRCUIT BREAKER RESEARCH &middot; 2026</span>
+  </div>
+</div>
+
+<script>
+// DATA NOTE: The paper states (Section 5.2):
+// "The drawdown-from-peak values at each bar where the 35% inventory threshold was first reached
+//  ranged from -2% to -14% across all bull folds — never breaching the -15% drawdown gate."
+// Individual per-fold values are NOT tabulated in the source data.
+// We illustrate the reported distribution using a plausible spread across [−2%, −14%]
+// that is clearly labeled as representative of the stated range.
+//
+// The 28 bull folds span: ADAUSD 2020, ADAUSD 2021, BCHUSD 2020, DASHUSD 2020, DASHUSD 2021,
+// DOGEUSD 2020, DOGEUSD 2021, ETHUSD 2020, ETHUSD 2021, LTCUSD 2020, MANAUSD 2020, MANAUSD 2021,
+// NEOUSD 2020, NEOUSD 2021, STXUSD 2020, STXUSD 2021, TRXUSD 2020, TRXUSD 2021, XLMUSD 2020,
+// XLMUSD 2021, XMRUSD 2020, XMRUSD 2021, XRPUSD 2021, XTZUSD 2021, ZECUSD 2020, ZECUSD 2021,
+// BCHUSD 2021 (+25.8% — below +50% so NOT a confirmed bull fold, excluded),
+// LTCUSD 2021 (+15.8% — excluded), plus others verified from the fold detail table.
+// Confirmed 28 bull folds per paper Section 5.2.
+
+// Representative distribution: 28 points in [-2, -14], clustered around -7 to -10
+// This is a dot plot — each dot = one bull fold
+const bullDrawdowns = [
+  -2.1, -3.4, -4.0, -4.7, -5.1, -5.6, -6.0, -6.3, -6.8, -7.1,
+  -7.4, -7.8, -8.0, -8.3, -8.6, -8.9, -9.1, -9.4, -9.7, -10.0,
+  -10.3, -10.7, -11.0, -11.4, -11.8, -12.3, -12.9, -13.8
+];
+// Sort for dot-plot stacking
+bullDrawdowns.sort((a, b) => a - b);
+
+const W = 820, H = 400;
+const ML = 80, MR = 40, MT = 28, MB = 60;
+const cW = W - ML - MR;
+const cH = H - MT - MB;
+
+// X axis: drawdown from -18% to 0%
+const xMin = -18, xMax = 0;
+const xScale = v => ML + ((v - xMin) / (xMax - xMin)) * cW;
+const gateX = xScale(-15);
+
+const TEAL = '#22d3a1';
+const BLUE = '#38bdf8';
+const RED = '#f87171';
+const AMBER = '#fbbf24';
+const GRID_C = '#21262d';
+const AXIS_C = '#30363d';
+const TEXT_C = '#8b949e';
+const LABEL_C = '#c9d1d9';
+
+let s = '';
+
+// Safe zone fill (right of gate = safe = no fire zone)
+s += `<rect x="${gateX.toFixed(1)}" y="${MT}" width="${(W - MR - gateX).toFixed(1)}" height="${cH}"
+  fill="${TEAL}" opacity="0.07" rx="0"/>`;
+
+// Grid lines (vertical)
+[-18, -16, -15, -14, -12, -10, -8, -6, -4, -2, 0].forEach(v => {
+  const x = xScale(v);
+  const isGate = v === -15;
+  const isZero = v === 0;
+  if (!isGate) {
+    s += `<line x1="${x.toFixed(1)}" y1="${MT}" x2="${x.toFixed(1)}" y2="${MT+cH}"
+      stroke="${GRID_C}" stroke-width="0.7" stroke-dasharray="3,5"/>`;
+  }
+  const lbl = `${v}%`;
+  s += `<text x="${x.toFixed(1)}" y="${MT+cH+16}" text-anchor="middle"
+    fill="${TEXT_C}" font-size="10" font-family="Inter,system-ui">${lbl}</text>`;
+});
+
+// X axis line
+s += `<line x1="${ML}" y1="${MT+cH}" x2="${W-MR}" y2="${MT+cH}" stroke="${AXIS_C}" stroke-width="1"/>`;
+
+// Gate threshold line
+s += `<line x1="${gateX.toFixed(1)}" y1="${MT-6}" x2="${gateX.toFixed(1)}" y2="${MT+cH}"
+  stroke="${RED}" stroke-width="2" stroke-dasharray="6,4"/>`;
+s += `<text x="${(gateX-6).toFixed(1)}" y="${(MT+14).toFixed(1)}" text-anchor="end"
+  fill="${RED}" font-size="11" font-weight="700" font-family="Inter,system-ui">Gate: &minus;15%</text>`;
+s += `<text x="${(gateX-6).toFixed(1)}" y="${(MT+28).toFixed(1)}" text-anchor="end"
+  fill="${RED}" font-size="10" font-family="Inter,system-ui">(v5 threshold)</text>`;
+
+// Safe zone label
+s += `<text x="${(gateX + (W-MR-gateX)/2).toFixed(1)}" y="${(MT+20).toFixed(1)}" text-anchor="middle"
+  fill="${TEAL}" font-size="12" font-weight="600" font-family="Inter,system-ui">SAFE ZONE</text>`;
+s += `<text x="${(gateX + (W-MR-gateX)/2).toFixed(1)}" y="${(MT+36).toFixed(1)}" text-anchor="middle"
+  fill="${TEAL}" font-size="10" font-family="Inter,system-ui">Gate blocks fire &rarr; zero fires</text>`;
+
+// Dot plot: stack dots at each drawdown value
+// Group into bins of 1% width for stacking
+const binW = 1.0;
+const dotR = 6;
+const dotPad = 2;
+const baseDotY = MT + cH - dotR - 4;
+
+// Simple dot positions — each dot stacked vertically at its x position
+// Use a counting approach per bin
+const binCounts = {};
+bullDrawdowns.forEach(v => {
+  const bin = Math.round(v);
+  binCounts[bin] = (binCounts[bin] || 0) + 1;
+});
+
+const placed = {};
+bullDrawdowns.forEach(v => {
+  const bin = Math.round(v);
+  const stackIdx = placed[bin] || 0;
+  placed[bin] = stackIdx + 1;
+  const cx = xScale(v);
+  const cy = baseDotY - stackIdx * (dotR * 2 + dotPad);
+  s += `<circle cx="${cx.toFixed(1)}" cy="${cy.toFixed(1)}" r="${dotR}"
+    fill="${BLUE}" opacity="0.82" stroke="#0d1117" stroke-width="1.5"/>`;
+});
+
+// Callout: range annotation
+const rng1 = xScale(-2);
+const rng2 = xScale(-14);
+const rangeY = MT + cH - 36;
+s += `<line x1="${rng2.toFixed(1)}" y1="${rangeY}" x2="${rng1.toFixed(1)}" y2="${rangeY}"
+  stroke="${BLUE}" stroke-width="1.5" marker-end="url(#arr)" marker-start="url(#arr)"/>`;
+s += `<text x="${((rng1+rng2)/2).toFixed(1)}" y="${(rangeY-7).toFixed(1)}" text-anchor="middle"
+  fill="${BLUE}" font-size="11" font-weight="600" font-family="Inter,system-ui">All 28 bull folds: &minus;2% to &minus;14%</text>`;
+
+// n= annotation
+s += `<text x="${((rng1+rng2)/2).toFixed(1)}" y="${(rangeY+18).toFixed(1)}" text-anchor="middle"
+  fill="${TEXT_C}" font-size="10" font-family="Inter,system-ui">n = 28 confirmed bull folds (B&amp;H &gt; +50%)</text>`;
+
+// Axis titles
+s += `<text x="${ML + cW/2}" y="${H-4}" text-anchor="middle"
+  fill="${TEXT_C}" font-size="11" font-family="Inter,system-ui">drawdownFromPeak at 35% Inventory Threshold Breach (%)</text>`;
+
+// Arrow marker
+const defs = `<defs>
+  <marker id="arr" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto">
+    <path d="M0,0 L6,3 L0,6" fill="none" stroke="${BLUE}" stroke-width="1.5"/>
+  </marker>
+</defs>`;
+
+document.getElementById('chart').innerHTML = defs + s;
+</script>
+</body>
+</html>
