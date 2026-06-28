@@ -104,6 +104,12 @@
 						</a>
 					</li>
 					<li>
+						<a href="/research/coinroc-live-bear-market-2026" class="group block">
+							<div class="font-semibold text-navy-deep group-hover:text-navy transition">Live Sim — CoinRoc in a Bear Market: What Happened to Drawdown</div>
+							<div class="text-xs text-slate-light">June 2026 · Published</div>
+						</a>
+					</li>
+					<li>
 						<div class="font-semibold text-navy-deep">Paper 4 — Gridium</div>
 						<div class="text-xs text-slate-light">In progress · Q2 2026</div>
 					</li>
@@ -608,6 +614,44 @@
 						</dl>
 						<a href="/research/cross-asset-ef" class="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-ochre-deep transition hover:text-ochre">
 							Read paper B7
+							<svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+						</a>
+					</div>
+				</div>
+			</article>
+
+			<!-- Live Sim — CoinRoc Bear Market 2026 card -->
+			<article class="overflow-hidden rounded-sm border border-rule bg-paper shadow-[0_10px_40px_-25px_rgba(20,40,72,0.3)]">
+				<div class="grid grid-cols-5">
+					<div class="col-span-2 relative hidden items-center justify-center border-r border-rule bg-navy-ink p-6 sm:flex">
+						<div class="absolute inset-0 bg-topo-faint opacity-10"></div>
+						<div class="relative text-center text-cream">
+							<div class="mb-4 text-[0.6rem] uppercase tracking-[0.3em] text-ochre-soft">Yodacom Research</div>
+							<div class="mb-3 font-serif text-2xl font-500 italic text-cream leading-tight">Live<br />Sim</div>
+							<div class="mx-auto mb-4 h-px w-12 bg-ochre/70"></div>
+							<div class="text-[0.68rem] uppercase tracking-widest text-cream/60">Bear Market 2026</div>
+							<div class="mt-6 text-[0.68rem] uppercase tracking-widest text-cream/60">June 2026</div>
+						</div>
+					</div>
+					<div class="col-span-5 p-7 sm:col-span-3 sm:p-8">
+						<div class="mb-4 flex flex-wrap items-center gap-2">
+							<span class="rounded-full bg-teal-500/10 px-3 py-1 text-[0.65rem] font-semibold uppercase tracking-widest text-teal-700">Published</span>
+							<span class="text-[0.68rem] uppercase tracking-widest text-slate-light">June 2026</span>
+						</div>
+						<h2 class="mb-4 font-serif text-2xl leading-snug text-navy-ink">
+							We Ran CoinRoc as If It Were Live Through a Bear Market &mdash; Here&rsquo;s What Happened to Drawdown
+						</h2>
+						<p class="mb-5 text-sm leading-relaxed text-slate">
+							A 74-day as-if-live simulation of CoinRoc&rsquo;s FIS grid sleeve through the April&ndash;June 2026 Bitcoin bear market. No real capital. No look-ahead. The FIS engine fired 92 suspend and 83 resume events. What the regime detection layer did &mdash; and what it did not do &mdash; illustrated by two animated visuals.
+						</p>
+						<dl class="mb-5 grid grid-cols-2 gap-x-4 gap-y-2 border-y border-rule py-4 text-xs text-slate">
+							<dt class="text-slate-light">Author</dt><dd>Yodacom Research</dd>
+							<dt class="text-slate-light">Window</dt><dd>April 14 &ndash; June 27, 2026 (74 days)</dd>
+							<dt class="text-slate-light">Symbols</dt><dd>10 (FIS-rated grid sleeve)</dd>
+							<dt class="text-slate-light">Type</dt><dd>As-if-live simulation, mechanism-only</dd>
+						</dl>
+						<a href="/research/coinroc-live-bear-market-2026" class="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-ochre-deep transition hover:text-ochre">
+							Read live sim article
 							<svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
 						</a>
 					</div>
