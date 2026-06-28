@@ -174,6 +174,25 @@
 
 <p>The lines tell three different stories through 2022 — and that is where the advisor conversation lives.</p>
 
+<div class="not-prose my-10">
+	<figure>
+		<img
+			src="/research/modern-market-2026/coinroc-equity-curves-2020-2025.png"
+			alt="Simulated equity curves 2020–2025: L1 Plain Grid ends at $5,129 (CAGR −10.5%), L2 FIS-Gated Grid ends at $12,126 (CAGR +3.3%), L3 Full CoinRoc System ends at $19,609 (CAGR +11.9%), S&P 500 benchmark ends at $18,703 (CAGR +11.0%). All starting from $10,000."
+			loading="lazy"
+			class="w-full"
+			style="border-radius:8px;display:block;height:auto;"
+		/>
+		<figcaption class="mt-3 text-xs text-slate-light leading-relaxed">
+			<strong class="text-navy-deep font-semibold">Figure: Simulated Equity Curves, 2020–2025 — $10,000 Starting Value</strong><br />
+			Four hypothetical equity curves tracking a $10,000 starting position from January 1, 2020 through December 31, 2025. L1 — Plain Grid (no regime filter): terminal value $5,129, CAGR −10.5%. L2 — FIS&#x2122;-Gated Grid: terminal value $12,126, CAGR +3.3%. L3 — Full CoinRoc System (FIS&#x2122; + Asset Quality Rating ≥ B−): terminal value ~$19,609, CAGR ~+11.9% (estimated; see disclosure). S&amp;P 500 Total Return benchmark: terminal value $18,703, CAGR +11.0%.<br /><br />
+			All CoinRoc lines are hypothetical and simulated. Results are derived from a walk-forward backtest run May 2026 across 17 pre-selected cryptocurrency assets using historical price data. L1 returns are directly measured from fold data. L2 and L3 returns are estimated (~) via simulation logic applied to qualifying fold subsets; they cannot be directly extracted from the fold-level JSON and should be understood as bounded approximations, not exact figures. Results are net of estimated Binance.US retail fees (0.40% maker / 0.60% taker / 0.05% volatility-conditional slippage).<br /><br />
+			These curves represent single-asset or per-fold simulation outcomes. They do not represent the results of a multi-asset portfolio sleeve with quarterly rebalancing; see the disclosure note in the Portfolio Construction section of this article for the distinction.<br /><br />
+			Past simulated performance is not indicative of future results. This chart is for educational and illustrative purposes only and does not constitute investment advice or a recommendation to buy or sell any security or investment product.
+		</figcaption>
+	</figure>
+</div>
+
 <p>Through 2021, L1 and L3 track reasonably close. Both benefit from the 2020–2021 bull market. L1 reaches approximately $12,034 by end of 2021. Then 2022 arrives.</p>
 
 <p>L1 falls from approximately $12,034 to $5,090 — losing nearly 58% of its value in a single year. By the end of the study period in 2025, it has not recovered. The compounding math is unforgiving: recovering from a 58% loss requires a 138% subsequent gain just to return to the high-water mark.</p>
@@ -228,6 +247,8 @@
 
 <p>For income-focused portfolios where recovery timelines from meaningful drawdowns are compressed — a characteristic common in later-stage wealth management contexts — the behavioral property of the 2022 result may matter more than the CAGR comparison. A client in drawdown who needs income may be forced to sell at the wrong time. A client in cash who needs income can wait.</p>
 
+<p><strong>Important note on measurement level:</strong> The equity curves in the chart above — including the L3 Full CoinRoc result of $19,609 and +11.9% CAGR — represent asset-level, single-asset simulation outcomes: one position, one rated asset, FIS-gated, held continuously over the 2020–2025 period. These figures do not represent what an advisor would achieve from a multi-asset rated grid sleeve embedded in a blended portfolio with quarterly rebalancing. At retail exchange fee tiers, Yodacom Research's separate portfolio construction study found that the quarterly turnover costs of a 10-symbol sleeve rebalanced four times per year consume the gross grid return entirely. Advisors modeling a portfolio-level allocation should use their own cost-structure analysis rather than applying the single-asset CAGR figures from this chart to a sleeve result.</p>
+
 <p>The appropriate framing for clients is precise and limited: a small allocation to a near-zero-correlation income strategy with active regime protection is a structurally sound diversification argument for the portion of an income allocation that currently carries equity correlation. Not as a portfolio anchor. Not as a crypto speculation vehicle. As a modest, rules-based income source with a different correlation profile and an automatic exit when conditions become hostile.</p>
 
 <hr />
@@ -272,6 +293,6 @@
 
 <p>CoinRoc is a pre-launch product. No investment in CoinRoc is currently available. CoinRoc and the FIS&#x2122;, GSI&#x2122;, and CSI&#x2122; systems described in this article are in pre-launch development as of the date of publication. This article describes research findings and methodology; it does not describe a currently available product or service.</p>
 
-<p><em>Compliance note: Compliance-cleared by Matlock 2026-05-24. Route to attorney before distribution to RIAs or broker-dealer networks.</em></p>
+<p><em>Compliance note: Article compliance-cleared by Matlock 2026-05-24 (MATLOCK-MM-ADV-01). Chart embed compliance-reviewed by Matlock 2026-06-28 (MATLOCK-MM-CHART-01). Route to attorney before distribution to RIAs or broker-dealer networks.</em></p>
 
 </article>
