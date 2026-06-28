@@ -4,6 +4,17 @@
 
 <svelte:head>
 	<title>Crypto Grid Trading vs. Options for Income: An Honest Comparison — Yodacom Research</title>
+	<meta property="og:title" content="Crypto Grid Trading vs. Options for Income: An Honest Comparison" />
+	<meta property="og:description" content="CoinRoc FIS-gated grid vs. CBOE PUT/BXM options strategies — Sharpe ratio, tail risk, Calmar ratio, capital requirements, and automation feasibility compared. Kessel & Black, Yodacom Research 2026." />
+	<meta property="og:image" content="https://yodacom.com/research/grid-vs-options-2026/cover.png" />
+	<meta property="og:image:width" content="1200" />
+	<meta property="og:image:height" content="630" />
+	<meta property="og:type" content="article" />
+	<meta property="og:url" content="https://yodacom.com/research/grid-vs-options-2026" />
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:title" content="Crypto Grid Trading vs. Options for Income: An Honest Comparison" />
+	<meta name="twitter:description" content="CoinRoc FIS-gated grid vs. CBOE PUT/BXM options strategies — Sharpe ratio, tail risk, Calmar ratio, capital requirements, and automation feasibility compared. Kessel & Black, Yodacom Research 2026." />
+	<meta name="twitter:image" content="https://yodacom.com/research/grid-vs-options-2026/cover.png" />
 </svelte:head>
 
 <!-- Cover banner -->

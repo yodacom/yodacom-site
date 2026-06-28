@@ -1,0 +1,140 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="cb-bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0d14;stop-opacity:1"/>
+      <stop offset="50%" style="stop-color:#0f1117;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#0c0f18;stop-opacity:1"/>
+    </linearGradient>
+    <radialGradient id="cb-tealGlow" cx="25%" cy="50%" r="45%">
+      <stop offset="0%" style="stop-color:#00d4aa;stop-opacity:0.08"/>
+      <stop offset="100%" style="stop-color:#00d4aa;stop-opacity:0"/>
+    </radialGradient>
+    <radialGradient id="cb-amberGlow" cx="75%" cy="50%" r="45%">
+      <stop offset="0%" style="stop-color:#f0a020;stop-opacity:0.08"/>
+      <stop offset="100%" style="stop-color:#f0a020;stop-opacity:0"/>
+    </radialGradient>
+    <linearGradient id="cb-leftPanel" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#0d1f1a;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#0f1117;stop-opacity:1"/>
+    </linearGradient>
+    <linearGradient id="cb-rightPanel" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#0f1117;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#1a1508;stop-opacity:1"/>
+    </linearGradient>
+    <linearGradient id="cb-tealLine" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#00d4aa;stop-opacity:0.4"/>
+      <stop offset="50%" style="stop-color:#00d4aa;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#00d4aa;stop-opacity:0.6"/>
+    </linearGradient>
+    <linearGradient id="cb-amberLine" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#f0a020;stop-opacity:0.4"/>
+      <stop offset="50%" style="stop-color:#f0a020;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#f0a020;stop-opacity:0.6"/>
+    </linearGradient>
+    <clipPath id="cb-leftClip"><rect x="0" y="0" width="565" height="630"/></clipPath>
+    <clipPath id="cb-rightClip"><rect x="635" y="0" width="565" height="630"/></clipPath>
+    <linearGradient id="cb-dividerGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#00d4aa;stop-opacity:0"/>
+      <stop offset="20%" style="stop-color:#00d4aa;stop-opacity:0.6"/>
+      <stop offset="50%" style="stop-color:#ffffff;stop-opacity:0.9"/>
+      <stop offset="80%" style="stop-color:#f0a020;stop-opacity:0.6"/>
+      <stop offset="100%" style="stop-color:#f0a020;stop-opacity:0"/>
+    </linearGradient>
+    <linearGradient id="cb-scaleGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#00d4aa;stop-opacity:0.7"/>
+      <stop offset="50%" style="stop-color:#8b9ab8;stop-opacity:0.9"/>
+      <stop offset="100%" style="stop-color:#f0a020;stop-opacity:0.7"/>
+    </linearGradient>
+    <linearGradient id="cb-tealArea" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#00d4aa;stop-opacity:0.18"/>
+      <stop offset="100%" style="stop-color:#00d4aa;stop-opacity:0.02"/>
+    </linearGradient>
+    <linearGradient id="cb-amberArea" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#f0a020;stop-opacity:0.18"/>
+      <stop offset="100%" style="stop-color:#f0a020;stop-opacity:0.02"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#cb-bgGrad)"/>
+  <rect width="1200" height="630" fill="url(#cb-tealGlow)"/>
+  <rect width="1200" height="630" fill="url(#cb-amberGlow)"/>
+  <rect x="0" y="0" width="570" height="630" fill="url(#cb-leftPanel)"/>
+  <rect x="0" y="0" width="570" height="630" fill="none" stroke="#00d4aa" stroke-width="0.5" opacity="0.15"/>
+  <g clip-path="url(#cb-leftClip)" opacity="0.25">
+    <line x1="60" y1="178" x2="540" y2="178" stroke="#00d4aa" stroke-width="0.8" stroke-dasharray="4,6"/>
+    <line x1="60" y1="208" x2="540" y2="208" stroke="#00d4aa" stroke-width="0.8" stroke-dasharray="4,6"/>
+    <line x1="60" y1="238" x2="540" y2="238" stroke="#00d4aa" stroke-width="0.8" stroke-dasharray="4,6"/>
+    <line x1="60" y1="268" x2="540" y2="268" stroke="#00d4aa" stroke-width="0.8" stroke-dasharray="4,6"/>
+    <line x1="60" y1="298" x2="540" y2="298" stroke="#00d4aa" stroke-width="0.8" stroke-dasharray="4,6"/>
+    <line x1="60" y1="328" x2="540" y2="328" stroke="#00d4aa" stroke-width="0.8" stroke-dasharray="4,6"/>
+    <line x1="60" y1="358" x2="540" y2="358" stroke="#00d4aa" stroke-width="0.8" stroke-dasharray="4,6"/>
+    <line x1="60" y1="388" x2="540" y2="388" stroke="#00d4aa" stroke-width="0.8" stroke-dasharray="4,6"/>
+    <line x1="60" y1="418" x2="540" y2="418" stroke="#00d4aa" stroke-width="0.8" stroke-dasharray="4,6"/>
+  </g>
+  <polygon points="60,380 90,330 120,370 155,280 185,340 215,260 250,320 280,240 315,290 345,210 375,270 405,200 435,255 465,190 500,240 530,200 530,450 60,450" fill="url(#cb-tealArea)" clip-path="url(#cb-leftClip)"/>
+  <polyline points="60,380 90,330 120,370 155,280 185,340 215,260 250,320 280,240 315,290 345,210 375,270 405,200 435,255 465,190 500,240 530,200" fill="none" stroke="url(#cb-tealLine)" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round" clip-path="url(#cb-leftClip)"/>
+  <g clip-path="url(#cb-leftClip)">
+    <circle cx="120" cy="370" r="5" fill="none" stroke="#00d4aa" stroke-width="1.8" opacity="0.9"/>
+    <circle cx="185" cy="340" r="5" fill="none" stroke="#00d4aa" stroke-width="1.8" opacity="0.9"/>
+    <circle cx="250" cy="320" r="5" fill="none" stroke="#00d4aa" stroke-width="1.8" opacity="0.9"/>
+    <circle cx="315" cy="290" r="5" fill="none" stroke="#00d4aa" stroke-width="1.8" opacity="0.9"/>
+    <circle cx="375" cy="270" r="5" fill="none" stroke="#00d4aa" stroke-width="1.8" opacity="0.9"/>
+    <circle cx="435" cy="255" r="5" fill="none" stroke="#00d4aa" stroke-width="1.8" opacity="0.9"/>
+    <circle cx="500" cy="240" r="5" fill="none" stroke="#00d4aa" stroke-width="1.8" opacity="0.9"/>
+    <circle cx="90" cy="330" r="4" fill="#00d4aa" opacity="0.7"/>
+    <circle cx="155" cy="280" r="4" fill="#00d4aa" opacity="0.7"/>
+    <circle cx="215" cy="260" r="4" fill="#00d4aa" opacity="0.7"/>
+    <circle cx="280" cy="240" r="4" fill="#00d4aa" opacity="0.7"/>
+    <circle cx="345" cy="210" r="4" fill="#00d4aa" opacity="0.7"/>
+    <circle cx="405" cy="200" r="4" fill="#00d4aa" opacity="0.7"/>
+    <circle cx="465" cy="190" r="4" fill="#00d4aa" opacity="0.7"/>
+  </g>
+  <rect x="50" y="458" width="230" height="26" rx="3" fill="#00d4aa" fill-opacity="0.80" stroke="#00d4aa" stroke-width="1" stroke-opacity="0.9"/>
+  <text x="165" y="475" fill="#001a14" font-family="'Inter','Segoe UI',system-ui,sans-serif" font-size="11" font-weight="700" text-anchor="middle" letter-spacing="0.12em">CRYPTO GRID TRADING</text>
+  <text x="60" y="505" fill="#8b949e" font-family="'Inter','Segoe UI',system-ui,sans-serif" font-size="10.5" letter-spacing="0.03em">CoinRoc FIS-gated · 135 walk-forward folds · 2013-2025</text>
+  <text x="60" y="520" fill="#8b949e" font-family="'Inter','Segoe UI',system-ui,sans-serif" font-size="10" letter-spacing="0.03em">17 crypto assets · Full automation</text>
+  <rect x="630" y="0" width="570" height="630" fill="url(#cb-rightPanel)"/>
+  <rect x="630" y="0" width="570" height="630" fill="none" stroke="#f0a020" stroke-width="0.5" opacity="0.15"/>
+  <polygon points="650,400 685,385 720,375 755,368 790,360 825,355 860,350 895,342 930,345 965,338 1000,332 1035,325 1075,315 1120,308 1140,305 1140,450 650,450" fill="url(#cb-amberArea)" clip-path="url(#cb-rightClip)"/>
+  <polyline points="650,400 685,385 720,375 755,368 790,360 825,355 860,350 895,342 930,345 965,338 1000,332 1035,325 1075,315 1120,308 1140,305" fill="none" stroke="url(#cb-amberLine)" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round" clip-path="url(#cb-rightClip)"/>
+  <g clip-path="url(#cb-rightClip)" opacity="0.5">
+    <rect x="665" y="415" width="14" height="22" rx="2" fill="#f0a020" opacity="0.55"/>
+    <rect x="700" y="418" width="14" height="19" rx="2" fill="#f0a020" opacity="0.55"/>
+    <rect x="735" y="420" width="14" height="17" rx="2" fill="#f0a020" opacity="0.55"/>
+    <rect x="770" y="421" width="14" height="15" rx="2" fill="#f0a020" opacity="0.55"/>
+    <rect x="805" y="422" width="14" height="13" rx="2" fill="#f0a020" opacity="0.55"/>
+    <rect x="840" y="423" width="14" height="10" rx="2" fill="#f0a020" opacity="0.55"/>
+    <rect x="875" y="424" width="14" height="8" rx="2" fill="#f0a020" opacity="0.55"/>
+    <rect x="910" y="425" width="14" height="5" rx="2" fill="#f0a020" opacity="0.55"/>
+    <rect x="945" y="425" width="14" height="3" rx="2" fill="#f0a020" opacity="0.55"/>
+  </g>
+  <text x="800" y="455" fill="#f0a020" font-family="'Inter','Segoe UI',system-ui,sans-serif" font-size="9.5" text-anchor="middle" letter-spacing="0.06em" clip-path="url(#cb-rightClip)">PREMIUM DECAY</text>
+  <rect x="920" y="458" width="210" height="26" rx="3" fill="#f0a020" fill-opacity="0.80" stroke="#f0a020" stroke-width="1" stroke-opacity="0.9"/>
+  <text x="1025" y="475" fill="#1a1000" font-family="'Inter','Segoe UI',system-ui,sans-serif" font-size="11" font-weight="700" text-anchor="middle" letter-spacing="0.12em">OPTIONS FOR INCOME</text>
+  <text x="650" y="505" fill="#8b949e" font-family="'Inter','Segoe UI',system-ui,sans-serif" font-size="10.5" letter-spacing="0.03em">CBOE BXM/PUT Index · Israelov &amp; Klein · 1986-2025</text>
+  <text x="650" y="520" fill="#8b949e" font-family="'Inter','Segoe UI',system-ui,sans-serif" font-size="10" letter-spacing="0.03em">S&amp;P 500 underlying · Partial automation</text>
+  <line x1="600" y1="0" x2="600" y2="630" stroke="url(#cb-dividerGrad)" stroke-width="1.2"/>
+  <polygon points="600,310 590,330 610,330" fill="#8b9ab8" opacity="0.7"/>
+  <rect x="596" y="330" width="8" height="28" rx="2" fill="#8b9ab8" opacity="0.5"/>
+  <rect x="582" y="355" width="36" height="5" rx="2" fill="#8b9ab8" opacity="0.4"/>
+  <line x1="490" y1="295" x2="710" y2="302" stroke="url(#cb-scaleGrad)" stroke-width="3" stroke-linecap="round" opacity="0.85"/>
+  <line x1="490" y1="295" x2="490" y2="310" stroke="#00d4aa" stroke-width="1.5" opacity="0.6"/>
+  <ellipse cx="490" cy="316" rx="22" ry="7" fill="#00d4aa" fill-opacity="0.12" stroke="#00d4aa" stroke-width="1" stroke-opacity="0.5"/>
+  <line x1="710" y1="302" x2="710" y2="318" stroke="#f0a020" stroke-width="1.5" opacity="0.6"/>
+  <ellipse cx="710" cy="325" rx="22" ry="7" fill="#f0a020" fill-opacity="0.12" stroke="#f0a020" stroke-width="1" stroke-opacity="0.5"/>
+  <circle cx="600" cy="270" r="24" fill="#0f1117" stroke="#8b9ab8" stroke-width="1.2" stroke-opacity="0.5"/>
+  <text x="600" y="276" fill="#c0ccd8" font-family="'Georgia','Times New Roman',serif" font-size="13" font-weight="700" text-anchor="middle" letter-spacing="0.04em">VS</text>
+  <rect x="100" y="28" width="1000" height="112" rx="4" fill="#0f1117" fill-opacity="0.85"/>
+  <line x1="100" y1="28" x2="1100" y2="28" stroke="#8b9ab8" stroke-width="0.5" opacity="0.3"/>
+  <line x1="100" y1="140" x2="1100" y2="140" stroke="#8b9ab8" stroke-width="0.5" opacity="0.3"/>
+  <rect x="455" y="38" width="290" height="22" rx="11" fill="#ffffff" fill-opacity="0.06" stroke="#8b9ab8" stroke-width="0.8" stroke-opacity="0.4"/>
+  <text x="600" y="53" fill="#8b9ab8" font-family="'Inter','Segoe UI',system-ui,sans-serif" font-size="10" font-weight="600" text-anchor="middle" letter-spacing="0.16em">AN  HONEST  COMPARISON</text>
+  <text x="600" y="92" fill="#e8ecf0" font-family="'Georgia','Times New Roman',serif" font-size="28" font-weight="700" text-anchor="middle" letter-spacing="-0.01em">Crypto Grid Trading vs. Options for Income</text>
+  <line x1="200" y1="104" x2="1000" y2="104" stroke="#8b9ab8" stroke-width="0.5" opacity="0.25"/>
+  <text x="600" y="122" fill="#8b9ab8" font-family="'Inter','Segoe UI',system-ui,sans-serif" font-size="12" text-anchor="middle" letter-spacing="0.04em">Kessel &amp; Black  ·  Yodacom Research  ·  2026</text>
+  <text x="600" y="136" fill="#5a6475" font-family="'Inter','Segoe UI',system-ui,sans-serif" font-size="10.5" text-anchor="middle" letter-spacing="0.06em">Second paper in the systematic income series</text>
+  <rect x="0" y="590" width="1200" height="40" fill="#080a10" fill-opacity="0.7"/>
+  <line x1="0" y1="590" x2="1200" y2="590" stroke="#8b9ab8" stroke-width="0.5" opacity="0.2"/>
+  <text x="40" y="614" fill="#5a6475" font-family="'Inter','Segoe UI',system-ui,sans-serif" font-size="10.5" letter-spacing="0.08em">YODACOM  RESEARCH</text>
+  <text x="600" y="614" fill="#3d4554" font-family="'Inter','Segoe UI',system-ui,sans-serif" font-size="9.5" text-anchor="middle" letter-spacing="0.03em">Hypothetical backtest results. Not investment advice. Past performance not indicative of future results.</text>
+  <text x="1160" y="614" fill="#5a6475" font-family="'Inter','Segoe UI',system-ui,sans-serif" font-size="10.5" letter-spacing="0.06em" text-anchor="end">A2  ·  PRE-PRINT  ·  MAY 2026</text>
+</svg>
