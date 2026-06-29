@@ -1,8 +1,8 @@
 <svelte:head>
-	<title>We Ran CoinRoc as If It Were Live Through a Bear Market — Here's What Happened to Drawdown | Yodacom Research</title>
-	<meta name="description" content="A 74-day as-if-live simulation of CoinRoc's FIS grid sleeve through the April–June 2026 Bitcoin bear market. The mechanism story: what the regime detection layer did, and what it did not do." />
-	<meta property="og:title" content="We Ran CoinRoc as If It Were Live Through a Bear Market — Here's What Happened to Drawdown | Yodacom Research" />
-	<meta property="og:description" content="A 74-day as-if-live simulation of CoinRoc's FIS grid sleeve through the April–June 2026 Bitcoin bear market. The mechanism story: what the regime detection layer did, and what it did not do." />
+	<title>We Ran a CoinRoc Out-of-Sample Forward Simulation Through a Bear Market — Here's What Happened to Drawdown | Yodacom Research</title>
+	<meta name="description" content="A 74-day out-of-sample forward simulation of CoinRoc's FIS grid sleeve through the April–June 2026 Bitcoin bear market. No look-ahead. The regime detection layer did exactly what it was designed to do." />
+	<meta property="og:title" content="We Ran a CoinRoc Out-of-Sample Forward Simulation Through a Bear Market — Here's What Happened to Drawdown | Yodacom Research" />
+	<meta property="og:description" content="A 74-day out-of-sample forward simulation of CoinRoc's FIS grid sleeve through the April–June 2026 Bitcoin bear market. No look-ahead. The regime detection layer did exactly what it was designed to do." />
 	<meta property="og:image" content="/research/coinroc-live-bear-market-2026/coinroc_live_sim_stress_final.png" />
 </svelte:head>
 
@@ -11,19 +11,19 @@
 	<div class="relative mx-auto max-w-3xl px-6 py-20 sm:py-24">
 		<div class="fade-up eyebrow mb-5 flex items-center gap-3">
 			<span class="rule-ochre"></span>
-			Yodacom Research &middot; Live Simulation Study &middot; June 2026
+			Yodacom Research &middot; Out-of-Sample Forward Simulation &middot; June 2026
 		</div>
 		<h1 class="fade-up d1 mb-6 font-serif text-4xl font-500 leading-[1.08] tracking-tight text-navy-ink sm:text-5xl">
-			We Ran CoinRoc as If It Were Live Through a Bear Market &mdash; Here&rsquo;s What Happened to Drawdown
+			We Ran a CoinRoc Out-of-Sample Forward Simulation Through a Bear Market &mdash; Here&rsquo;s What Happened to Drawdown
 		</h1>
 		<p class="fade-up d2 mb-2 text-base leading-relaxed text-slate">
-			As-If-Live Simulation &middot; FIS Regime Detection &middot; 74-Day Bear Window &middot; April&ndash;June 2026
+			Out-of-Sample Forward Simulation &middot; FIS Regime Detection &middot; 74-Day Bear Window &middot; April&ndash;June 2026
 		</p>
 		<p class="fade-up d3 mb-1 text-base leading-relaxed text-slate">
 			Yodacom Research &middot; Source study: RES-LIVE-SIM-01 (Han Kessel, 2026-06-27)
 		</p>
 		<p class="fade-up d3 mb-6 text-sm text-slate/70">
-			Published: 2026-06-28 &middot; Registry ID: LANDO-LIVE-SIM-ARTICLE-02
+			Published: 2026-06-28 &middot; Updated: 2026-06-29 &middot; Registry ID: LANDO-LIVE-SIM-ARTICLE-02
 		</p>
 		<p class="fade-up d4 max-w-2xl border-l-2 border-ochre/60 pl-4 text-base italic leading-relaxed text-slate">
 			The prior research tested a fixed 2.5-year window. What we had not done was run the FIS regime engine forward in real time, responding to new data as it arrived, with no knowledge of what came next.
@@ -62,11 +62,15 @@
 
 	<!-- Section: What As-If-Live Means -->
 	<section class="mb-14">
-		<div class="eyebrow mb-3">What &ldquo;As-If-Live&rdquo; Means</div>
+		<div class="eyebrow mb-3">What the Forward Simulation Methodology Means</div>
 		<h2 class="mb-6 font-serif text-2xl leading-snug text-navy-ink">The Methodology</h2>
 
 		<p class="mb-5 text-base leading-relaxed text-slate">
 			This is a simulation, not a live trading account. No real money moved. But the mechanics were designed to replicate live operation as faithfully as possible, specifically on the dimension that matters most for methodology credibility: <strong class="text-navy-deep">look-ahead</strong>.
+		</p>
+
+		<p class="mb-5 text-base leading-relaxed text-slate font-medium">
+			<strong class="text-navy-deep">The simulation used only data available at each point in time; no future data informed any rule execution or regime decision.</strong>
 		</p>
 
 		<p class="mb-5 text-base leading-relaxed text-slate">
@@ -132,6 +136,10 @@
 				</div>
 			</div>
 		</div>
+
+		<p class="mb-5 text-base leading-relaxed text-slate italic border-l-2 border-ochre/60 pl-4">
+			This is the most favorable regime window the research has examined to date; the broader 2.5-year study covers a more representative range of conditions, including windows where the sleeve did not produce favorable results relative to the benchmark.
+		</p>
 
 		<p class="mb-5 text-base leading-relaxed text-slate">
 			This window was not chosen for favorable results. It is the period immediately following the prior study&rsquo;s end date. It is simply what happened next.
@@ -283,6 +291,13 @@
 					This is a simulated result using realistic friction. It is not a GIPS-compliant verified return. It is the most rigorous simulation we know how to run at this stage. It is still a simulation.
 				</p>
 			</div>
+
+			<div class="border-l-2 border-rule pl-4">
+				<p class="mb-1 text-sm font-semibold text-navy-deep">FIS suspension in live deployment.</p>
+				<p class="text-base leading-relaxed text-slate">
+					In a live CoinRoc session, the suspend/resume cycle illustrated in this simulation is automatic and non-optional. When FIS signal conditions are met &mdash; specifically, when the regime classifies as TREND_FOLLOWING at or above the confidence threshold on a 4-hour bar boundary &mdash; the system pauses new capital deployment without a user confirmation step. Users receive an after-the-fact notification; there is no in-session toggle to override it. That is by design: the gate is a deterministic algorithm applied identically to every live session, not a per-user judgment call. Users who activate the bot accept the FIS gate as an integral, non-separable feature of how it operates. Users may terminate a session at any time. The forward simulation modeled this behavior by halting new grid order placement at the signal boundary &mdash; consistent with how the mechanism operates in production.
+				</p>
+			</div>
 		</div>
 	</section>
 
@@ -328,8 +343,14 @@
 		<p class="mb-3">
 			The simulation covers a single 74-calendar-day window (April 14 &ndash; June 27, 2026) representing a specific market regime (Bitcoin bear, equities mixed). Results during other market regimes, including extended bull markets, may differ substantially. The 2.5-year prior study (RES-REPOSITION-PORTFOLIO-01) covers a broader range of conditions and should be consulted for longer-run context.
 		</p>
-		<p>
+		<p class="mb-3">
 			Fee assumptions: OKX US Institutional VIP 2 rates (0.06% maker / 0.08% taker) and an assumed slippage floor of max(0.02%, 0.15 &times; ATR/price) per fill side. Results at other fee tiers &mdash; including OKX consumer rates or other exchanges &mdash; would differ materially.
+		</p>
+		<p class="mb-3">
+			The FIS regime suspension described and modeled in this simulation activates automatically when signal conditions are met in a live CoinRoc session. No user approval is required and no user-configurable toggle exists to disable it within a live session. Users receive notification of an active pause after it triggers. CoinRoc does not make individualized or discretionary investment decisions on behalf of any user; the FIS gate is a rules-based, deterministic algorithm with published criteria, applied identically across all sessions regardless of any individual user&rsquo;s account characteristics or preferences.
+		</p>
+		<p>
+			The regulatory classification of certain digital assets referenced in this article, including XLM, AAVE, and DOT, is subject to ongoing review by US regulatory authorities. No representation is made regarding the securities-law status of any digital asset.
 		</p>
 	</section>
 
@@ -347,7 +368,7 @@
 		<p class="mb-1">Source study: RES-LIVE-SIM-01, Han Kessel, 2026-06-27</p>
 		<p class="mb-1">Cross-reference: RES-REPOSITION-PORTFOLIO-01 (prior study, 2.5-year window)</p>
 		<p class="mb-1">Product: <a href="https://coinroc.com" class="underline underline-offset-2 hover:text-slate transition" target="_blank" rel="noopener noreferrer">coinroc.com</a></p>
-		<p class="mt-3 italic">Compliance pre-review: mechanism-only version cleared by Matlock 2026-06-28 (MATLOCK-LIVE-SIM-MECHANISM-01). Full quantitative version (LANDO-LIVE-SIM-ARTICLE-01) requires licensed securities attorney review before publication.</p>
+		<p class="mt-3 italic">Compliance: CLEARED 2026-06-29 (MATLOCK-FINAL-PASS-3-REDOS-01, Redo Spec 1 + FIS auto-pause additions). All Redo Spec 1 items and FIS auto-pause additions verified present. No attorney required for yodacom.com/research publication. Standing attorney gate active for RIA/BD/solicitation distribution only.</p>
 	</div>
 
 </article>

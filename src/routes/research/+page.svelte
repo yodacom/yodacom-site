@@ -114,6 +114,18 @@
 						<div class="text-xs text-slate-light">In progress · Q2 2026</div>
 					</li>
 					<li>
+						<a href="/research/grid-trading-due-diligence-2026" class="group block">
+							<div class="font-semibold text-navy-deep group-hover:text-navy transition">Article B2 — Grid Trading Due-Diligence Framework</div>
+							<div class="text-xs text-slate-light">June 2026 · Published</div>
+						</a>
+					</li>
+					<li>
+						<a href="/research/fis-regime-engine" class="group block">
+							<div class="font-semibold text-navy-deep group-hover:text-navy transition">Lesson — How CoinRoc Knows When to Step Aside: The FIS Regime Engine</div>
+							<div class="text-xs text-slate-light">June 2026 · Published</div>
+						</a>
+					</li>
+					<li>
 						<div class="font-semibold text-navy-deep">Paper 5 — Sortino Sensitivity</div>
 						<div class="text-xs text-slate-light">Planned</div>
 					</li>
@@ -639,19 +651,95 @@
 							<span class="text-[0.68rem] uppercase tracking-widest text-slate-light">June 2026</span>
 						</div>
 						<h2 class="mb-4 font-serif text-2xl leading-snug text-navy-ink">
-							We Ran CoinRoc as If It Were Live Through a Bear Market &mdash; Here&rsquo;s What Happened to Drawdown
+							We Ran a CoinRoc Out-of-Sample Forward Simulation Through a Bear Market &mdash; Here&rsquo;s What Happened to Drawdown
 						</h2>
 						<p class="mb-5 text-sm leading-relaxed text-slate">
-							A 74-day as-if-live simulation of CoinRoc&rsquo;s FIS grid sleeve through the April&ndash;June 2026 Bitcoin bear market. No real capital. No look-ahead. The FIS engine fired 92 suspend and 83 resume events. What the regime detection layer did &mdash; and what it did not do &mdash; illustrated by two animated visuals.
+							A 74-day out-of-sample forward simulation of CoinRoc&rsquo;s FIS grid sleeve through the April&ndash;June 2026 Bitcoin bear market. No real capital. No look-ahead enforced at code level. The FIS engine fired 92 suspend and 83 resume events. The regime detection layer did exactly what it was designed to do.
 						</p>
 						<dl class="mb-5 grid grid-cols-2 gap-x-4 gap-y-2 border-y border-rule py-4 text-xs text-slate">
 							<dt class="text-slate-light">Author</dt><dd>Yodacom Research</dd>
 							<dt class="text-slate-light">Window</dt><dd>April 14 &ndash; June 27, 2026 (74 days)</dd>
 							<dt class="text-slate-light">Symbols</dt><dd>10 (FIS-rated grid sleeve)</dd>
-							<dt class="text-slate-light">Type</dt><dd>As-if-live simulation, mechanism-only</dd>
+							<dt class="text-slate-light">Type</dt><dd>Out-of-sample forward simulation</dd>
 						</dl>
 						<a href="/research/coinroc-live-bear-market-2026" class="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-ochre-deep transition hover:text-ochre">
 							Read live sim article
+							<svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+						</a>
+					</div>
+				</div>
+			</article>
+
+			<!-- Grid Trading Due-Diligence Framework B2 card -->
+			<article class="overflow-hidden rounded-sm border border-rule bg-paper shadow-[0_10px_40px_-25px_rgba(20,40,72,0.3)]">
+				<div class="grid grid-cols-5">
+					<div class="col-span-2 relative hidden items-center justify-center border-r border-rule bg-navy-ink p-6 sm:flex">
+						<div class="absolute inset-0 bg-topo-faint opacity-10"></div>
+						<div class="relative text-center text-cream">
+							<div class="mb-4 text-[0.6rem] uppercase tracking-[0.3em] text-ochre-soft">Yodacom Research</div>
+							<div class="mb-3 font-serif text-2xl font-500 italic text-cream leading-tight">Due<br />Diligence</div>
+							<div class="mx-auto mb-4 h-px w-12 bg-ochre/70"></div>
+							<div class="text-[0.68rem] uppercase tracking-widest text-cream/60">Article B2</div>
+							<div class="mt-6 text-[0.68rem] uppercase tracking-widest text-cream/60">June 2026</div>
+						</div>
+					</div>
+					<div class="col-span-5 p-7 sm:col-span-3 sm:p-8">
+						<div class="mb-4 flex flex-wrap items-center gap-2">
+							<span class="rounded-full bg-teal-500/10 px-3 py-1 text-[0.65rem] font-semibold uppercase tracking-widest text-teal-700">Published</span>
+							<span class="text-[0.68rem] uppercase tracking-widest text-slate-light">June 2026</span>
+						</div>
+						<h2 class="mb-4 font-serif text-2xl leading-snug text-navy-ink">
+							Does Algorithmic Grid Trading Belong in a Satellite Allocation? A Due-Diligence Evaluation Framework
+						</h2>
+						<p class="mb-5 text-sm leading-relaxed text-slate">
+							Near-zero correlation with equities (&rho;&nbsp;&asymp;&nbsp;+0.02 over nine observation years) and specific fee structure implications set grid trading apart from passive crypto exposure. Post-only enforcement improved average returns from &minus;9.99% to +4.73% &mdash; the single largest return driver in the research. Five questions a rigorous evaluation would address. The honest version of the allocation case.
+						</p>
+						<dl class="mb-5 grid grid-cols-2 gap-x-4 gap-y-2 border-y border-rule py-4 text-xs text-slate">
+							<dt class="text-slate-light">Author</dt><dd>Jeremy J. Black, Founder, Yodacom</dd>
+							<dt class="text-slate-light">Window</dt><dd>2013&ndash;2025 (walk-forward)</dd>
+							<dt class="text-slate-light">Assets / Folds</dt><dd>17 symbols · 135 folds</dd>
+							<dt class="text-slate-light">Key finding</dt><dd>Post-only enforcement: +14.7pp avg return improvement</dd>
+						</dl>
+						<a href="/research/grid-trading-due-diligence-2026" class="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-ochre-deep transition hover:text-ochre">
+							Read article B2
+							<svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+						</a>
+					</div>
+				</div>
+			</article>
+
+			<!-- FIS Regime Engine Lesson card -->
+			<article class="overflow-hidden rounded-sm border border-rule bg-paper shadow-[0_10px_40px_-25px_rgba(20,40,72,0.3)]">
+				<div class="grid grid-cols-5">
+					<div class="col-span-2 relative hidden items-center justify-center border-r border-rule bg-navy-ink p-6 sm:flex">
+						<div class="absolute inset-0 bg-topo-faint opacity-10"></div>
+						<div class="relative text-center text-cream">
+							<div class="mb-4 text-[0.6rem] uppercase tracking-[0.3em] text-ochre-soft">Yodacom Research</div>
+							<div class="mb-3 font-serif text-2xl font-500 italic text-cream leading-tight">FIS<br />Engine</div>
+							<div class="mx-auto mb-4 h-px w-12 bg-ochre/70"></div>
+							<div class="text-[0.68rem] uppercase tracking-widest text-cream/60">Educational Lesson</div>
+							<div class="mt-6 text-[0.68rem] uppercase tracking-widest text-cream/60">June 2026</div>
+						</div>
+					</div>
+					<div class="col-span-5 p-7 sm:col-span-3 sm:p-8">
+						<div class="mb-4 flex flex-wrap items-center gap-2">
+							<span class="rounded-full bg-teal-500/10 px-3 py-1 text-[0.65rem] font-semibold uppercase tracking-widest text-teal-700">Published</span>
+							<span class="text-[0.68rem] uppercase tracking-widest text-slate-light">June 2026</span>
+						</div>
+						<h2 class="mb-4 font-serif text-2xl leading-snug text-navy-ink">
+							How CoinRoc Knows When to Step Aside: Understanding the FIS Regime Engine
+						</h2>
+						<p class="mb-5 text-sm leading-relaxed text-slate">
+							FIS fuses four mathematical signals &mdash; ADX (trend strength), Hurst exponent (mean-reversion vs. persistence), Shannon and Tsallis entropy (order vs. noise), and ATR (volatility scale) &mdash; into a confidence-weighted regime call. When it fires TREND_FOLLOWING, grid deployment pauses automatically, without a user confirmation step. ETH 2018 anchor case: buy-and-hold &minus;82%, always-on grid &minus;62%, FIS-gated 0% (hypothetical, backtested).
+						</p>
+						<dl class="mb-5 grid grid-cols-2 gap-x-4 gap-y-2 border-y border-rule py-4 text-xs text-slate">
+							<dt class="text-slate-light">Registry ID</dt><dd>FIS-LESSON-01</dd>
+							<dt class="text-slate-light">Audience</dt><dd>CoinRoc users &middot; Financial professionals</dd>
+							<dt class="text-slate-light">Key finding</dt><dd>FIS gating: &minus;24% avg &#8594; 0% in 47 defensive periods</dd>
+							<dt class="text-slate-light">Channel</dt><dd>yodacom.com/research</dd>
+						</dl>
+						<a href="/research/fis-regime-engine" class="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-ochre-deep transition hover:text-ochre">
+							Read lesson
 							<svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
 						</a>
 					</div>
