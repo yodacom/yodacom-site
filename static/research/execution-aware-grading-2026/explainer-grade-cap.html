@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Grade Cap — Visual Explainer</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #0f1117;
+      color: #e8eaf0;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-size: 1.1rem;
+      line-height: 1.7;
+    }
+
+    .page {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 48px 24px 80px;
+    }
+
+    .hero {
+      padding: 64px 0 56px;
+      border-bottom: 1px solid #1e2535;
+    }
+    .hero-badges {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+    }
+    .badge {
+      display: inline-block;
+      padding: 4px 14px;
+      border-radius: 99px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .badge-level  { background: #1e2d20; color: #4ade80; border: 1px solid #1a7a4a; }
+    .badge-time   { background: #1a2035; color: #8892a4; border: 1px solid #2a3555; }
+    .badge-series { background: #1a2035; color: #60a5fa; border: 1px solid #2563eb; }
+
+    h1 {
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      margin-bottom: 20px;
+      color: #f0f2f8;
+    }
+    h1 span { color: #fbbf24; }
+
+    .tldr {
+      font-size: 1.2rem;
+      color: #b0b8cc;
+      max-width: 680px;
+      line-height: 1.6;
+    }
+
+    section {
+      padding: 56px 0;
+      border-bottom: 1px solid #1e2535;
+      animation: fadeUp 0.5s ease both;
+    }
+    section:nth-child(2) { animation-delay: 0.05s; }
+    section:nth-child(3) { animation-delay: 0.10s; }
+    section:nth-child(4) { animation-delay: 0.15s; }
+    section:nth-child(5) { animation-delay: 0.20s; }
+    section:nth-child(6) { animation-delay: 0.25s; }
+    section:nth-child(7) { animation-delay: 0.30s; }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    h2 {
+      font-size: 1.75rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+      color: #f0f2f8;
+    }
+
+    p { margin-bottom: 14px; max-width: 720px; }
+    p:last-of-type { margin-bottom: 0; }
+    strong { color: #e8eaf0; }
+
+    code {
+      font-family: 'SF Mono', 'Fira Code', monospace;
+      font-size: 0.9em;
+      background: #1a2035;
+      color: #86efac;
+      padding: 2px 7px;
+      border-radius: 4px;
+    }
+
+    .analogy {
+      background: #1a1700;
+      border-left: 3px solid #ca8a04;
+      border-radius: 0 8px 8px 0;
+      padding: 24px 28px;
+      margin: 32px 0;
+      max-width: 720px;
+    }
+    .analogy-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #fbbf24;
+      margin-bottom: 10px;
+    }
+    .analogy p { font-size: 1rem; color: #c0c8d8; margin-bottom: 10px; max-width: 100%; }
+    .analogy p:last-child { margin-bottom: 0; }
+
+    .insight {
+      background: #1a1a2e;
+      border: 1px solid #2563eb;
+      border-radius: 8px;
+      padding: 16px 20px;
+      margin: 24px 0;
+      max-width: 720px;
+    }
+    .insight-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #60a5fa;
+      margin-bottom: 6px;
+    }
+    .insight p { font-size: 0.95rem; color: #b0b8cc; max-width: 100%; margin: 0; }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      align-items: start;
+      margin-top: 32px;
+    }
+    @media (max-width: 640px) { .two-col { grid-template-columns: 1fr; } }
+
+    .svg-wrap { width: 100%; }
+    .svg-wrap svg { width: 100%; height: auto; display: block; }
+
+    /* Grade letter display */
+    .grade-transform {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      margin: 32px 0;
+      flex-wrap: wrap;
+    }
+    .grade-box {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+    }
+    .grade-letter {
+      width: 80px;
+      height: 80px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.4rem;
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      animation: fadeUp 0.5s ease both;
+    }
+    .grade-letter.raw {
+      background: #1e2d20;
+      border: 2px solid #1a7a4a;
+      color: #4ade80;
+      animation-delay: 0.3s;
+    }
+    .grade-letter.capped {
+      background: #1a1700;
+      border: 2px solid #ca8a04;
+      color: #fbbf24;
+      animation-delay: 0.8s;
+    }
+    .grade-label {
+      font-size: 0.75rem;
+      color: #5a6278;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      text-align: center;
+    }
+    .grade-arrow {
+      font-size: 1.8rem;
+      color: #2a3555;
+      flex-shrink: 0;
+      animation: fadeUp 0.5s ease 0.6s both;
+    }
+    .cap-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #1a1100;
+      border: 1px solid #78350f;
+      border-radius: 6px;
+      padding: 6px 12px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: #fbbf24;
+      animation: fadeUp 0.5s ease 1s both;
+      margin-top: 8px;
+    }
+
+    /* Grade scale bar */
+    .grade-scale {
+      position: relative;
+      margin: 32px 0;
+      max-width: 720px;
+    }
+    .grade-track {
+      height: 32px;
+      border-radius: 6px;
+      background: linear-gradient(to right, #f87171 0%, #fb923c 18%, #fbbf24 36%, #a3e635 54%, #4ade80 72%, #22d3ee 100%);
+      position: relative;
+      overflow: visible;
+    }
+    .grade-ticks {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 6px;
+      font-size: 0.78rem;
+      color: #5a6278;
+      font-family: 'SF Mono', monospace;
+    }
+    .cap-marker {
+      position: absolute;
+      top: -10px;
+      height: 52px;
+      width: 2px;
+      background: #fbbf24;
+      animation: fadeIn 0.5s ease 0.8s both;
+    }
+    .cap-marker-label {
+      position: absolute;
+      top: -26px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: #fbbf24;
+      white-space: nowrap;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .raw-score-dot {
+      position: absolute;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: #4ade80;
+      border: 2px solid #0f1117;
+      animation: fadeIn 0.4s ease 0.3s both;
+    }
+    .capped-score-dot {
+      position: absolute;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: #fbbf24;
+      border: 2px solid #0f1117;
+      animation: fadeIn 0.4s ease 1.1s both;
+    }
+
+    /* Thin flag badge anatomy */
+    .badge-anatomy {
+      background: #161b27;
+      border: 1px solid #1e2535;
+      border-radius: 12px;
+      padding: 28px;
+      margin: 28px 0;
+      max-width: 720px;
+    }
+    .badge-anatomy-title {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #5a6278;
+      margin-bottom: 18px;
+    }
+    .mock-card {
+      background: #0f1117;
+      border: 1px solid #2a3555;
+      border-radius: 10px;
+      padding: 20px;
+      position: relative;
+    }
+    .mock-card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 14px;
+    }
+    .mock-symbol { font-size: 1.3rem; font-weight: 800; color: #f0f2f8; }
+    .mock-grade-pill {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .grade-pill-letter {
+      background: #1a1700;
+      border: 1px solid #ca8a04;
+      border-radius: 6px;
+      padding: 4px 12px;
+      font-size: 1rem;
+      font-weight: 900;
+      color: #fbbf24;
+    }
+    .cap-pill {
+      background: #1a1100;
+      border: 1px solid #78350f;
+      border-radius: 4px;
+      padding: 3px 8px;
+      font-size: 0.68rem;
+      font-weight: 700;
+      color: #fbbf24;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .thin-flag-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      background: #1a1100;
+      border: 1px solid #78350f;
+      border-radius: 4px;
+      padding: 4px 10px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: #fbbf24;
+      margin-bottom: 14px;
+    }
+    .mock-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      font-size: 0.82rem;
+    }
+    .mock-stat-label { color: #5a6278; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 2px; }
+    .mock-stat-val { color: #c8d0e0; font-family: 'SF Mono', monospace; }
+    .callout-line {
+      position: absolute;
+      pointer-events: none;
+    }
+
+    /* Anatomy annotations */
+    .anatomy-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 20px;
+    }
+    @media (max-width: 640px) { .anatomy-grid { grid-template-columns: 1fr; } }
+    .anatomy-item {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      font-size: 0.85rem;
+    }
+    .anatomy-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      margin-top: 6px;
+    }
+    .anatomy-item-label { color: #8892a4; }
+    .anatomy-item-label strong { color: #c8d0e0; display: block; }
+
+    /* Stats breakdown */
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 28px;
+    }
+    @media (max-width: 640px) { .stats-row { grid-template-columns: 1fr; } }
+    .stat-card {
+      background: #161b27;
+      border: 1px solid #1e2535;
+      border-radius: 8px;
+      padding: 18px;
+      text-align: center;
+    }
+    .stat-num {
+      font-size: 2rem;
+      font-weight: 800;
+      color: #fbbf24;
+      letter-spacing: -0.02em;
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .stat-denom { font-size: 1rem; color: #5a6278; }
+    .stat-desc { font-size: 0.8rem; color: #8892a4; margin-top: 4px; }
+
+    .takeaways ul { list-style: none; padding: 0; }
+    .takeaways li {
+      padding: 12px 0 12px 28px;
+      position: relative;
+      border-bottom: 1px solid #1a2035;
+      color: #c0c8d8;
+      font-size: 1rem;
+    }
+    .takeaways li::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 21px;
+      width: 8px; height: 8px;
+      background: #ca8a04;
+      border-radius: 50%;
+    }
+
+    .disclaimer {
+      margin-top: 48px;
+      padding: 20px 24px;
+      background: #0d1117;
+      border: 1px solid #1e2535;
+      border-radius: 8px;
+      font-size: 0.75rem;
+      color: #5a6278;
+      line-height: 1.6;
+    }
+    .disclaimer strong { color: #6a7290; }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+    @keyframes drawLine {
+      from { stroke-dashoffset: 600; }
+      to   { stroke-dashoffset: 0; }
+    }
+    @keyframes sweepNeedle {
+      from { transform: rotate(-90deg); }
+      to   { transform: rotate(VAR_DEG); }
+    }
+    @keyframes sweepRaw {
+      from { transform: rotate(-90deg); }
+      to   { transform: rotate(45deg); }
+    }
+    @keyframes sweepCapped {
+      from { transform: rotate(-90deg); }
+      to   { transform: rotate(-18deg); }
+    }
+    @keyframes slideDown {
+      from { transform: translateY(-6px); opacity: 0; }
+      to   { transform: translateY(0); opacity: 1; }
+    }
+    @keyframes capDrop {
+      0%   { transform: scaleX(1); }
+      60%  { transform: scaleX(1); }
+      80%  { transform: scaleX(0.6); }
+      100% { transform: scaleX(0.6); }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-badges">
+      <span class="badge badge-series">RES-EXEC-GRADING-01</span>
+      <span class="badge badge-level">Intermediate</span>
+      <span class="badge badge-time">5 min read</span>
+    </div>
+    <h1>A great-looking grade<br>pulled down by <span>honest math.</span></h1>
+    <p class="tldr">When an asset's backtest earns an A but the order book can't support the fills that A implies, CoinRoc caps the grade at B-. That cap is the system doing its job — not penalizing the asset, but being honest about what the market can deliver.</p>
+  </section>
+
+  <!-- ANALOGY -->
+  <section>
+    <div class="analogy">
+      <div class="analogy-label">Think of it like...</div>
+      <p>A road test score that looks perfect — until the examiner checks your car's brakes. The driving was flawless. The score is accurate for the conditions of the test. But if the brakes can't reliably stop the car in real traffic, the license gets a restriction attached.</p>
+      <p>The grade cap works the same way: the backtest score stands on its own merits, but a thin-liquidity flag attaches a restriction — a ceiling — that reflects a real constraint the backtest didn't test for.</p>
+      <p>Here's how that maps back: <strong>the backtest is the road test</strong>, the order book is the brakes, and the B- cap is the license restriction.</p>
+    </div>
+  </section>
+
+  <!-- SECTION 1: What the grade normally measures -->
+  <section>
+    <h2>How a grade is built — and where the gap lives</h2>
+    <p>CoinRoc's composite grade combines five signals into a weighted score:</p>
+
+    <div class="two-col" style="margin-top: 20px;">
+      <div class="svg-wrap">
+        <!-- Weighted composite pie / bar breakdown -->
+        <svg viewBox="0 0 300 240" xmlns="http://www.w3.org/2000/svg" aria-label="Grade composite weight breakdown">
+          <text x="150" y="18" text-anchor="middle" font-size="11" fill="#8892a4" font-family="inherit" font-weight="600">Grade Composite Weights</text>
+
+          <!-- Bars for each component -->
+          <!-- Simulated perf 35% -->
+          <text x="8" y="46" font-size="9" fill="#8892a4" font-family="inherit">Grid Return</text>
+          <rect x="105" y="35" width="0" height="14" fill="#4ade80" fill-opacity="0.8" rx="2"
+            style="animation: growW35 0.7s ease 0.2s forwards"/>
+          <text x="248" y="46" font-size="9" fill="#4ade80" font-family="inherit" style="animation: fadeIn 0.4s ease 0.8s both">35%</text>
+
+          <!-- Sharpe/Sortino 25% -->
+          <text x="8" y="74" font-size="9" fill="#8892a4" font-family="inherit">Risk-Adjusted</text>
+          <rect x="105" y="63" width="0" height="14" fill="#22d3ee" fill-opacity="0.7" rx="2"
+            style="animation: growW25 0.7s ease 0.3s forwards"/>
+          <text x="248" y="74" font-size="9" fill="#22d3ee" font-family="inherit" style="animation: fadeIn 0.4s ease 0.9s both">25%</text>
+
+          <!-- ETS 20% -->
+          <text x="8" y="102" font-size="9" fill="#8892a4" font-family="inherit">ETS Factor</text>
+          <rect x="105" y="91" width="0" height="14" fill="#a78bfa" fill-opacity="0.7" rx="2"
+            style="animation: growW20 0.7s ease 0.4s forwards"/>
+          <text x="248" y="102" font-size="9" fill="#a78bfa" font-family="inherit" style="animation: fadeIn 0.4s ease 1.0s both">20%</text>
+
+          <!-- Sentiment 15% -->
+          <text x="8" y="130" font-size="9" fill="#8892a4" font-family="inherit">Sentiment</text>
+          <rect x="105" y="119" width="0" height="14" fill="#fb923c" fill-opacity="0.7" rx="2"
+            style="animation: growW15 0.7s ease 0.5s forwards"/>
+          <text x="248" y="130" font-size="9" fill="#fb923c" font-family="inherit" style="animation: fadeIn 0.4s ease 1.1s both">15%</text>
+
+          <!-- Liquidity 5% -->
+          <text x="8" y="158" font-size="9" fill="#fbbf24" font-family="inherit" font-weight="700">Liquidity</text>
+          <rect x="105" y="147" width="0" height="14" fill="#fbbf24" fill-opacity="0.8" rx="2"
+            style="animation: growW5 0.7s ease 0.6s forwards"/>
+          <text x="248" y="158" font-size="9" fill="#fbbf24" font-family="inherit" font-weight="700" style="animation: fadeIn 0.4s ease 1.2s both">5%</text>
+
+          <!-- Note on cap -->
+          <rect x="105" y="178" width="138" height="42" fill="#1a1100" fill-opacity="0.8" rx="4"
+            style="animation: fadeIn 0.5s ease 1.3s both"/>
+          <text x="174" y="194" text-anchor="middle" font-size="9" fill="#fbbf24" font-family="inherit" font-weight="700"
+            style="animation: fadeIn 0.5s ease 1.3s both">Liquidity is only 5% weight</text>
+          <text x="174" y="207" text-anchor="middle" font-size="9" fill="#c0c8d8" font-family="inherit"
+            style="animation: fadeIn 0.5s ease 1.3s both">but triggers the hard cap</text>
+          <text x="174" y="218" text-anchor="middle" font-size="9" fill="#c0c8d8" font-family="inherit"
+            style="animation: fadeIn 0.5s ease 1.3s both">when score &lt; 35</text>
+        </svg>
+        <style>
+          @keyframes growW35 { from {width:0} to {width:115px} }
+          @keyframes growW25 { from {width:0} to {width:82px} }
+          @keyframes growW20 { from {width:0} to {width:66px} }
+          @keyframes growW15 { from {width:0} to {width:49px} }
+          @keyframes growW5  { from {width:0} to {width:16px} }
+        </style>
+      </div>
+      <div>
+        <p style="font-size: 0.95rem;">Liquidity carries only 5% of the composite weight. That's enough to nudge a score directionally — but not enough to pull a strong backtest below an A grade on its own.</p>
+        <p style="font-size: 0.95rem;">That's why the grade cap exists as a <strong>separate, post-composite mechanism</strong>. It doesn't change the weights. It imposes a ceiling after the composite is computed — if liquidity is too thin, the final grade cannot exceed B- regardless of how high the other signals scored.</p>
+        <div class="insight" style="margin-top: 16px;">
+          <div class="insight-label">Why a hard ceiling instead of more weight?</div>
+          <p>Increasing liquidity's weight to 30% would punish thin assets but would also distort grades for assets where liquidity isn't the binding constraint. A ceiling is cleaner: it activates only when execution risk is specifically the problem, and it leaves all other grades untouched.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 2: The cap mechanism visualized -->
+  <section>
+    <h2>From raw score to capped grade</h2>
+    <p>The cap triggers when two conditions are both true: the asset's <strong>liquidity score falls below 35</strong> (approximately equivalent to under $5M/day global volume), and the <strong>composite score would otherwise yield A or B</strong>. When both conditions are met, the composite score is capped at 64 — which maps to a grade of B-.</p>
+
+    <!-- Grade transform display -->
+    <div class="grade-transform">
+      <div class="grade-box">
+        <div class="grade-letter raw">A-</div>
+        <div class="grade-label">Raw backtest<br>grade</div>
+      </div>
+      <div class="grade-arrow">&#8594;</div>
+      <div class="grade-box">
+        <div class="grade-letter capped">B-</div>
+        <div class="grade-label">Grade after<br>liquidity cap</div>
+        <div class="cap-badge">
+          <svg width="10" height="10" viewBox="0 0 10 10"><path d="M5 1L5 6M5 8L5 9" stroke="#fbbf24" stroke-width="1.5" stroke-linecap="round"/></svg>
+          Cap B- · Thin liquidity
+        </div>
+      </div>
+    </div>
+
+    <!-- Grade scale with cap marker -->
+    <div class="grade-scale">
+      <div class="grade-track">
+        <!-- Raw score dot at ~82% = A- territory -->
+        <div class="raw-score-dot" style="left: 82%;" title="Raw composite score"></div>
+        <!-- Cap marker at B- boundary -->
+        <div class="cap-marker" style="left: 53%;">
+          <div class="cap-marker-label">B- cap</div>
+        </div>
+        <!-- Capped score dot at B- -->
+        <div class="capped-score-dot" style="left: 51%;" title="Capped score"></div>
+      </div>
+      <div class="grade-ticks">
+        <span>F</span>
+        <span>D</span>
+        <span>C-</span>
+        <span>C</span>
+        <span>C+</span>
+        <span>B-</span>
+        <span>B</span>
+        <span>B+</span>
+        <span>A-</span>
+        <span>A</span>
+        <span>A+</span>
+      </div>
+      <div style="margin-top: 12px; font-size: 0.8rem; color: #8892a4; display: flex; gap: 20px; flex-wrap: wrap;">
+        <span><span style="display:inline-block; width:10px; height:10px; background:#4ade80; border-radius:50%; vertical-align:middle; margin-right:4px;"></span>Raw composite (A-)</span>
+        <span><span style="display:inline-block; width:10px; height:10px; background:#fbbf24; border-radius:50%; vertical-align:middle; margin-right:4px;"></span>After cap (B-)</span>
+        <span><span style="display:inline-block; width:2px; height:10px; background:#fbbf24; vertical-align:middle; margin-right:4px;"></span>B- ceiling</span>
+      </div>
+    </div>
+
+    <div class="two-col" style="margin-top: 32px;">
+      <div class="svg-wrap">
+        <!-- Two-gauge: raw vs capped -->
+        <svg viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg" aria-label="Gauge showing raw grade vs capped grade">
+          <defs>
+            <marker id="arrG" markerWidth="5" markerHeight="5" refX="4" refY="2.5" orient="auto">
+              <path d="M0,0 L5,2.5 L0,5 Z" fill="#8892a4"/>
+            </marker>
+          </defs>
+
+          <!-- Left gauge: raw -->
+          <text x="75" y="18" text-anchor="middle" font-size="10" fill="#8892a4" font-family="inherit">Raw Score</text>
+          <!-- Arc track -->
+          <path d="M 20,130 A 55,55 0 0,1 130,130" fill="none" stroke="#1e2535" stroke-width="10" stroke-linecap="round"/>
+          <!-- Arc fill — green, almost full sweep -->
+          <path d="M 20,130 A 55,55 0 0,1 130,130" fill="none" stroke="#4ade80" stroke-width="10" stroke-linecap="round"
+            stroke-dasharray="173" stroke-dashoffset="173"
+            style="animation: drawArcRaw 1s ease 0.5s forwards"/>
+          <!-- Zone labels -->
+          <text x="18"  y="148" font-size="8" fill="#5a6278" font-family="inherit">F</text>
+          <text x="68"  y="76"  font-size="8" fill="#5a6278" font-family="inherit">B</text>
+          <text x="122" y="148" font-size="8" fill="#5a6278" font-family="inherit">A+</text>
+          <!-- Needle -->
+          <line x1="75" y1="130" x2="75" y2="78"
+            stroke="#4ade80" stroke-width="2" stroke-linecap="round"
+            transform-origin="75 130"
+            style="animation: sweepRawNeedle 1s cubic-bezier(0.34,1.56,0.64,1) 0.5s forwards; transform: rotate(-90deg)"/>
+          <!-- Center dot -->
+          <circle cx="75" cy="130" r="4" fill="#4ade80"/>
+          <!-- Score label -->
+          <text x="75" y="158" text-anchor="middle" font-size="14" fill="#4ade80" font-family="inherit" font-weight="800"
+            style="animation: fadeIn 0.4s ease 1.2s both">A-</text>
+          <text x="75" y="170" text-anchor="middle" font-size="8" fill="#5a6278" font-family="inherit"
+            style="animation: fadeIn 0.4s ease 1.3s both">composite: 76/100</text>
+
+          <!-- Right gauge: capped -->
+          <text x="225" y="18" text-anchor="middle" font-size="10" fill="#8892a4" font-family="inherit">After Cap</text>
+          <path d="M 170,130 A 55,55 0 0,1 280,130" fill="none" stroke="#1e2535" stroke-width="10" stroke-linecap="round"/>
+          <!-- Arc fill — amber, partial sweep to B- -->
+          <path d="M 170,130 A 55,55 0 0,1 280,130" fill="none" stroke="#fbbf24" stroke-width="10" stroke-linecap="round"
+            stroke-dasharray="173" stroke-dashoffset="173"
+            style="animation: drawArcCapped 1s ease 1.0s forwards"/>
+          <!-- Cap ceiling marker on arc -->
+          <line x1="225" y1="75" x2="225" y2="85" stroke="#fbbf24" stroke-width="2"
+            style="animation: fadeIn 0.3s ease 1.8s both"/>
+          <!-- Zone labels -->
+          <text x="168" y="148" font-size="8" fill="#5a6278" font-family="inherit">F</text>
+          <text x="218"  y="76" font-size="8" fill="#5a6278" font-family="inherit">B</text>
+          <text x="272" y="148" font-size="8" fill="#5a6278" font-family="inherit">A+</text>
+          <!-- Needle capped at B- -->
+          <line x1="225" y1="130" x2="225" y2="78"
+            stroke="#fbbf24" stroke-width="2" stroke-linecap="round"
+            transform-origin="225 130"
+            style="animation: sweepCappedNeedle 1s cubic-bezier(0.34,1.56,0.64,1) 1.0s forwards; transform: rotate(-90deg)"/>
+          <circle cx="225" cy="130" r="4" fill="#fbbf24"/>
+          <text x="225" y="158" text-anchor="middle" font-size="14" fill="#fbbf24" font-family="inherit" font-weight="800"
+            style="animation: fadeIn 0.4s ease 1.8s both">B-</text>
+          <text x="225" y="170" text-anchor="middle" font-size="8" fill="#fbbf24" font-family="inherit"
+            style="animation: fadeIn 0.4s ease 1.9s both">capped at 64/100</text>
+
+          <!-- Arrow from raw to capped -->
+          <line x1="140" y1="105" x2="160" y2="105" stroke="#2a3555" stroke-width="1.5" marker-end="url(#arrG)"
+            style="animation: fadeIn 0.4s ease 1.5s both"/>
+        </svg>
+        <style>
+          @keyframes drawArcRaw {
+            to { stroke-dashoffset: 27; }
+          }
+          @keyframes drawArcCapped {
+            to { stroke-dashoffset: 82; }
+          }
+          @keyframes sweepRawNeedle {
+            to { transform: rotate(60deg); }
+          }
+          @keyframes sweepCappedNeedle {
+            to { transform: rotate(-18deg); }
+          }
+        </style>
+      </div>
+      <div>
+        <p style="font-size: 0.95rem;">The raw composite scores at 76/100 — an A- grade. Strong backtest performance, solid risk-adjusted returns, positive sentiment.</p>
+        <p style="font-size: 0.95rem;">The liquidity score is 28/100 — below the 35 threshold. The cap fires. The final grade is clamped to 64/100 (B-).</p>
+        <p style="font-size: 0.95rem;">The asset isn't "bad" — it's correctly rated for what it can actually deliver under real execution conditions.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 3: What the user sees — badge anatomy -->
+  <section>
+    <h2>What you see on the Discovery page</h2>
+    <p>The grade cap is disclosed at two levels: the grade itself renders with a visible <strong>Cap B-</strong> label, and the asset card carries an amber <strong>thin liquidity</strong> badge. Neither is a block — the asset remains visible in Discovery. They are disclosures.</p>
+
+    <div class="badge-anatomy">
+      <div class="badge-anatomy-title">Discovery card — thin-liquidity capped asset (illustrative)</div>
+      <div class="mock-card">
+        <div class="mock-card-header">
+          <div class="mock-symbol">EXAMPLE/USDT</div>
+          <div class="mock-grade-pill">
+            <div class="grade-pill-letter">B-</div>
+            <div class="cap-pill">Cap B-</div>
+          </div>
+        </div>
+        <div class="thin-flag-badge">
+          <svg width="10" height="10" viewBox="0 0 10 10"><circle cx="5" cy="5" r="4" fill="none" stroke="#fbbf24" stroke-width="1.5"/><text x="5" y="8" text-anchor="middle" font-size="7" fill="#fbbf24" font-family="inherit">!</text></svg>
+          Thin liquidity — fills may slip · treat backtest return as an optimistic scenario reference, not a performance guarantee
+        </div>
+        <div class="mock-stats">
+          <div>
+            <div class="mock-stat-label">Grid Return (sim.)</div>
+            <div class="mock-stat-val" style="color:#4ade80">+18.4%</div>
+          </div>
+          <div>
+            <div class="mock-stat-label">Liq. Score</div>
+            <div class="mock-stat-val" style="color:#fbbf24">28 / 100</div>
+          </div>
+          <div>
+            <div class="mock-stat-label">24h Vol (global)</div>
+            <div class="mock-stat-val" style="color:#fbbf24">$2.1M</div>
+          </div>
+        </div>
+      </div>
+      <div class="anatomy-grid" style="margin-top: 20px;">
+        <div class="anatomy-item">
+          <div class="anatomy-dot" style="background:#fbbf24;"></div>
+          <div class="anatomy-item-label"><strong>Grade: B-</strong> Raw composite was higher; capped due to thin liquidity.</div>
+        </div>
+        <div class="anatomy-item">
+          <div class="anatomy-dot" style="background:#ca8a04;"></div>
+          <div class="anatomy-item-label"><strong>Cap B- label</strong> Signals this is a ceiling, not the raw grade outcome.</div>
+        </div>
+        <div class="anatomy-item">
+          <div class="anatomy-dot" style="background:#78350f;"></div>
+          <div class="anatomy-item-label"><strong>Amber badge</strong> Plain-English disclosure of execution risk. Always present when thinLiquidity flag fires.</div>
+        </div>
+        <div class="anatomy-item">
+          <div class="anatomy-dot" style="background:#4ade80;"></div>
+          <div class="anatomy-item-label"><strong>Simulated Grid Return shown</strong> The backtest number is still displayed — honestly labeled as simulated.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="insight">
+      <div class="insight-label">Design principle: transparency over suppression</div>
+      <p>Thin-liquidity assets are not hidden from Discovery. They are disclosed. A user with a small position size may find a thin-liquidity asset entirely tradable — removing it silently would be paternalistic. The cap and badge give users the information to decide for themselves.</p>
+    </div>
+  </section>
+
+  <!-- SECTION 4: The 32/97 numbers -->
+  <section>
+    <h2>By the numbers: 32 of 97 assets flagged</h2>
+    <p>After the 2026-06-13 liquidity scoring deployment, the full 97-symbol catalog was scored. The thin flag fired on <strong>32 assets</strong>. None of the major high-liquidity assets were wrongly capped.</p>
+
+    <div class="stats-row">
+      <div class="stat-card">
+        <div class="stat-num">32</div>
+        <div class="stat-denom">of 97</div>
+        <div class="stat-desc">Assets flagged thin — grade capped at B- or already below</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">0</div>
+        <div class="stat-denom">major assets</div>
+        <div class="stat-desc">BTC, ETH, SOL, LINK, AVAX — all scored deep liquidity, no cap</div>
+      </div>
+      <div class="stat-card" style="border-color: #78350f;">
+        <div class="stat-num" style="color:#f87171">$16</div>
+        <div class="stat-denom">worst case</div>
+        <div class="stat-desc">SKY — $16 confirmed global daily volume. Genuinely untradable.</div>
+      </div>
+    </div>
+
+    <div class="two-col" style="margin-top: 32px;">
+      <div class="svg-wrap">
+        <!-- Catalog breakdown donut-style bar -->
+        <svg viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg" aria-label="Catalog liquidity breakdown">
+          <text x="150" y="18" text-anchor="middle" font-size="11" fill="#8892a4" font-family="inherit" font-weight="600">97-Asset Catalog — Liquidity Distribution</text>
+
+          <!-- Track -->
+          <rect x="30" y="40" width="240" height="24" rx="4" fill="#1e2535"/>
+          <!-- Deep/adequate (65 assets = 67%) -->
+          <rect x="30" y="40" width="0" height="24" rx="4" fill="#1a7a4a"
+            style="animation: growSeg1 0.7s ease 0.4s forwards"/>
+          <!-- Moderate (5 assets ~5%) -->
+          <rect x="191" y="40" width="0" height="24" fill="#16a34a" fill-opacity="0.5"
+            style="animation: growSeg2 0.4s ease 1.0s forwards"/>
+          <!-- Thin/critical (32 assets = 33%) -->
+          <rect x="203" y="40" width="0" height="24" rx="0" fill="#ca8a04" fill-opacity="0.7"
+            style="animation: growSeg3 0.6s ease 1.3s forwards"/>
+          <!-- Round right cap -->
+          <rect x="266" y="40" width="4" height="24" rx="2" fill="#ca8a04" fill-opacity="0.7"
+            style="animation: fadeIn 0.3s ease 1.8s both"/>
+
+          <!-- Labels -->
+          <text x="110" y="57" text-anchor="middle" font-size="9" fill="#0f1117" font-family="inherit" font-weight="700"
+            style="animation: fadeIn 0.3s ease 1.0s both">65 deep/adequate</text>
+          <text x="237" y="57" text-anchor="middle" font-size="9" fill="#0f1117" font-family="inherit" font-weight="700"
+            style="animation: fadeIn 0.3s ease 1.8s both">32 thin</text>
+
+          <!-- Tick marks -->
+          <line x1="30"  y1="68" x2="30"  y2="74" stroke="#1e2535" stroke-width="1"/>
+          <line x1="270" y1="68" x2="270" y2="74" stroke="#1e2535" stroke-width="1"/>
+          <text x="30"  y="83" text-anchor="middle" font-size="8" fill="#5a6278" font-family="inherit">0</text>
+          <text x="270" y="83" text-anchor="middle" font-size="8" fill="#5a6278" font-family="inherit">97</text>
+
+          <!-- Deep examples -->
+          <text x="30" y="105" font-size="9" fill="#4ade80" font-family="inherit" font-weight="700"
+            style="animation: fadeIn 0.3s ease 0.5s both">Deep (no cap):</text>
+          <text x="30" y="118" font-size="9" fill="#8892a4" font-family="inherit"
+            style="animation: fadeIn 0.3s ease 0.6s both">BTC $18.1B · ETH $7.0B · SOL $1.7B</text>
+          <text x="30" y="130" font-size="9" fill="#8892a4" font-family="inherit"
+            style="animation: fadeIn 0.3s ease 0.7s both">LINK $152M · AVAX $121M</text>
+
+          <!-- Thin examples -->
+          <text x="30" y="150" font-size="9" fill="#fbbf24" font-family="inherit" font-weight="700"
+            style="animation: fadeIn 0.3s ease 1.4s both">Thin (cap B-):</text>
+          <text x="30" y="163" font-size="9" fill="#8892a4" font-family="inherit"
+            style="animation: fadeIn 0.3s ease 1.5s both">GRT &lt;$14k · EOS &lt;$110k · MKR &lt;$110k</text>
+          <text x="30" y="175" font-size="9" fill="#8892a4" font-family="inherit"
+            style="animation: fadeIn 0.3s ease 1.6s both">MANA, SAND, VET, WIF, and 25 more small-caps</text>
+        </svg>
+        <style>
+          @keyframes growSeg1 { to { width: 161px; } }
+          @keyframes growSeg2 { to { width: 12px; } }
+          @keyframes growSeg3 { to { width: 67px; } }
+        </style>
+      </div>
+      <div>
+        <p style="font-size: 0.95rem;">The thin flag is not a surprise — it's concentrated in small-cap and micro-cap assets where thin order books are structurally expected.</p>
+        <p style="font-size: 0.95rem;">Five of the 32 are unmapped tickers (no CoinGecko slug in the registry yet). Their thin flag reflects a data availability gap, not a confirmed verdict — those will be resolved when the registry is updated.</p>
+        <div style="margin-top: 16px; padding: 14px 16px; background: #161b27; border-radius: 8px; border: 1px solid #1e2535; font-size: 0.82rem; color: #8892a4;">
+          <div style="font-weight: 700; color: #c0c8d8; margin-bottom: 6px;">The cap is not a block</div>
+          <div>B- capped assets are still visible in Discovery. They're not hidden — they're honest.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TAKEAWAYS -->
+  <section>
+    <h2>Key takeaways</h2>
+    <div class="takeaways">
+      <ul>
+        <li><strong>The grade cap is a post-composite ceiling, not a weight adjustment.</strong> Liquidity carries 5% of the composite weight — but when the liquidity score falls below 35, a hard B- ceiling overrides the raw grade, regardless of how well the other signals scored.</li>
+        <li><strong>B- is not "bad" — it is "trade smaller and expect imperfect fills."</strong> The cap acknowledges a real constraint without removing the asset from consideration. A small position size on a thin-liquidity asset may be entirely viable.</li>
+        <li><strong>32 of 97 assets are flagged thin.</strong> None of the major assets (BTC, ETH, SOL, LINK, AVAX) are capped. The flag is concentrated exactly where it should be: small-cap and micro-cap assets with structurally thin order books.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- COMPLIANCE FOOTER -->
+  <div class="disclaimer">
+    <strong>Simulated / Illustrative — for research discussion only. Not investment advice. Past simulated performance does not indicate future results.</strong> All grade outputs, liquidity scores, and return figures referenced in this explainer are derived from simulated backtesting applied to historical data (retail-binance-us fee tier, Year 2 blind forward test, specific grid configuration). Grade outputs are the result of a quantitative methodology applied to simulated data — they are not investment recommendations, suitability assessments, or endorsements of any specific asset. Asset names used in illustrations are for conceptual clarity only. Actual liquidity scores, grades, and flags for specific assets are generated at runtime and may differ from figures shown here. Results will differ materially at other fee tiers, capital sizes, or grid configurations. CoinRoc is a strategy analysis and simulation tool, not a registered investment advisor. Digital assets are highly volatile and speculative. Consult your own financial, legal, and tax advisors before making any investment decision. RES-EXEC-GRADING-01 · 2026-06-13
+  </div>
+
+</div>
+</body>
+</html>

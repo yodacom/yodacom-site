@@ -110,6 +110,18 @@
 						</a>
 					</li>
 					<li>
+						<a href="/research/execution-aware-grading-2026" class="group block">
+							<div class="font-semibold text-navy-deep group-hover:text-navy transition">Execution-Aware Grading — Advisor Article</div>
+							<div class="text-xs text-slate-light">July 2026 · Published</div>
+						</a>
+					</li>
+					<li>
+						<a href="/research/execution-aware-grading-methodology-2026" class="group block">
+							<div class="font-semibold text-navy-deep group-hover:text-navy transition">Execution-Aware Grading — Full Methodology</div>
+							<div class="text-xs text-slate-light">July 2026 · Published</div>
+						</a>
+					</li>
+					<li>
 						<div class="font-semibold text-navy-deep">Paper 4 — Gridium</div>
 						<div class="text-xs text-slate-light">In progress · Q2 2026</div>
 					</li>
@@ -740,6 +752,82 @@
 						</dl>
 						<a href="/research/fis-regime-engine" class="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-ochre-deep transition hover:text-ochre">
 							Read lesson
+							<svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+						</a>
+					</div>
+				</div>
+			</article>
+
+			<!-- Execution-Aware Grading — Advisor Article card -->
+			<article class="overflow-hidden rounded-sm border border-rule bg-paper shadow-[0_10px_40px_-25px_rgba(20,40,72,0.3)]">
+				<div class="grid grid-cols-5">
+					<div class="col-span-2 relative hidden items-center justify-center border-r border-rule bg-navy-ink p-6 sm:flex">
+						<div class="absolute inset-0 bg-topo-faint opacity-10"></div>
+						<div class="relative text-center text-cream">
+							<div class="mb-4 text-[0.6rem] uppercase tracking-[0.3em] text-ochre-soft">Yodacom Research</div>
+							<div class="mb-3 font-serif text-2xl font-500 italic text-cream leading-tight">Execution-Aware<br />Grading</div>
+							<div class="mx-auto mb-4 h-px w-12 bg-ochre/70"></div>
+							<div class="text-[0.68rem] uppercase tracking-widest text-cream/60">Advisor Article</div>
+							<div class="mt-6 text-[0.68rem] uppercase tracking-widest text-cream/60">July 2026</div>
+						</div>
+					</div>
+					<div class="col-span-5 p-7 sm:col-span-3 sm:p-8">
+						<div class="mb-4 flex flex-wrap items-center gap-2">
+							<span class="rounded-full bg-teal-500/10 px-3 py-1 text-[0.65rem] font-semibold uppercase tracking-widest text-teal-700">Published</span>
+							<span class="text-[0.68rem] uppercase tracking-widest text-slate-light">July 2026</span>
+						</div>
+						<h2 class="mb-4 font-serif text-2xl leading-snug text-navy-ink">
+							Why a Quality Grade Must Reflect What You Can Actually Trade
+						</h2>
+						<p class="mb-5 text-sm leading-relaxed text-slate">
+							Two methodology corrections to CoinRoc's asset grading system: active-period return instead of blended return, and a liquidity-aware grade cap. Why a strong backtest can now result in a lower published grade — and why that is correct. Written for advisors and RIAs evaluating grid strategies for client due diligence.
+						</p>
+						<dl class="mb-5 grid grid-cols-2 gap-x-4 gap-y-2 border-y border-rule py-4 text-xs text-slate">
+							<dt class="text-slate-light">Author</dt><dd>Lando &middot; Yodacom Research</dd>
+							<dt class="text-slate-light">Audience</dt><dd>Financial advisors, RIAs, wealth managers</dd>
+							<dt class="text-slate-light">Key finding</dt><dd>27/37 wrongly-hidden assets restored to Discovery</dd>
+							<dt class="text-slate-light">Novel finding</dt><dd>32/97 assets flagged thin liquidity; 0 majors capped</dd>
+						</dl>
+						<a href="/research/execution-aware-grading-2026" class="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-ochre-deep transition hover:text-ochre">
+							Read advisor article
+							<svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+						</a>
+					</div>
+				</div>
+			</article>
+
+			<!-- Execution-Aware Grading — Full Methodology card -->
+			<article class="overflow-hidden rounded-sm border border-rule bg-paper shadow-[0_10px_40px_-25px_rgba(20,40,72,0.3)]">
+				<div class="grid grid-cols-5">
+					<div class="col-span-2 relative hidden items-center justify-center border-r border-rule bg-navy-ink p-6 sm:flex">
+						<div class="absolute inset-0 bg-topo-faint opacity-10"></div>
+						<div class="relative text-center text-cream">
+							<div class="mb-4 text-[0.6rem] uppercase tracking-[0.3em] text-ochre-soft">Yodacom Research</div>
+							<div class="mb-3 font-serif text-2xl font-500 italic text-cream leading-tight">Execution-Aware<br />Grading</div>
+							<div class="mx-auto mb-4 h-px w-12 bg-ochre/70"></div>
+							<div class="text-[0.68rem] uppercase tracking-widest text-cream/60">Methodology Paper</div>
+							<div class="mt-6 text-[0.68rem] uppercase tracking-widest text-cream/60">July 2026</div>
+						</div>
+					</div>
+					<div class="col-span-5 p-7 sm:col-span-3 sm:p-8">
+						<div class="mb-4 flex flex-wrap items-center gap-2">
+							<span class="rounded-full bg-teal-500/10 px-3 py-1 text-[0.65rem] font-semibold uppercase tracking-widest text-teal-700">Published</span>
+							<span class="text-[0.68rem] uppercase tracking-widest text-slate-light">July 2026</span>
+						</div>
+						<h2 class="mb-4 font-serif text-2xl leading-snug text-navy-ink">
+							Execution-Aware Grading: Why CoinRoc Measures What You Can Actually Trade
+						</h2>
+						<p class="mb-5 text-sm leading-relaxed text-slate">
+							Full methodology paper (Sections 1&ndash;6): the blended-return bias and the liquidity-optimism bias, diagnosed and corrected, with complete findings on the 97-symbol catalog. Sections 7&ndash;10 (favorable-conditions affirmative case) are held pending a separate review.
+						</p>
+						<dl class="mb-5 grid grid-cols-2 gap-x-4 gap-y-2 border-y border-rule py-4 text-xs text-slate">
+							<dt class="text-slate-light">Author</dt><dd>Han Kessel &middot; Yodacom Research</dd>
+							<dt class="text-slate-light">Window</dt><dd>Year 2 blind forward test, retail-binance-us tier</dd>
+							<dt class="text-slate-light">Key finding</dt><dd>Active-period return replaces blended return</dd>
+							<dt class="text-slate-light">Novel finding</dt><dd>Composite liquidity score + B- grade cap</dd>
+						</dl>
+						<a href="/research/execution-aware-grading-methodology-2026" class="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-ochre-deep transition hover:text-ochre">
+							Read methodology
 							<svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
 						</a>
 					</div>
