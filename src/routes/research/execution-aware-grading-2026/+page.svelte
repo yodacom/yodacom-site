@@ -3,6 +3,13 @@
 	<meta name="description" content="Two methodology corrections to CoinRoc's asset grading system: active-period return (not blended return) and a liquidity-aware grade cap. Why a strong backtest can now result in a lower published grade — and why that is correct." />
 	<meta property="og:title" content="Why a Quality Grade Must Reflect What You Can Actually Trade | Yodacom Research" />
 	<meta property="og:description" content="Execution-aware grading: how CoinRoc corrected two systematic biases in its asset grading system — blended-return distortion and liquidity-optimism — for advisors and RIAs evaluating grid strategies." />
+	<meta property="og:image" content="https://yodacom.com/research/execution-aware-grading-2026/fig-active-vs-blended.png" />
+	<meta property="og:image:width" content="1800" />
+	<meta property="og:image:height" content="904" />
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:title" content="Why a Quality Grade Must Reflect What You Can Actually Trade | Yodacom Research" />
+	<meta name="twitter:description" content="Execution-aware grading: how CoinRoc corrected two systematic biases in its asset grading system — blended-return distortion and liquidity-optimism — for advisors and RIAs evaluating grid strategies." />
+	<meta name="twitter:image" content="https://yodacom.com/research/execution-aware-grading-2026/fig-active-vs-blended.png" />
 </svelte:head>
 
 <!-- Back link -->
