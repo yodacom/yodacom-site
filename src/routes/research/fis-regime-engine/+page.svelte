@@ -184,7 +184,11 @@
 		</p>
 
 		<p class="mb-5 text-base leading-relaxed text-slate">
-			One result from those simulations stands as the clearest illustration of what RXI does for tail risk.
+			One case from CoinRoc’s broader research program illustrates, concretely, what a regime-based approach can do in a severe historical test scenario.
+		</p>
+
+		<p class="mb-5 text-base leading-relaxed text-slate">
+			This case comes from a research-stage regime-classification model CoinRoc tested but has not deployed to its live product — a different, more complex classifier than the RXI engine described above, using a Hurst-exponent gate combined with trend and volatility-pattern signals rather than the ADX/Hurst/Shannon-entropy scoring described earlier on this page.
 		</p>
 
 		<p class="mb-5 text-base leading-relaxed text-slate">
@@ -192,7 +196,7 @@
 		</p>
 
 		<p class="mb-5 text-base leading-relaxed text-slate">
-			RXI classified that period as a trending regime. The Hurst exponent was reading 0.605 &mdash; well above the 0.55 defensive threshold. The regime gate fired. In the backtested scenario, capital that would have been deployed into new grid levels during that period would have been held in reserve (cash or stablecoins) rather than deployed. No new buy orders would have been placed.
+			In this one research backtest — where the tested classifier’s Hurst-exponent gate read 0.605, above its 0.55 defensive threshold — the classifier correctly identified the period as trending, and simulated capital that would have been deployed into new grid levels was moved to cash. No new buy orders would have been placed.
 		</p>
 
 		<div class="mb-6 border border-rule bg-paper p-6">
@@ -203,11 +207,11 @@
 		</div>
 
 		<p class="mb-5 text-base leading-relaxed text-slate">
-			That three-number comparison &mdash; buy-and-hold at roughly &minus;82%, always-on grid at roughly &minus;62%, RXI-gated reserved capital at roughly 0% &mdash; is the single most important result in CoinRoc&rsquo;s research. Not because it promises protection. It does not. It is one backtested historical period, and past backtested results are not a guarantee of future outcomes. But it illustrates, concretely, what the regime gate is designed to do and what it did in the scenario that most severely tests it.
+			This is a real, correctly classified single case — not a representative outcome. Tested across the same 135-fold dataset this case is drawn from, this classification method underperformed an always-on, ungated grid on average: overall win rate fell from 41.5% to 26.7%, and win rate in bear-market folds specifically (buy-and-hold losses worse than ‒20%) fell from 100% to 69.8%. Most of the periods this method classified as “defensive” were bull-market periods where it sidelined capital from gains rather than protecting against losses — the mean buy-and-hold return across all 47 defensive-classified folds was <strong class="text-navy-deep">+253.6%</strong>. ETH 2018 is the exception that worked as designed in the single hardest test case, not the average outcome. We are showing both the case and the aggregate result here because a single favorable example, without the aggregate finding next to it, would overstate what this backtest actually demonstrated.
 		</p>
 
 		<p class="mb-5 text-base leading-relaxed text-slate">
-			Across the full dataset, RXI classified 47 of 135 test periods as defensive. Those 47 periods had a mean return under an always-on grid of approximately &minus;24%. In the backtested simulation, the RXI gate was associated with a mean return of approximately 0% across those 47 periods, compared to approximately &minus;24% for an always-on grid.
+			Across the full dataset, this classifier flagged 47 of 135 valid test periods as defensive. The always-on grid’s mean return across those 47 periods was approximately −6%; within that set, the subset of periods with negative always-on returns averaged approximately −28%. As noted above, this same classifier’s aggregate win rate across the full dataset was lower than an always-on, ungated grid’s — not higher — so this figure should be read alongside that finding, not in isolation.
 		</p>
 	</section>
 
@@ -268,7 +272,7 @@
 				RXI is CoinRoc&rsquo;s market-regime detection engine. It combines trend strength (ADX), price-series memory (Hurst exponent), and information entropy (Shannon) into a weighted, tiered regime classification. When conditions indicate a trending market, it soft-pauses grid deployment automatically and without a user confirmation step, holding capital in reserve rather than buying into a directional decline. Users accept this behavior as a non-separable feature of the product when they activate a session.
 			</p>
 			<p class="mt-4 text-base leading-relaxed text-slate">
-				In CoinRoc&rsquo;s walk-forward backtesting, this regime gate is the single largest contributor to tail-risk reduction in the research &mdash; most clearly illustrated by the ETH 2018 scenario, where the regime gate was associated with approximately 0% on reserved capital versus approximately &minus;62% for an always-on grid (hypothetical, backtested; reflects reserved capital only, not pre-existing positions). It is not a guarantee. It is a rigorously researched, systematically applied, rules-based risk control.
+				CoinRoc’s broader research program includes a walk-forward-tested regime-classification model — illustrated by the ETH 2018 scenario above — that correctly sidelined capital ahead of a severe drawdown in that one case. As detailed above, that same research-stage model underperformed an always-on grid on average across the full dataset it was tested on, so this scenario illustrates the mechanism’s design intent in one severe historical condition, not a demonstrated net benefit. It is not a guarantee. It is one documented research result, not a track record.
 			</p>
 			<p class="mt-4 text-base leading-relaxed text-slate">
 				That is what RXI is. That is what it does. And that is why it is the first layer in how CoinRoc approaches risk.
@@ -303,7 +307,7 @@
 			The RXI regime suspension activates automatically when the signal conditions described above are met. No user approval is required and no user-configurable toggle exists to disable it within a live session. Users receive notification of an active pause after it triggers. CoinRoc does not make individualized or discretionary investment decisions on behalf of any user; the RXI gate is a rules-based, deterministic algorithm with published criteria, applied identically across all sessions regardless of any individual user&rsquo;s account characteristics or preferences.
 		</p>
 		<p class="mb-3">
-			The three-scenario comparison (approximately &minus;82% / &minus;62% / 0%) is derived from a single asset (ETH) during a single historical period (2018 bear market). It is presented as an illustration of the mechanism under extreme conditions and is not representative of typical or expected results. Results across other assets and time periods varied significantly.
+			The three-scenario comparison (approximately &minus;82% / &minus;62% / 0%) is derived from a single asset (ETH) during a single historical period (2018 bear market), using a research-stage regime-classification model tested by CoinRoc but not deployed to its live product. It is presented as an illustration of the mechanism under extreme conditions and is not representative of typical or expected results. Tested across the full 135-fold dataset this case is drawn from, this same classification method underperformed an always-on, ungated grid on average — overall win rate 41.5% vs. 26.7%, bear-fold win rate 100% vs. 69.8% — and most periods it classified as defensive were bull-market periods where it sidelined capital from gains rather than protecting against losses. Results across other assets, time periods, and classification methods varied significantly.
 		</p>
 		<p class="mb-3">
 			Grid trading in cryptocurrency markets involves substantial risk of loss, including the potential for complete loss of invested capital. Digital assets are highly volatile and speculative instruments. Regulatory treatment of digital assets is evolving and uncertain; future regulatory developments may materially affect the value, legality, or accessibility of digital assets.
@@ -321,7 +325,7 @@
 		<p class="mb-1">Yodacom Research &mdash; yodacom.com/research</p>
 		<p class="mb-1">Registry ID: FIS-LESSON-01 &middot; Channel: yodacom.com/research (educational / product explainer)</p>
 		<p class="mb-1">Source: lando-fis-lesson-REDONE-2026-06-29.md</p>
-		<p class="mt-3 italic">Compliance: CLEARED 2026-06-29 (MATLOCK-FINAL-PASS-3-REDOS-01, Redo Spec 2 + FIS auto-pause additions). All Redo Spec 2 items and verbatim FIS auto-pause additions verified present. Attorney gate removed per matlock-fis-autosuspend-compliance-2026-06-29.md. No attorney required for yodacom.com/research publication. Standing attorney gate active for RIA/BD/solicitation distribution only. Corrected 2026-07-08 (Han/Matlock/Lando): renamed FIS&rarr;RXI&#x2122; (Regime eXecution Intelligence) per trademark-conflict resolution; mechanism description corrected to accurately describe a weighted, threshold-based tiered scoring system, replacing an earlier description that characterized it as fuzzy-logic inference &mdash; see han-fuzzy-reconciliation-2026-07-08.md and matlock-fuzzy-claims-review-2026-07-08.md.</p>
+		<p class="mt-3 italic">Compliance: CLEARED 2026-06-29 (MATLOCK-FINAL-PASS-3-REDOS-01, Redo Spec 2 + FIS auto-pause additions). All Redo Spec 2 items and verbatim FIS auto-pause additions verified present. Attorney gate removed per matlock-fis-autosuspend-compliance-2026-06-29.md. No attorney required for yodacom.com/research publication. Standing attorney gate active for RIA/BD/solicitation distribution only. Corrected 2026-07-08 (Han/Matlock/Lando): renamed FIS&rarr;RXI&#x2122; (Regime eXecution Intelligence) per trademark-conflict resolution; mechanism description corrected to accurately describe a weighted, threshold-based tiered scoring system, replacing an earlier description that characterized it as fuzzy-logic inference &mdash; see han-fuzzy-reconciliation-2026-07-08.md and matlock-fuzzy-claims-review-2026-07-08.md. Further corrected 2026-07-08 (Han/Matlock/Lando, same-day emergency fix): the ETH 2018 case and 47-of-135 figures on this page are drawn from a research-stage regime-classification model tested but not deployed to CoinRoc’s production engine; this page previously did not disclose that the same model underperformed an ungated baseline when tested across the full dataset, and previously described the finding as “the single most important result in CoinRoc’s research” without that context. See han-rf-b1d-provenance-2026-07-08.md and matlock-b1-exposure-review-2026-07-08.md for detail.</p>
 	</div>
 
 </article>

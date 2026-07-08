@@ -69,7 +69,7 @@
   <rect x="150" y="195" width="230" height="78" rx="4" fill="#0D1A2E" stroke="#2A4E6A" stroke-width="1"/>
   <text x="265" y="220" font-family="'Inter','Segoe UI',sans-serif" font-size="12" font-weight="600" fill="#C8D8EC" text-anchor="middle">RXI Gate: 47 of 135 periods</text>
   <text x="265" y="238" font-family="'Inter','Segoe UI',sans-serif" font-size="11" fill="#5A7090" text-anchor="middle">classified defensive → 0% loss</text>
-  <text x="265" y="258" font-family="'Inter','Segoe UI',sans-serif" font-size="10" fill="#4A6080" text-anchor="middle">mean defensive return: always-on −24.2%</text>
+  <text x="265" y="258" font-family="'Inter','Segoe UI',sans-serif" font-size="10" fill="#4A6080" text-anchor="middle">mean defensive return: always-on −6% (approx.)</text>
   <rect x="485" y="195" width="230" height="78" rx="4" fill="#1A0E00" stroke="#4A3010" stroke-width="1"/>
   <text x="600" y="220" font-family="'Inter','Segoe UI',sans-serif" font-size="12" font-weight="600" fill="#C8973A" text-anchor="middle">ETH 2018 — Anchor Case</text>
   <text x="600" y="238" font-family="'Inter','Segoe UI',sans-serif" font-size="11" fill="#8B7040" text-anchor="middle">B&amp;H: −82.4% · Always-on: −61.6%</text>
@@ -213,7 +213,7 @@
 		</p>
 
 		<p class="mb-5 text-base leading-relaxed text-slate">
-			<!-- PENDING: RF-B1d (matlock-fuzzy-claims-review-2026-07-08.md) -- Han/Rook must confirm which production formula (live-gating generateTrendSignal: ADX40/entropy35/Hurst25, vs backtest-path TrendStrengthIndicator.generateSignal: ADX60/entropy25/Hurst5/dHdt10) actually generated this article's published 47/135 and ETH-2018 figures before this paragraph is treated as fully final. Text below uses Matlock's interim/safe description (ADX + Hurst + Shannon entropy, tiered/weighted) -- do not assert a more specific formula attribution until confirmed. -->
+			<!-- RESOLVED 2026-07-08 (Han, han-rf-b1d-provenance-2026-07-08.md): this paragraph accurately describes RXI's live production engine (ADX/Hurst/Shannon entropy, tiered/weighted). The 47/135 + ETH-2018 figures below are from a separate research-stage script, NOT this engine -- see the Tail Protection Finding section, which carries its own, decoupled attribution per matlock-b1-exposure-review-2026-07-08.md Section 4. -->
 			RXI reads this using the Average Directional Index (trend strength), the Hurst exponent (a statistical measure of whether price tends to mean-revert or persist), and Shannon entropy (how ordered versus random recent price action is). A Hurst value below 0.50 indicates mean-reversion &mdash; the market&rsquo;s natural home for grid trading. Values above 0.55 indicate trending behavior &mdash; the environment where grid trading struggles. Each signal is checked against a set of fixed thresholds, and the resulting points are summed into one of three classifications: GRID_TRADING, NEUTRAL, or TREND_FOLLOWING. When conditions classify as trending, RXI pauses new grid deployment and moves capital toward cash or stablecoins &mdash; a threshold-triggered pause, not a continuously graded &ldquo;engagement score.&rdquo;
 		</p>
 
@@ -233,226 +233,28 @@
 		<div class="eyebrow mb-3">The Tail Protection Finding</div>
 
 		<p class="mb-5 text-base leading-relaxed text-slate">
-			Here is the data point that changes the fiduciary conversation.
+			Here is one illustrative case from a research-stage regime-classification model CoinRoc tested but has not deployed to its live product &mdash; a different, more complex classifier than the RXI engine described above, using a Hurst-exponent gate combined with trend and volatility-pattern signals rather than ADX and entropy.
 		</p>
 
 		<p class="mb-5 text-base leading-relaxed text-slate">
-			In CoinRoc&rsquo;s walk-forward simulation &mdash; eight years of non-overlapping annual test
-			periods from 2017 through 2025, across 17 cryptocurrency assets &mdash; consider what happened to
-			ETH during the 2018 bear market. The underlying asset fell 82.4% on a buy-and-hold basis. An
-			always-on grid running through that period lost 61.6% &mdash; because even with the grid mechanism
-			active, ETH sustained a trending directional crash through the year. The grid kept accumulating
-			inventory into a one-way decline; the round-trip oscillations required for income never
-			materialized at scale.
+			Consider what happened to ETH during the 2018 bear market. The underlying asset fell 82.4% on a
+			buy-and-hold basis. An always-on grid running through that period lost 61.6%. In this one research
+			backtest &mdash; where the tested classifier&rsquo;s Hurst-exponent gate read 0.605, above its 0.55
+			defensive threshold &mdash; the classifier correctly identified the period as trending, moved
+			simulated capital to cash, and the modeled result for that period was 0%.
 		</p>
 
 		<p class="mb-5 text-base leading-relaxed text-slate">
-			This is the three-tier contrast that matters for a fiduciary conversation: buy-and-hold lost 82.4%, the always-on grid still lost 61.6%, and RXI-gated returned 0%. The grid mechanism alone was not sufficient protection. RXI was the decisive layer.
+			This is a real, correctly classified single case &mdash; not a representative outcome. Tested across the same 135-fold dataset this case is drawn from, this classification method underperformed an always-on, ungated grid on average: overall win rate fell from 41.5% to 26.7%, and win rate in bear-market folds specifically (buy-and-hold losses worse than &minus;20%) fell from 100% to 69.8%. Most of the periods this method classified as &ldquo;defensive&rdquo; were bull-market periods where it sidelined capital from gains rather than protecting against losses &mdash; the mean buy-and-hold return across all 47 defensive-classified folds was <strong>+253.6%</strong>. ETH 2018 is the exception that worked as designed in the single hardest test case, not the average outcome. We are showing both the case and the aggregate result because a single favorable example, without the aggregate finding next to it, would overstate what this backtest actually demonstrated.
 		</p>
 
-		<p class="mb-5 text-base leading-relaxed text-slate">
-			RXI classified the ETH 2018 period as trending &mdash; Hurst exponent of 0.605, well above the 0.55 defensive threshold. When the regime is classified as trending, RXI moves capital to cash. The grid does not run. The result for that period: 0%. Not recovered over two years of patient recovery. Not partially offset by grid income in the second half of the year. Zero. The position was not taken.
-		</p>
-
-		<!-- Figure 1: Tail Protection -->
-		<FigureExpand label="Expand Figure 1 — RXI Tail Protection">
-		<div class="my-12 w-full overflow-x-auto">
-		<style>
-		  .fig-b1-1 * { box-sizing: border-box; }
-		  .fig-b1-1 .figure-shell {
-		    width: 100%;
-		    background: #FFFFFF;
-		    border: 1px solid #D6CFC0;
-		    border-top: 4px solid #142848;
-		  }
-		  .fig-b1-1 .fig-header { background: #142848; padding: 28px 36px 22px; }
-		  .fig-b1-1 .fig-eyebrow {
-		    font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 10px; font-weight: 700;
-		    letter-spacing: 0.16em; text-transform: uppercase; color: #C8973A; margin-bottom: 8px;
-		  }
-		  .fig-b1-1 .fig-title {
-		    font-family: Georgia, serif; font-size: 20px; font-weight: normal;
-		    color: #F9F6EF; line-height: 1.35; margin-bottom: 6px;
-		  }
-		  .fig-b1-1 .fig-subtitle {
-		    font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 12px;
-		    color: #8FA8C8; line-height: 1.5;
-		  }
-		  .fig-b1-1 .fig-body { padding: 32px 36px 28px; }
-		  .fig-b1-1 .legend {
-		    display: flex; gap: 28px; margin-bottom: 28px; align-items: center; flex-wrap: wrap;
-		  }
-		  .fig-b1-1 .legend-item {
-		    display: flex; align-items: center; gap: 8px;
-		    font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 11.5px; color: #142848;
-		  }
-		  .fig-b1-1 .legend-swatch { width: 16px; height: 12px; border-radius: 2px; flex-shrink: 0; }
-		  .fig-b1-1 .chart-outer { width: 100%; overflow: visible; }
-		  .fig-b1-1 .annotation-row {
-		    margin-top: 24px; padding: 14px 18px; background: #F4EFE4;
-		    border-left: 3px solid #C8973A;
-		    font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 12px;
-		    color: #142848; line-height: 1.6;
-		  }
-		  .fig-b1-1 .annotation-row strong { color: #8B5E10; }
-		  .fig-b1-1 .fig-footer {
-		    padding: 16px 36px 20px; border-top: 1px solid #E8E2D6;
-		    display: flex; justify-content: space-between; align-items: flex-start; gap: 20px;
-		  }
-		  .fig-b1-1 .footnote {
-		    font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 10px;
-		    color: #7A7060; line-height: 1.55; max-width: 680px;
-		  }
-		  .fig-b1-1 .byline {
-		    font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 10px;
-		    color: #A09070; text-align: right; white-space: nowrap; line-height: 1.5; flex-shrink: 0;
-		  }
-		  .fig-b1-1 .byline strong { display: block; color: #142848; font-size: 11px; letter-spacing: 0.04em; }
-		</style>
-		<div class="fig-b1-1">
-		<div class="figure-shell">
-		  <div class="fig-header">
-		    <div class="fig-eyebrow">Fig. 1 &nbsp;&mdash;&nbsp; Yodacom Research &nbsp;|&nbsp; RXI Advisor Article B1 &nbsp;|&nbsp; 2026</div>
-		    <div class="fig-title">RXI Regime Detection: Left Tail Truncation by Asset (2017&ndash;2025)</div>
-		    <div class="fig-subtitle">Worst single-period annual return per asset: B&amp;H price decline, always-on grid, and RXI-gated grid &nbsp;&bull;&nbsp; ETH 2018 is the anchor case</div>
-		  </div>
-		  <div class="fig-body">
-		    <div class="legend">
-		      <div class="legend-item">
-		        <div class="legend-swatch" style="background:#4A6080;"></div>
-		        B&amp;H price decline (anchor row only)
-		      </div>
-		      <div class="legend-item">
-		        <div class="legend-swatch" style="background:#142848;"></div>
-		        Always-on grid (unfiltered)
-		      </div>
-		      <div class="legend-item">
-		        <div class="legend-swatch" style="background:#C8973A;"></div>        RXI-gated grid (regime-filtered)
-		      </div>
-		      <div class="legend-item" style="margin-left:auto; font-size:10.5px; color:#7A7060; font-style:italic;">
-		        Bar length = magnitude of loss &nbsp;(left = worse)
-		      </div>
-		    </div>
-		    <div class="chart-outer">
-		      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 520" width="100%"
-		           style="display:block; overflow:visible;" role="img"
-		           aria-label="Grouped horizontal bar chart showing worst annual return per asset for B&H, always-on, and RXI-gated grid strategies. ETH 2018 is the hero anchor case with three bars.">
-		        <defs>
-		          <filter id="b1-glowETH" x="-5%" y="-20%" width="110%" height="140%">
-		            <feGaussianBlur stdDeviation="3" result="blur"/>
-		            <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
-		          </filter>
-		        </defs>
-		        <line x1="468" y1="30" x2="468" y2="480" stroke="#D6CFC0" stroke-width="1.2"/>
-		        <line x1="392" y1="30" x2="392" y2="480" stroke="#EAE4D8" stroke-width="0.7"/>
-		        <line x1="316" y1="30" x2="316" y2="480" stroke="#EAE4D8" stroke-width="0.7"/>
-		        <line x1="240" y1="30" x2="240" y2="480" stroke="#EAE4D8" stroke-width="0.7"/>
-		        <line x1="164" y1="30" x2="164" y2="480" stroke="#EAE4D8" stroke-width="0.7"/>
-		        <line x1="88"  y1="30" x2="88"  y2="480" stroke="#EAE4D8" stroke-width="0.7"/>
-		        <text x="88"  y="22" text-anchor="middle" font-family="'Helvetica Neue',Arial,sans-serif" font-size="10" fill="#7A7060">-100%</text>
-		        <text x="164" y="22" text-anchor="middle" font-family="'Helvetica Neue',Arial,sans-serif" font-size="10" fill="#7A7060">-80%</text>
-		        <text x="240" y="22" text-anchor="middle" font-family="'Helvetica Neue',Arial,sans-serif" font-size="10" fill="#7A7060">-60%</text>
-		        <text x="316" y="22" text-anchor="middle" font-family="'Helvetica Neue',Arial,sans-serif" font-size="10" fill="#7A7060">-40%</text>
-		        <text x="392" y="22" text-anchor="middle" font-family="'Helvetica Neue',Arial,sans-serif" font-size="10" fill="#7A7060">-20%</text>
-		        <text x="468" y="22" text-anchor="middle" font-family="'Helvetica Neue',Arial,sans-serif" font-size="10.5" fill="#142848" font-weight="700">0%</text>
-		        <text x="548" y="22" text-anchor="middle" font-family="'Helvetica Neue',Arial,sans-serif" font-size="10" fill="#7A7060">+20%</text>
-		        <line x1="468" y1="30" x2="630" y2="30" stroke="#EAE4D8" stroke-width="0.5"/>
-		        <line x1="88" y1="480" x2="640" y2="480" stroke="#C8C0B0" stroke-width="0.7"/>
-		        <!-- ETH 2018 hero row -->
-		        <rect x="84" y="44" width="560" height="68" rx="3" fill="#FDF5E6" opacity="0.9"/>
-		        <rect x="84" y="44" width="3" height="68" fill="#C8973A"/>
-		        <text x="82" y="66" text-anchor="end" font-family="Georgia,serif" font-size="12.5" font-weight="bold" fill="#142848">ETH</text>
-		        <text x="82" y="80" text-anchor="end" font-family="'Helvetica Neue',Arial,sans-serif" font-size="9.5" fill="#8B5E10" font-style="italic">2018 bear</text>
-		        <text x="82" y="94" text-anchor="end" font-family="'Helvetica Neue',Arial,sans-serif" font-size="8.5" fill="#8B5E10" font-style="italic">Hurst 0.605</text>
-		        <rect x="155" y="52" width="313" height="14" fill="#4A6080" rx="1" opacity="0.85"/>
-		        <text x="151" y="63" text-anchor="end" font-family="'Helvetica Neue',Arial,sans-serif" font-size="10.5" fill="#4A6080" font-weight="700">-82.4%</text>
-		        <text x="460" y="63" text-anchor="end" font-family="'Helvetica Neue',Arial,sans-serif" font-size="8.5" fill="#F9F6EF" opacity="0.9">ETH Buy &amp; Hold</text>
-		        <rect x="234" y="70" width="234" height="14" fill="#142848" rx="1"/>
-		        <text x="230" y="81" text-anchor="end" font-family="'Helvetica Neue',Arial,sans-serif" font-size="10.5" fill="#142848" font-weight="700">-61.6%</text>
-		        <text x="460" y="81" text-anchor="end" font-family="'Helvetica Neue',Arial,sans-serif" font-size="8.5" fill="#8FA8C8" opacity="0.95">Always-On Grid</text>
-		        <rect x="466" y="88" width="4" height="11" fill="#C8973A" rx="1"/>
-		        <text x="476" y="98" text-anchor="start" font-family="'Helvetica Neue',Arial,sans-serif" font-size="11" font-weight="700" fill="#8B5E10">0% (RXI-Gated &mdash; cash held)</text>
-		        <text x="468" y="46" text-anchor="middle" font-family="'Helvetica Neue',Arial,sans-serif" font-size="9" font-weight="700" fill="#8B5E10" letter-spacing="0.08em">&#8592; ANCHOR CASE</text>
-		        <!-- BTC 2018 -->
-		        <text x="82" y="141" text-anchor="end" font-family="Georgia,serif" font-size="12" fill="#142848">BTC</text>
-		        <text x="82" y="154" text-anchor="end" font-family="'Helvetica Neue',Arial,sans-serif" font-size="9" fill="#7A7060">2018</text>
-		        <rect x="229" y="128" width="239" height="14" fill="#142848" rx="1"/>
-		        <text x="225" y="139" text-anchor="end" font-family="'Helvetica Neue',Arial,sans-serif" font-size="10.5" fill="#142848">-63%</text>
-		        <rect x="449" y="146" width="19" height="10" fill="#C8973A" rx="1"/>
-		        <text x="472" y="155" text-anchor="start" font-family="'Helvetica Neue',Arial,sans-serif" font-size="10" fill="#8B5E10">-5%</text>
-		        <line x1="468" y1="126" x2="468" y2="160" stroke="#C8C0B0" stroke-width="0.8"/>
-		        <!-- LINK 2022 -->
-		        <text x="82" y="195" text-anchor="end" font-family="Georgia,serif" font-size="12" fill="#142848">LINK</text>
-		        <text x="82" y="208" text-anchor="end" font-family="'Helvetica Neue',Arial,sans-serif" font-size="9" fill="#7A7060">2022</text>
-		        <rect x="221" y="182" width="247" height="14" fill="#142848" rx="1"/>
-		        <text x="217" y="193" text-anchor="end" font-family="'Helvetica Neue',Arial,sans-serif" font-size="10.5" fill="#142848">-65%</text>
-		        <rect x="457" y="200" width="11" height="10" fill="#C8973A" rx="1"/>
-		        <text x="472" y="209" text-anchor="start" font-family="'Helvetica Neue',Arial,sans-serif" font-size="10" fill="#8B5E10">-3%</text>
-		        <line x1="468" y1="180" x2="468" y2="214" stroke="#C8C0B0" stroke-width="0.8"/>
-		        <!-- SOL 2022 -->
-		        <text x="82" y="249" text-anchor="end" font-family="Georgia,serif" font-size="12" fill="#142848">SOL</text>
-		        <text x="82" y="262" text-anchor="end" font-family="'Helvetica Neue',Arial,sans-serif" font-size="9" fill="#7A7060">2022</text>
-		        <rect x="252" y="236" width="216" height="14" fill="#142848" rx="1"/>
-		        <text x="248" y="247" text-anchor="end" font-family="'Helvetica Neue',Arial,sans-serif" font-size="10.5" fill="#142848">-57%</text>
-		        <rect x="466" y="254" width="4" height="10" fill="#C8973A" rx="1"/>
-		        <text x="476" y="263" text-anchor="start" font-family="'Helvetica Neue',Arial,sans-serif" font-size="10" fill="#8B5E10">0%</text>
-		        <line x1="468" y1="234" x2="468" y2="268" stroke="#C8C0B0" stroke-width="0.8"/>
-		        <!-- DOT 2022 -->
-		        <text x="82" y="303" text-anchor="end" font-family="Georgia,serif" font-size="12" fill="#142848">DOT</text>
-		        <text x="82" y="316" text-anchor="end" font-family="'Helvetica Neue',Arial,sans-serif" font-size="9" fill="#7A7060">2022</text>
-		        <rect x="271" y="290" width="197" height="14" fill="#142848" rx="1"/>
-		        <text x="267" y="301" text-anchor="end" font-family="'Helvetica Neue',Arial,sans-serif" font-size="10.5" fill="#142848">-52%</text>
-		        <rect x="453" y="308" width="15" height="10" fill="#C8973A" rx="1"/>
-		        <text x="476" y="317" text-anchor="start" font-family="'Helvetica Neue',Arial,sans-serif" font-size="10" fill="#8B5E10">-4%</text>
-		        <line x1="468" y1="288" x2="468" y2="322" stroke="#C8C0B0" stroke-width="0.8"/>
-		        <!-- MATIC 2022 -->
-		        <text x="82" y="357" text-anchor="end" font-family="Georgia,serif" font-size="12" fill="#142848">MATIC</text>
-		        <text x="82" y="370" text-anchor="end" font-family="'Helvetica Neue',Arial,sans-serif" font-size="9" fill="#7A7060">2022</text>
-		        <rect x="286" y="344" width="182" height="14" fill="#142848" rx="1"/>
-		        <text x="282" y="355" text-anchor="end" font-family="'Helvetica Neue',Arial,sans-serif" font-size="10.5" fill="#142848">-48%</text>
-		        <rect x="466" y="362" width="4" height="10" fill="#C8973A" rx="1"/>
-		        <text x="476" y="371" text-anchor="start" font-family="'Helvetica Neue',Arial,sans-serif" font-size="10" fill="#8B5E10">0%</text>
-		        <line x1="468" y1="342" x2="468" y2="376" stroke="#C8C0B0" stroke-width="0.8"/>
-		        <!-- LTC 2022 -->
-		        <text x="82" y="411" text-anchor="end" font-family="Georgia,serif" font-size="12" fill="#142848">LTC</text>
-		        <text x="82" y="424" text-anchor="end" font-family="'Helvetica Neue',Arial,sans-serif" font-size="9" fill="#7A7060">2022</text>
-		        <rect x="324" y="398" width="144" height="14" fill="#142848" rx="1"/>
-		        <text x="320" y="409" text-anchor="end" font-family="'Helvetica Neue',Arial,sans-serif" font-size="10.5" fill="#142848">-38%</text>
-		        <rect x="430" y="416" width="38" height="10" fill="#C8973A" rx="1"/>
-		        <text x="476" y="425" text-anchor="start" font-family="'Helvetica Neue',Arial,sans-serif" font-size="10" fill="#8B5E10">-10%</text>
-		        <line x1="468" y1="396" x2="468" y2="430" stroke="#C8C0B0" stroke-width="0.8"/>
-		        <!-- Zero axis reinforcement -->
-		        <line x1="468" y1="30" x2="468" y2="480" stroke="#142848" stroke-width="1.5"/>
-		        <text x="280" y="500" text-anchor="middle" font-family="'Helvetica Neue',Arial,sans-serif" font-size="10.5" fill="#7A7060">&#8592; Annual Return % (worst single period per asset)</text>
-		        <text x="468" y="496" text-anchor="middle" font-family="'Helvetica Neue',Arial,sans-serif" font-size="10.5" fill="#142848" font-weight="700">0%</text>
-		      </svg>
-		    </div>
-		    <div class="annotation-row">
-		      <strong>Key finding &mdash; ETH 2018 anchor case:</strong>
-		      Buy-and-hold price decline <strong>&minus;82.4%</strong> &nbsp;&bull;&nbsp;
-		      Always-on grid <strong>&minus;61.6%</strong> (grid mechanism provided partial protection) &nbsp;&bull;&nbsp;
-		      RXI-gated grid <strong>0%</strong> (RXI detected trending regime, Hurst 0.605, and moved capital to cash). The grid alone reduced the drawdown by 21 points; RXI was the decisive layer that eliminated the remaining exposure entirely.
-		      <br><br>
-		      47 of 135 test periods classified defensive by RXI. Mean return in defensive periods: always-on grid <strong>&minus;24.2%</strong> &rarr; RXI-gated grid <strong>0%</strong> (capital held in cash).
-		    </div>
-		  </div>
-		  <div class="fig-footer">
-		    <div class="footnote">
-		      <!-- PENDING: RF-B1d (matlock-fuzzy-claims-review-2026-07-08.md) -- this footnote is chart-adjacent methodology text attached directly to the 47/135 and ETH-2018 figures; Han/Rook confirmation of which production formula generated these exact numbers is required before "Average Directional Index, Hurst exponent, and Shannon entropy" is treated as a fully verified attribution. Interim/safe wording per Matlock -- do not assert further specificity until confirmed. -->
-			  All figures from simulated backtesting 2017&ndash;2025. RXI regime filter classifies each test period as active or defensive based on a tiered, weighted score combining the Average Directional Index, Hurst exponent, and Shannon entropy (see Methodology). Defensive periods: capital held in cash or stablecoins; grid not deployed. Always-on grid operates continuously regardless of regime signal. B&amp;H price decline shown for ETH 2018 anchor row only; it reflects raw spot price return and is not a grid strategy output. Past simulation does not guarantee future results. Asset selection reflects pre-specified universe; survivorship bias may affect results. Results net of estimated exchange fees (0.40% maker / 0.60% taker). See article disclosures for full methodology.
-		    </div>
-		    <div class="byline">
-		      <strong>YODACOM RESEARCH</strong>
-		      yodacom.com/research &bull; 2026
-		    </div>
-		  </div>
+		<!-- Figure 1 REMOVED 2026-07-08 (same-day emergency fix, Matlock/Han/Lando): the prior multi-asset chart included 6 of 7 bars (BTC, LINK, SOL, DOT, MATIC, LTC) that could not be traced to any saved research artifact -- 4 of those (LINK, SOL, DOT, MATIC) describe symbols never in the study's 17-asset universe at all. Pulled entirely rather than word-edited per matlock-b1-exposure-review-2026-07-08.md Section 4.4/RF-B1e. Sabine to rebuild a single-case, ETH-2018-only version as a phase-2 follow-up. -->
+		<div class="my-10 rounded-sm border border-rule bg-paper px-6 py-5 text-sm italic leading-relaxed text-slate">
+			Figure 1 (multi-asset chart) has been removed pending a rebuild with fully traceable data. A revised, single-case version limited to the verified ETH 2018 example above will be published as a follow-up. The ETH 2018 figures referenced in the text above are individually sourced and traceable &mdash; see Important Disclosures below.
 		</div>
-		</div>
-		</div>
-		</FigureExpand>
 
 		<p class="mb-5 text-base leading-relaxed text-slate">
-			Across the full dataset, RXI classified 47 of 135 valid test periods as defensive &mdash; meaning it would have moved those positions to cash. Those 47 periods had a mean return of negative 24.2% under the always-on grid. RXI converts that average to 0%.
+			Across the full dataset, this classifier flagged 47 of 135 valid test periods as defensive. The always-on grid&rsquo;s mean return across those 47 periods was approximately &minus;6%; within that set, the subset of periods with negative always-on returns averaged approximately &minus;28%. As noted above, this same classifier&rsquo;s aggregate win rate across the full dataset was lower than an always-on, ungated grid&rsquo;s &mdash; not higher &mdash; so this figure should be read alongside that finding, not in isolation.
 		</p>
 
 		<p class="mb-5 text-base leading-relaxed text-slate">
@@ -1150,6 +952,9 @@
 				All performance figures referenced in this article are derived from simulated backtesting
 				conducted by Yodacom Research. Backtested results are hypothetical and do not represent actual
 				trading results. Past simulated performance does not guarantee future results.
+			</p>
+			<p>
+				<strong>Corrected 2026-07-08</strong> (Han/Matlock/Lando, same-day emergency fix): the ETH 2018 case and 47-of-135 figures in the Tail Protection Finding section are drawn from a research-stage regime-classification model tested by Yodacom Research but not deployed to CoinRoc&rsquo;s production engine. This article previously did not disclose that the same model underperformed an ungated, always-on grid on average across the full dataset (overall win rate 41.5% vs. 26.7%; bear-fold win rate 100% vs. 69.8%), and previously included a multi-asset chart (Figure 1) with six data rows that could not be traced to a saved research artifact. That chart has been removed pending a rebuild limited to the single, verified ETH 2018 case. See han-rf-b1d-provenance-2026-07-08.md and matlock-b1-exposure-review-2026-07-08.md for detail.
 			</p>
 			<p>
 				The walk-forward simulation covers the period 2017 through 2025 across 17 pre-selected
