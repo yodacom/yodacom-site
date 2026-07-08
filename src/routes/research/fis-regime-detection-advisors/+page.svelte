@@ -4,7 +4,7 @@
 
 <svelte:head>
 	<title>When the Market Trends Hard, Your Income Strategy Should Step Aside — Yodacom Research</title>
-	<meta name="description" content="In 2022, covered call income fell with equity. FIS-filtered grid trading offers a structurally different income mechanism. Here is the data." />
+	<meta name="description" content="In 2022, covered call income fell with equity. RXI-filtered grid trading offers a structurally different income mechanism. Here is the data." />
 </svelte:head>
 
 <!-- Cover banner -->
@@ -67,20 +67,20 @@
   <text x="600" y="143" fill="#5a6475" font-family="'Inter','Segoe UI',system-ui,sans-serif" font-size="10.5" text-anchor="middle" letter-spacing="0.06em">Third paper in the systematic income series</text>
   <!-- Three stat callouts -->
   <rect x="150" y="195" width="230" height="78" rx="4" fill="#0D1A2E" stroke="#2A4E6A" stroke-width="1"/>
-  <text x="265" y="220" font-family="'Inter','Segoe UI',sans-serif" font-size="12" font-weight="600" fill="#C8D8EC" text-anchor="middle">FIS Gate: 47 of 135 periods</text>
+  <text x="265" y="220" font-family="'Inter','Segoe UI',sans-serif" font-size="12" font-weight="600" fill="#C8D8EC" text-anchor="middle">RXI Gate: 47 of 135 periods</text>
   <text x="265" y="238" font-family="'Inter','Segoe UI',sans-serif" font-size="11" fill="#5A7090" text-anchor="middle">classified defensive → 0% loss</text>
   <text x="265" y="258" font-family="'Inter','Segoe UI',sans-serif" font-size="10" fill="#4A6080" text-anchor="middle">mean defensive return: always-on −24.2%</text>
   <rect x="485" y="195" width="230" height="78" rx="4" fill="#1A0E00" stroke="#4A3010" stroke-width="1"/>
   <text x="600" y="220" font-family="'Inter','Segoe UI',sans-serif" font-size="12" font-weight="600" fill="#C8973A" text-anchor="middle">ETH 2018 — Anchor Case</text>
   <text x="600" y="238" font-family="'Inter','Segoe UI',sans-serif" font-size="11" fill="#8B7040" text-anchor="middle">B&amp;H: −82.4% · Always-on: −61.6%</text>
-  <text x="600" y="258" font-family="'Inter','Segoe UI',sans-serif" font-size="10.5" font-weight="700" fill="#C8973A" text-anchor="middle">FIS-gated: 0% (cash held)</text>
+  <text x="600" y="258" font-family="'Inter','Segoe UI',sans-serif" font-size="10.5" font-weight="700" fill="#C8973A" text-anchor="middle">RXI-gated: 0% (cash held)</text>
   <rect x="820" y="195" width="230" height="78" rx="4" fill="#0D1A2E" stroke="#2A4E6A" stroke-width="1"/>
   <text x="935" y="220" font-family="'Inter','Segoe UI',sans-serif" font-size="12" font-weight="600" fill="#C8D8EC" text-anchor="middle">Hurst Exponent Gate</text>
   <text x="935" y="238" font-family="'Inter','Segoe UI',sans-serif" font-size="11" fill="#5A7090" text-anchor="middle">0.605 (ETH 2018) → trending</text>
   <text x="935" y="258" font-family="'Inter','Segoe UI',sans-serif" font-size="10" fill="#4A6080" text-anchor="middle">threshold: 0.55 · grid paused entirely</text>
-  <!-- FIS label badge -->
+  <!-- RXI label badge -->
   <rect x="488" y="298" width="224" height="36" rx="18" fill="#C8973A" fill-opacity="0.12" stroke="#C8973A" stroke-width="1.2" stroke-opacity="0.6"/>
-  <text x="600" y="321" font-family="'Inter','Segoe UI',sans-serif" font-size="13" font-weight="700" fill="#C8973A" text-anchor="middle" letter-spacing="0.08em">FIS™ REGIME DETECTION</text>
+  <text x="600" y="321" font-family="'Inter','Segoe UI',sans-serif" font-size="13" font-weight="700" fill="#C8973A" text-anchor="middle" letter-spacing="0.08em">RXI™ REGIME DETECTION</text>
   <!-- Divider rule -->
   <line x1="200" y1="360" x2="1000" y2="360" stroke="#8b9ab8" stroke-width="0.5" opacity="0.2"/>
   <!-- Series note -->
@@ -114,9 +114,7 @@
 		</p>
 		<p class="fade-up d4 max-w-2xl border-l-2 border-ochre/60 pl-4 text-base italic leading-relaxed text-slate">
 			There is a structural problem embedded in most income-generating strategies advisors recommend today,
-			and 2022 made it painfully visible. This paper examines whether crypto grid trading with FIS
-			regime detection offers a structurally different income mechanism &mdash; one where income and risk
-			do not share the same source. The data covers 135 walk-forward folds across 17 cryptocurrency
+			and 2022 made it painfully visible. This paper examines whether crypto grid trading with RXI regime detection offers a structurally different income mechanism &mdash; one where income and risk do not share the same source. The data covers 135 walk-forward folds across 17 cryptocurrency
 			assets, 2017 through 2025.
 		</p>
 	</div>
@@ -154,10 +152,7 @@
 	<p class="mb-10 text-base leading-relaxed text-slate">
 		The question worth asking is whether there is a category of income generation that is architecturally
 		different &mdash; where the income mechanism and the risk profile are not sourced from the same asset.
-		Crypto grid trading is one answer worth examining seriously. Not because crypto is a safe haven, but
-		because the mechanism of income generation is fundamentally different from equity exposure. And because
-		a regime detection layer called FIS changes the tail-risk profile in ways that matter for income-focused
-		client portfolios.
+		Crypto grid trading is one answer worth examining seriously. Not because crypto is a safe haven, but because the mechanism of income generation is fundamentally different from equity exposure. And because a regime detection layer called RXI changes the tail-risk profile in ways that matter for income-focused client portfolios.
 	</p>
 
 	<!-- ── Section: What Grid Trading Actually Is ──────────────────── -->
@@ -201,14 +196,12 @@
 		</p>
 	</section>
 
-	<!-- ── Section: What FIS Is ──────────────────────────────────────── -->
+	<!-- ── Section: What RXI Is ──────────────────────────────────────── -->
 	<section class="mb-14">
-		<div class="eyebrow mb-3">What FIS Is &mdash; In Plain Advisor Language</div>
+		<div class="eyebrow mb-3">What RXI Is &mdash; In Plain Advisor Language</div>
 
 		<p class="mb-5 text-base leading-relaxed text-slate">
-			FIS stands for Fuzzy Inference System. Set aside the technical name. In practice, it is a
-			rules-based regime filter that reads the current market environment and answers one question: is
-			this market oscillating, or is it trending directionally?
+			RXI&#x2122; &mdash; Regime eXecution Intelligence &mdash; is CoinRoc&rsquo;s rules-based regime filter. It reads the current market environment and answers one question: is this market oscillating, or is it trending directionally?
 		</p>
 
 		<p class="mb-5 text-base leading-relaxed text-slate">
@@ -220,26 +213,17 @@
 		</p>
 
 		<p class="mb-5 text-base leading-relaxed text-slate">
-			FIS detects this in real time using the Hurst exponent as its primary signal. The Hurst exponent
-			is a statistical measure of a price series&rsquo; tendency to mean-revert versus trend. A Hurst
-			value below 0.50 indicates mean-reversion &mdash; the market&rsquo;s natural home for grid
-			trading. Values above 0.55 indicate trending behavior &mdash; the environment where grid trading
-			struggles. FIS also incorporates a moving average position check and a volatility momentum signal.
-			When those inputs combine to indicate a trending or distribution-phase market, FIS reduces the
-			strategy&rsquo;s engagement score and moves capital toward cash or stablecoins.
+			<!-- PENDING: RF-B1d (matlock-fuzzy-claims-review-2026-07-08.md) -- Han/Rook must confirm which production formula (live-gating generateTrendSignal: ADX40/entropy35/Hurst25, vs backtest-path TrendStrengthIndicator.generateSignal: ADX60/entropy25/Hurst5/dHdt10) actually generated this article's published 47/135 and ETH-2018 figures before this paragraph is treated as fully final. Text below uses Matlock's interim/safe description (ADX + Hurst + Shannon entropy, tiered/weighted) -- do not assert a more specific formula attribution until confirmed. -->
+			RXI reads this using the Average Directional Index (trend strength), the Hurst exponent (a statistical measure of whether price tends to mean-revert or persist), and Shannon entropy (how ordered versus random recent price action is). A Hurst value below 0.50 indicates mean-reversion &mdash; the market&rsquo;s natural home for grid trading. Values above 0.55 indicate trending behavior &mdash; the environment where grid trading struggles. Each signal is checked against a set of fixed thresholds, and the resulting points are summed into one of three classifications: GRID_TRADING, NEUTRAL, or TREND_FOLLOWING. When conditions classify as trending, RXI pauses new grid deployment and moves capital toward cash or stablecoins &mdash; a threshold-triggered pause, not a continuously graded &ldquo;engagement score.&rdquo;
 		</p>
 
 		<p class="text-base leading-relaxed text-slate">
-			The practical result: when conditions are unfavorable, FIS does not try to adapt or optimize the
-			grid parameters to survive a crash. It pauses deployment entirely. Capital sits in cash. The grid
-			earns nothing that period &mdash; but it also loses nothing.
+			The practical result: when conditions are unfavorable, RXI does not try to adapt or optimize the grid parameters to survive a crash. It pauses deployment entirely. Capital sits in cash. The grid earns nothing that period &mdash; but it also loses nothing.
 		</p>
 
 		<div class="my-6 border-l-2 border-ochre/60 pl-4">
 			<p class="text-base italic leading-relaxed text-slate">
-				This is not a prediction system. FIS does not forecast whether a bear market is coming. It reads
-				what the market is doing right now, and when the answer is &ldquo;trending hard in one
-				direction,&rdquo; it steps aside.
+				This is not a prediction system. RXI does not forecast whether a bear market is coming. It reads what the market is doing right now, and when the answer is &ldquo;trending hard in one direction,&rdquo; it steps aside.
 			</p>
 		</div>
 	</section>
@@ -263,21 +247,15 @@
 		</p>
 
 		<p class="mb-5 text-base leading-relaxed text-slate">
-			This is the three-tier contrast that matters for a fiduciary conversation: buy-and-hold lost 82.4%,
-			the always-on grid still lost 61.6%, and FIS-gated returned 0%. The grid mechanism alone was not
-			sufficient protection. FIS was the decisive layer.
+			This is the three-tier contrast that matters for a fiduciary conversation: buy-and-hold lost 82.4%, the always-on grid still lost 61.6%, and RXI-gated returned 0%. The grid mechanism alone was not sufficient protection. RXI was the decisive layer.
 		</p>
 
 		<p class="mb-5 text-base leading-relaxed text-slate">
-			FIS classified the ETH 2018 period as trending &mdash; Hurst exponent of 0.605, well above the
-			0.55 defensive threshold. When the regime is classified as trending, FIS moves capital to cash. The
-			grid does not run. The result for that period: 0%. Not recovered over two years of patient
-			recovery. Not partially offset by grid income in the second half of the year. Zero. The position
-			was not taken.
+			RXI classified the ETH 2018 period as trending &mdash; Hurst exponent of 0.605, well above the 0.55 defensive threshold. When the regime is classified as trending, RXI moves capital to cash. The grid does not run. The result for that period: 0%. Not recovered over two years of patient recovery. Not partially offset by grid income in the second half of the year. Zero. The position was not taken.
 		</p>
 
 		<!-- Figure 1: Tail Protection -->
-		<FigureExpand label="Expand Figure 1 — FIS Tail Protection">
+		<FigureExpand label="Expand Figure 1 — RXI Tail Protection">
 		<div class="my-12 w-full overflow-x-auto">
 		<style>
 		  .fig-b1-1 * { box-sizing: border-box; }
@@ -334,9 +312,9 @@
 		<div class="fig-b1-1">
 		<div class="figure-shell">
 		  <div class="fig-header">
-		    <div class="fig-eyebrow">Fig. 1 &nbsp;&mdash;&nbsp; Yodacom Research &nbsp;|&nbsp; FIS Advisor Article B1 &nbsp;|&nbsp; 2026</div>
-		    <div class="fig-title">FIS Regime Detection: Left Tail Truncation by Asset (2017&ndash;2025)</div>
-		    <div class="fig-subtitle">Worst single-period annual return per asset: B&amp;H price decline, always-on grid, and FIS-gated grid &nbsp;&bull;&nbsp; ETH 2018 is the anchor case</div>
+		    <div class="fig-eyebrow">Fig. 1 &nbsp;&mdash;&nbsp; Yodacom Research &nbsp;|&nbsp; RXI Advisor Article B1 &nbsp;|&nbsp; 2026</div>
+		    <div class="fig-title">RXI Regime Detection: Left Tail Truncation by Asset (2017&ndash;2025)</div>
+		    <div class="fig-subtitle">Worst single-period annual return per asset: B&amp;H price decline, always-on grid, and RXI-gated grid &nbsp;&bull;&nbsp; ETH 2018 is the anchor case</div>
 		  </div>
 		  <div class="fig-body">
 		    <div class="legend">
@@ -349,8 +327,7 @@
 		        Always-on grid (unfiltered)
 		      </div>
 		      <div class="legend-item">
-		        <div class="legend-swatch" style="background:#C8973A;"></div>
-		        FIS-gated grid (regime-filtered)
+		        <div class="legend-swatch" style="background:#C8973A;"></div>        RXI-gated grid (regime-filtered)
 		      </div>
 		      <div class="legend-item" style="margin-left:auto; font-size:10.5px; color:#7A7060; font-style:italic;">
 		        Bar length = magnitude of loss &nbsp;(left = worse)
@@ -359,7 +336,7 @@
 		    <div class="chart-outer">
 		      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 520" width="100%"
 		           style="display:block; overflow:visible;" role="img"
-		           aria-label="Grouped horizontal bar chart showing worst annual return per asset for B&H, always-on, and FIS-gated grid strategies. ETH 2018 is the hero anchor case with three bars.">
+		           aria-label="Grouped horizontal bar chart showing worst annual return per asset for B&H, always-on, and RXI-gated grid strategies. ETH 2018 is the hero anchor case with three bars.">
 		        <defs>
 		          <filter id="b1-glowETH" x="-5%" y="-20%" width="110%" height="140%">
 		            <feGaussianBlur stdDeviation="3" result="blur"/>
@@ -394,7 +371,7 @@
 		        <text x="230" y="81" text-anchor="end" font-family="'Helvetica Neue',Arial,sans-serif" font-size="10.5" fill="#142848" font-weight="700">-61.6%</text>
 		        <text x="460" y="81" text-anchor="end" font-family="'Helvetica Neue',Arial,sans-serif" font-size="8.5" fill="#8FA8C8" opacity="0.95">Always-On Grid</text>
 		        <rect x="466" y="88" width="4" height="11" fill="#C8973A" rx="1"/>
-		        <text x="476" y="98" text-anchor="start" font-family="'Helvetica Neue',Arial,sans-serif" font-size="11" font-weight="700" fill="#8B5E10">0% (FIS-Gated &mdash; cash held)</text>
+		        <text x="476" y="98" text-anchor="start" font-family="'Helvetica Neue',Arial,sans-serif" font-size="11" font-weight="700" fill="#8B5E10">0% (RXI-Gated &mdash; cash held)</text>
 		        <text x="468" y="46" text-anchor="middle" font-family="'Helvetica Neue',Arial,sans-serif" font-size="9" font-weight="700" fill="#8B5E10" letter-spacing="0.08em">&#8592; ANCHOR CASE</text>
 		        <!-- BTC 2018 -->
 		        <text x="82" y="141" text-anchor="end" font-family="Georgia,serif" font-size="12" fill="#142848">BTC</text>
@@ -454,21 +431,15 @@
 		      <strong>Key finding &mdash; ETH 2018 anchor case:</strong>
 		      Buy-and-hold price decline <strong>&minus;82.4%</strong> &nbsp;&bull;&nbsp;
 		      Always-on grid <strong>&minus;61.6%</strong> (grid mechanism provided partial protection) &nbsp;&bull;&nbsp;
-		      FIS-gated grid <strong>0%</strong> (FIS detected trending regime, Hurst 0.605, and moved capital to cash).
-		      The grid alone reduced the drawdown by 21 points; FIS was the decisive layer that eliminated the remaining exposure entirely.
+		      RXI-gated grid <strong>0%</strong> (RXI detected trending regime, Hurst 0.605, and moved capital to cash). The grid alone reduced the drawdown by 21 points; RXI was the decisive layer that eliminated the remaining exposure entirely.
 		      <br><br>
-		      47 of 135 test periods classified defensive by FIS. Mean return in defensive periods:
-		      always-on grid <strong>&minus;24.2%</strong> &rarr; FIS-gated grid <strong>0%</strong> (capital held in cash).
+		      47 of 135 test periods classified defensive by RXI. Mean return in defensive periods: always-on grid <strong>&minus;24.2%</strong> &rarr; RXI-gated grid <strong>0%</strong> (capital held in cash).
 		    </div>
 		  </div>
 		  <div class="fig-footer">
 		    <div class="footnote">
-		      All figures from simulated backtesting 2017&ndash;2025. FIS regime filter classifies each test period as active or defensive based on
-		      Hurst exponent, moving-average position, and volatility momentum inputs. Defensive periods: capital held in cash or stablecoins;
-		      grid not deployed. Always-on grid operates continuously regardless of regime signal. B&amp;H price decline shown for ETH 2018 anchor row only;
-		      it reflects raw spot price return and is not a grid strategy output. Past simulation does not guarantee future results.
-		      Asset selection reflects pre-specified universe; survivorship bias may affect results.
-		      Results net of estimated exchange fees (0.40% maker / 0.60% taker). See article disclosures for full methodology.
+		      <!-- PENDING: RF-B1d (matlock-fuzzy-claims-review-2026-07-08.md) -- this footnote is chart-adjacent methodology text attached directly to the 47/135 and ETH-2018 figures; Han/Rook confirmation of which production formula generated these exact numbers is required before "Average Directional Index, Hurst exponent, and Shannon entropy" is treated as a fully verified attribution. Interim/safe wording per Matlock -- do not assert further specificity until confirmed. -->
+			  All figures from simulated backtesting 2017&ndash;2025. RXI regime filter classifies each test period as active or defensive based on a tiered, weighted score combining the Average Directional Index, Hurst exponent, and Shannon entropy (see Methodology). Defensive periods: capital held in cash or stablecoins; grid not deployed. Always-on grid operates continuously regardless of regime signal. B&amp;H price decline shown for ETH 2018 anchor row only; it reflects raw spot price return and is not a grid strategy output. Past simulation does not guarantee future results. Asset selection reflects pre-specified universe; survivorship bias may affect results. Results net of estimated exchange fees (0.40% maker / 0.60% taker). See article disclosures for full methodology.
 		    </div>
 		    <div class="byline">
 		      <strong>YODACOM RESEARCH</strong>
@@ -481,16 +452,14 @@
 		</FigureExpand>
 
 		<p class="mb-5 text-base leading-relaxed text-slate">
-			Across the full dataset, FIS classified 47 of 135 valid test periods as defensive &mdash; meaning
-			it would have moved those positions to cash. Those 47 periods had a mean return of negative 24.2%
-			under the always-on grid. FIS converts that average to 0%.
+			Across the full dataset, RXI classified 47 of 135 valid test periods as defensive &mdash; meaning it would have moved those positions to cash. Those 47 periods had a mean return of negative 24.2% under the always-on grid. RXI converts that average to 0%.
 		</p>
 
 		<p class="mb-5 text-base leading-relaxed text-slate">
 			The cost of this protection is real and worth naming: those same 47 periods included some
 			positive-return years for grid strategies operating in other assets. The average grid return in
 			those defensive-period folds, for assets that would have performed positively, was approximately
-			plus 12%. FIS pauses those as well. There is no perfect filter. The regime detection does not
+			plus 12%. RXI pauses those as well. There is no perfect filter. The regime detection does not
 			distinguish, within a defensive-period classification, which individual assets might have ranged
 			profitably through the bear market. It pauses deployment broadly.
 		</p>
@@ -540,19 +509,15 @@
 		</p>
 
 		<p class="mb-5 text-base leading-relaxed text-slate">
-			The conditional case is more compelling and more accurate to what forward performance could look
-			like with the FIS layer active. Under this hypothetical scenario &mdash; when the grid
+			The conditional case is more compelling and more accurate to what forward performance could look like with the RXI layer active. Under this hypothetical scenario &mdash; when the grid
 			composite&rsquo;s expected annual return is modeled at positive 8% &mdash; reflecting the mean of
 			the positive-return years in the dataset (2020, 2021, 2024 average approximately +10.3%), with
-			daily portfolio volatility reduced to 34% annualized reflecting FIS regime filtering and asset
-			quality selection &mdash; a 10 to 20% grid allocation improves the traditional 60/40 Sharpe ratio
+			daily portfolio volatility reduced to 34% annualized reflecting RXI regime filtering and asset quality selection &mdash; a 10 to 20% grid allocation improves the traditional 60/40 Sharpe ratio
 			by approximately 0.03 Sharpe units. The improvement is modest. It is also real.
 		</p>
 
 		<p class="mb-5 text-base leading-relaxed text-slate">
-			The FIS layer matters for this calculation specifically because it narrows return dispersion. The
-			full CoinRoc three-layer system &mdash; FIS regime gating combined with selection of the
-			highest-rated assets by grid suitability &mdash; reduces daily portfolio standard deviation by
+			The RXI layer matters for this calculation specifically because it narrows return dispersion. The full CoinRoc three-layer system &mdash; RXI regime gating combined with selection of the highest-rated assets by grid suitability &mdash; reduces daily portfolio standard deviation by
 			approximately 23% compared to an always-on baseline in the historical simulation data. Narrowing
 			dispersion without proportionally narrowing the income return is the definition of risk-adjusted
 			improvement.
@@ -625,7 +590,7 @@
 		<div class="fig-b1-2">
 		<div class="figure-shell">
 		  <div class="fig-header">
-		    <div class="fig-eyebrow">Fig. 2 &nbsp;&mdash;&nbsp; Yodacom Research &nbsp;|&nbsp; FIS Advisor Article B1 &nbsp;|&nbsp; 2026</div>
+		    <div class="fig-eyebrow">Fig. 2 &nbsp;&mdash;&nbsp; Yodacom Research &nbsp;|&nbsp; RXI Advisor Article B1 &nbsp;|&nbsp; 2026</div>
 		    <div class="fig-title">Portfolio Efficient Frontier: Effect of Adding a Grid Allocation</div>
 		    <div class="fig-subtitle">Sensitivity analysis framework &mdash; not a performance guarantee &nbsp;&bull;&nbsp; Advisor&rsquo;s own return-assumption modeling tool</div>
 		  </div>
@@ -641,7 +606,7 @@
 		      </div>
 		      <div class="legend-item">
 		        <div class="legend-line" style="background:#C8973A; height:3px;"></div>
-		        <div>60/40 + 20% Grid (FIS-gated)<br><span style="color:#7A7060; font-size:10px;">Conditional forward scenario</span></div>
+		        <div>60/40 + 20% Grid (RXI-gated)<br><span style="color:#7A7060; font-size:10px;">Conditional forward scenario</span></div>
 		      </div>
 		    </div>
 		    <div class="chart-outer">
@@ -679,7 +644,7 @@
 		        <text x="66" y="95"  text-anchor="end" font-family="'Helvetica Neue',Arial,sans-serif" font-size="10" fill="#7A7060">14%</text>
 		        <text x="66" y="34"  text-anchor="end" font-family="'Helvetica Neue',Arial,sans-serif" font-size="10" fill="#7A7060">16%</text>
 		        <text transform="translate(20,245) rotate(-90)" text-anchor="middle" font-family="'Helvetica Neue',Arial,sans-serif" font-size="11" fill="#142848">Return (Annualized, %)</text>
-		        <!-- Curve 3: FIS-Gated (ochre) -->
+		        <!-- Curve 3: RXI-Gated (ochre) -->
 		        <path d="M 118 337 C 140 315, 165 295, 235 264 C 280 247, 350 224, 399 208 C 450 192, 490 185, 586 178 C 632 174, 655 171, 679 171 L 679 460 L 118 460 Z"
 		              fill="#C8973A" fill-opacity="0.07"/>
 		        <path d="M 118 337 C 140 315, 165 295, 235 264 C 280 247, 350 224, 399 208 C 450 192, 490 185, 586 178 C 632 174, 655 171, 679 171"
@@ -696,7 +661,7 @@
 		        <rect x="286" y="240" width="134" height="28" rx="3" fill="#F9F6EF" stroke="#4A6FA5" stroke-width="1"/>
 		        <text x="353" y="252" text-anchor="middle" font-family="'Helvetica Neue',Arial,sans-serif" font-size="9.5" fill="#142848" font-weight="700">Reference: 60/40</text>
 		        <text x="353" y="264" text-anchor="middle" font-family="'Helvetica Neue',Arial,sans-serif" font-size="9" fill="#4A6FA5">Risk 12% / Return 7%</text>
-		        <!-- FIS improvement arrow -->
+		        <!-- RXI improvement arrow -->
 		        <line x1="370" y1="306" x2="370" y2="240" stroke="#C8973A" stroke-width="1.2" stroke-dasharray="3 2"/>
 		        <text x="374" y="278" font-family="'Helvetica Neue',Arial,sans-serif" font-size="9" fill="#8B5E10" font-weight="700">+~2.3pp return</text>
 		        <text x="374" y="289" font-family="'Helvetica Neue',Arial,sans-serif" font-size="9" fill="#8B5E10">at equal risk</text>
@@ -706,7 +671,7 @@
 		        <text x="732" y="233" font-family="'Helvetica Neue',Arial,sans-serif" font-size="10" fill="#4A6FA5">60/40</text>
 		        <text x="684" y="272" font-family="'Helvetica Neue',Arial,sans-serif" font-size="10" fill="#6B8FB8">Full history</text>
 		        <text x="684" y="284" font-family="'Helvetica Neue',Arial,sans-serif" font-size="10" fill="#6B8FB8">(incl. 2018, 2022)</text>
-		        <text x="684" y="162" font-family="'Helvetica Neue',Arial,sans-serif" font-size="10.5" fill="#8B5E10" font-weight="700">FIS-Gated</text>
+		        <text x="684" y="162" font-family="'Helvetica Neue',Arial,sans-serif" font-size="10.5" fill="#8B5E10" font-weight="700">RXI-Gated</text>
 		        <text x="684" y="175" font-family="'Helvetica Neue',Arial,sans-serif" font-size="10" fill="#8B5E10">Conditional</text>
 		        <!-- Correlation callout -->
 		        <rect x="78" y="38" width="296" height="80" rx="4" fill="#FFF8ED" stroke="#C8973A" stroke-width="1.2"/>
@@ -725,11 +690,7 @@
 		    </div>
 		    <div class="caveat-block">
 		      <div class="caveat-label">Important: Conditional Diversification</div>
-		      The near-zero correlation (&#x3C1; &#x2248; 0.02) that drives the frontier shift holds in ranging/normal market conditions.
-		      In loss years (2018, 2022), grid-to-SPY correlation was <strong>&#x3C1; &#x2248; +0.76</strong> &mdash; the diversification benefit
-		      largely disappeared precisely when it was most needed. The FIS-gated frontier (ochre curve) represents a conditional forward scenario:
-		      it assumes the grid&rsquo;s expected return is modeled at +8% per year, with portfolio volatility reduced to ~34% annualized via regime
-		      filtering and asset quality selection. This is a sensitivity analysis tool, not a performance projection.
+		      The near-zero correlation (&#x3C1; &#x2248; 0.02) that drives the frontier shift holds in ranging/normal market conditions. In loss years (2018, 2022), grid-to-SPY correlation was <strong>&#x3C1; &#x2248; +0.76</strong> &mdash; the diversification benefit largely disappeared precisely when it was most needed. The RXI-gated frontier (ochre curve) represents a conditional forward scenario: it assumes the grid&rsquo;s expected return is modeled at +8% per year, with portfolio volatility reduced to ~34% annualized via regime filtering and asset quality selection. This is a sensitivity analysis tool, not a performance projection.
 		    </div>
 		  </div>
 		  <div class="fig-footer">
@@ -737,7 +698,7 @@
 		      This diagram is a sensitivity analysis framework for advisors&rsquo; own return-assumption modeling. Not a projection or guarantee.
 		      All inputs derived from simulated backtesting 2017&ndash;2025 (17 assets, 135 walk-forward test periods). Full-history scenario uses
 		      composite CAGR including 2018 (&minus;62.9%) and 2022 (&minus;55.4%) bear years. Conditional scenario models grid return at +8% annualized
-		      reflecting mean of positive-return years (2020, 2021, 2024 average ~+11.5%), with volatility reduced to ~34% via FIS and asset quality selection.
+		      reflecting mean of positive-return years (2020, 2021, 2024 average ~+11.5%), with volatility reduced to ~34% via RXI and asset quality selection.
 		      Correlation estimates based on 9 annual observations; 95% CI &#x2248; &plusmn;0.40. See article disclosures for full methodology.
 		    </div>
 		    <div class="byline">
@@ -771,10 +732,7 @@
 		</p>
 
 		<p class="mb-5 text-base leading-relaxed text-slate">
-			A grid trading allocation with FIS regime detection addresses the correlation problem. The income
-			mechanism is mean-reversion in cryptocurrency price oscillation &mdash; structurally different from
-			equity risk. When the FIS filter is active, the strategy steps to cash in trending markets, which
-			are typically the same markets creating equity drawdowns. The client does not receive income in
+			A grid trading allocation with RXI regime detection addresses the correlation problem. The income mechanism is mean-reversion in cryptocurrency price oscillation &mdash; structurally different from equity risk. When the RXI filter is active, the strategy steps to cash in trending markets, which are typically the same markets creating equity drawdowns. The client does not receive income in
 			those periods, but neither do they experience the correlated drawdown that an equity-linked income
 			strategy would generate.
 		</p>
@@ -889,7 +847,7 @@
 		<div class="fig-b1-3">
 		<div class="figure-shell">
 		  <div class="fig-header">
-		    <div class="fig-eyebrow">Fig. 3 &nbsp;&mdash;&nbsp; Yodacom Research &nbsp;|&nbsp; FIS Advisor Article B1 &nbsp;|&nbsp; 2026</div>
+		    <div class="fig-eyebrow">Fig. 3 &nbsp;&mdash;&nbsp; Yodacom Research &nbsp;|&nbsp; RXI Advisor Article B1 &nbsp;|&nbsp; 2026</div>
 		    <div class="fig-title">Progressive Narrowing of Return Distribution: CoinRoc&rsquo;s Three-Layer System</div>
 		    <div class="fig-subtitle">Annual return distribution across 135 walk-forward test periods, 17 assets, 2017&ndash;2025 &nbsp;&bull;&nbsp; Each panel: box plot with individual fold markers</div>
 		  </div>
@@ -900,12 +858,12 @@
 		        <div class="panel-sublabel">No regime filter &bull; Full exposure<br>at all times</div>
 		      </div>
 		      <div>
-		        <div class="panel-label l2">Layer 2: FIS-Gated Grid</div>
+		        <div class="panel-label l2">Layer 2: RXI-Gated Grid</div>
 		        <div class="panel-sublabel">Regime filter active &bull; Cash in<br>defensive periods</div>
 		      </div>
 		      <div>
 		        <div class="panel-label l3">Layer 3: Full CoinRoc System</div>
-		        <div class="panel-sublabel">FIS + asset quality selection<br>(B&minus; or higher rated assets only)</div>
+		        <div class="panel-sublabel">RXI + asset quality selection<br>(B&minus; or higher rated assets only)</div>
 		      </div>
 		    </div>
 		    <div class="chart-outer">
@@ -964,7 +922,7 @@
 		        <circle cx="153" cy="385" r="2" fill="#142848" fill-opacity="0.3"/>
 		        <line x1="300" y1="12" x2="300" y2="404" stroke="#D6CFC0" stroke-width="1"/>
 		        <line x1="330" y1="12" x2="330" y2="404" stroke="#D6CFC0" stroke-width="1"/>
-		        <!-- Panel 2: FIS-Gated (Slate Blue) -->
+		        <!-- Panel 2: RXI-Gated (Slate Blue) -->
 		        <line x1="480" y1="255" x2="480" y2="271" stroke="#3A6090" stroke-width="1.5"/>
 		        <line x1="468" y1="255" x2="492" y2="255" stroke="#3A6090" stroke-width="1.5"/>
 		        <rect x="440" y="271" width="80" height="106" rx="2" fill="#3A6090" fill-opacity="0.13" stroke="#3A6090" stroke-width="1.8"/>
@@ -1057,7 +1015,7 @@
 		          <div class="r-pct" style="color:#8FA8C8;">Baseline</div>
 		        </div>
 		        <div class="reduction-bar-row">
-		          <div class="r-label">Layer 2: FIS-Gated</div>
+		          <div class="r-label">Layer 2: RXI-Gated</div>
 		          <div class="r-bar-outer">
 		            <div class="r-bar-fill" style="width:86.4%; background:#3A6090;">
 		              <span class="r-bar-value">38% annualized</span>
@@ -1079,7 +1037,7 @@
 		  </div>
 		  <div class="fig-footer">
 		    <div class="footnote">
-		      Distribution based on simulated 2017&ndash;2025 walk-forward data (135 valid periods, 17 assets). Layer 1: AdaptiveGrid v3DynamicMode, no filter. Layer 2: FIS&trade; regime gating applied (47/135 periods classified defensive, capital held in cash). Layer 3: FIS&trade; + CoinRoc proprietary GSI&trade;/CSI&trade; asset quality selection (B&minus; rated or higher assets only). Layer 2 and Layer 3 statistics include estimation for regime-filtered periods not individually stored in the walk-forward output; values marked &ldquo;~&rdquo; are bounded approximations based on simulation assumptions. Asset selection reflects pre-specified universe; survivorship bias may affect results. Past simulation does not guarantee future results. Box plots show IQR (Q1&ndash;Q3), median, and distribution extent. Mean shown as (&times;). Worst-period values shown for informational context.
+		      Distribution based on simulated 2017&ndash;2025 walk-forward data (135 valid periods, 17 assets). Layer 1: AdaptiveGrid v3DynamicMode, no filter. Layer 2: RXI&trade; regime gating applied (47/135 periods classified defensive, capital held in cash). Layer 3: RXI&trade; + CoinRoc proprietary GSI&trade;/CSI&trade; asset quality selection (B&minus; rated or higher assets only). Layer 2 and Layer 3 statistics include estimation for regime-filtered periods not individually stored in the walk-forward output; values marked &ldquo;~&rdquo; are bounded approximations based on simulation assumptions. Asset selection reflects pre-specified universe; survivorship bias may affect results. Past simulation does not guarantee future results. Box plots show IQR (Q1&ndash;Q3), median, and distribution extent. Mean shown as (&times;). Worst-period values shown for informational context.
 		    </div>
 		    <div class="byline">
 		      <strong>YODACOM RESEARCH</strong>
@@ -1116,9 +1074,7 @@
 			strategy generates realized income consistent with the grid&rsquo;s historical income in positive
 			test years. In positive test periods, grid income ranged from 0.6% to 23.3%, with a mean of 10.5%
 			and a median of 9.3%. The near-zero correlation with US equities is a genuine property of the
-			return mechanism, not a statistical artifact. The FIS regime filter demonstrably removes the worst
-			tail outcomes in the simulation data &mdash; as illustrated by ETH 2018, where a trending
-			classification (Hurst 0.605) converted a 61.6% always-on loss to a 0% cash-hold period.
+			return mechanism, not a statistical artifact. The RXI regime filter demonstrably removes the worst tail outcomes in the simulation data &mdash; as illustrated by ETH 2018, where a trending classification (Hurst 0.605) converted a 61.6% always-on loss to a 0% cash-hold period.
 		</p>
 
 		<p class="mb-5 text-base leading-relaxed text-slate">
@@ -1126,9 +1082,7 @@
 			Eight years of data is a relatively short history, and the two worst years in that period &mdash;
 			2018 and 2022 &mdash; disproportionately penalize the long-run statistics. The portfolio
 			diversification benefit is conditional on the grid generating positive returns, which requires
-			favorable ranging market conditions. In severe crypto bear markets, the strategy can experience
-			substantial losses even with the FIS filter, because FIS classifies regime signals in real time
-			and cannot perfectly gate every defensive period before losses occur.
+			favorable ranging market conditions. In severe crypto bear markets, the strategy can experience substantial losses even with the RXI filter, because RXI classifies regime signals in real time and cannot perfectly gate every defensive period before losses occur.
 		</p>
 
 		<p class="mb-5 text-base leading-relaxed text-slate">
@@ -1224,8 +1178,7 @@
 				is made that future returns will equal or approximate this figure.
 			</p>
 			<p>
-				CoinRoc and the FIS, GSI, and CSI systems described in this article are in pre-launch
-				development as of the date of publication. This article describes research findings and
+				CoinRoc and the RXI, GSI, and CSI systems described in this article are in pre-launch development as of the date of publication. This article describes research findings and
 				methodology; it does not describe a currently available product or service.
 			</p>
 			<p>
@@ -1235,9 +1188,7 @@
 				regulatory advice.
 			</p>
 			<p>
-				CoinRoc indicators &mdash; FIS, GSI, and CSI &mdash; are proprietary systems developed by
-				Yodacom Research. FIS, GSI, and CSI are trademarks of Yodacom LLC, trademark registration
-				pending with the United States Patent and Trademark Office.
+				CoinRoc indicators &mdash; RXI, GSI, and CSI &mdash; are proprietary systems developed by Yodacom Research. RXI, GSI, and CSI are trademarks of Yodacom LLC, trademark registration pending with the United States Patent and Trademark Office.
 			</p>
 			<p>
 				Readers should consult a qualified financial professional, investment advisor, and legal counsel
