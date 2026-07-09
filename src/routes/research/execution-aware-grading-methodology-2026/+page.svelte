@@ -73,6 +73,8 @@
 
 <p>The <code>grid_return_active_pct</code> column, added in migration 108, computes the grid strategy's return across only those sub-windows where gridEngagement &gt;= 0.65. This is the metric that answers the correct question: <strong>when the grid was running, how did it perform?</strong></p>
 
+<p>The active-period figures reported in &sect;2.3 below were computed by a separate, retrospective classification pass over historical candles. They are not derived from the live <code>gridEngagement</code> circuit-breaker described above; the specific backtest runs referenced in this section used a fixed engagement setting across all symbols for this test window.</p>
+
 <h3>2.2 Methodology</h3>
 
 <p><strong>Filter change.</strong> The Discovery filter was changed from:</p>
@@ -110,7 +112,7 @@ threshold: -25% unchanged</code></pre>
 <p>Selected assets from the named-major review:</p>
 
 <table>
-<thead><tr><th>Symbol</th><th>Blended Return</th><th>Active Return</th><th>FIS Engagement (Yr2)</th><th>Verdict</th></tr></thead>
+<thead><tr><th>Symbol</th><th>Blended Return</th><th>Active Return</th><th>Regime-Active % (Yr2, retrospective classifier — see &sect;2.1 note)</th><th>Verdict</th></tr></thead>
 <tbody>
 <tr><td>SOLUSDT</td><td>-45.5%</td><td>-9.8%</td><td>77.0%</td><td>Wrongly hidden</td></tr>
 <tr><td>LINKUSDT</td><td>-39.6%</td><td>+2.1%</td><td>71.2%</td><td>Wrongly hidden</td></tr>
@@ -124,7 +126,7 @@ threshold: -25% unchanged</code></pre>
 </tbody>
 </table>
 
-<p><strong>The BTC case is instructive as a sanity check.</strong> BTC shows 100% FIS engagement in Year 2 &mdash; the FIS classified BTC as grid-appropriate for the entire period and never stepped to cash. Therefore, BTC's blended return IS its active-period return; there is no cash-period distortion. The -40.2% active return is a genuine grid mechanism failure, and BTC is correctly filtered from Discovery regardless of which metric is used. This confirms the filter design is doing the right thing: it does not accidentally rescue assets that genuinely underperform.</p>
+<p><strong>The BTC case is instructive as a sanity check.</strong> BTC's blended and active-period returns are identical (-40.2% both) because the retrospective classifier found no candles in Year 2 it would exclude from the active window &mdash; not because BTC's simulation run itself avoided a cash-hold state (this test's engagement setting was fixed, not live-gated; see &sect;2.1). This numeric equivalence is still a valid sanity check on the active-period metric's construction: since no candles were excluded, no distortion could have been introduced by the exclusion step, regardless of what generated the underlying P&amp;L. The -40.2% active return is a genuine grid mechanism failure, and BTC is correctly filtered from Discovery regardless of which metric is used.</p>
 
 <p><strong>Post-fix state:</strong> Visible assets on Discovery moved from approximately 48 to approximately 75 (of 97), with genuinely failing assets shown in the <code>hiddenAtTier</code> section with explicit reason labels.</p>
 
@@ -283,7 +285,7 @@ threshold: -25% unchanged</code></pre>
 
 <p>The switch to active-period return assumes that the FIS is correctly classifying market regimes &mdash; that cash-hold periods genuinely represent market conditions where the grid strategy should not run. If the FIS has systematic classification errors (e.g., it holds cash too long in mildly trending markets that a grid could profitably navigate), the active-period return would overstate the grid mechanism's quality by excluding windows where the FIS was wrong to step aside.</p>
 
-<p>Validating FIS regime accuracy is a separate research question. The active-period metric is preferable to the blended metric under the assumption that the FIS is reasonably calibrated. The BTC case provides a partial validation: BTC's 100% engagement with -40.2% active return confirms the FIS is not over-cautious &mdash; it genuinely attempted to run the grid on BTC throughout the period.</p>
+<p>Validating FIS regime accuracy is a separate research question. The active-period metric is preferable to the blended metric under the assumption that the FIS is reasonably calibrated. The BTC case provides a partial validation of the metric's construction, though not of live FIS behavior: BTC's active and blended returns are identical (-40.2% both) because the retrospective classifier found no candles to exclude for BTC in Year 2 &mdash; not because a live grid-engagement gate ran the strategy on BTC throughout the period (this test's engagement setting was fixed, not live-gated; see &sect;2.1).</p>
 
 <h3>5.5 Year 2 Forward Test as a Single Walk-Forward Fold</h3>
 

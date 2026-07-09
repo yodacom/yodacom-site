@@ -325,6 +325,7 @@
     <p>CoinRoc's grid strategy uses the <strong>FIS™</strong> (Fuzzy Intelligence System) to decide when it's safe to trade. When the market trends sharply in one direction, the FIS classifies that regime as unfavorable for grids and steps the strategy to a <strong>cash-hold state</strong>.</p>
     <p>That's intentional. Grids earn by buying low and selling high within a range — they're not designed to profit in a strong trend. Stepping to cash is the correct response.</p>
     <p>The problem: the old <strong>blended return</strong> measured total portfolio value across the entire evaluation window — including the cash-hold periods. So when the underlying asset dropped 45% during a trend, the portfolio value dropped too, even though the grid strategy was correctly sitting on the sidelines.</p>
+    <p style="font-size:0.85rem;color:#8892a4;">Note: the specific backtests referenced throughout this explainer used a fixed grid-engagement test setting across all symbols, not this live FIS gate — the SOL and BTC figures below come from a separate, retrospective classification pass over historical candles. See the methodology paper, &sect;2.1, for the distinction between that test configuration and the FIS&rsquo;s designed cash-hold behavior.</p>
 
     <div class="insight">
       <div class="insight-label">Key insight</div>
@@ -408,7 +409,7 @@
   <!-- SECTION 2: The Fix — SOL worked example -->
   <section>
     <h2>SOL: wrongly hidden, now restored</h2>
-    <p>SOL is the clearest example of the blended-return distortion. In Year 2, SOL's <strong>blended return was -45.5%</strong> — which filtered it off the Discovery page entirely. But SOL's FIS™ engagement was 77% — meaning the grid sat in cash for 23% of the evaluation window, correctly avoiding bearish regimes.</p>
+    <p>SOL is the clearest example of the blended-return distortion. In Year 2, SOL's <strong>blended return was -45.5%</strong> — which filtered it off the Discovery page entirely. A retrospective classifier found that roughly 23% of the window would have qualified as a cash-hold-favorable regime under the FIS's design rules. (Note: the specific backtest measured here used a fixed grid-engagement setting for all symbols, so the strategy did not literally pause during that 23% — see the methodology paper for the distinction.)</p>
     <p>When you measure only the active windows — the periods the grid actually ran — SOL's return was <strong>-9.8%</strong>. That's a grid mechanism performing within tolerance, not a failing strategy. Under active-period grading, SOL is correctly restored to Discovery.</p>
 
     <div class="two-col">
@@ -463,8 +464,8 @@
         <p style="font-size: 0.95rem;">The grid wasn't failing — the market was falling while the grid wasn't even running. Active-period return sees the difference.</p>
         <div style="margin-top: 18px; padding: 14px 18px; background: #161b27; border-radius: 8px; border: 1px solid #1e2535; font-size: 0.85rem; color: #8892a4;">
           <div style="font-weight: 700; color: #c0c8d8; margin-bottom: 6px;">SOL key stats (Year 2)</div>
-          <div>FIS™ Engagement: <code>77.0%</code></div>
-          <div style="margin-top: 4px;">Cash-hold share: <code>23.0%</code></div>
+          <div>Regime-Active % (retrospective): <code>77.0%</code></div>
+          <div style="margin-top: 4px;">Retrospective cash-hold-favorable share: <code>23.0%</code></div>
           <div style="margin-top: 4px;">Verdict: <span class="green">Wrongly hidden → Restored</span></div>
         </div>
       </div>
@@ -474,7 +475,7 @@
   <!-- SECTION 3: BTC — honest counter-case -->
   <section>
     <h2>BTC: genuinely failing — and that's the system working correctly</h2>
-    <p>BTC's blended return in Year 2 was <strong>-31.8%</strong>. But unlike SOL, BTC's FIS™ engagement was <strong>100%</strong> — the FIS classified BTC as grid-appropriate for the entire evaluation window and never stepped to cash.</p>
+    <p>BTC's blended return in Year 2 was <strong>-31.8%</strong>. BTC's active and blended returns are identical because the retrospective classifier found no candles in the period it would exclude — not because BTC's simulation run itself avoided a cash-hold state (this test's engagement setting was fixed, not live-gated; see the methodology paper, &sect;2.1).</p>
     <p>That means BTC's blended return and active-period return are <strong>identical</strong>. There's no cash-period distortion to correct for. The -40.2% active return is a genuine grid mechanism failure — the strategy ran, and it lost.</p>
 
     <div class="insight">
@@ -507,17 +508,17 @@
           <text x="195" y="66" text-anchor="middle" font-size="11" fill="#f87171" font-family="inherit" font-weight="700"
             style="animation: fadeIn 0.4s ease 1.2s both">-40.2%</text>
           <text x="195" y="204" text-anchor="middle" font-size="10" fill="#8892a4" font-family="inherit">Active</text>
-          <text x="195" y="215" text-anchor="middle" font-size="9" fill="#f87171" font-family="inherit">(grid ran 100% of window)</text>
+          <text x="195" y="215" text-anchor="middle" font-size="9" fill="#f87171" font-family="inherit">(no candles excluded — regime-active 100%)</text>
 
           <!-- Threshold line -->
           <line x1="30" y1="118" x2="260" y2="118" stroke="#fbbf24" stroke-width="1" stroke-dasharray="3,3"/>
           <text x="26" y="122" text-anchor="end" font-size="9" fill="#fbbf24" font-family="inherit">-25%</text>
 
           <!-- 100% engagement label -->
-          <text x="140" y="180" text-anchor="middle" font-size="9" fill="#8892a4" font-family="inherit">FIS™ Engagement: </text>
+          <text x="140" y="180" text-anchor="middle" font-size="9" fill="#8892a4" font-family="inherit">Regime-Active %: </text>
           <text x="140" y="192" text-anchor="middle" font-size="14" fill="#c8d0e0" font-family="inherit" font-weight="800"
             style="animation: countUp 0.5s ease 0.8s both">100%</text>
-          <text x="140" y="203" text-anchor="middle" font-size="9" fill="#5a6278" font-family="inherit">Grid ran the entire window</text>
+          <text x="140" y="203" text-anchor="middle" font-size="9" fill="#5a6278" font-family="inherit">No candles excluded from active window</text>
         </svg>
         <style>
           @keyframes growBTCBlend {
@@ -534,7 +535,7 @@
       <div style="font-size: 0.9rem; color: #8892a4;">
         <div style="margin-bottom: 16px; padding: 14px 18px; background: #2d1a1a; border-radius: 8px; border: 1px solid #7f1d1d;">
           <div style="font-weight: 700; color: #fca5a5; margin-bottom: 8px;">BTC verdict: Genuinely failing</div>
-          <div>FIS™ ran the grid all year.</div>
+          <div>No candles excluded from the active window (regime-active: 100%).</div>
           <div style="margin-top: 4px;">No cash periods to correct for.</div>
           <div style="margin-top: 4px;">Active return of -40.2% = the grid itself underperformed.</div>
           <div style="margin-top: 8px; color: #f87171; font-weight: 600;">Correctly remains hidden from Discovery.</div>
@@ -630,7 +631,7 @@
       <ul>
         <li><strong>Blended return measures market exposure, not grid performance.</strong> If the FIS correctly stepped to cash during a drawdown, charging the grid for that drawdown is measuring the wrong thing.</li>
         <li><strong>Active-period return is the honest metric.</strong> It answers "when the grid was running, how did it do?" — the question that actually matters to the strategy's design.</li>
-        <li><strong>The sanity check holds:</strong> BTC (100% FIS engagement) failed on both metrics, confirming the filter restores only wrongly penalized assets — not genuinely failing ones.</li>
+        <li><strong>The sanity check holds:</strong> BTC (100% regime-active, per the retrospective classifier) failed on both metrics, confirming the filter restores only wrongly penalized assets — not genuinely failing ones.</li>
       </ul>
     </div>
   </section>

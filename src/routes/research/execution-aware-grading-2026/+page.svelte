@@ -3,13 +3,6 @@
 	<meta name="description" content="Two methodology corrections to CoinRoc's asset grading system: active-period return (not blended return) and a liquidity-aware grade cap. Why a strong backtest can now result in a lower published grade — and why that is correct." />
 	<meta property="og:title" content="Why a Quality Grade Must Reflect What You Can Actually Trade | Yodacom Research" />
 	<meta property="og:description" content="Execution-aware grading: how CoinRoc corrected two systematic biases in its asset grading system — blended-return distortion and liquidity-optimism — for advisors and RIAs evaluating grid strategies." />
-	<meta property="og:image" content="https://yodacom.com/research/execution-aware-grading-2026/fig-active-vs-blended.png" />
-	<meta property="og:image:width" content="1800" />
-	<meta property="og:image:height" content="904" />
-	<meta name="twitter:card" content="summary_large_image" />
-	<meta name="twitter:title" content="Why a Quality Grade Must Reflect What You Can Actually Trade | Yodacom Research" />
-	<meta name="twitter:description" content="Execution-aware grading: how CoinRoc corrected two systematic biases in its asset grading system — blended-return distortion and liquidity-optimism — for advisors and RIAs evaluating grid strategies." />
-	<meta name="twitter:image" content="https://yodacom.com/research/execution-aware-grading-2026/fig-active-vs-blended.png" />
 </svelte:head>
 
 <!-- Back link -->
@@ -80,10 +73,8 @@
 
 <p>The practical distortion was significant. In the 97-asset catalog analyzed by Yodacom Research, approximately 37 assets were being hidden from Discovery by a performance filter based on this blended return metric. SQL analysis against the corrected active-period return (grid performance evaluated only in windows when the FIS classified the market as grid-appropriate) found that 27 of those 37 assets &mdash; 73% &mdash; would pass the filter under the correct metric. Six of those 27 showed positive active-period grid returns despite strongly negative blended returns.</p>
 
-<div class="my-8 not-prose">
-	<div class="text-xs font-semibold uppercase tracking-wider text-slate-light mb-2">Figure &mdash; Active vs. Blended Return</div>
-	<img src="/research/execution-aware-grading-2026/fig-active-vs-blended.png" alt="Grouped bar chart comparing blended vs. active-period return for 9 assets, with BTC sanity-check annotation" class="w-full rounded border border-rule" />
-	<div class="text-xs text-slate-light mt-2 italic">Simulated / Illustrative Data. Blended vs. active-period return, 9-asset sample. Yodacom Research.</div>
+<div class="my-8 not-prose rounded border border-rule bg-paper px-5 py-4 text-sm italic leading-relaxed text-slate">
+	Figure removed pending correction (2026-07-08) &mdash; the prior chart labeled its regime-classification figures as describing live FIS cash-hold behavior for the specific backtest runs shown; that description was inaccurate. A corrected figure will be republished once relabeled. See the interactive explainer below and the methodology paper for the current, accurate description.
 </div>
 
 <div class="my-8 not-prose">
@@ -99,7 +90,7 @@
 </div>
 
 <table>
-<thead><tr><th>Symbol</th><th>Blended Return</th><th>Active-Period Return</th><th>FIS Engagement</th></tr></thead>
+<thead><tr><th>Symbol</th><th>Blended Return</th><th>Active-Period Return</th><th>Regime-Active % (retrospective classifier)</th></tr></thead>
 <tbody>
 <tr><td>SOL/USDT</td><td>-45.5%</td><td>-9.8%</td><td>77.0%</td></tr>
 <tr><td>LINK/USDT</td><td>-39.6%</td><td>+2.1%</td><td>71.2%</td></tr>
@@ -108,9 +99,11 @@
 </tbody>
 </table>
 
+<p class="text-xs text-slate-light italic">Regime-Active % is computed by a separate, after-the-fact classification pass over historical candles &mdash; not the gate that determined trading activity in the backtests shown here.</p>
+
 <p><em>All figures are simulated backtest results from a Year 2 blind forward test. Past simulated performance is not indicative of future results. All figures reflect the retail-binance-us fee tier, Year 2 blind forward test window, under a specific grid strategy configuration. Results will differ at other fee tiers, capital sizes, or grid configurations.</em></p>
 
-<p>The BTC case provides a useful validation. BTC showed 100% FIS engagement in the evaluation period &mdash; meaning the FIS classified BTC as grid-appropriate throughout and never stepped to cash. As a result, BTC's blended return and active-period return are identical: -40.2%. BTC is correctly hidden regardless of which metric is used. The corrected methodology rescues assets that were wrongly penalized; it does not rescue assets that genuinely fail on the grid mechanism's own terms.</p>
+<p>The BTC case provides a useful validation. BTC's active-period return equals its blended return (-40.2% both) because the retrospective regime classifier used to compute the active-period window found no candles in the period it would exclude &mdash; not because the simulation itself toggled the strategy to cash. (The specific backtests referenced in this article used a fixed grid-engagement setting across all symbols; see the methodology paper, &sect;2.1, for the distinction between that test configuration and the FIS's designed cash-hold behavior.) BTC is correctly hidden regardless of which metric is used. The corrected methodology rescues assets that were wrongly penalized; it does not rescue assets that genuinely fail on the grid mechanism's own terms.</p>
 
 <p>For due-diligence purposes: the appropriate question to ask about any grid strategy grade is not &ldquo;what was the portfolio return over this period?&rdquo; but &ldquo;what was the grid mechanism's return during the windows when it was running?&rdquo; These can diverge substantially in trending markets. A grade that blends the two gives you a number that corresponds to neither question cleanly.</p>
 
