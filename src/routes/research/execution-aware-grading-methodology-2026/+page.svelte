@@ -61,7 +61,7 @@
 
 <h3>2.1 Background: Blended Return and Its Distortion</h3>
 
-<p>CoinRoc's grid strategy operates under the direction of the Adaptive Grid FIS, a fuzzy inference system that classifies market regimes and sets a grid engagement score (gridEngagement &isin; [0, 1]). When gridEngagement falls below 0.65, the FIS steps the strategy to a cash-hold state. This is intentional behavior: the grid strategy is fundamentally short-volatility and works best in ranging, mean-reverting markets. In strongly trending markets, a correctly-designed grid system should stand aside.</p>
+<p>CoinRoc's grid strategy operates under the direction of the Adaptive Grid FIS, a regime-classification system that classifies market regimes and sets a grid engagement score (gridEngagement &isin; [0, 1]). When gridEngagement falls below 0.65, the FIS pauses new grid buy orders &mdash; existing inventory continues to be managed by the strategy, but no new capital is deployed into the grid until conditions improve. This is intentional behavior: the grid strategy is fundamentally short-volatility and works best in ranging, mean-reverting markets. In strongly trending markets, a correctly-designed grid system should stand aside.</p>
 
 <p>Prior to the 2026-06-12 fix, the Discovery page filter used <code>grid_return_percent</code> as its gating metric. This is the <strong>blended full-period return</strong> &mdash; the total portfolio return across all of Year 2 (the blind forward test period), regardless of whether the FIS was actively running the grid or holding cash. The schema's own docblock contained a direct warning about this:</p>
 
@@ -69,7 +69,7 @@
 
 <p>Despite the warning, <code>grid_return_percent</code> was the column being evaluated.</p>
 
-<p>In a trending-down market, the blended return absorbs the directional portfolio drawdown even during cash-hold periods &mdash; because the total portfolio value tracks the underlying asset price, not just grid profit and loss. The FIS may correctly classify the market as unsuitable for grid trading, step to cash, and protect the user from the worst of the trend &mdash; yet the blended return penalizes the asset for the directional move that the strategy correctly avoided.</p>
+<p>In a trending-down market, the blended return absorbs the directional portfolio drawdown even during paused periods &mdash; because the total portfolio value tracks the underlying asset price, not just grid profit and loss. The FIS may correctly classify the market as unsuitable for grid trading, pause new buys, and protect the user from the worst of the trend &mdash; yet the blended return penalizes the asset for the directional move that the strategy correctly avoided.</p>
 
 <p>The <code>grid_return_active_pct</code> column, added in migration 108, computes the grid strategy's return across only those sub-windows where gridEngagement &gt;= 0.65. This is the metric that answers the correct question: <strong>when the grid was running, how did it perform?</strong></p>
 
@@ -111,6 +111,8 @@ threshold: -25% unchanged</code></pre>
 
 <p>Selected assets from the named-major review:</p>
 
+<p>Note: the Regime-Active % column is the retrospective classification described in &sect;2.1, not the live <code>gridEngagement</code> gate. The Blended Return and Active Return figures for all nine symbols below come from backtest runs that used a fixed grid-engagement setting, not the live FIS decision.</p>
+
 <table>
 <thead><tr><th>Symbol</th><th>Blended Return</th><th>Active Return</th><th>Regime-Active % (Yr2, retrospective classifier — see &sect;2.1 note)</th><th>Verdict</th></tr></thead>
 <tbody>
@@ -126,7 +128,7 @@ threshold: -25% unchanged</code></pre>
 </tbody>
 </table>
 
-<p><strong>The BTC case is instructive as a sanity check.</strong> BTC's blended and active-period returns are identical (-40.2% both) because the retrospective classifier found no candles in Year 2 it would exclude from the active window &mdash; not because BTC's simulation run itself avoided a cash-hold state (this test's engagement setting was fixed, not live-gated; see &sect;2.1). This numeric equivalence is still a valid sanity check on the active-period metric's construction: since no candles were excluded, no distortion could have been introduced by the exclusion step, regardless of what generated the underlying P&amp;L. The -40.2% active return is a genuine grid mechanism failure, and BTC is correctly filtered from Discovery regardless of which metric is used.</p>
+<p><strong>The BTC case is instructive as a sanity check.</strong> BTC's blended and active-period returns are identical (-40.2% both) because the retrospective classifier found no candles in Year 2 it would exclude from the active window &mdash; not because BTC's simulation run itself avoided a pause state (this test's engagement setting was fixed, not live-gated; see &sect;2.1). This numeric equivalence is still a valid sanity check on the active-period metric's construction: since no candles were excluded, no distortion could have been introduced by the exclusion step, regardless of what generated the underlying P&amp;L. The -40.2% active return is a genuine grid mechanism failure, and BTC is correctly filtered from Discovery regardless of which metric is used.</p>
 
 <p><strong>Post-fix state:</strong> Visible assets on Discovery moved from approximately 48 to approximately 75 (of 97), with genuinely failing assets shown in the <code>hiddenAtTier</code> section with explicit reason labels.</p>
 
@@ -254,7 +256,7 @@ threshold: -25% unchanged</code></pre>
 <table>
 <thead><tr><th>Dimension</th><th>Old measure</th><th>Problem</th><th>Corrected measure</th></tr></thead>
 <tbody>
-<tr><td>Timing</td><td>Blended full-period return</td><td>Penalizes regime-appropriate cash holds</td><td>Active-period (FIS-gated) return</td></tr>
+<tr><td>Timing</td><td>Blended full-period return</td><td>Penalizes regime-appropriate pauses</td><td>Active-period (FIS-gated) return</td></tr>
 <tr><td>Execution</td><td>Fill at simulated price</td><td>Assumes infinite depth and no market impact</td><td>Liquidity-capped grade + disclosure when depth is insufficient</td></tr>
 </tbody>
 </table>
@@ -283,7 +285,7 @@ threshold: -25% unchanged</code></pre>
 
 <h3>5.4 Active-Period Return Does Not Validate FIS Regime Accuracy</h3>
 
-<p>The switch to active-period return assumes that the FIS is correctly classifying market regimes &mdash; that cash-hold periods genuinely represent market conditions where the grid strategy should not run. If the FIS has systematic classification errors (e.g., it holds cash too long in mildly trending markets that a grid could profitably navigate), the active-period return would overstate the grid mechanism's quality by excluding windows where the FIS was wrong to step aside.</p>
+<p>The switch to active-period return assumes that the FIS is correctly classifying market regimes &mdash; that paused periods genuinely represent market conditions where the grid strategy should not run. If the FIS has systematic classification errors (e.g., it pauses too long in mildly trending markets that a grid could profitably navigate), the active-period return would overstate the grid mechanism's quality by excluding windows where the FIS was wrong to step aside.</p>
 
 <p>Validating FIS regime accuracy is a separate research question. The active-period metric is preferable to the blended metric under the assumption that the FIS is reasonably calibrated. The BTC case provides a partial validation of the metric's construction, though not of live FIS behavior: BTC's active and blended returns are identical (-40.2% both) because the retrospective classifier found no candles to exclude for BTC in Year 2 &mdash; not because a live grid-engagement gate ran the strategy on BTC throughout the period (this test's engagement setting was fixed, not live-gated; see &sect;2.1).</p>
 

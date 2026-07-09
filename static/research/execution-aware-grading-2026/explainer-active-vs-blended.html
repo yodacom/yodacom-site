@@ -322,10 +322,10 @@
   <!-- SECTION 1: The Problem -->
   <section>
     <h2>Why the old metric was measuring the wrong thing</h2>
-    <p>CoinRoc's grid strategy uses the <strong>FIS™</strong> (Fuzzy Intelligence System) to decide when it's safe to trade. When the market trends sharply in one direction, the FIS classifies that regime as unfavorable for grids and steps the strategy to a <strong>cash-hold state</strong>.</p>
-    <p>That's intentional. Grids earn by buying low and selling high within a range — they're not designed to profit in a strong trend. Stepping to cash is the correct response.</p>
-    <p>The problem: the old <strong>blended return</strong> measured total portfolio value across the entire evaluation window — including the cash-hold periods. So when the underlying asset dropped 45% during a trend, the portfolio value dropped too, even though the grid strategy was correctly sitting on the sidelines.</p>
-    <p style="font-size:0.85rem;color:#8892a4;">Note: the specific backtests referenced throughout this explainer used a fixed grid-engagement test setting across all symbols, not this live FIS gate — the SOL and BTC figures below come from a separate, retrospective classification pass over historical candles. See the methodology paper, &sect;2.1, for the distinction between that test configuration and the FIS&rsquo;s designed cash-hold behavior.</p>
+    <p>CoinRoc's grid strategy uses the <strong>FIS™</strong> regime-classification system to decide when it's safe to trade. When the market trends sharply in one direction, the FIS classifies that regime as unfavorable for grids and <strong>pauses new grid buy orders</strong> — existing inventory continues to be managed by the strategy, but no new capital is deployed into the grid until conditions improve.</p>
+    <p>That's intentional. Grids earn by buying low and selling high within a range — they're not designed to profit in a strong trend. Pausing new buys is the correct response.</p>
+    <p>The problem: the old <strong>blended return</strong> measured total portfolio value across the entire evaluation window — including the paused periods. So when the underlying asset dropped 45% during a trend, the portfolio value dropped too, even though the grid strategy was correctly sitting on the sidelines.</p>
+    <p style="font-size:0.85rem;color:#8892a4;">Note: the specific backtests referenced throughout this explainer used a fixed grid-engagement test setting across all symbols, not this live FIS gate — the SOL and BTC figures below come from a separate, retrospective classification pass over historical candles. See the methodology paper, &sect;2.1, for the distinction between that test configuration and the FIS&rsquo;s designed pause-and-resume behavior.</p>
 
     <div class="insight">
       <div class="insight-label">Key insight</div>
@@ -334,10 +334,10 @@
 
     <div class="two-col">
       <div>
-        <p style="font-size:0.95rem; color:#8892a4; margin-bottom: 16px;">The portfolio tracks the asset price even during cash holds — so a market-level drop shows up as a strategy loss.</p>
+        <p style="font-size:0.95rem; color:#8892a4; margin-bottom: 16px;">The portfolio tracks the asset price even during paused periods — so a market-level drop shows up as a strategy loss.</p>
       </div>
       <div class="svg-wrap">
-        <!-- Portfolio value tracking underlying during cash hold -->
+        <!-- Portfolio value tracking underlying during paused period -->
         <svg viewBox="0 0 380 220" xmlns="http://www.w3.org/2000/svg" aria-label="Chart showing blended return absorbing cash-period drawdown">
           <defs>
             <marker id="arr1" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
@@ -355,10 +355,10 @@
           <text x="34" y="104" text-anchor="end" font-size="10" fill="#5a6278" font-family="inherit">-20%</text>
           <text x="34" y="154" text-anchor="end" font-size="10" fill="#5a6278" font-family="inherit">-40%</text>
 
-          <!-- Cash-hold zone shading -->
+          <!-- Paused-period zone shading -->
           <rect x="160" y="20" width="120" height="170" fill="#1a7a4a" fill-opacity="0.06" rx="0"/>
-          <text x="220" y="36" text-anchor="middle" font-size="9" fill="#1a7a4a" font-family="inherit" font-weight="700">GRID IN CASH</text>
-          <text x="220" y="47" text-anchor="middle" font-size="9" fill="#4ade80" fill-opacity="0.6" font-family="inherit">FIS™ stepped aside</text>
+          <text x="220" y="36" text-anchor="middle" font-size="9" fill="#1a7a4a" font-family="inherit" font-weight="700">GRID PAUSED</text>
+          <text x="220" y="47" text-anchor="middle" font-size="9" fill="#4ade80" fill-opacity="0.6" font-family="inherit">FIS™ paused new buys</text>
 
           <!-- Blended return path (portfolio tracks asset) -->
           <!-- Active period 1: grid running, slight gain -->
@@ -367,7 +367,7 @@
             fill="none" stroke="#f87171" stroke-width="2"
             stroke-dasharray="600" stroke-dashoffset="600"
             style="animation: drawLine 0.8s ease 0.2s forwards"/>
-          <!-- Cash hold: portfolio falls with asset -->
+          <!-- Paused period: portfolio falls with asset -->
           <polyline
             points="160,50 200,85 240,120 280,148"
             fill="none" stroke="#f87171" stroke-width="2"
@@ -409,7 +409,7 @@
   <!-- SECTION 2: The Fix — SOL worked example -->
   <section>
     <h2>SOL: wrongly hidden, now restored</h2>
-    <p>SOL is the clearest example of the blended-return distortion. In Year 2, SOL's <strong>blended return was -45.5%</strong> — which filtered it off the Discovery page entirely. A retrospective classifier found that roughly 23% of the window would have qualified as a cash-hold-favorable regime under the FIS's design rules. (Note: the specific backtest measured here used a fixed grid-engagement setting for all symbols, so the strategy did not literally pause during that 23% — see the methodology paper for the distinction.)</p>
+    <p>SOL is the clearest example of the blended-return distortion. In Year 2, SOL's <strong>blended return was -45.5%</strong> — which filtered it off the Discovery page entirely. A retrospective classifier found that roughly 23% of the window would have qualified as a pause-favorable regime under the FIS's design rules. (Note: the specific backtest measured here used a fixed grid-engagement setting for all symbols, so the strategy did not literally pause during that 23% — see the methodology paper for the distinction.)</p>
     <p>When you measure only the active windows — the periods the grid actually ran — SOL's return was <strong>-9.8%</strong>. That's a grid mechanism performing within tolerance, not a failing strategy. Under active-period grading, SOL is correctly restored to Discovery.</p>
 
     <div class="two-col">
@@ -465,7 +465,7 @@
         <div style="margin-top: 18px; padding: 14px 18px; background: #161b27; border-radius: 8px; border: 1px solid #1e2535; font-size: 0.85rem; color: #8892a4;">
           <div style="font-weight: 700; color: #c0c8d8; margin-bottom: 6px;">SOL key stats (Year 2)</div>
           <div>Regime-Active % (retrospective): <code>77.0%</code></div>
-          <div style="margin-top: 4px;">Retrospective cash-hold-favorable share: <code>23.0%</code></div>
+          <div style="margin-top: 4px;">Retrospective pause-favorable share: <code>23.0%</code></div>
           <div style="margin-top: 4px;">Verdict: <span class="green">Wrongly hidden → Restored</span></div>
         </div>
       </div>
@@ -475,7 +475,7 @@
   <!-- SECTION 3: BTC — honest counter-case -->
   <section>
     <h2>BTC: genuinely failing — and that's the system working correctly</h2>
-    <p>BTC's blended return in Year 2 was <strong>-31.8%</strong>. BTC's active and blended returns are identical because the retrospective classifier found no candles in the period it would exclude — not because BTC's simulation run itself avoided a cash-hold state (this test's engagement setting was fixed, not live-gated; see the methodology paper, &sect;2.1).</p>
+    <p>BTC's blended return in Year 2 was <strong>-31.8%</strong>. BTC's active and blended returns are identical because the retrospective classifier found no candles in the period it would exclude — not because BTC's simulation run itself avoided a pause state (this test's engagement setting was fixed, not live-gated; see the methodology paper, &sect;2.1).</p>
     <p>That means BTC's blended return and active-period return are <strong>identical</strong>. There's no cash-period distortion to correct for. The -40.2% active return is a genuine grid mechanism failure — the strategy ran, and it lost.</p>
 
     <div class="insight">
@@ -540,7 +540,7 @@
           <div style="margin-top: 4px;">Active return of -40.2% = the grid itself underperformed.</div>
           <div style="margin-top: 8px; color: #f87171; font-weight: 600;">Correctly remains hidden from Discovery.</div>
         </div>
-        <p style="font-size: 0.88rem;">BTC's case is the <em>proof</em> the system isn't giving free passes. It only restores assets that were penalized for cash-hold periods — not assets where the grid mechanism genuinely failed.</p>
+        <p style="font-size: 0.88rem;">BTC's case is the <em>proof</em> the system isn't giving free passes. It only restores assets that were penalized for paused periods — not assets where the grid mechanism genuinely failed.</p>
       </div>
     </div>
   </section>
