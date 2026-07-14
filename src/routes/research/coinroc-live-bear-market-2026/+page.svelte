@@ -368,7 +368,6 @@
 		<p class="mb-1">Source study: RES-LIVE-SIM-01, Han Kessel, 2026-06-27</p>
 		<p class="mb-1">Cross-reference: RES-REPOSITION-PORTFOLIO-01 (prior study, 2.5-year window)</p>
 		<p class="mb-1">Product: <a href="https://coinroc.com" class="underline underline-offset-2 hover:text-slate transition" target="_blank" rel="noopener noreferrer">coinroc.com</a></p>
-		<p class="mt-3 italic">Compliance: CLEARED 2026-06-29 (MATLOCK-FINAL-PASS-3-REDOS-01, Redo Spec 1 + FIS auto-pause additions). All Redo Spec 1 items and FIS auto-pause additions verified present. No attorney required for yodacom.com/research publication. Standing attorney gate active for RIA/BD/solicitation distribution only.</p>
 	</div>
 
 </article>

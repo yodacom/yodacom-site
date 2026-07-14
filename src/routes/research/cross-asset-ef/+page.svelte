@@ -341,13 +341,11 @@
 
 <h2>8. Approved Copy for CoinRoc Marketing / EF Page</h2>
 
-<p>The following summary is drafted for a non-quant advisor audience. It is accurate to the conditional scenario analysis and appropriately qualified. (Revised 2026-05-25 per Matlock compliance review &mdash; RF-1 dual-correlation disclosure and YF-1 scenario attribution applied.)</p>
+<p>The following summary is drafted for a non-quant advisor audience. It is accurate to the conditional scenario analysis and appropriately qualified.</p>
 
 <blockquote>
 <p>"Academic portfolio theory shows that adding a low-correlation asset to a traditional portfolio can reduce risk without proportionally reducing return. CoinRoc's grid trading composite has shown near-zero correlation with US equities over backtested annual periods (&rho;&nbsp;&approx;&nbsp;+0.02 over nine years; 95% CI: &plusmn;0.40). Importantly, in the two years of worst equity performance in the dataset (2018, 2022), the grid strategy also declined significantly, suggesting the diversification benefit is conditional rather than consistent. Backtested data shows that under a forward-return assumption of +8% annual grid returns, a 10&ndash;20% grid allocation produces a marginal improvement in simulated portfolio Sharpe ratio (+0.03); this result is conditional on the grid generating positive returns and does not hold in the full nine-year historical dataset, in which every grid allocation from 0% upward decreases the portfolio Sharpe ratio."</p>
 </blockquote>
-
-<p class="text-sm italic text-slate-light">Editorial note: The dual-correlation disclosure (sentence 3) and forward-scenario attribution (sentence 4) are both required per Matlock compliance review 2026-05-25 &mdash; do not remove or soften either without compliance review.</p>
 
 <hr />
 

@@ -193,6 +193,6 @@
 
 <hr />
 
-<p><em>LANDO-EXEC-GRADING-ADVISOR-01 &mdash; Lando, Senior Content Writer &amp; Strategist, Yodacom AI Team. Matlock compliance review completed 2026-06-13 (CLEARED-WITH-EDITS, Gate 1). Source: han-exec-grading-research-report-2026-06-13.md, Sections 1&ndash;6.</em></p>
+<p><em>LANDO-EXEC-GRADING-ADVISOR-01 &mdash; Lando, Senior Content Writer &amp; Strategist, Yodacom AI Team.</em></p>
 
 </article>

@@ -329,6 +329,6 @@ threshold: -25% unchanged</code></pre>
 
 <hr />
 
-<p><em>RES-EXEC-GRADING-01 &mdash; Han Kessel, Trading/Algorithm Specialist, Yodacom Research. Matlock compliance review completed 2026-06-13 (CLEARED-WITH-EDITS, Gate 1). Article adaptation: Lando, Senior Content Writer &amp; Strategist.</em></p>
+<p><em>RES-EXEC-GRADING-01 &mdash; Han Kessel, Trading/Algorithm Specialist, Yodacom Research. Article adaptation: Lando, Senior Content Writer &amp; Strategist.</em></p>
 
 </article>

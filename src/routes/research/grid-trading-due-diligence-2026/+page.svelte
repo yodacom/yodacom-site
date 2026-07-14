@@ -418,8 +418,6 @@
 	<div class="border-t border-rule pt-8 text-xs text-slate-light">
 		<p class="mb-1">Yodacom Research &mdash; yodacom.com/research</p>
 		<p class="mb-1">Author: Jeremy J. Black, Founder, Yodacom &middot; Registry ID: B2</p>
-		<p class="mb-1">Source draft: lando-kitces-nev-draft-2026-05-13.md (redone 2026-06-29)</p>
-		<p class="mt-3 italic">Compliance: CLEARED 2026-06-29 (MATLOCK-FINAL-PASS-3-REDOS-01, Redo Spec 3). All six Redo Spec 3 items verified. No attorney required for yodacom.com/research publication. HW-2: all performance figures remain in prose form &mdash; no columnar return tables added at CMS. Standing attorney gate active for RIA/BD/solicitation distribution only.</p>
 	</div>
 
 </article>
