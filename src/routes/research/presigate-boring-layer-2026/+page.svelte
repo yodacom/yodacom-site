@@ -3,6 +3,11 @@
 	<meta name="description" content="Banks are quietly building condition-gated automatic settlement — money that moves itself when a condition is met. SSL made the internet boring enough to trust with money. Programmable settlement needs the same boring, invisible check, running the instant before money moves." />
 	<meta property="og:title" content="Crypto's Boring Era Needs a Boring Layer Nobody's Building | Yodacom Research" />
 	<meta property="og:description" content="Banks are quietly building condition-gated automatic settlement — money that moves itself when a condition is met. SSL made the internet boring enough to trust with money. Programmable settlement needs the same boring, invisible check, running the instant before money moves." />
+	<meta property="og:image" content="https://yodacom.com/research/presigate-boring-layer-2026/cover.png" />
+	<meta property="og:image:width" content="1200" />
+	<meta property="og:image:height" content="630" />
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:image" content="https://yodacom.com/research/presigate-boring-layer-2026/cover.png" />
 </svelte:head>
 
 <!-- Article header -->
