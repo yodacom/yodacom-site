@@ -293,6 +293,4 @@
 
 <p>CoinRoc is a pre-launch product. No investment in CoinRoc is currently available. CoinRoc and the FIS&#x2122;, GSI&#x2122;, and CSI&#x2122; systems described in this article are in pre-launch development as of the date of publication. This article describes research findings and methodology; it does not describe a currently available product or service.</p>
 
-<p><em>Compliance note: Article compliance-cleared by Matlock 2026-05-24 (MATLOCK-MM-ADV-01). Chart embed compliance-reviewed by Matlock 2026-06-28 (MATLOCK-MM-CHART-01). Route to attorney before distribution to RIAs or broker-dealer networks.</em></p>
-
 </article>

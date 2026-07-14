@@ -235,7 +235,7 @@
 		</div>
 
 		<p class="mb-5 text-base leading-relaxed text-slate">
-			These are directionally meaningful. The prior reconciliation memo (HAN-RECONCILE-01) predicted exactly this pattern: a ranging or high-volatility-oscillation environment would narrow or close the performance gap between the rated grid sleeve and the buy-and-hold benchmarks. This window confirms that prediction.
+			These are directionally meaningful. Our prior reconciliation analysis predicted exactly this pattern: a ranging or high-volatility-oscillation environment would narrow or close the performance gap between the rated grid sleeve and the buy-and-hold benchmarks. This window confirms that prediction.
 		</p>
 
 		<p class="mb-5 text-base leading-relaxed text-slate">

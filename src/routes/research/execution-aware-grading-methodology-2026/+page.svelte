@@ -325,7 +325,7 @@ threshold: -25% unchanged</code></pre>
 <p>Information derived from third-party sources (including CoinGecko, Binance.US, and other exchange data providers) is believed to be reliable but has not been independently verified. No representation is made as to its accuracy or completeness.</p>
 </blockquote>
 
-<p><em>This paper covers Sections 1&ndash;6 of the source research report. A follow-up publication (Sections 7&ndash;10, the favorable-conditions and rating-reliability affirmative case) is pending a separate Jeremy review and additional Matlock-specified compliance edits.</em></p>
+<p><em>This paper covers Sections 1&ndash;6 of the source research report. A follow-up publication (Sections 7&ndash;10, the favorable-conditions and rating-reliability affirmative case) is planned.</em></p>
 
 <hr />
 
