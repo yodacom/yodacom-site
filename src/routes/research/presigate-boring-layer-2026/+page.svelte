@@ -124,8 +124,6 @@
 	<div class="border-t border-rule pt-8 text-xs text-slate-light">
 		<p class="mb-1">Yodacom Research &mdash; yodacom.com/research</p>
 		<p class="mb-1">Author: Lando &middot; Yodacom Research</p>
-		<p class="mb-1">Source draft: lando-presigate-boring-layer-essay-2026-07-09.md</p>
-		<p class="mt-3 italic">Compliance: CLEAR-WITH-EDITS 2026-07-09 (Matlock banking-narrative gate; all 4 consolidated edits E1&ndash;E4 applied &mdash; see Owners-Inbox/matlock-banking-narrative-gate-2026-07-09.md and matlock-banking-narrative-reconfirm-adi-2026-07-09.md). Rail-health endpoint (POST presigate.com/api/gate/rail) confirmed live in production 2026-07-10; no browser-viewable demo of the ROUTE/HOLD/REROUTE rail-health verdict exists yet, so the in-text reference links to presigate.com rather than a specific demo page.</p>
 	</div>
 
 </article>
