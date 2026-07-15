@@ -5,7 +5,7 @@
 <svelte:head>
 	<title>Crypto Grid Trading vs. Options for Income: An Honest Comparison — Yodacom Research</title>
 	<meta property="og:title" content="Crypto Grid Trading vs. Options for Income: An Honest Comparison" />
-	<meta property="og:description" content="CoinRoc FIS-gated grid vs. CBOE PUT/BXM options strategies — Sharpe ratio, tail risk, Calmar ratio, capital requirements, and automation feasibility compared. Kessel & Black, Yodacom Research 2026." />
+	<meta property="og:description" content="CoinRoc RXI-gated grid vs. CBOE PUT/BXM options strategies — Sharpe ratio, tail risk, Calmar ratio, capital requirements, and automation feasibility compared. Kessel & Black, Yodacom Research 2026." />
 	<meta property="og:image" content="https://yodacom.com/research/grid-vs-options-2026/cover.png" />
 	<meta property="og:image:width" content="1200" />
 	<meta property="og:image:height" content="630" />
@@ -13,7 +13,7 @@
 	<meta property="og:url" content="https://yodacom.com/research/grid-vs-options-2026" />
 	<meta name="twitter:card" content="summary_large_image" />
 	<meta name="twitter:title" content="Crypto Grid Trading vs. Options for Income: An Honest Comparison" />
-	<meta name="twitter:description" content="CoinRoc FIS-gated grid vs. CBOE PUT/BXM options strategies — Sharpe ratio, tail risk, Calmar ratio, capital requirements, and automation feasibility compared. Kessel & Black, Yodacom Research 2026." />
+	<meta name="twitter:description" content="CoinRoc RXI-gated grid vs. CBOE PUT/BXM options strategies — Sharpe ratio, tail risk, Calmar ratio, capital requirements, and automation feasibility compared. Kessel & Black, Yodacom Research 2026." />
 	<meta name="twitter:image" content="https://yodacom.com/research/grid-vs-options-2026/cover.png" />
 </svelte:head>
 
@@ -112,7 +112,7 @@
   </g>
   <rect x="50" y="458" width="230" height="26" rx="3" fill="#00d4aa" fill-opacity="0.80" stroke="#00d4aa" stroke-width="1" stroke-opacity="0.9"/>
   <text x="165" y="475" fill="#001a14" font-family="'Inter','Segoe UI',system-ui,sans-serif" font-size="11" font-weight="700" text-anchor="middle" letter-spacing="0.12em">CRYPTO GRID TRADING</text>
-  <text x="60" y="505" fill="#8b949e" font-family="'Inter','Segoe UI',system-ui,sans-serif" font-size="10.5" letter-spacing="0.03em">CoinRoc FIS-gated · 135 walk-forward folds · 2013–2025</text>
+  <text x="60" y="505" fill="#8b949e" font-family="'Inter','Segoe UI',system-ui,sans-serif" font-size="10.5" letter-spacing="0.03em">CoinRoc RXI-gated · 135 walk-forward folds · 2013–2025</text>
   <text x="60" y="520" fill="#8b949e" font-family="'Inter','Segoe UI',system-ui,sans-serif" font-size="10" letter-spacing="0.03em">17 crypto assets · Full automation</text>
   <rect x="630" y="0" width="570" height="630" fill="url(#cb-rightPanel)"/>
   <rect x="630" y="0" width="570" height="630" fill="none" stroke="#f0a020" stroke-width="0.5" opacity="0.15"/>
@@ -184,7 +184,7 @@
 		</p>
 		<p class="fade-up d4 max-w-2xl border-l-2 border-ochre/60 pl-4 text-base italic leading-relaxed text-slate">
 			A common objection to crypto grid trading is that S&amp;P 500 options-for-income strategies
-			produce better Sharpe ratios. The objection is correct. We compare CoinRoc&rsquo;s FIS-gated
+			produce better Sharpe ratios. The objection is correct. We compare CoinRoc&rsquo;s RXI-gated
 			crypto grid &mdash; 135 walk-forward test folds, 13 years, 17 assets &mdash; against
 			published benchmarks for systematic options premium strategies. Options strategies do achieve
 			higher Sharpe ratios, and we will not pretend otherwise. But the complete picture requires
@@ -401,7 +401,7 @@
 		        <rect x="252" y="189" width="72" height="43" rx="3" fill="url(#f1tealBarNeg)"/>
 		        <text x="288" y="183" fill="#00d4aa" font-size="12" font-weight="700" text-anchor="middle">&#x2212;0.303</text>
 		        <text x="288" y="248" fill="#c9d1d9" font-size="10" text-anchor="middle" font-weight="600">CoinRoc Grid</text>
-		        <text x="288" y="259" fill="#8b949e" font-size="9" text-anchor="middle">FIS-gated median</text>
+		        <text x="288" y="259" fill="#8b949e" font-size="9" text-anchor="middle">RXI-gated median</text>
 		        <rect x="50" y="189" width="310" height="43" fill="#ff4d4d" fill-opacity="0.04" rx="0"/>
 		      </svg>
 		    </div>
@@ -469,7 +469,7 @@
 		    </div>
 		    <div class="legend-item">
 		      <div class="legend-swatch" style="background: linear-gradient(180deg, #00e6bb, #007a60);"></div>
-		      <span>CoinRoc FIS-gated grid — 135 walk-forward folds, 2013–2025</span>
+		      <span>CoinRoc RXI-gated grid — 135 walk-forward folds, 2013–2025</span>
 		    </div>
 		    <div class="legend-item">
 		      <div class="legend-swatch" style="background: #00d4aa20; border: 1px dashed #00d4aa60;"></div>
@@ -486,7 +486,7 @@
 
 		<p class="mb-5 text-base leading-relaxed text-slate">
 			The CBOE PUT index has achieved approximately 0.64 Sharpe over its full history (inception
-			1986). Our FIS-gated grid median Sharpe is &minus;0.303 across 135 walk-forward folds from
+			1986). Our RXI-gated grid median Sharpe is &minus;0.303 across 135 walk-forward folds from
 			2013 to 2025. This is a large gap. Before treating it as evidence of strategic inferiority,
 			the gap needs to be decomposed.
 		</p>
@@ -610,7 +610,7 @@
 		            <circle cx="14" cy="14" r="1.8" fill="#00d4aa" opacity="0.5"/>
 		          </svg>
 		        </div>
-		        <div><div class="col-name teal">Crypto Grid Trading</div><div class="col-sub">CoinRoc · FIS v2-gated · 135 folds</div></div>
+		        <div><div class="col-name teal">Crypto Grid Trading</div><div class="col-sub">CoinRoc · RXI v2-gated · 135 folds</div></div>
 		      </div>
 		      <div class="header-options">
 		        <div class="col-icon amber">
@@ -650,13 +650,13 @@
 		    <!-- Row 5 -->
 		    <div class="card-row">
 		      <div class="cell-metric"><div><div class="metric-label">Worst Environment</div><div class="metric-desc">Regime that causes the deepest drawdown or loss</div></div></div>
-		      <div class="cell-grid"><div class="indicator neutral-ind">!</div><div class="cell-value"><span class="primary warn">Sustained directional trends</span><span class="sub">Bull or bear — both harmful</span><span class="sub">FIS gate reduces exposure; doesn't eliminate</span></div></div>
+		      <div class="cell-grid"><div class="indicator neutral-ind">!</div><div class="cell-value"><span class="primary warn">Sustained directional trends</span><span class="sub">Bull or bear — both harmful</span><span class="sub">RXI gate reduces exposure; doesn't eliminate</span></div></div>
 		      <div class="cell-options"><div class="indicator neutral-ind">!</div><div class="cell-value"><span class="primary warn">Sharp VIX spikes</span><span class="sub">Gap moves beyond strikes</span><span class="sub">Loss can exceed multiple months' premium</span></div></div>
 		    </div>
 		    <!-- Row 6 -->
 		    <div class="card-row">
 		      <div class="cell-metric"><div><div class="metric-label">Tail Risk Profile</div><div class="metric-desc">How extreme losses arrive and manifest</div></div></div>
-		      <div class="cell-grid"><div class="indicator teal-win">&#x2713;</div><div class="cell-value"><span class="primary teal">Explicit — visible</span><span class="sub">Inventory accumulation is observable</span><span class="sub">Addressable via FIS gate; bounded mechanics</span></div></div>
+		      <div class="cell-grid"><div class="indicator teal-win">&#x2713;</div><div class="cell-value"><span class="primary teal">Explicit — visible</span><span class="sub">Inventory accumulation is observable</span><span class="sub">Addressable via RXI gate; bounded mechanics</span></div></div>
 		      <div class="cell-options"><div class="indicator neutral-ind">!</div><div class="cell-value"><span class="primary warn">Implicit negative skew</span><span class="sub">Tail events arrive fast — no warning</span><span class="sub">CVaR 1%: ~10&#xD7; average monthly drawdown</span></div></div>
 		    </div>
 		    <!-- Row 7 -->
@@ -668,7 +668,7 @@
 		    <!-- Row 8 -->
 		    <div class="card-row">
 		      <div class="cell-metric"><div><div class="metric-label">Supervision Required</div><div class="metric-desc">Ongoing manager time commitment</div></div></div>
-		      <div class="cell-grid"><div class="indicator teal-win">&#x2713;</div><div class="cell-value"><span class="primary teal">Minimal</span><span class="sub">FIS regime gate handles allocation</span><span class="sub">Runs alongside a career</span></div></div>
+		      <div class="cell-grid"><div class="indicator teal-win">&#x2713;</div><div class="cell-value"><span class="primary teal">Minimal</span><span class="sub">RXI regime gate handles allocation</span><span class="sub">Runs alongside a career</span></div></div>
 		      <div class="cell-options"><div class="indicator neutral-ind">—</div><div class="cell-value"><span class="primary neutral">Ongoing judgment</span><span class="sub">Strike selection, roll decisions, assignment</span><span class="sub">2–4 hrs/expiration cycle minimum</span></div></div>
 		    </div>
 		    <!-- Row 9 -->
@@ -834,16 +834,16 @@
 		            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="3.5" cy="3.5" r="1.5" fill="#00d4aa" opacity="0.9"/><circle cx="7" cy="3.5" r="1.5" fill="#00d4aa" opacity="0.9"/><circle cx="10.5" cy="3.5" r="1.5" fill="#00d4aa" opacity="0.9"/><circle cx="3.5" cy="7" r="1.5" fill="#00d4aa" opacity="0.7"/><circle cx="7" cy="7" r="1.5" fill="#00d4aa" opacity="0.7"/><circle cx="10.5" cy="7" r="1.5" fill="#00d4aa" opacity="0.7"/><circle cx="3.5" cy="10.5" r="1.5" fill="#00d4aa" opacity="0.5"/><circle cx="7" cy="10.5" r="1.5" fill="#00d4aa" opacity="0.5"/><circle cx="10.5" cy="10.5" r="1.5" fill="#00d4aa" opacity="0.5"/></svg>
 		            Crypto Grid Trading
 		          </div>
-		          <div class="status-badge moderate">&#x2193; BTC &#x2212;50% · FIS: Defensive</div>
+		          <div class="status-badge moderate">&#x2193; BTC &#x2212;50% · RXI: Defensive</div>
 		          <span class="impact-metric amber">&#x2212;50%</span>
-		          <div class="impact-desc"><strong>BTC fell ~50% rapidly.</strong> FIS gate classified conditions as <strong>defensive — reduced engagement,</strong> limiting inventory accumulation into the drawdown.<br><br>V-bottom recovery then created the exact oscillating environment where grids excel. Capital preserved during the crash was deployed as the recovery began. Bear-fold data: 100% win rate vs. buy-and-hold in folds where B&amp;H lost &gt;20%.</div>
-		          <div class="fis-tag">FIS: DEFENSIVE — reduced engagement</div>
+		          <div class="impact-desc"><strong>BTC fell ~50% rapidly.</strong> RXI gate classified conditions as <strong>defensive — reduced engagement,</strong> limiting inventory accumulation into the drawdown.<br><br>V-bottom recovery then created the exact oscillating environment where grids excel. Capital preserved during the crash was deployed as the recovery began. Bear-fold data: 100% win rate vs. buy-and-hold in folds where B&amp;H lost &gt;20%.</div>
+		          <div class="fis-tag">RXI: DEFENSIVE — reduced engagement</div>
 		          <svg class="mini-chart" width="100%" viewBox="0 0 200 60" xmlns="http://www.w3.org/2000/svg">
 		            <text x="0" y="10" fill="#484f58" font-size="8" letter-spacing="0.05em">BTC  PRICE  +  GRID  P&amp;L</text>
 		            <polyline points="0,25 20,23 35,22 55,28 65,35 75,48 85,52 90,45 100,35 115,25 130,18 145,15 165,14 185,13 200,12" fill="none" stroke="#8b949e" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="3,2" opacity="0.5"/>
 		            <polyline points="0,28 20,27 35,26 55,30 65,34 75,40 85,37 90,33 100,29 115,24 130,20 145,18 165,17 185,16 200,15" fill="none" stroke="#00d4aa" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
 		            <line x1="75" y1="12" x2="75" y2="52" stroke="#00d4aa" stroke-width="0.8" stroke-dasharray="2,3" opacity="0.4"/>
-		            <text x="78" y="17" fill="#00d4aa" font-size="7">FIS&#x2193;</text>
+		            <text x="78" y="17" fill="#00d4aa" font-size="7">RXI&#x2193;</text>
 		          </svg>
 		        </div>
 		      </div>
@@ -876,10 +876,10 @@
 		            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="3.5" cy="3.5" r="1.5" fill="#00d4aa" opacity="0.9"/><circle cx="7" cy="3.5" r="1.5" fill="#00d4aa" opacity="0.9"/><circle cx="10.5" cy="3.5" r="1.5" fill="#00d4aa" opacity="0.9"/><circle cx="3.5" cy="7" r="1.5" fill="#00d4aa" opacity="0.7"/><circle cx="7" cy="7" r="1.5" fill="#00d4aa" opacity="0.7"/><circle cx="10.5" cy="7" r="1.5" fill="#00d4aa" opacity="0.7"/><circle cx="3.5" cy="10.5" r="1.5" fill="#00d4aa" opacity="0.5"/><circle cx="7" cy="10.5" r="1.5" fill="#00d4aa" opacity="0.5"/><circle cx="10.5" cy="10.5" r="1.5" fill="#00d4aa" opacity="0.5"/></svg>
 		            Crypto Grid Trading
 		          </div>
-		          <div class="status-badge protected">&#x1F6E1; FIS: ZERO ENGAGEMENT</div>
+		          <div class="status-badge protected">&#x1F6E1; RXI: ZERO ENGAGEMENT</div>
 		          <span class="impact-metric teal">Capital<br>Preserved</span>
-		          <div class="impact-desc"><strong>BTC fell ~25% in two weeks.</strong> FIS gate Rule 7 triggered: price below 200-day MA plus elevated volatility &#x2192; <strong>zero engagement.</strong> Capital held in cash rather than accumulating inventory into the cascade.<br><br>Bear-fold data confirms: in 43 folds where FIS classified conditions as defensive and zeroed engagement, capital was preserved.</div>
-		          <div class="fis-tag">FIS: RULE 7 — zero engagement</div>
+		          <div class="impact-desc"><strong>BTC fell ~25% in two weeks.</strong> RXI gate Rule 7 triggered: price below 200-day MA plus elevated volatility &#x2192; <strong>zero engagement.</strong> Capital held in cash rather than accumulating inventory into the cascade.<br><br>Bear-fold data confirms: in 43 folds where RXI classified conditions as defensive and zeroed engagement, capital was preserved.</div>
+		          <div class="fis-tag">RXI: RULE 7 — zero engagement</div>
 		          <svg class="mini-chart" width="100%" viewBox="0 0 200 60" xmlns="http://www.w3.org/2000/svg">
 		            <text x="0" y="10" fill="#484f58" font-size="8" letter-spacing="0.05em">BTC  +  GRID  ENGAGEMENT</text>
 		            <polyline points="0,20 20,19 35,20 50,22 65,28 75,32 85,42 95,50 105,52 115,48 130,44 150,42 170,40 190,39 200,38" fill="none" stroke="#8b949e" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="3,2" opacity="0.5"/>
@@ -902,9 +902,9 @@
 
 		  <div class="legend-row">
 		    <div class="legend-item"><div class="legend-dot" style="background:#ff7b7240;border:1px solid #ff7b7260;"></div><span>Severe impact — strategy exposed</span></div>
-		    <div class="legend-item"><div class="legend-dot" style="background:#f0a02030;border:1px solid #f0a02050;"></div><span>Moderate impact — FIS gate reduced exposure</span></div>
+		    <div class="legend-item"><div class="legend-dot" style="background:#f0a02030;border:1px solid #f0a02050;"></div><span>Moderate impact — RXI gate reduced exposure</span></div>
 		    <div class="legend-item"><div class="legend-dot" style="background:#56d36430;border:1px solid #56d36450;"></div><span>No direct exposure / unaffected</span></div>
-		    <div class="legend-item"><div class="legend-dot" style="background:#00d4aa30;border:1px solid #00d4aa50;"></div><span>FIS gate protected — capital preserved in cash</span></div>
+		    <div class="legend-item"><div class="legend-dot" style="background:#00d4aa30;border:1px solid #00d4aa50;"></div><span>RXI gate protected — capital preserved in cash</span></div>
 		  </div>
 		  <div class="source-line">Sources: CBOE Options Institute; Israelov &amp; Klein (2016); CoinRoc walk-forward bear-fold data (Kessel &amp; Black, 2026a). Mini charts are illustrative of price direction and relative magnitude — not exact reproductions of historical data. Not investment advice. Past performance not indicative of future results.</div>
 		</div>
@@ -943,10 +943,10 @@
 			<div class="border border-rule bg-paper p-5">
 				<div class="mb-2 text-[0.72rem] font-semibold uppercase tracking-widest text-ochre-deep">November 2022 &mdash; FTX Collapse</div>
 				<p class="text-sm leading-relaxed text-slate">
-					BTC fell approximately 25% in two weeks. CoinRoc&rsquo;s FIS gate classified conditions
+					BTC fell approximately 25% in two weeks. CoinRoc&rsquo;s RXI gate classified conditions
 					as defensive &mdash; price below the 200-day MA plus elevated volatility triggers Rule
 					7 (zero engagement), preserving capital in cash rather than accumulating inventory
-					into the cascade. In the 43 folds where the FIS gate classified conditions as defensive
+					into the cascade. In the 43 folds where the RXI gate classified conditions as defensive
 					and zeroed engagement, capital was preserved.
 				</p>
 			</div>
@@ -962,7 +962,7 @@
 				is approximately 10:1. The crypto grid&rsquo;s tail behavior is more symmetric: in the
 				worst folds, the strategy does not lose capital &mdash; it produces low absolute returns
 				while buy-and-hold produces extraordinary gains. The strategy&rsquo;s true failure mode
-				is sustained bear accumulation, which is visible in inventory and addressable via the FIS
+				is sustained bear accumulation, which is visible in inventory and addressable via the RXI
 				gate. Neither strategy is safer in an absolute sense. The risk profiles are structurally
 				different.
 			</p>
@@ -980,7 +980,7 @@
 		</p>
 
 		<p class="mb-5 text-base leading-relaxed text-slate">
-			CoinRoc&rsquo;s grid is fully automated: regime detection via FIS v2 (real-time computation
+			CoinRoc&rsquo;s grid is fully automated: regime detection via RXI v2 (real-time computation
 			of price vs. 200-day MA, volatility ratio, and momentum into a continuous engagement
 			scalar), grid parameter calibration from training-window volatility, order placement with
 			GTX post-only enforcement, and portfolio-level allocation using mean-variance optimization.
@@ -1008,7 +1008,7 @@
 				<tbody>
 					{#each [
 						{ dim: 'Order entry', grid: 'Full', options: 'Full' },
-						{ dim: 'Regime detection', grid: 'Full (FIS v2)', options: 'Manual / partial' },
+						{ dim: 'Regime detection', grid: 'Full (RXI v2)', options: 'Manual / partial' },
 						{ dim: 'Strike / parameter calibration', grid: 'Full (training-window vol)', options: 'Manual — vol surface dependent' },
 						{ dim: 'Roll decisions', grid: 'N/A — grid resets on conditions', options: 'Manual — judgment required' },
 						{ dim: 'Assignment handling', grid: 'N/A', options: 'Manual — creates active portfolio task' },
@@ -1083,7 +1083,7 @@
 			<p class="text-sm leading-relaxed text-slate">
 				We are six months into a confirmed crypto bear market by four independent indicators: SMA50/200
 				death cross November 2025; price approximately 30% below 52-week high; negative 90-day
-				momentum; vol ratio unfavorable. The FIS v2 system correctly classifies current conditions
+				momentum; vol ratio unfavorable. The RXI v2 system correctly classifies current conditions
 				as defensive and outputs reduced or zero engagement, consistent with defensive classifications
 				documented in historical bear-fold data. The S&amp;P 500 options environment, by contrast,
 				has normalized following the 2025 equity correction &mdash; VIX in the 15&ndash;20 range,
@@ -1112,7 +1112,7 @@
 			carry implicit negative skew that Sharpe numerics conceal &mdash; the tail events are
 			infrequent but severe, and they arrive faster than a monthly-roll strategy can respond.
 			Crypto grid strategies carry explicit risk that is visible in inventory, addressable by the
-			FIS regime gate, and bounded by the mechanical structure of the strategy rather than by
+			RXI regime gate, and bounded by the mechanical structure of the strategy rather than by
 			exposure to gap moves beyond a strike.
 		</p>
 
@@ -1137,7 +1137,7 @@
 				Full methodology details &mdash; click to expand
 			</summary>
 			<div class="border-t border-rule px-6 py-5 text-sm leading-relaxed text-slate space-y-3">
-				<p><strong class="text-navy-deep">Grid trading data:</strong> Walk-forward backtests run on Tiingo daily bars using CoinRoc AdaptiveGrid v3DynamicMode with FIS v2 regime gating. Full methodology in Kessel &amp; Black (2026a). Key parameters: 2-year training / 1-year test / yearly slide; 55 grid levels; 2.59% geometric spacing; retail Binance.US cost model (0.40% maker / 0.60% taker / 0.05% slippage). All results are out-of-sample. GTX post-only execution enforced.</p>
+				<p><strong class="text-navy-deep">Grid trading data:</strong> Walk-forward backtests run on Tiingo daily bars using CoinRoc AdaptiveGrid v3DynamicMode with RXI v2 regime gating. Full methodology in Kessel &amp; Black (2026a). Key parameters: 2-year training / 1-year test / yearly slide; 55 grid levels; 2.59% geometric spacing; retail Binance.US cost model (0.40% maker / 0.60% taker / 0.05% slippage). All results are out-of-sample. GTX post-only execution enforced.</p>
 				<p><strong class="text-navy-deep">Options benchmarks:</strong> CBOE BXM and PUT index performance data sourced from CBOE Options Institute published research. Academic references: Carr &amp; Wu (2009); Israelov &amp; Klein (2016); Ilmanen (2012); Bollerslev et al. (2011).</p>
 				<p><strong class="text-navy-deep">Sharpe methodology:</strong> Grid Sharpe ratios are fold-level annualized, computed as annualized excess return divided by annualized standard deviation of daily returns. Risk-free rate approximated at 4.5% for the most recent two years. Cross-strategy Sharpe comparisons should be read with the denominator caveat in mind &mdash; they are not on a level playing field given underlying asset volatility differences.</p>
 				<p><strong class="text-navy-deep">Limitations:</strong> We do not have our own options backtest. Options metrics in the comparison table are drawn from published benchmarks and academic literature. A direct apples-to-apples comparison would require running a systematic options backtest on the same time periods. Readers should weight the options metrics accordingly.</p>

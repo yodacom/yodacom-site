@@ -1,7 +1,7 @@
 <svelte:head>
-	<title>The Vault Test: Near-Blind Out-of-Sample Validation of CoinRoc's Three-State FIS, 2023–2025 | Yodacom Research</title>
+	<title>The Vault Test: Near-Blind Out-of-Sample Validation of CoinRoc's Three-State RXI, 2023–2025 | Yodacom Research</title>
 	<meta name="description" content="Anyone can backtest data they already know. We locked our parameters before 2023 and ran them unchanged. Here is what 51 out-of-sample folds showed." />
-	<meta property="og:title" content="The Vault Test: Near-Blind Out-of-Sample Validation of CoinRoc's Three-State FIS, 2023–2025 | Yodacom Research" />
+	<meta property="og:title" content="The Vault Test: Near-Blind Out-of-Sample Validation of CoinRoc's Three-State RXI, 2023–2025 | Yodacom Research" />
 	<meta property="og:description" content="Anyone can backtest data they already know. We locked our parameters before 2023 and ran them unchanged. Here is what 51 out-of-sample folds showed." />
 </svelte:head>
 
@@ -13,10 +13,10 @@
 			Yodacom Research &middot; Companion to Paper 8 &middot; June 2026
 		</div>
 		<h1 class="fade-up d1 mb-6 font-serif text-4xl font-500 leading-[1.08] tracking-tight text-navy-ink sm:text-5xl">
-			The Vault Test: A Near-Blind Out-of-Sample Validation of CoinRoc&rsquo;s Three-State FIS, 2023&ndash;2025
+			The Vault Test: A Near-Blind Out-of-Sample Validation of CoinRoc&rsquo;s Three-State RXI, 2023&ndash;2025
 		</h1>
 		<p class="fade-up d2 mb-2 text-base leading-relaxed text-slate">
-			Walk-Forward Validation &middot; Three-State FIS &middot; 51 Out-of-Sample Folds
+			Walk-Forward Validation &middot; Three-State RXI &middot; 51 Out-of-Sample Folds
 		</p>
 		<p class="fade-up d3 mb-1 text-base leading-relaxed text-slate">
 			Han Kessel (research) &middot; Lando (editorial) &middot; Yodacom Research
@@ -54,12 +54,12 @@
 			<div class="mt-2 text-sm text-slate">Out-of-sample folds &middot; 17 assets &middot; 3 test years (2023&ndash;2025)</div>
 			<div class="mt-3 flex justify-center gap-8 text-xs text-slate-light">
 				<span>Parameters locked on pre-2023 training data</span>
-				<span>Three-State FIS evaluation</span>
+				<span>Three-State RXI evaluation</span>
 			</div>
 		</div>
 
 		<p class="mb-5 text-base leading-relaxed text-slate">
-			CoinRoc&rsquo;s three-state Fuzzy Inference System (FIS) regime thresholds, grid spacing parameters,
+			CoinRoc&rsquo;s three-state RXI&#x2122; (Regime eXecution Intelligence) &mdash; built on a fuzzy-inference engine &mdash; regime thresholds, grid spacing parameters,
 			and momentum sleeve settings were locked on training data through 2022. Then, without adjustment,
 			we ran the strategy on the 2023, 2024, and 2025 test years. No parameter was touched after seeing
 			any 2023&ndash;2025 price data. This study reports what happened across 51 out-of-sample folds.
@@ -68,7 +68,7 @@
 		<p class="mb-5 text-base leading-relaxed text-slate">
 			<strong class="text-navy-deep">What makes this a near-blind out-of-sample study:</strong> The
 			walk-forward design ensures every test year&rsquo;s strategy behavior is driven by training data
-			that predates the test period &mdash; no FIS thresholds, grid spacing parameters, or sleeve
+			that predates the test period &mdash; no RXI thresholds, grid spacing parameters, or sleeve
 			sensitivity settings were adjusted based on 2023&ndash;2025 observations. A residual limitation
 			applies: the parabolic detector&rsquo;s membership function boundaries were calibrated using 2021
 			price history as the design case. The study is stronger than an in-sample result (test data is
@@ -81,7 +81,7 @@
 			<div class="border-l-2 border-teal-500/60 pl-4">
 				<p class="text-sm font-semibold text-navy-deep">Headline result</p>
 				<p class="text-sm leading-relaxed text-slate">
-					Across all 51 near-blind folds, the three-state FIS produced an estimated mean return of
+					Across all 51 near-blind folds, the three-state RXI produced an estimated mean return of
 					+3.8% versus +0.6% for the two-state baseline &mdash; a +3.2 percentage point improvement.
 					Excluding the ZECUSD 2025 fold, which remains ongoing as of the data cutoff (2026-05-26)
 					and may not reflect the completed 2025 annual result, the mean is +2.0%. All figures are
@@ -180,7 +180,7 @@
 				<tbody class="text-slate">
 					<tr class="border-b border-rule/40">
 						<td class="py-2 pr-6 text-navy-deep">Training window</td>
-						<td class="py-2">2019&ndash;2022 (algorithm design, FIS calibration, all parameter decisions)</td>
+						<td class="py-2">2019&ndash;2022 (algorithm design, RXI calibration, all parameter decisions)</td>
 					</tr>
 					<tr class="border-b border-rule/40">
 						<td class="py-2 pr-6 text-navy-deep">Test window</td>
@@ -199,7 +199,7 @@
 						<td class="py-2">51 (17 assets &times; 3 test years)</td>
 					</tr>
 					<tr class="border-b border-rule/40">
-						<td class="py-2 pr-6 text-navy-deep">FIS parameters</td>
+						<td class="py-2 pr-6 text-navy-deep">RXI parameters</td>
 						<td class="py-2">Hurst threshold 0.55, balanced sensitivity, 25% sleeve allocation</td>
 					</tr>
 					<tr>
@@ -225,11 +225,11 @@
 						<td class="py-2">No strategy. Raw asset return for the test year.</td>
 					</tr>
 					<tr class="border-b border-rule/40">
-						<td class="py-2 pr-6 text-navy-deep">Two-State FIS</td>
+						<td class="py-2 pr-6 text-navy-deep">Two-State RXI</td>
 						<td class="py-2">Grid when Hurst &lt; 0.55 (ranging), cash when Hurst &ge; 0.55 (trending). Current live system.</td>
 					</tr>
 					<tr>
-						<td class="py-2 pr-6 text-navy-deep">Three-State FIS</td>
+						<td class="py-2 pr-6 text-navy-deep">Three-State RXI</td>
 						<td class="py-2">Grid when ranging, cash when trending non-parabolic, 25% momentum sleeve when parabolic detected. New design under evaluation.</td>
 					</tr>
 				</tbody>
@@ -351,8 +351,8 @@
 					<tr class="border-b border-rule text-left text-xs uppercase tracking-wider text-slate-light">
 						<th class="pb-2 pr-6 font-semibold">Metric</th>
 						<th class="pb-2 pr-6 font-semibold text-right">Buy-and-Hold</th>
-						<th class="pb-2 pr-6 font-semibold text-right">Two-State FIS</th>
-						<th class="pb-2 font-semibold text-right">Three-State FIS</th>
+						<th class="pb-2 pr-6 font-semibold text-right">Two-State RXI</th>
+						<th class="pb-2 font-semibold text-right">Three-State RXI</th>
 					</tr>
 				</thead>
 				<tbody class="text-slate">
@@ -385,7 +385,7 @@
 			<div class="text-xs font-semibold uppercase tracking-wider text-slate-light mb-2">Figure 1 &mdash; Three-Strategy Comparison, Year by Year</div>
 			<iframe
 				src="/research/grid-blind-validation-2023-2025/fig1-three-strategy.html"
-				title="Figure 1 — Year-by-year mean returns: Buy-and-Hold, Two-State FIS, Three-State FIS (2023–2025). Three-State +10.5% in 2023 dominated by STXUSD sleeve; 2025 reflects partial-year data."
+				title="Figure 1 — Year-by-year mean returns: Buy-and-Hold, Two-State RXI, Three-State RXI (2023–2025). Three-State +10.5% in 2023 dominated by STXUSD sleeve; 2025 reflects partial-year data."
 				class="w-full rounded border border-rule"
 				style="height: 520px; border: none;"
 				loading="lazy"
@@ -403,7 +403,7 @@
 		</p>
 
 		<p class="mb-5 text-base leading-relaxed text-slate">
-			16 of 20 bear folds were FIS-gated: strategy earned 0% vs. B&amp;H ranging from &minus;21.0% to
+			16 of 20 bear folds were RXI-gated: strategy earned 0% vs. B&amp;H ranging from &minus;21.0% to
 			&minus;84.1%. Four bear folds had the grid running (random-walk regime during a bear year):
 			DOGEUSD 2025 (&minus;9.3% vs &minus;63.9%), LTCUSD 2025 (+3.8% vs &minus;26.9%), XLMUSD 2025
 			(+0.8% vs &minus;52.8%), XRPUSD 2025 (+1.6% vs &minus;21.0%). All four outperformed buy-and-hold.
@@ -466,8 +466,8 @@
 				<thead>
 					<tr class="border-b border-rule text-left text-xs uppercase tracking-wider text-slate-light">
 						<th class="pb-2 pr-6 font-semibold">Metric</th>
-						<th class="pb-2 pr-6 font-semibold text-right">Two-State FIS</th>
-						<th class="pb-2 pr-6 font-semibold text-right">Three-State FIS</th>
+						<th class="pb-2 pr-6 font-semibold text-right">Two-State RXI</th>
+						<th class="pb-2 pr-6 font-semibold text-right">Three-State RXI</th>
 						<th class="pb-2 font-semibold text-right">Delta</th>
 					</tr>
 				</thead>
@@ -486,7 +486,7 @@
 		</div>
 		<p class="mb-8 text-xs italic text-slate-light">All figures are simulated/backtested. ‡ ZECUSD 2025 is an ongoing fold — partial-year data only. See Limitations.</p>
 
-		<h3 class="mb-4 font-serif text-lg text-navy-ink">Does the Three-State FIS Generate Statistically Superior Returns?</h3>
+		<h3 class="mb-4 font-serif text-lg text-navy-ink">Does the Three-State RXI Generate Statistically Superior Returns?</h3>
 		<p class="mb-5 text-base leading-relaxed text-slate">
 			51 folds is not 51 independent observations. Cross-asset correlation in crypto is high (typically
 			0.5&ndash;0.8 in bull cycles), which reduces the effective independent observation count to roughly
@@ -529,7 +529,7 @@
 		</p>
 
 		<p class="text-base leading-relaxed text-slate">
-			The FIS gate is the solution. When the Hurst exponent on CoinRoc&rsquo;s training window rises
+			The RXI gate is the solution. When the Hurst exponent on CoinRoc&rsquo;s training window rises
 			above 0.55 &mdash; indicating a persistent trend rather than mean-reverting oscillation &mdash; the
 			grid pauses and holds cash. The strategy does not place orders into the trend. This is the single
 			feature that separates the strategy from the trap outcome above.
@@ -552,7 +552,7 @@
 				<tbody class="text-slate">
 					<tr class="border-b border-rule/40"><td class="py-2 pr-6">Buy-and-Hold ETH</td><td class="pr-6 text-right">$10,000</td><td class="pr-6 text-right text-red-700">$3,250 (B&amp;H &minus;67.5%)</td><td class="text-right text-red-700">-$6,750</td></tr>
 					<tr class="border-b border-rule/40"><td class="py-2 pr-6">Always-on grid bot (no regime gate) *</td><td class="pr-6 text-right">$10,000</td><td class="pr-6 text-right text-red-700">~$3,500&ndash;$4,500</td><td class="text-right text-red-700">~-$5,500 to -$6,500</td></tr>
-					<tr><td class="py-2 pr-6">CoinRoc FIS v2 gated (simulated ETHUSD 2022 fold)</td><td class="pr-6 text-right">$10,000</td><td class="pr-6 text-right text-teal-700 font-semibold">$10,000 (0%, cash)</td><td class="text-right font-semibold">$0</td></tr>
+					<tr><td class="py-2 pr-6">CoinRoc RXI v2 gated (simulated ETHUSD 2022 fold)</td><td class="pr-6 text-right">$10,000</td><td class="pr-6 text-right text-teal-700 font-semibold">$10,000 (0%, cash)</td><td class="text-right font-semibold">$0</td></tr>
 				</tbody>
 			</table>
 		</div>
@@ -575,7 +575,7 @@
 		</p>
 		<p class="mb-8 text-base leading-relaxed text-slate">
 			As of the date of this study, no publicly documented competing grid bot platform has disclosed a
-			regime-adaptive momentum capture layer of comparable architecture. The three-state FIS classifies
+			regime-adaptive momentum capture layer of comparable architecture. The three-state RXI classifies
 			markets into three states &mdash; ranging (grid), trending non-parabolic (cash), parabolic
 			(trailing-stop momentum sleeve) &mdash; and manages capital separately across each state. The
 			Mamdani rule base for the parabolic detector uses an 8-rule fuzzy system producing a continuous
@@ -698,7 +698,7 @@
 		<div class="eyebrow mb-2">Companion paper</div>
 		<h3 class="mb-2 font-serif text-lg text-navy-ink">Paper 8 &mdash; Grid Trading in the Modern Crypto Era: 2019&ndash;2025</h3>
 		<p class="mb-4 text-sm leading-relaxed text-slate">
-			The 85-fold modern-era study that established the two-state FIS baseline. This paper (the Vault Test)
+			The 85-fold modern-era study that established the two-state RXI baseline. This paper (the Vault Test)
 			extends Paper 8&rsquo;s findings to the out-of-sample 2023&ndash;2025 window and evaluates the
 			three-state upgrade.
 		</p>

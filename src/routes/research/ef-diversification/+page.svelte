@@ -302,7 +302,7 @@
 			continuously downward through the grid levels. The composite drawdowns of &minus;62.9%
 			and &minus;58.9% in those years are not tail events in the statistical sense; they are
 			the expected outcome of a short-volatility strategy in a high-volatility trending
-			environment. CoinRoc's FIS&trade; (regime detection) system is designed specifically to
+			environment. CoinRoc's RXI&trade; (regime detection) system is designed specifically to
 			identify these conditions and reduce or suspend grid exposure before the full drawdown
 			accrues. The regime-filtered results will be reported in Paper 1 when published.
 		</p>

@@ -2,7 +2,7 @@
 	<title>Your LP Yield Calculator Is Lying to You — LPIS Research | Yodacom Research</title>
 	<meta name="description" content="Uniswap v3 shows gross fee APY. It hides impermanent loss. Loesch et al. found LPs earned $199M in fees and lost $260M to IL — net −$61M. This paper presents the regime-gated approach that generates real continuous fee income while keeping IL quantifiable." />
 	<meta property="og:title" content="Your LP Yield Calculator Is Lying to You | Yodacom Research" />
-	<meta property="og:description" content="5,000-iteration Monte Carlo on concentrated LP across 4 tiers, 3 chains. B-tier FIS-gated Arbitrum: +15.2% net APY [+14.3%, +16.1%]. Rating inversion: A-tier is worst LP candidate. 9 data figures." />
+	<meta property="og:description" content="5,000-iteration Monte Carlo on concentrated LP across 4 tiers, 3 chains. B-tier RXI-gated Arbitrum: +15.2% net APY [+14.3%, +16.1%]. Rating inversion: A-tier is worst LP candidate. 9 data figures." />
 </svelte:head>
 
 <!-- Back link -->
@@ -31,7 +31,7 @@
 	<dl class="mb-8 grid grid-cols-2 gap-x-6 gap-y-2 border-y border-rule py-5 text-xs text-slate sm:grid-cols-4">
 		<dt class="text-slate-light">Author</dt><dd>Lando &middot; Yodacom Research</dd>
 		<dt class="text-slate-light">Method</dt><dd>5,000-iteration Monte Carlo · live-calibrated 2025–26</dd>
-		<dt class="text-slate-light">Key finding</dt><dd>B-tier Arbitrum FIS-gated: +15.2% net APY [95% CI: +14.3%, +16.1%]</dd>
+		<dt class="text-slate-light">Key finding</dt><dd>B-tier Arbitrum RXI-gated: +15.2% net APY [95% CI: +14.3%, +16.1%]</dd>
 		<dt class="text-slate-light">Novel finding</dt><dd>Rating inversion: A-tier coins are worst LP candidates</dd>
 	</dl>
 </header>
@@ -59,7 +59,7 @@
 
 <p><strong>Key findings:</strong></p>
 <ul>
-<li>B-tier DeFi coins (LINK, AAVE, UNI, ARB, AVAX) on Arbitrum at the 0.30% fee tier, with FIS regime gating, generate approximately 10–17% net fee income on LP capital in ranging market regimes in simulation. Net APY on total capital: +15.2% [95% CI: +14.3%, +16.1%] in a 5,000-iteration Monte Carlo simulation calibrated to 2025–26 live data — not a historical backtest.</li>
+<li>B-tier DeFi coins (LINK, AAVE, UNI, ARB, AVAX) on Arbitrum at the 0.30% fee tier, with RXI regime gating, generate approximately 10–17% net fee income on LP capital in ranging market regimes in simulation. Net APY on total capital: +15.2% [95% CI: +14.3%, +16.1%] in a 5,000-iteration Monte Carlo simulation calibrated to 2025–26 live data — not a historical backtest.</li>
 <li>This essentially ties the 50/50 HODL benchmark (+15.7%) — within the confidence interval. The strategies are statistically indistinguishable in mean expectation. We are not claiming LP beats holding.</li>
 <li>The income profile is meaningfully different from HODL in character. LP returns arrive as continuous realized fee income; HODL returns arrive as unrealized price appreciation. This distinction is meaningful for income-oriented investors and advisors.</li>
 <li>CoinRoc's rating system inversely predicts LP suitability. A-rated coins (ETH, BTC, SOL) are the worst LP candidates. B-rated DeFi coins are the sweet spot. This finding inverts investor intuition and is a novel contribution to the published literature on concentrated LP selection.</li>
@@ -95,7 +95,7 @@
 		loading="lazy"
 		scrolling="no"
 	></iframe>
-	<div class="text-xs text-slate-light mt-2 italic">Chain economics comparison — minimum viable capital, annual gas, FIS-gated B-tier net APY, viability verdict. Yodacom Research / Monte Carlo simulation calibrated to 2025–26 live data.</div>
+	<div class="text-xs text-slate-light mt-2 italic">Chain economics comparison — minimum viable capital, annual gas, RXI-gated B-tier net APY, viability verdict. Yodacom Research / Monte Carlo simulation calibrated to 2025–26 live data.</div>
 </div>
 
 <!-- Explainer 1: What is impermanent loss? -->
@@ -142,8 +142,8 @@ When P &gt; Pb (above range, fully in USDC):
 <tr><td>+10% drift</td><td>&minus;2.3%</td><td>Yes — well covered by fee income</td></tr>
 <tr><td>+30% sustained move</td><td>&minus;16.6%</td><td>Yes (approaching upper bound)</td></tr>
 <tr><td>&minus;20% drift</td><td>&minus;11.4%</td><td>Yes — covered by fees in ranging regime</td></tr>
-<tr><td>&minus;30% exit lower band</td><td>&minus;29.4%</td><td>No — FIS gate should signal exit first</td></tr>
-<tr><td>&minus;50% crash</td><td>&minus;46.7%</td><td>No — tail risk; FIS reduces frequency, does not eliminate</td></tr>
+<tr><td>&minus;30% exit lower band</td><td>&minus;29.4%</td><td>No — RXI gate should signal exit first</td></tr>
+<tr><td>&minus;50% crash</td><td>&minus;46.7%</td><td>No — tail risk; RXI reduces frequency, does not eliminate</td></tr>
 <tr><td>&minus;50% crash break-even gross APY</td><td colspan="2">~234% — structural impossibility</td></tr>
 </tbody>
 </table>
@@ -184,7 +184,7 @@ When P &gt; Pb (above range, fully in USDC):
 
 <ul>
 <li><strong>Strategy A:</strong> Always-in passive LP</li>
-<li><strong>Strategy B:</strong> FIS-gated LP (deploy only when FIS regime signal is ranging, exit to USDC on trending signal)</li>
+<li><strong>Strategy B:</strong> RXI-gated LP (deploy only when RXI regime signal is ranging, exit to USDC on trending signal)</li>
 <li><strong>Strategy C:</strong> 50/50 HODL (the benchmark LP investors should compare against)</li>
 </ul>
 
@@ -194,7 +194,7 @@ When P &gt; Pb (above range, fully in USDC):
 
 <div class="overflow-x-auto my-6">
 <table>
-<thead><tr><th>Tier</th><th>Representative coins</th><th>Always-In</th><th>FIS-Gated</th><th>50/50 HODL</th><th>FIS vs. HODL</th><th>Loss Freq (FIS)</th></tr></thead>
+<thead><tr><th>Tier</th><th>Representative coins</th><th>Always-In</th><th>RXI-Gated</th><th>50/50 HODL</th><th>RXI vs. HODL</th><th>Loss Freq (RXI)</th></tr></thead>
 <tbody>
 <tr><td>A-tier</td><td>ETH, BTC, SOL</td><td>+4.9% [+4.4, +5.4]</td><td>+3.0% [+2.7, +3.4]</td><td>+11.7%</td><td>&minus;8.6pp</td><td>41.7%</td></tr>
 <tr><td><strong>B-tier</strong></td><td>LINK, AAVE, UNI, ARB, AVAX</td><td>+21.3% [+20.2, +22.4]</td><td><strong>+15.2% [+14.3, +16.1]</strong></td><td>+15.7%</td><td><strong>&minus;0.4pp (within CI)</strong></td><td>35.0%</td></tr>
@@ -206,35 +206,35 @@ When P &gt; Pb (above range, fully in USDC):
 
 <p><em>95% confidence intervals on the mean. CI = 1.96 × &sigma; / &radic;n, n=5,000. All figures: net APY on total deployed capital, annualized.</em></p>
 
-<p>The B-tier Arbitrum result of +15.2% FIS-gated versus +15.7% HODL is a &minus;0.4 percentage point gap that sits inside the confidence interval. These strategies are not statistically distinguishable in mean expectation at 95% confidence.</p>
+<p>The B-tier Arbitrum result of +15.2% RXI-gated versus +15.7% HODL is a &minus;0.4 percentage point gap that sits inside the confidence interval. These strategies are not statistically distinguishable in mean expectation at 95% confidence.</p>
 
-<p>The Solana CLMM result is marginally better due to near-zero gas. FIS-gated B-tier Solana: +15.8% [95% CI: +14.9%, +16.7%].</p>
+<p>The Solana CLMM result is marginally better due to near-zero gas. RXI-gated B-tier Solana: +15.8% [95% CI: +14.9%, +16.7%].</p>
 
-<!-- Figure 3: FIS loss frequency — maps to Sabine file fig5-fis-loss-frequency.html -->
+<!-- Figure 3: RXI loss frequency — maps to Sabine file fig5-fis-loss-frequency.html -->
 <div class="my-8 not-prose">
-	<div class="text-xs font-semibold uppercase tracking-wider text-slate-light mb-2">Figure 3 — FIS Regime Gating: Loss Frequency Reduction</div>
+	<div class="text-xs font-semibold uppercase tracking-wider text-slate-light mb-2">Figure 3 — RXI Regime Gating: Loss Frequency Reduction</div>
 	<iframe
 		src="/research/lp-yield-2026/fig5-fis-loss-frequency.html"
-		title="Figure 3 — FIS gating: loss frequency reduction — always-in vs. FIS-gated LP by tier"
+		title="Figure 3 — RXI gating: loss frequency reduction — always-in vs. RXI-gated LP by tier"
 		class="w-full rounded border border-rule"
 		style="height: 480px; border: none;"
 		loading="lazy"
 		scrolling="no"
 	></iframe>
-	<div class="text-xs text-slate-light mt-2 italic">% of weeks with net loss (fee income minus IL minus gas &lt; 0) · Always-in passive LP vs. FIS-gated LP · Arbitrum · 5,000-iteration simulation. Yodacom Research.</div>
+	<div class="text-xs text-slate-light mt-2 italic">% of weeks with net loss (fee income minus IL minus gas &lt; 0) · Always-in passive LP vs. RXI-gated LP · Arbitrum · 5,000-iteration simulation. Yodacom Research.</div>
 </div>
 
 <hr />
 
 <h2>4. The Four CoinRoc Optimization Levers</h2>
 
-<h3>4a. FIS Regime Gating — Measured Tail-Risk Reduction</h3>
+<h3>4a. RXI Regime Gating — Measured Tail-Risk Reduction</h3>
 
-<p>FIS&#x2122; (Fuzzy Inference System&#x2122;) uses Hurst exponent, ADX, velocity Z-score, and drawdown-from-peak inputs to classify market regime. In LP context: deploy concentrated liquidity in ranging conditions (Hurst &lt; 0.5, ADX &lt; 25); exit to USDC in trending conditions (Hurst &gt; 0.6, ADX &gt; 25). The investor executes manually. CoinRoc is an advisory tool.</p>
+<p>RXI&#x2122; (Regime eXecution Intelligence) — built on a Mamdani fuzzy-inference engine — uses Hurst exponent, ADX, velocity Z-score, and drawdown-from-peak inputs to classify market regime. In LP context: deploy concentrated liquidity in ranging conditions (Hurst &lt; 0.5, ADX &lt; 25); exit to USDC in trending conditions (Hurst &gt; 0.6, ADX &gt; 25). The investor executes manually. CoinRoc is an advisory tool.</p>
 
-<p><strong>Important counterintuitive result for B-tier:</strong> FIS gating on B-tier coins <em>reduces</em> mean return by &minus;6.1pp versus always-in (+21.3% always-in vs. +15.2% FIS-gated). This is expected and correct. At the 0.30% fee tier, even trending-week LP positions generate positive expected fee income in mean expectation. The FIS gate's value for B-tier is <em>risk management, not return generation</em> — it reduces loss frequency (42% &rarr; 35%) and tail exposure in exchange for lower mean return.</p>
+<p><strong>Important counterintuitive result for B-tier:</strong> RXI gating on B-tier coins <em>reduces</em> mean return by &minus;6.1pp versus always-in (+21.3% always-in vs. +15.2% RXI-gated). This is expected and correct. At the 0.30% fee tier, even trending-week LP positions generate positive expected fee income in mean expectation. The RXI gate's value for B-tier is <em>risk management, not return generation</em> — it reduces loss frequency (42% &rarr; 35%) and tail exposure in exchange for lower mean return.</p>
 
-<p><strong>Compliance-safe framing:</strong> "CoinRoc's FIS regime engine helps investors avoid deploying concentrated liquidity during trending markets where impermanent loss tends to exceed fee income. This reduces loss frequency and improves the shape of outcomes — not the average return — compared to always-on passive LP."</p>
+<p><strong>Compliance-safe framing:</strong> "CoinRoc's RXI regime engine helps investors avoid deploying concentrated liquidity during trending markets where impermanent loss tends to exceed fee income. This reduces loss frequency and improves the shape of outcomes — not the average return — compared to always-on passive LP."</p>
 
 <hr />
 
@@ -253,12 +253,12 @@ When P &gt; Pb (above range, fully in USDC):
 		loading="lazy"
 		scrolling="no"
 	></iframe>
-	<div class="text-xs text-slate-light mt-2 italic">FIS-gated net APY on total capital vs. 50/50 HODL benchmark, by CoinRoc coin rating tier · Arbitrum · $5,000 capital · 5,000-iteration Monte Carlo simulation. Yodacom Research.</div>
+	<div class="text-xs text-slate-light mt-2 italic">RXI-gated net APY on total capital vs. 50/50 HODL benchmark, by CoinRoc coin rating tier · Arbitrum · $5,000 capital · 5,000-iteration Monte Carlo simulation. Yodacom Research.</div>
 </div>
 
 <p><strong>The mechanism driving the inversion:</strong></p>
 <ul>
-<li><strong>A-tier coins (ETH, BTC, SOL)</strong> sit in 0.05% fee-tier pools — designed for deep, liquid, low-volatility pairs. The fee is 6x lower than the 0.30% tier. Deep TVL keeps Vol/TVL ratios moderate. Simultaneously, A-tier HODL benchmark benefits heavily from crypto's long-term appreciation trend. Result: A-tier LP generates +3.1% FIS-gated vs. +10.9% HODL — a &minus;7.8pp structural deficit.</li>
+<li><strong>A-tier coins (ETH, BTC, SOL)</strong> sit in 0.05% fee-tier pools — designed for deep, liquid, low-volatility pairs. The fee is 6x lower than the 0.30% tier. Deep TVL keeps Vol/TVL ratios moderate. Simultaneously, A-tier HODL benchmark benefits heavily from crypto's long-term appreciation trend. Result: A-tier LP generates +3.1% RXI-gated vs. +10.9% HODL — a &minus;7.8pp structural deficit.</li>
 <li><strong>B-tier coins (LINK, AAVE, UNI, ARB, AVAX)</strong> sit in 0.30% fee-tier pools with real organic trading volume. The 0.30% tier generates 6x the gross fee income per unit of Vol/TVL. B-tier volatility is meaningful but not extreme. This is the LP economic sweet spot.</li>
 <li><strong>C and D-tier coins</strong> have volatility that overwhelms any fee tier. Loss frequencies of 79.8% and 97.7% respectively.</li>
 </ul>
@@ -286,7 +286,7 @@ When P &gt; Pb (above range, fully in USDC):
 		loading="lazy"
 		scrolling="no"
 	></iframe>
-	<div class="text-xs text-slate-light mt-2 italic">Annual LP capital decomposition · Gross fee income vs. IL drag vs. gas drag vs. net return · B-tier sweet spot vs. A-tier majors · FIS-gated, Arbitrum. Yodacom Research.</div>
+	<div class="text-xs text-slate-light mt-2 italic">Annual LP capital decomposition · Gross fee income vs. IL drag vs. gas drag vs. net return · B-tier sweet spot vs. A-tier majors · RXI-gated, Arbitrum. Yodacom Research.</div>
 </div>
 
 <hr />
@@ -299,7 +299,7 @@ When P &gt; Pb (above range, fully in USDC):
 
 <p><strong>What it does not do:</strong> Hedge against a crash. A &minus;40% to &minus;60% price drop in days traverses the contingency range in days — fee income from a 3-day transit at 30% gross APY is approximately 0.25% of capital. Negligible against a &minus;30% to &minus;40% IL event on the primary position.</p>
 
-<p><strong>Critical gating requirement:</strong> The contingency range must be independently gated by the FIS. Deploy only when FIS confirms ranging regime despite price exiting the lower band. Do NOT auto-trigger on price movement alone.</p>
+<p><strong>Critical gating requirement:</strong> The contingency range must be independently gated by the RXI. Deploy only when RXI confirms ranging regime despite price exiting the lower band. Do NOT auto-trigger on price movement alone.</p>
 
 <!-- Explainer 3: Contingency range -->
 <div class="my-8 not-prose">
@@ -325,14 +325,14 @@ When P &gt; Pb (above range, fully in USDC):
 		loading="lazy"
 		scrolling="no"
 	></iframe>
-	<div class="text-xs text-slate-light mt-2 italic">Two price path scenarios · Primary LP range + contingency range · Left: slow drift — contingency earns fees. Right: sharp crash — contingency range traversed in days, minimal income, FIS fires exit signal. Yodacom Research.</div>
+	<div class="text-xs text-slate-light mt-2 italic">Two price path scenarios · Primary LP range + contingency range · Left: slow drift — contingency earns fees. Right: sharp crash — contingency range traversed in days, minimal income, RXI fires exit signal. Yodacom Research.</div>
 </div>
 
 <hr />
 
 <h2>5. The B-Tier Income Decomposition</h2>
 
-<p>The specific scenario where the LPIS thesis holds: B-tier coins, Arbitrum or Solana, 0.30% fee tier, FIS-gated.</p>
+<p>The specific scenario where the LPIS thesis holds: B-tier coins, Arbitrum or Solana, 0.30% fee tier, RXI-gated.</p>
 
 <div class="overflow-x-auto my-6">
 <table>
@@ -355,7 +355,7 @@ When P &gt; Pb (above range, fully in USDC):
 
 <h2>6. The Income Profile Distinction — Why It Matters for Advisors</h2>
 
-<p>The claim that FIS-gated B-tier LP on Solana "ties HODL" requires a critical qualifier. The strategies produce similar mean returns in simulation — but through fundamentally different mechanisms.</p>
+<p>The claim that RXI-gated B-tier LP on Solana "ties HODL" requires a critical qualifier. The strategies produce similar mean returns in simulation — but through fundamentally different mechanisms.</p>
 
 <p><strong>50/50 HODL returns:</strong> Price appreciation on the 50% crypto component, recognized only when liquidated. Unrealized until sale. Subject to the full volatility path of the underlying asset.</p>
 
@@ -369,7 +369,7 @@ When P &gt; Pb (above range, fully in USDC):
 
 <div class="overflow-x-auto my-6">
 <table>
-<thead><tr><th>Chain</th><th>Min capital for gas &lt; 5% of net fees</th><th>Annual gas</th><th>FIS-Gated B-tier Net APY</th><th>Verdict</th></tr></thead>
+<thead><tr><th>Chain</th><th>Min capital for gas &lt; 5% of net fees</th><th>Annual gas</th><th>RXI-Gated B-tier Net APY</th><th>Verdict</th></tr></thead>
 <tbody>
 <tr><td>Arbitrum</td><td>$949 (practical minimum: $2,000)</td><td>$7.12</td><td>+15.2% [+14.3, +16.1]</td><td><strong>RECOMMENDED</strong></td></tr>
 <tr><td>Solana CLMM</td><td>$6 (practical minimum: $500)</td><td>$0.04</td><td>+15.8% [+14.9, +16.7]</td><td><strong>FAVORABLE</strong> — separate integration required</td></tr>
@@ -386,10 +386,10 @@ When P &gt; Pb (above range, fully in USDC):
 
 <h3>What is supported:</h3>
 <ul>
-<li>B-tier DeFi coins in 0.30% fee-tier pools on Arbitrum or Solana CLMM generate +15.2% to +15.8% FIS-gated net APY in simulation — within the confidence interval of the 50/50 HODL benchmark of +15.7%. These strategies <em>tie</em> in mean expectation.</li>
+<li>B-tier DeFi coins in 0.30% fee-tier pools on Arbitrum or Solana CLMM generate +15.2% to +15.8% RXI-gated net APY in simulation — within the confidence interval of the 50/50 HODL benchmark of +15.7%. These strategies <em>tie</em> in mean expectation.</li>
 <li>LP returns are continuous realized fee income; HODL returns are unrealized price appreciation. A genuine structural distinction.</li>
 <li>CoinRoc's rating system inversely predicts LP suitability: A-rated coins are the worst LP candidates; B-rated coins at the 0.30% fee tier are the LP sweet spot. Novel, publishable finding.</li>
-<li>FIS regime gating reduces B-tier loss-frequency weeks from ~42% to 35.0%. The FIS gate is a risk management tool, not a return generator.</li>
+<li>RXI regime gating reduces B-tier loss-frequency weeks from ~42% to 35.0%. The RXI gate is a risk management tool, not a return generator.</li>
 <li>Post-Dencun, Arbitrum gas = $7.12/year. Chain selection is structurally decisive for retail-scale LP.</li>
 </ul>
 
@@ -398,7 +398,7 @@ When P &gt; Pb (above range, fully in USDC):
 <li><strong>"LP beats HODL."</strong> The data say LP ties HODL within the margin of error at best. No headline should use "beats."</li>
 <li><strong>Any APY point estimate without its confidence interval.</strong> Always cite as "+15.2% net APY [95% CI: +14.3%, +16.1%] in simulation."</li>
 <li><strong>"IL is manageable" or "IL is eliminated."</strong> IL is real and material.</li>
-<li><strong>"This is a passive income strategy."</strong> LP at this level requires FIS monitoring, periodic fee collection, reposition decisions, and exit discipline.</li>
+<li><strong>"This is a passive income strategy."</strong> LP at this level requires RXI monitoring, periodic fee collection, reposition decisions, and exit discipline.</li>
 <li><strong>Any Ethereum mainnet recommendation at retail capital levels.</strong></li>
 <li><strong>That tick-level historical backtesting has been completed.</strong> It has not. Tick-level historical validation via Dune Analytics is required before any investor-facing net APY point estimates are appropriate.</li>
 </ul>
@@ -415,9 +415,9 @@ When P &gt; Pb (above range, fully in USDC):
 
 <p><strong>Range selection:</strong> Fibonacci-derived range anchored to previous cycle swing low (lower band at 0.618 retracement) and swing high (upper band at 1.272 extension). Medium range [&minus;40%, +60%] may outperform tight range [&minus;30%, +40%] for B-tier. Formal optimization pending (RES-LPIS-RANGE-WIDTH-01).</p>
 
-<p><strong>FIS monitoring:</strong> Check at minimum weekly. Exit to USDC when FIS transitions to trending (Hurst &gt; 0.6, ADX &gt; 25). Re-enter when FIS returns to ranging. Not a set-and-forget position.</p>
+<p><strong>RXI monitoring:</strong> Check at minimum weekly. Exit to USDC when RXI transitions to trending (Hurst &gt; 0.6, ADX &gt; 25). Re-enter when RXI returns to ranging. Not a set-and-forget position.</p>
 
-<p><strong>Contingency range:</strong> Deploy below the primary band only when FIS confirms continuing ranging regime. Do not auto-trigger on price movement alone.</p>
+<p><strong>Contingency range:</strong> Deploy below the primary band only when RXI confirms continuing ranging regime. Do not auto-trigger on price movement alone.</p>
 
 <hr />
 
@@ -429,7 +429,7 @@ When P &gt; Pb (above range, fully in USDC):
 
 <p><strong>CrocSwap (2023):</strong> Found that large swaps (top 25% by notional) are the structural profit extractors against LP positions. Our model applies a JIT haircut per tier (6% A-tier, 4% B-tier) as a simplified representation.</p>
 
-<p><strong>Our contribution:</strong> Regime-gated LP analysis across four asset tiers with the FIS signal as the gate, combined with the novel finding that quality-rating tier inversely predicts LP suitability. No published work has connected an external quality-rating system to pool-tier selection via this mechanism.</p>
+<p><strong>Our contribution:</strong> Regime-gated LP analysis across four asset tiers with the RXI signal as the gate, combined with the novel finding that quality-rating tier inversely predicts LP suitability. No published work has connected an external quality-rating system to pool-tier selection via this mechanism.</p>
 
 <hr />
 
@@ -441,7 +441,7 @@ When P &gt; Pb (above range, fully in USDC):
 
 <p><strong>Past simulated performance is not indicative of future results.</strong> The value of crypto assets and LP positions can decline to zero. Fee income from LP positions is not guaranteed and depends on ongoing market activity in the relevant pool. Impermanent loss is a real and material cost of providing liquidity in automated market makers.</p>
 
-<p><strong>The FIS regime engine produces an advisory signal only.</strong> It does not predict future price movements and does not guarantee that deploying or exiting LP positions based on its signal will produce positive returns. CoinRoc does not hold user funds, does not execute transactions on behalf of users, and does not manage any pooled investment vehicle.</p>
+<p><strong>The RXI regime engine produces an advisory signal only.</strong> It does not predict future price movements and does not guarantee that deploying or exiting LP positions based on its signal will produce positive returns. CoinRoc does not hold user funds, does not execute transactions on behalf of users, and does not manage any pooled investment vehicle.</p>
 
 <p><strong>Regulatory status:</strong> Digital assets, including those referenced in this document, may be deemed securities under applicable law (including the Howey test as applied by the SEC). This document does not constitute legal, tax, or regulatory advice. Consult your own financial, legal, and tax advisors before making any investment or business decision.</p>
 

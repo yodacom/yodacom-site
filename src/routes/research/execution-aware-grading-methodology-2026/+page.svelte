@@ -47,7 +47,7 @@
 
 <h2>Abstract</h2>
 
-<p>Standard backtesting-based grading systems evaluate a trading strategy's simulated performance under idealized assumptions: fills at the grid price, unlimited order-book depth, and no distinction between periods when the strategy is active versus when it is correctly holding cash. We document two systematic biases this introduces and the methodology used to correct them in CoinRoc's asset grading system. First, the <strong>blended-return bias</strong>: grading assets on their total portfolio return across a full evaluation window &mdash; including periods where the Adaptive Grid FIS (fuzzy inference system) correctly de-activated the grid &mdash; penalizes assets for market-level drawdowns the grid strategy was not responsible for. Second, the <strong>liquidity-optimism bias</strong>: presenting a grade derived from a clean backtest on an asset with a thin order book implies an execution quality the order book may not be able to support at the simulated scale. We describe the corrections shipped on 2026-06-12 and 2026-06-13, quantify their impact on the 97-symbol catalog, and bound the assumptions and data gaps that limit the strength of the current methodology. The unifying principle: a grade should represent what a strategy's simulated historical behavior in active windows suggests about its grid mechanism, not what a simulation with unlimited liquidity and no regime awareness would produce.</p>
+<p>Standard backtesting-based grading systems evaluate a trading strategy's simulated performance under idealized assumptions: fills at the grid price, unlimited order-book depth, and no distinction between periods when the strategy is active versus when it is correctly holding cash. We document two systematic biases this introduces and the methodology used to correct them in CoinRoc's asset grading system. First, the <strong>blended-return bias</strong>: grading assets on their total portfolio return across a full evaluation window &mdash; including periods where the Adaptive Grid RXI (fuzzy inference system) correctly de-activated the grid &mdash; penalizes assets for market-level drawdowns the grid strategy was not responsible for. Second, the <strong>liquidity-optimism bias</strong>: presenting a grade derived from a clean backtest on an asset with a thin order book implies an execution quality the order book may not be able to support at the simulated scale. We describe the corrections shipped on 2026-06-12 and 2026-06-13, quantify their impact on the 97-symbol catalog, and bound the assumptions and data gaps that limit the strength of the current methodology. The unifying principle: a grade should represent what a strategy's simulated historical behavior in active windows suggests about its grid mechanism, not what a simulation with unlimited liquidity and no regime awareness would produce.</p>
 
 <h2>1. Introduction</h2>
 
@@ -61,15 +61,15 @@
 
 <h3>2.1 Background: Blended Return and Its Distortion</h3>
 
-<p>CoinRoc's grid strategy operates under the direction of the Adaptive Grid FIS, a regime-classification system that classifies market regimes and sets a grid engagement score (gridEngagement &isin; [0, 1]). When gridEngagement falls below 0.65, the FIS pauses new grid buy orders &mdash; existing inventory continues to be managed by the strategy, but no new capital is deployed into the grid until conditions improve. This is intentional behavior: the grid strategy is fundamentally short-volatility and works best in ranging, mean-reverting markets. In strongly trending markets, a correctly-designed grid system should stand aside.</p>
+<p>CoinRoc's grid strategy operates under the direction of the Adaptive Grid RXI, a regime-classification system that classifies market regimes and sets a grid engagement score (gridEngagement &isin; [0, 1]). When gridEngagement falls below 0.65, the RXI pauses new grid buy orders &mdash; existing inventory continues to be managed by the strategy, but no new capital is deployed into the grid until conditions improve. This is intentional behavior: the grid strategy is fundamentally short-volatility and works best in ranging, mean-reverting markets. In strongly trending markets, a correctly-designed grid system should stand aside.</p>
 
-<p>Prior to the 2026-06-12 fix, the Discovery page filter used <code>grid_return_percent</code> as its gating metric. This is the <strong>blended full-period return</strong> &mdash; the total portfolio return across all of Year 2 (the blind forward test period), regardless of whether the FIS was actively running the grid or holding cash. The schema's own docblock contained a direct warning about this:</p>
+<p>Prior to the 2026-06-12 fix, the Discovery page filter used <code>grid_return_percent</code> as its gating metric. This is the <strong>blended full-period return</strong> &mdash; the total portfolio return across all of Year 2 (the blind forward test period), regardless of whether the RXI was actively running the grid or holding cash. The schema's own docblock contained a direct warning about this:</p>
 
 <blockquote><p>&ldquo;Use this &mdash; NOT gridReturnPercent &mdash; when comparing grid performance across ratings, because gridReturnPercent is blended across cash periods.&rdquo;</p></blockquote>
 
 <p>Despite the warning, <code>grid_return_percent</code> was the column being evaluated.</p>
 
-<p>In a trending-down market, the blended return absorbs the directional portfolio drawdown even during paused periods &mdash; because the total portfolio value tracks the underlying asset price, not just grid profit and loss. The FIS may correctly classify the market as unsuitable for grid trading, pause new buys, and protect the user from the worst of the trend &mdash; yet the blended return penalizes the asset for the directional move that the strategy correctly avoided.</p>
+<p>In a trending-down market, the blended return absorbs the directional portfolio drawdown even during paused periods &mdash; because the total portfolio value tracks the underlying asset price, not just grid profit and loss. The RXI may correctly classify the market as unsuitable for grid trading, pause new buys, and protect the user from the worst of the trend &mdash; yet the blended return penalizes the asset for the directional move that the strategy correctly avoided.</p>
 
 <p>The <code>grid_return_active_pct</code> column, added in migration 108, computes the grid strategy's return across only those sub-windows where gridEngagement &gt;= 0.65. This is the metric that answers the correct question: <strong>when the grid was running, how did it perform?</strong></p>
 
@@ -83,7 +83,7 @@
 
 <p>to:</p>
 
-<pre><code>grid_return_active_pct &gt;= -25% (active-period, FIS-gated)
+<pre><code>grid_return_active_pct &gt;= -25% (active-period, RXI-gated)
   fallback: grid_return_percent (blended) when active_pct is null
 threshold: -25% unchanged</code></pre>
 
@@ -111,7 +111,7 @@ threshold: -25% unchanged</code></pre>
 
 <p>Selected assets from the named-major review:</p>
 
-<p>Note: the Regime-Active % column is the retrospective classification described in &sect;2.1, not the live <code>gridEngagement</code> gate. The Blended Return and Active Return figures for all nine symbols below come from backtest runs that used a fixed grid-engagement setting, not the live FIS decision.</p>
+<p>Note: the Regime-Active % column is the retrospective classification described in &sect;2.1, not the live <code>gridEngagement</code> gate. The Blended Return and Active Return figures for all nine symbols below come from backtest runs that used a fixed grid-engagement setting, not the live RXI decision.</p>
 
 <table>
 <thead><tr><th>Symbol</th><th>Blended Return</th><th>Active Return</th><th>Regime-Active % (Yr2, retrospective classifier — see &sect;2.1 note)</th><th>Verdict</th></tr></thead>
@@ -134,11 +134,11 @@ threshold: -25% unchanged</code></pre>
 
 <h3>2.4 Interpretation Constraints</h3>
 
-<p>The active-period return metric answers a narrower question than the blended return does &mdash; and that narrowness is the point. It does not answer &ldquo;how would a portfolio perform if held for all of Year 2 with this strategy?&rdquo; It answers &ldquo;how did the grid mechanism perform when the FIS chose to run it?&rdquo;</p>
+<p>The active-period return metric answers a narrower question than the blended return does &mdash; and that narrowness is the point. It does not answer &ldquo;how would a portfolio perform if held for all of Year 2 with this strategy?&rdquo; It answers &ldquo;how did the grid mechanism perform when the RXI chose to run it?&rdquo;</p>
 
-<p>These are different questions. A user considering CoinRoc's grid strategy is implicitly accepting the FIS's judgment about when to run. If the FIS is correct in its regime classification, the active-period return is the better predictor of what the user will experience during active windows. If the FIS is wrong (it classifies trending markets as ranging, engages the grid, and loses), the blended return and active return converge &mdash; as they do for BTC.</p>
+<p>These are different questions. A user considering CoinRoc's grid strategy is implicitly accepting the RXI's judgment about when to run. If the RXI is correct in its regime classification, the active-period return is the better predictor of what the user will experience during active windows. If the RXI is wrong (it classifies trending markets as ranging, engages the grid, and loses), the blended return and active return converge &mdash; as they do for BTC.</p>
 
-<p>The split between the two metrics is therefore also a signal about FIS regime accuracy, which is a separate validation question not addressed in this paper.</p>
+<p>The split between the two metrics is therefore also a signal about RXI regime accuracy, which is a separate validation question not addressed in this paper.</p>
 
 <h2>3. Pillar 2 &mdash; Liquidity-Aware Grading: A Beautiful Backtest Is Not a Fill</h2>
 
@@ -247,7 +247,7 @@ threshold: -25% unchanged</code></pre>
 
 <p>Both corrections reduce to the same principle: measure what the user can actually experience.</p>
 
-<p>Blended-return grading measures a scenario the user does not experience if the FIS works correctly &mdash; a continuous exposure through periods when the strategy is deliberately inactive. Active-period grading measures what the user experiences when the grid is running.</p>
+<p>Blended-return grading measures a scenario the user does not experience if the RXI works correctly &mdash; a continuous exposure through periods when the strategy is deliberately inactive. Active-period grading measures what the user experiences when the grid is running.</p>
 
 <p>Backtest-only grading implies an execution quality the market may not provide. Liquidity-aware grading caps the implied quality to what the order book can actually deliver, and discloses where that ceiling has been applied.</p>
 
@@ -256,7 +256,7 @@ threshold: -25% unchanged</code></pre>
 <table>
 <thead><tr><th>Dimension</th><th>Old measure</th><th>Problem</th><th>Corrected measure</th></tr></thead>
 <tbody>
-<tr><td>Timing</td><td>Blended full-period return</td><td>Penalizes regime-appropriate pauses</td><td>Active-period (FIS-gated) return</td></tr>
+<tr><td>Timing</td><td>Blended full-period return</td><td>Penalizes regime-appropriate pauses</td><td>Active-period (RXI-gated) return</td></tr>
 <tr><td>Execution</td><td>Fill at simulated price</td><td>Assumes infinite depth and no market impact</td><td>Liquidity-capped grade + disclosure when depth is insufficient</td></tr>
 </tbody>
 </table>
@@ -283,11 +283,11 @@ threshold: -25% unchanged</code></pre>
 
 <p>This gap is known. Volatility-conditional slippage modeling is on the methodology roadmap. Until it is implemented, the backtest return on any thin-liquidity asset should be treated as an optimistic estimate under idealized fill conditions, not a performance guarantee &mdash; which is exactly what the flag copy states.</p>
 
-<h3>5.4 Active-Period Return Does Not Validate FIS Regime Accuracy</h3>
+<h3>5.4 Active-Period Return Does Not Validate RXI Regime Accuracy</h3>
 
-<p>The switch to active-period return assumes that the FIS is correctly classifying market regimes &mdash; that paused periods genuinely represent market conditions where the grid strategy should not run. If the FIS has systematic classification errors (e.g., it pauses too long in mildly trending markets that a grid could profitably navigate), the active-period return would overstate the grid mechanism's quality by excluding windows where the FIS was wrong to step aside.</p>
+<p>The switch to active-period return assumes that the RXI is correctly classifying market regimes &mdash; that paused periods genuinely represent market conditions where the grid strategy should not run. If the RXI has systematic classification errors (e.g., it pauses too long in mildly trending markets that a grid could profitably navigate), the active-period return would overstate the grid mechanism's quality by excluding windows where the RXI was wrong to step aside.</p>
 
-<p>Validating FIS regime accuracy is a separate research question. The active-period metric is preferable to the blended metric under the assumption that the FIS is reasonably calibrated. The BTC case provides a partial validation of the metric's construction, though not of live FIS behavior: BTC's active and blended returns are identical (-40.2% both) because the retrospective classifier found no candles to exclude for BTC in Year 2 &mdash; not because a live grid-engagement gate ran the strategy on BTC throughout the period (this test's engagement setting was fixed, not live-gated; see &sect;2.1).</p>
+<p>Validating RXI regime accuracy is a separate research question. The active-period metric is preferable to the blended metric under the assumption that the RXI is reasonably calibrated. The BTC case provides a partial validation of the metric's construction, though not of live RXI behavior: BTC's active and blended returns are identical (-40.2% both) because the retrospective classifier found no candles to exclude for BTC in Year 2 &mdash; not because a live grid-engagement gate ran the strategy on BTC throughout the period (this test's engagement setting was fixed, not live-gated; see &sect;2.1).</p>
 
 <h3>5.5 Year 2 Forward Test as a Single Walk-Forward Fold</h3>
 

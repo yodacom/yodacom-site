@@ -23,7 +23,7 @@
 		Inventory-Aware Grid Management: A Regime-Adaptive Circuit Breaker for Crypto Grid Strategies
 	</h1>
 	<p class="mb-6 text-lg leading-relaxed text-slate">
-		Grid trading earns realized profit from oscillating price action but accumulates mark-to-market inventory losses during sustained downtrends. FIS v2 regime gating monitors market structure. This paper adds a second independent protection layer that monitors the grid's own balance sheet.
+		Grid trading earns realized profit from oscillating price action but accumulates mark-to-market inventory losses during sustained downtrends. RXI v2 regime gating monitors market structure. This paper adds a second independent protection layer that monitors the grid's own balance sheet.
 	</p>
 	<dl class="mb-8 grid grid-cols-2 gap-x-6 gap-y-2 border-y border-rule py-5 text-xs text-slate sm:grid-cols-4">
 		<dt class="text-slate-light">Authors</dt><dd>Han Kessel &middot; Jeremy J. Black, Editor</dd>
@@ -50,7 +50,7 @@
 
 <h2>Abstract</h2>
 
-<p>Grid trading strategies earn realized profit from oscillating price action but accumulate mark-to-market inventory losses during sustained downtrends. The FIS v2 regime-switching signal (Paper 1) reduces grid activity in unfavorable regimes, improving expected annualized return from &minus;1.51% to +5.33%. However, FIS v2 operates on market-level signals and cannot monitor the grid's own balance sheet. This paper introduces a regime-adaptive inventory circuit breaker — a rule that recenters the grid when portfolio drawdown from peak exceeds 35% of initial capital. The circuit breaker requires a three-condition gate before firing: (1) drawdown from rolling peak below &minus;15%, (2) grid engagement at or below 0.65, and (3) training-period Hurst exponent at or above 0.45. The gate design required five iterations to achieve direction-awareness; the critical insight is that grid engagement and Hurst exponent are trend-intensity metrics, not trend-direction metrics, and cannot distinguish bull from bear markets without an explicit drawdown-from-peak condition. Walk-forward validation across 17 symbols and 135 folds (2yr train / 1yr test) confirms: zero spurious fires in 28 confirmed bull folds; 70.6% detection rate in 17 confirmed 2022 bear folds; average alpha improvement of +5.09 percentage points when fired. The circuit breaker is cleared for production implementation.</p>
+<p>Grid trading strategies earn realized profit from oscillating price action but accumulate mark-to-market inventory losses during sustained downtrends. The RXI v2 regime-switching signal (Paper 1) reduces grid activity in unfavorable regimes, improving expected annualized return from &minus;1.51% to +5.33%. However, RXI v2 operates on market-level signals and cannot monitor the grid's own balance sheet. This paper introduces a regime-adaptive inventory circuit breaker — a rule that recenters the grid when portfolio drawdown from peak exceeds 35% of initial capital. The circuit breaker requires a three-condition gate before firing: (1) drawdown from rolling peak below &minus;15%, (2) grid engagement at or below 0.65, and (3) training-period Hurst exponent at or above 0.45. The gate design required five iterations to achieve direction-awareness; the critical insight is that grid engagement and Hurst exponent are trend-intensity metrics, not trend-direction metrics, and cannot distinguish bull from bear markets without an explicit drawdown-from-peak condition. Walk-forward validation across 17 symbols and 135 folds (2yr train / 1yr test) confirms: zero spurious fires in 28 confirmed bull folds; 70.6% detection rate in 17 confirmed 2022 bear folds; average alpha improvement of +5.09 percentage points when fired. The circuit breaker is cleared for production implementation.</p>
 
 <hr />
 
@@ -60,9 +60,9 @@
 
 <p>This dissociation is not a calibration failure. It is a structural feature of the strategy. The TFUEL reference case from the preceding cohort analysis illustrates it cleanly: +55.1% realized grid profit alongside &minus;65.0% unrealized inventory loss, netting to &minus;9.9% total PnL. The grid worked as designed; the market did not oscillate.</p>
 
-<p>Paper 1 addressed one dimension of this problem by introducing the FIS v2 regime-switching signal. FIS v2 is a Mamdani fuzzy inference system trained on a 2-year rolling window of OHLCV data. It classifies market regimes and gates grid engagement: when the regime is trending (high Hurst, strong directional momentum), FIS v2 reduces grid participation to near zero. The Paper 1 walk-forward showed that FIS v2 improved the average alpha versus buy-and-hold from &minus;578.2% to &minus;460.9% across 135 valid folds, and improved expected annualized return from &minus;1.51% (always-on) to +5.33% (FIS v2 gated).</p>
+<p>Paper 1 addressed one dimension of this problem by introducing the RXI v2 regime-switching signal. RXI v2 is a Mamdani fuzzy inference system trained on a 2-year rolling window of OHLCV data. It classifies market regimes and gates grid engagement: when the regime is trending (high Hurst, strong directional momentum), RXI v2 reduces grid participation to near zero. The Paper 1 walk-forward showed that RXI v2 improved the average alpha versus buy-and-hold from &minus;578.2% to &minus;460.9% across 135 valid folds, and improved expected annualized return from &minus;1.51% (always-on) to +5.33% (RXI v2 gated).</p>
 
-<p>FIS v2, however, remains a market-side sensor. It monitors external price structure, not the portfolio's own accumulation state. A coin can satisfy all FIS v2 conditions for grid engagement and still reach a state where the unrealized inventory loss has grown to the point where continuing to buy is actively destructive. The inventory circuit breaker addresses this gap: it monitors the portfolio's own drawdown-from-peak and interrupts grid activity when the drawdown reaches a defined threshold, recentering the grid at the current price with the remaining equity.</p>
+<p>RXI v2, however, remains a market-side sensor. It monitors external price structure, not the portfolio's own accumulation state. A coin can satisfy all RXI v2 conditions for grid engagement and still reach a state where the unrealized inventory loss has grown to the point where continuing to buy is actively destructive. The inventory circuit breaker addresses this gap: it monitors the portfolio's own drawdown-from-peak and interrupts grid activity when the drawdown reaches a defined threshold, recentering the grid at the current price with the remaining equity.</p>
 
 <p>This paper documents the development and validation of that circuit breaker across five design iterations, explains why direction-awareness required the addition of the <code>drawdownFromPeak</code> condition, and presents the final validated gate logic that was awarded an unconditional production GO verdict on 2026-04-28.</p>
 
@@ -76,17 +76,17 @@
 
 <p>Cost model: retail-Binance-US tier — 0.40% maker, 0.60% taker, 0.05% slippage. All transaction cost assumptions are symmetric across all seven versions tested in this paper (Baseline through Inv v5), ensuring no spurious advantage to either the baseline or any circuit breaker variant.</p>
 
-<p>Alpha is defined throughout as strategy return minus contemporaneous buy-and-hold return for the same symbol over the same test period. The FIS v2 regime signal uses an EWMA half-life of 10 days, calibrated from Paper 1. The circuit breaker operates as a second-layer condition that can interrupt grid activity even when FIS v2 has approved engagement.</p>
+<p>Alpha is defined throughout as strategy return minus contemporaneous buy-and-hold return for the same symbol over the same test period. The RXI v2 regime signal uses an EWMA half-life of 10 days, calibrated from Paper 1. The circuit breaker operates as a second-layer condition that can interrupt grid activity even when RXI v2 has approved engagement.</p>
 
 <hr />
 
-<h2>3. FIS v2 Regime Context</h2>
+<h2>3. RXI v2 Regime Context</h2>
 
-<p>The circuit breaker is architecturally downstream of FIS v2. FIS v2 takes as inputs three normalized indicators derived from the 2-year training window: (a) <code>trainHurst</code> — the Hurst exponent of daily log-returns over the training window, where H &lt; 0.5 favors grids (mean-reverting) and H &gt; 0.5 disfavors grids (trending); (b) <code>gridEngagement</code> — an EWMA-smoothed composite of recent price volatility, volume activity, and directional momentum, normalized to [0, 1] where 1 represents maximum trend intensity; and (c) <code>volatilityPercentile</code> — the annualized rolling volatility of the test period relative to the training distribution.</p>
+<p>The circuit breaker is architecturally downstream of RXI v2. RXI v2 takes as inputs three normalized indicators derived from the 2-year training window: (a) <code>trainHurst</code> — the Hurst exponent of daily log-returns over the training window, where H &lt; 0.5 favors grids (mean-reverting) and H &gt; 0.5 disfavors grids (trending); (b) <code>gridEngagement</code> — an EWMA-smoothed composite of recent price volatility, volume activity, and directional momentum, normalized to [0, 1] where 1 represents maximum trend intensity; and (c) <code>volatilityPercentile</code> — the annualized rolling volatility of the test period relative to the training distribution.</p>
 
-<p>FIS v2 outputs a <code>regimeState</code> classification (defensive, trend-ride, grid-favorable) and a continuous <code>engagementMultiplier</code> that scales grid activity. When FIS v2 classifies a period as trend-ride, it sets the multiplier near zero — the grid effectively halts. When it classifies as grid-favorable, the multiplier approaches 1.</p>
+<p>RXI v2 outputs a <code>regimeState</code> classification (defensive, trend-ride, grid-favorable) and a continuous <code>engagementMultiplier</code> that scales grid activity. When RXI v2 classifies a period as trend-ride, it sets the multiplier near zero — the grid effectively halts. When it classifies as grid-favorable, the multiplier approaches 1.</p>
 
-<p>Paper 1 results for FIS v2: average alpha vs. buy-and-hold improved from &minus;578.2% (baseline, always-on grid) to &minus;460.9% (FIS v2 gated). Bear-fold win rate improved from 100% of such folds losing to 79.1% of such folds losing. The expected annualized return improved from &minus;1.51% to +5.33%.</p>
+<p>Paper 1 results for RXI v2: average alpha vs. buy-and-hold improved from &minus;578.2% (baseline, always-on grid) to &minus;460.9% (RXI v2 gated). Bear-fold win rate improved from 100% of such folds losing to 79.1% of such folds losing. The expected annualized return improved from &minus;1.51% to +5.33%.</p>
 
 <hr />
 
@@ -156,7 +156,7 @@
 
 <h3>5.1 Seven-Way Comparison Table</h3>
 
-<p>The table below presents aggregate metrics across all 135 valid folds for seven strategy configurations: the always-on baseline, FIS v2 alone, and five inventory circuit breaker iterations.</p>
+<p>The table below presents aggregate metrics across all 135 valid folds for seven strategy configurations: the always-on baseline, RXI v2 alone, and five inventory circuit breaker iterations.</p>
 
 <div class="overflow-x-auto">
 <table>
@@ -164,7 +164,7 @@
 <tr>
 <th>Metric</th>
 <th>Baseline</th>
-<th>FIS v2</th>
+<th>RXI v2</th>
 <th>Inv v1</th>
 <th>Inv v2</th>
 <th>Inv v3</th>
@@ -244,13 +244,13 @@
 	<div class="text-xs font-semibold uppercase tracking-wider text-slate-light mb-2">Figure 1 — Seven-Way Strategy Comparison</div>
 	<iframe
 		src="/research/inventory-circuit-breaker/fig1-alpha-improvement.html"
-		title="Figure 1 — Seven-way comparison: average alpha across Baseline, FIS v2, Inv v1–v5"
+		title="Figure 1 — Seven-way comparison: average alpha across Baseline, RXI v2, Inv v1–v5"
 		class="w-full rounded border border-rule"
 		style="height: 480px; border: none;"
 		loading="lazy"
 		scrolling="no"
 	></iframe>
-	<div class="text-xs text-slate-light mt-2 italic">Average alpha across all 135 folds for seven strategy configurations. FIS v2 alone: Paper 1 baseline. Inv v5 adds the inventory layer. Yodacom Research 2026.</div>
+	<div class="text-xs text-slate-light mt-2 italic">Average alpha across all 135 folds for seven strategy configurations. RXI v2 alone: Paper 1 baseline. Inv v5 adds the inventory layer. Yodacom Research 2026.</div>
 </div>
 
 <h3>5.2 Q1 — Bull Fold Analysis</h3>
@@ -286,7 +286,7 @@
 <th>Symbol</th>
 <th>Year</th>
 <th>B&amp;H</th>
-<th>FIS v2 alpha</th>
+<th>RXI v2 alpha</th>
 <th>v5 alpha</th>
 <th>Alpha Delta</th>
 <th>Trigger Day</th>
@@ -331,7 +331,7 @@
 <div class="overflow-x-auto">
 <table>
 <thead>
-<tr><th>Symbol</th><th>Year</th><th>B&amp;H</th><th>FIS v2 alpha</th><th>v5 alpha</th><th>Reason</th></tr>
+<tr><th>Symbol</th><th>Year</th><th>B&amp;H</th><th>RXI v2 alpha</th><th>v5 alpha</th><th>Reason</th></tr>
 </thead>
 <tbody>
 <tr><td>DOGEUSD</td><td>2022</td><td>&minus;59.5%</td><td>0.0%</td><td>0.0%</td><td>35% threshold not reached</td></tr>
@@ -345,7 +345,7 @@
 
 <h3>5.4 Bear-Fold Win Rate</h3>
 
-<p>The v5 bear-fold win rate is 76.7%, versus FIS v2 alone at 79.1% — a 2.4 percentage point decline. The decline is attributable primarily to two folds: LTCUSD 2022 (&minus;13.28% alpha delta, circuit breaker recentered into a developing bear that continued falling) and DASHUSD 2022 (&minus;2.31% alpha delta). These two folds represent cases where the recentre occurred at a price level that subsequently continued lower. This 2.4pp decline is a tolerable cost. The circuit breaker improves alpha in 10 of the 12 folds where it fired, with the two negative-delta folds representing a known limitation: the rule is calibrated to protect against extreme bear cascades (&gt;50% drawdown) and may suboptimally time recentres in moderate-severity bears. The average alpha improvement of +5.09% across all fires substantially exceeds the cost of the two negative-delta exceptions.</p>
+<p>The v5 bear-fold win rate is 76.7%, versus RXI v2 alone at 79.1% — a 2.4 percentage point decline. The decline is attributable primarily to two folds: LTCUSD 2022 (&minus;13.28% alpha delta, circuit breaker recentered into a developing bear that continued falling) and DASHUSD 2022 (&minus;2.31% alpha delta). These two folds represent cases where the recentre occurred at a price level that subsequently continued lower. This 2.4pp decline is a tolerable cost. The circuit breaker improves alpha in 10 of the 12 folds where it fired, with the two negative-delta folds representing a known limitation: the rule is calibrated to protect against extreme bear cascades (&gt;50% drawdown) and may suboptimally time recentres in moderate-severity bears. The average alpha improvement of +5.09% across all fires substantially exceeds the cost of the two negative-delta exceptions.</p>
 
 <h3>5.5 Data Integrity Note: STXUSD 2021</h3>
 
@@ -393,13 +393,13 @@
 
 <p>The circuit breaker fires the recentre rule, not a full liquidation. The grid reset involves closing and reopening orders at new price levels. At retail-Binance-US cost assumptions (0.40% maker, 0.60% taker), a recentre event incurs incremental transaction costs on the repositioned orders. These costs are absorbed within the simulation's cost model — all reported alpha figures reflect post-fee outcomes.</p>
 
-<p>The FIS v2 + Inv v5 configuration produced an in-sample estimated annualized return of +5.33% across the walk-forward test periods. This figure is an in-sample estimate from a 2.5-year window; block-bootstrap confidence intervals will be computed in Phase 1 to bound the uncertainty range for client disclosure.</p>
+<p>The RXI v2 + Inv v5 configuration produced an in-sample estimated annualized return of +5.33% across the walk-forward test periods. This figure is an in-sample estimate from a 2.5-year window; block-bootstrap confidence intervals will be computed in Phase 1 to bound the uncertainty range for client disclosure.</p>
 
 <h3>7.3 Position Sizing Interaction</h3>
 
 <p>The circuit breaker protects existing capital at the grid level. It does not substitute for position sizing at the portfolio level. The circuit breaker limits catastrophic drawdown within the sleeve; portfolio-level downside is bounded by sleeve size, not by the circuit breaker threshold alone.</p>
 
-<p>One accurate framing of the mechanics for advisors: the grid sleeve earns profit from short-term price oscillations. When the market moves persistently in one direction rather than oscillating, the system detects this — both through the FIS regime signal and through the portfolio's own drawdown history — and pauses or recenters grid activity. The circuit breaker is the second of two independent safety mechanisms, each operating on different information.</p>
+<p>One accurate framing of the mechanics for advisors: the grid sleeve earns profit from short-term price oscillations. When the market moves persistently in one direction rather than oscillating, the system detects this — both through the RXI regime signal and through the portfolio's own drawdown history — and pauses or recenters grid activity. The circuit breaker is the second of two independent safety mechanisms, each operating on different information.</p>
 
 <hr />
 
@@ -429,7 +429,7 @@
 
 <h2>9. Conclusion</h2>
 
-<p>Grid trading accumulates inventory risk in proportion to the severity and duration of sustained downtrends. The FIS v2 regime signal reduces exposure by detecting trending environments through market-side indicators. The inventory circuit breaker adds a second independent protection layer by monitoring the grid's own balance sheet: when the portfolio falls 35% below initial capital, under conditions where the portfolio is also more than 15% below its rolling peak, the grid is recentered at the current price.</p>
+<p>Grid trading accumulates inventory risk in proportion to the severity and duration of sustained downtrends. The RXI v2 regime signal reduces exposure by detecting trending environments through market-side indicators. The inventory circuit breaker adds a second independent protection layer by monitoring the grid's own balance sheet: when the portfolio falls 35% below initial capital, under conditions where the portfolio is also more than 15% below its rolling peak, the grid is recentered at the current price.</p>
 
 <p>The five-iteration development arc confirms that the critical feature enabling this circuit breaker to work correctly is <code>drawdownFromPeak</code>. Grid engagement and Hurst exponent are directionally blind — they cannot distinguish a bull trend from a bear trend. The drawdown-from-peak condition provides the directional filter.</p>
 
@@ -442,7 +442,7 @@
 <li><strong>2.4pp bear-fold win rate decline</strong> — a documented, tolerable cost attributable to two specific folds (LTCUSD 2022, DASHUSD 2022) that represent known timing imprecision in moderate-severity bears.</li>
 </ul>
 
-<p>Together, FIS v2 and the inventory circuit breaker constitute a two-layer risk framework for crypto grid strategies: the first layer monitors market structure from the outside; the second monitors portfolio accumulation from the inside. Neither layer is sufficient alone. Combined, they produce a strategy with documented bear-market protection, auditable decision logic, and a statistically validated production gate development record.</p>
+<p>Together, RXI v2 and the inventory circuit breaker constitute a two-layer risk framework for crypto grid strategies: the first layer monitors market structure from the outside; the second monitors portfolio accumulation from the inside. Neither layer is sufficient alone. Combined, they produce a strategy with documented bear-market protection, auditable decision logic, and a statistically validated production gate development record.</p>
 
 <hr />
 
@@ -461,7 +461,7 @@
 <tr><td>Engagement gate</td><td>&le; 0.65</td><td>Excludes high-trend-intensity environments</td></tr>
 <tr><td>Hurst gate</td><td>&ge; 0.45</td><td>Confirms non-trending (grid-favorable) structure</td></tr>
 <tr><td>Rolling peak reset</td><td>Resets to recentre price after each recentre</td><td>Ensures gate re-evaluates from new starting point</td></tr>
-<tr><td>EWMA half-life (FIS v2)</td><td>10 days</td><td>Calibrated from Paper 1 walk-forward</td></tr>
+<tr><td>EWMA half-life (RXI v2)</td><td>10 days</td><td>Calibrated from Paper 1 walk-forward</td></tr>
 </tbody>
 </table>
 </div>
@@ -473,7 +473,7 @@
 <div class="overflow-x-auto">
 <table>
 <thead>
-<tr><th>Symbol</th><th>B&amp;H</th><th>FIS v2 alpha</th><th>v5 alpha</th><th>Delta</th><th>Trigger Day</th><th>Drawdown at Trigger</th><th>Gate Result</th></tr>
+<tr><th>Symbol</th><th>B&amp;H</th><th>RXI v2 alpha</th><th>v5 alpha</th><th>Delta</th><th>Trigger Day</th><th>Drawdown at Trigger</th><th>Gate Result</th></tr>
 </thead>
 <tbody>
 <tr><td>ADAUSD</td><td>&minus;82.2%</td><td>10.0%</td><td>11.9%</td><td>+1.95%</td><td>65</td><td>&minus;50.52%</td><td>FIRED</td></tr>

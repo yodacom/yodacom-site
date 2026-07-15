@@ -4,9 +4,9 @@
 
 <svelte:head>
 	<title>Grid Trading in the Modern Crypto Era: 2019–2025 | Yodacom Research</title>
-	<meta name="description" content="Walk-forward analysis of 85 folds across 17 assets in the modern crypto era. 100% bear-fold capital protection. FIS regime gating. Three-state strategy preview." />
+	<meta name="description" content="Walk-forward analysis of 85 folds across 17 assets in the modern crypto era. 100% bear-fold capital protection. RXI regime gating. Three-state strategy preview." />
 	<meta property="og:title" content="Grid Trading in the Modern Crypto Era: 2019–2025 | Yodacom Research" />
-	<meta property="og:description" content="Walk-forward analysis of 85 folds across 17 assets in the modern crypto era. 100% bear-fold capital protection. FIS regime gating. Three-state strategy preview." />
+	<meta property="og:description" content="Walk-forward analysis of 85 folds across 17 assets in the modern crypto era. 100% bear-fold capital protection. RXI regime gating. Three-state strategy preview." />
 	<meta property="og:image" content="/research/grid-modern-era-2026/cover.png" />
 	<meta property="og:image:width" content="1200" />
 	<meta property="og:image:height" content="630" />
@@ -103,14 +103,14 @@
   <text x="60" y="148" font-family="'Georgia','Times New Roman',serif" font-size="38" font-weight="700" fill="#F0F4FC">Grid Trading in the</text>
   <text x="60" y="195" font-family="'Georgia','Times New Roman',serif" font-size="38" font-weight="700" fill="#F0F4FC">Modern Crypto Era</text>
   <text x="60" y="230" font-family="'Georgia','Times New Roman',serif" font-size="32" fill="#00d4aa">2019 &ndash; 2025</text>
-  <text x="60" y="268" font-family="'Inter','Segoe UI',sans-serif" font-size="15" fill="#7A90B0">Walk-Forward Validation of FIS v2 Gated Grid Strategy</text>
+  <text x="60" y="268" font-family="'Inter','Segoe UI',sans-serif" font-size="15" fill="#7A90B0">Walk-Forward Validation of RXI v2 Gated Grid Strategy</text>
   <text x="60" y="290" font-family="'Inter','Segoe UI',sans-serif" font-size="14" fill="#5A7090">17 Assets &nbsp;&middot;&nbsp; 85 Folds &nbsp;&middot;&nbsp; 2-Year Train / 1-Year Test</text>
   <line x1="60" y1="308" x2="530" y2="308" stroke="url(#me-gridLineGrad)" stroke-width="1"/>
   <text x="60" y="430" font-family="'Inter','Segoe UI',sans-serif" font-size="13" fill="#4A6080">The companion paper to A1 (2013&ndash;2025). Applies the current production</text>
-  <text x="60" y="448" font-family="'Inter','Segoe UI',sans-serif" font-size="13" fill="#4A6080">algorithm &mdash; FIS v2 Hurst gating, Variant C lower grace, 5-level burst</text>
+  <text x="60" y="448" font-family="'Inter','Segoe UI',sans-serif" font-size="13" fill="#4A6080">algorithm &mdash; RXI v2 Hurst gating, Variant C lower grace, 5-level burst</text>
   <text x="60" y="466" font-family="'Inter','Segoe UI',sans-serif" font-size="13" fill="#4A6080">trailing &mdash; to the mature-market era only.</text>
   <rect x="60" y="478" width="500" height="54" rx="6" fill="#0D1A2E" stroke="#2A4E6A" stroke-width="1"/>
-  <text x="80" y="501" font-family="'Inter','Segoe UI',sans-serif" font-size="13" font-weight="600" fill="#C8D8EC">Key finding: FIS gate preserved capital in all 29 bear folds.</text>
+  <text x="80" y="501" font-family="'Inter','Segoe UI',sans-serif" font-size="13" font-weight="600" fill="#C8D8EC">Key finding: RXI gate preserved capital in all 29 bear folds.</text>
   <text x="80" y="520" font-family="'Inter','Segoe UI',sans-serif" font-size="12" fill="#5A7090">Mean max drawdown reduced from 25.0% (always-on) to 1.0% (gated).</text>
   <text x="60" y="555" font-family="'Inter','Segoe UI',sans-serif" font-size="11" fill="#2A4060">Han Kessel &mdash; Yodacom Research &nbsp;&middot;&nbsp; 2026-05-27</text>
   <text x="1140" y="565" font-family="'Inter','Segoe UI',sans-serif" font-size="14" font-weight="700" fill="#1E3A5F" text-anchor="end" letter-spacing="0.06em">CoinRoc</text>
@@ -132,7 +132,7 @@
 			Grid Trading in the Modern Crypto Era: What a Walk-Forward Study of 2019&ndash;2025 Actually Shows
 		</h1>
 		<p class="fade-up d2 mb-2 text-base leading-relaxed text-slate">
-			Walk-Forward Validation of FIS v2 Gated Grid Strategy
+			Walk-Forward Validation of RXI v2 Gated Grid Strategy
 		</p>
 		<p class="fade-up d3 mb-1 text-base leading-relaxed text-slate">
 			Han Kessel &middot; Jeremy J. Black &middot; Yodacom Research
@@ -142,7 +142,7 @@
 		</p>
 		<p class="fade-up d4 max-w-2xl border-l-2 border-ochre/60 pl-4 text-base italic leading-relaxed text-slate">
 			Not a cherry-picked window. Not a single asset in a favorable period. A 2-year train / 1-year
-			test walk-forward study applied to 17 assets across five test years, using the same FIS v2
+			test walk-forward study applied to 17 assets across five test years, using the same RXI v2
 			regime-gated algorithm that powers CoinRoc today. The headline finding is not a return number
 			&mdash; it is a protection number: the strategy outperformed buy-and-hold in 100% of the 29
 			folds where the underlying asset fell more than 20% in a single year.
@@ -173,7 +173,7 @@
 			<div class="font-serif text-5xl font-500 text-navy-ink">85</div>
 			<div class="mt-2 text-sm text-slate">Walk-forward folds &middot; 17 assets &middot; 5 test years</div>
 			<div class="mt-3 flex justify-center gap-8 text-xs text-slate-light">
-				<span>FIS v2 gated &middot; 2019&ndash;2025</span>
+				<span>RXI v2 gated &middot; 2019&ndash;2025</span>
 				<span>2-year train / 1-year test</span>
 			</div>
 		</div>
@@ -207,7 +207,7 @@
 		</p>
 
 		<p class="text-base leading-relaxed text-slate">
-			The cost of that protection is also disclosed here, fully. The FIS classified 71.8% of test
+			The cost of that protection is also disclosed here, fully. The RXI classified 71.8% of test
 			periods as unsuitable for grid trading and held cash. In the folds where the grid ran, the
 			median return was +1.9%. None of that is hidden.
 		</p>
@@ -232,7 +232,7 @@
 		<p class="mb-5 text-base leading-relaxed text-slate">
 			This paper runs the same architecture on the same 17 assets, filtered to the modern era:
 			training windows beginning no earlier than January 2019. The algorithm is different from A1&rsquo;s
-			always-on baseline &mdash; here we apply the production FIS v2 gate, which pauses the grid to
+			always-on baseline &mdash; here we apply the production RXI v2 gate, which pauses the grid to
 			cash when the Hurst exponent on the training window exceeds 0.55 (trending regime). The result
 			is 85 folds, five test years per asset, capturing all of the volatility this era had to offer.
 		</p>
@@ -258,7 +258,7 @@
 		</p>
 
 		<p class="mb-5 text-base leading-relaxed text-slate">
-			Across 85 folds, the FIS classified 61 of them &mdash; 71.8% &mdash; as trending regimes,
+			Across 85 folds, the RXI classified 61 of them &mdash; 71.8% &mdash; as trending regimes,
 			where the Hurst exponent on the preceding two-year training window exceeded 0.55. In those
 			folds, the grid was not deployed. Capital sat in cash. Return: 0%.
 		</p>
@@ -269,7 +269,7 @@
 		<div style="width:100%;max-width:860px;background:#0F1B35;border:1px solid #1E3A5F;border-radius:10px;padding:40px 48px 48px;font-family:'Inter','Segoe UI',system-ui,sans-serif;color:#E8EDF5;">
 		  <div style="font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#3B82F6;margin-bottom:8px;">Figure 1 &nbsp;&middot;&nbsp; A8 &nbsp;&middot;&nbsp; Yodacom Research</div>
 		  <div style="font-size:20px;font-weight:700;color:#F0F4FC;margin-bottom:4px;line-height:1.3;">Regime Distribution &mdash; 85 Walk-Forward Folds</div>
-		  <div style="font-size:13px;color:#7A90B0;margin-bottom:36px;">Modern-Era Study, 2019&ndash;2025 &nbsp;&middot;&nbsp; 17 assets &times; 5 test years &nbsp;&middot;&nbsp; FIS v2 gate</div>
+		  <div style="font-size:13px;color:#7A90B0;margin-bottom:36px;">Modern-Era Study, 2019&ndash;2025 &nbsp;&middot;&nbsp; 17 assets &times; 5 test years &nbsp;&middot;&nbsp; RXI v2 gate</div>
 		  <svg viewBox="0 0 760 420" width="100%" xmlns="http://www.w3.org/2000/svg" style="overflow:visible">
 		    <defs>
 		      <linearGradient id="f1me-barGated" x1="0" y1="0" x2="0" y2="1">
@@ -312,7 +312,7 @@
 		    <rect x="555" y="248" width="100" height="102" rx="4" fill="url(#f1me-barBear)"/>
 		    <text x="605" y="238" font-family="Inter,sans-serif" font-size="22" font-weight="700" fill="#F97316" text-anchor="middle">29</text>
 		    <text x="605" y="254" font-family="Inter,sans-serif" font-size="11" fill="#F97316" text-anchor="middle" opacity="0.8">34.1%</text>
-		    <text x="155" y="374" font-family="Inter,sans-serif" font-size="12" font-weight="600" fill="#C8D8EC" text-anchor="middle">FIS-Gated</text>
+		    <text x="155" y="374" font-family="Inter,sans-serif" font-size="12" font-weight="600" fill="#C8D8EC" text-anchor="middle">RXI-Gated</text>
 		    <text x="155" y="389" font-family="Inter,sans-serif" font-size="11" fill="#5A7090" text-anchor="middle">(0% return, cash)</text>
 		    <text x="305" y="374" font-family="Inter,sans-serif" font-size="12" font-weight="600" fill="#C8D8EC" text-anchor="middle">Active Grid</text>
 		    <text x="305" y="389" font-family="Inter,sans-serif" font-size="11" fill="#5A7090" text-anchor="middle">(&ge;20 trades)</text>
@@ -320,7 +320,7 @@
 		    <text x="455" y="389" font-family="Inter,sans-serif" font-size="11" fill="#5A7090" text-anchor="middle">(&lt;20 trades)</text>
 		    <text x="605" y="374" font-family="Inter,sans-serif" font-size="12" font-weight="600" fill="#C8D8EC" text-anchor="middle">Bear Folds</text>
 		    <text x="605" y="389" font-family="Inter,sans-serif" font-size="11" fill="#5A7090" text-anchor="middle">(B&amp;H &lt;&minus;20%)</text>
-		    <text x="605" y="415" font-family="Inter,sans-serif" font-size="10" fill="#7A6030" text-anchor="middle">Note: 22 bear folds are FIS-gated; 5 are active; 2 are no-entry</text>
+		    <text x="605" y="415" font-family="Inter,sans-serif" font-size="10" fill="#7A6030" text-anchor="middle">Note: 22 bear folds are RXI-gated; 5 are active; 2 are no-entry</text>
 		    <line x1="155" y1="100" x2="250" y2="78" stroke="#EF4444" stroke-width="1" stroke-dasharray="3,3" opacity="0.5"/>
 		    <rect x="252" y="60" width="200" height="32" rx="4" fill="#1A0808" stroke="#EF4444" stroke-width="1" stroke-opacity="0.4"/>
 		    <text x="352" y="73" font-family="Inter,sans-serif" font-size="11" font-weight="600" fill="#F87171" text-anchor="middle">KEY FINDING: 71.8% gated to cash</text>
@@ -349,7 +349,7 @@
 		    </div>
 		  </div>
 		  <div style="margin-top:20px;padding:12px 16px;background:#080e1c;border-radius:6px;border-left:3px solid #1E3A5F;font-size:11px;color:#4A6080;line-height:1.6;">
-		    <strong style="color:#7A90B0;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;">Note: </strong>Bear folds (29) are a cross-cutting category &mdash; 22 are FIS-gated, 5 are active-grid, 2 are no-entry. They overlap with the first three bars. Regime classification is based on Hurst exponent computed on the 2-year training window preceding each test year.
+		    <strong style="color:#7A90B0;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;">Note: </strong>Bear folds (29) are a cross-cutting category &mdash; 22 are RXI-gated, 5 are active-grid, 2 are no-entry. They overlap with the first three bars. Regime classification is based on Hurst exponent computed on the 2-year training window preceding each test year.
 		  </div>
 		  <div style="margin-top:16px;font-size:10px;color:#2A4060;text-align:right;">
 		    Yodacom Research &middot; Modern-Era Walk-Forward Study 2019&ndash;2025
@@ -364,7 +364,7 @@
 			17 crypto assets measured over standardized 2-year rolling windows, found the inverse for
 			daily timeframes: roughly 72% of periods in the 2019&ndash;2025 era were trend-classified.
 			The 2020&ndash;2021 bull cycle and the 2022 crash are both &ldquo;trending&rdquo; by the Hurst
-			measure &mdash; they are sustained directional moves, not oscillations, and the FIS correctly
+			measure &mdash; they are sustained directional moves, not oscillations, and the RXI correctly
 			identified them as such.
 		</p>
 
@@ -376,9 +376,9 @@
 		</p>
 
 		<p class="text-base leading-relaxed text-slate">
-			Here is what happened to buy-and-hold across the 22 folds where the FIS held cash during a
+			Here is what happened to buy-and-hold across the 22 folds where the RXI held cash during a
 			bear year (B&amp;H return below &minus;20%): losses ranged from &minus;27.7% to &minus;90.9%.
-			The FIS-gated return in all 22 of those folds: 0%. The gate preserved capital entirely.
+			The RXI-gated return in all 22 of those folds: 0%. The gate preserved capital entirely.
 		</p>
 	</section>
 
@@ -409,14 +409,14 @@
 
 		<p class="mb-5 text-base leading-relaxed text-slate">
 			In every one of the 29 folds where buy-and-hold fell more than 20% during the test year, the
-			CoinRoc strategy outperformed. In 22 of those folds, the FIS gate had correctly identified
+			CoinRoc strategy outperformed. In 22 of those folds, the RXI gate had correctly identified
 			the preceding training window as trending, held cash for the full test year, and the outcome
 			was $10,000 &rarr; $10,000. The loss-avoidance was complete.
 		</p>
 
 		<p class="mb-5 text-base leading-relaxed text-slate">
 			The other 7 bear folds are where the comparison becomes more detailed. In 5 of those, the
-			grid was actively running (the FIS had classified the preceding training window as ranging),
+			grid was actively running (the RXI had classified the preceding training window as ranging),
 			and price turned down during the test year. In those 5 active bear folds, the grid still
 			outperformed buy-and-hold substantially:
 		</p>
@@ -530,14 +530,14 @@
 		  </svg>
 		  <!-- Gated folds summary -->
 		  <div style="margin-top:24px;padding:16px 20px;background:#080e1c;border-radius:8px;border:1px solid #1E3A5F;">
-		    <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#5A7090;margin-bottom:10px;">22 Additional Bear Folds &mdash; FIS-Gated to Cash (0%)</div>
+		    <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#5A7090;margin-bottom:10px;">22 Additional Bear Folds &mdash; RXI-Gated to Cash (0%)</div>
 		    <div style="display:flex;gap:24px;flex-wrap:wrap;align-items:flex-start;">
 		      <div style="flex:1;min-width:180px;">
 		        <div style="font-size:24px;font-weight:700;color:#10B981;">$10,000</div>
 		        <div style="font-size:11px;color:#4A7090;margin-top:2px;">Capital preserved &mdash; every gated bear fold</div>
 		      </div>
 		      <div style="flex:2;min-width:260px;font-size:12px;color:#5A8070;line-height:1.6;">
-		        The FIS gate correctly identified all 22 as trending (Hurst &ge; 0.55) and held cash for the full year. B&amp;H losses ranged from &minus;20% to &minus;90.9%. Grid return: 0%. Capital preserved in every case.
+		        The RXI gate correctly identified all 22 as trending (Hurst &ge; 0.55) and held cash for the full year. B&amp;H losses ranged from &minus;20% to &minus;90.9%. Grid return: 0%. Capital preserved in every case.
 		      </div>
 		    </div>
 		  </div>
@@ -576,7 +576,7 @@
 		<p class="text-base leading-relaxed text-slate">
 			The aggregate statement is accurate and fully supported: <strong class="text-navy-deep">in all
 			29 bear folds across the modern era study, the strategy outperformed buy-and-hold.</strong>
-			The mechanism differs across the 29 (FIS gate in 22, active grid in 5, no-entry in 2), but
+			The mechanism differs across the 29 (RXI gate in 22, active grid in 5, no-entry in 2), but
 			the outcome is consistent.
 		</p>
 	</section>
@@ -588,7 +588,7 @@
 
 		<p class="mb-5 text-base leading-relaxed text-slate">
 			Of the 85 folds, 13 had the grid running with enough activity to constitute meaningful
-			performance data (20 or more completed trades). These are the periods where the FIS classified
+			performance data (20 or more completed trades). These are the periods where the RXI classified
 			the training window as ranging, the grid was deployed, and the algorithm was executing the
 			income strategy it was designed for.
 		</p>
@@ -599,7 +599,7 @@
 		<div style="width:100%;max-width:860px;background:#0F1B35;border:1px solid #1E3A5F;border-radius:10px;padding:40px 48px 48px;font-family:'Inter','Segoe UI',system-ui,sans-serif;color:#E8EDF5;">
 		  <div style="font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#3B82F6;margin-bottom:8px;">Figure 3 &nbsp;&middot;&nbsp; A8 &nbsp;&middot;&nbsp; Yodacom Research</div>
 		  <div style="font-size:20px;font-weight:700;color:#F0F4FC;margin-bottom:4px;line-height:1.3;">Active Fold Performance &mdash; 13 Folds Where Grid Ran (&ge;20 Trades)</div>
-		  <div style="font-size:13px;color:#7A90B0;margin-bottom:36px;">Grid return vs Buy-and-Hold return &nbsp;&middot;&nbsp; Only folds where the FIS allowed grid operation &nbsp;&middot;&nbsp; Median grid return = +1.9%</div>
+		  <div style="font-size:13px;color:#7A90B0;margin-bottom:36px;">Grid return vs Buy-and-Hold return &nbsp;&middot;&nbsp; Only folds where the RXI allowed grid operation &nbsp;&middot;&nbsp; Median grid return = +1.9%</div>
 		  <svg viewBox="0 0 760 440" width="100%" xmlns="http://www.w3.org/2000/svg" style="overflow:visible">
 		    <defs>
 		      <radialGradient id="f3me-dotBlue" cx="40%" cy="35%" r="60%">
@@ -755,7 +755,7 @@
 		</div>
 
 		<p class="text-base leading-relaxed text-slate">
-			Why 2024? The 2022&ndash;2023 training window provided the conditions the FIS needs to classify
+			Why 2024? The 2022&ndash;2023 training window provided the conditions the RXI needs to classify
 			a market as ranging: after the 2022 crash and the 2023 partial recovery, Hurst readings dropped
 			below 0.55 across several assets, signaling that sustained trend persistence had diminished.
 			The grid was deployed into that environment, and it earned.
@@ -782,7 +782,7 @@
 
 		<p class="mb-5 text-base leading-relaxed text-slate">
 			The 1.9% median from this study is measured across <em>all</em> active folds, including the
-			ones that encountered adverse conditions mid-period. The FIS gate is the bridge between the
+			ones that encountered adverse conditions mid-period. The RXI gate is the bridge between the
 			two numbers. When you hold 71.8% of periods in cash at 0% and blend those with active-period
 			returns, the blended result is lower than the regime-conditional projection.
 		</p>
@@ -818,7 +818,7 @@
 				<thead>
 					<tr class="border-b border-rule text-left">
 						<th class="py-2.5 pr-4 font-semibold text-slate-light">Metric</th>
-						<th class="py-2.5 pr-4 font-semibold text-slate-light">Modern-Era FIS-Gated</th>
+						<th class="py-2.5 pr-4 font-semibold text-slate-light">Modern-Era RXI-Gated</th>
 						<th class="py-2.5 pr-4 font-semibold text-slate-light">A1 Modern Subset (Always-On)</th>
 						<th class="py-2.5 font-semibold text-slate-light">A1 Full History (Always-On)</th>
 					</tr>
@@ -843,9 +843,9 @@
 
 		<p class="mb-5 text-base leading-relaxed text-slate">
 			The mean total return improvement from &minus;9.4% (always-on modern era) to approximately 0%
-			(FIS-gated modern era) requires careful explanation. It is primarily an accounting result:
+			(RXI-gated modern era) requires careful explanation. It is primarily an accounting result:
 			gated folds contribute 0% to the mean, replacing large negative returns from the always-on
-			strategy in bear years. The FIS is a loss-avoidance mechanism, not a return-generation
+			strategy in bear years. The RXI is a loss-avoidance mechanism, not a return-generation
 			mechanism. It prevented the &minus;25% mean drawdown of the always-on approach by correctly
 			holding cash during the majority of the period.
 		</p>
@@ -854,7 +854,7 @@
 			The trending regime percentage comparison reveals something about the era itself. The modern
 			era (2019&ndash;2025) is more trending than the full history under standardized 2-year
 			measurement windows &mdash; 71.8% vs 59.9%. This is driven by the extreme bull and bear cycles
-			of 2020&ndash;2022. The FIS gate was tested on precisely the market conditions that are hardest
+			of 2020&ndash;2022. The RXI gate was tested on precisely the market conditions that are hardest
 			for grid strategies, and it responded correctly.
 		</p>
 	</section>
@@ -873,7 +873,7 @@
 			<div class="mb-1 text-[0.68rem] uppercase tracking-widest text-slate-light">Opportunity Cost Disclosure</div>
 			<div class="font-serif text-4xl font-500 text-navy-ink">+807.3%</div>
 			<div class="mt-2 text-sm text-slate">ZECUSD buy-and-hold return in test year 2025 &mdash; while CoinRoc held cash</div>
-			<div class="mt-3 text-xs text-slate-light">FIS classified preceding training window as trending (H = 0.574). Gate held cash for full year. On $10,000: B&amp;H returned ~$90,730. CoinRoc returned $10,000.</div>
+			<div class="mt-3 text-xs text-slate-light">RXI classified preceding training window as trending (H = 0.574). Gate held cash for full year. On $10,000: B&amp;H returned ~$90,730. CoinRoc returned $10,000.</div>
 		</div>
 
 		<p class="mb-5 text-base leading-relaxed text-slate">
@@ -884,7 +884,7 @@
 		</p>
 
 		<p class="mb-5 text-base leading-relaxed text-slate">
-			The FIS gate cannot distinguish between up-trending and down-trending markets. A high Hurst
+			The RXI gate cannot distinguish between up-trending and down-trending markets. A high Hurst
 			exponent means persistent directional movement; the gate treats both directions identically.
 			In down-trending regimes, this is the entire point: the gate prevents the capital destruction
 			of riding an &minus;80% drawdown. In up-trending regimes, the cost is the upside not captured.
@@ -909,7 +909,7 @@
 		</p>
 
 		<p class="mb-5 text-base leading-relaxed text-slate">
-			The two-state FIS (grid when ranging, cash when trending) is the subject of this paper. But
+			The two-state RXI (grid when ranging, cash when trending) is the subject of this paper. But
 			a body of parallel research has been exploring a third state: what if the strategy could deploy
 			a trailing-stop momentum sleeve during confirmed parabolic up-trends, while maintaining the
 			full capital protection profile in bear environments?
@@ -953,7 +953,7 @@
 		</p>
 
 		<p class="mb-5 text-base leading-relaxed text-slate">
-			The FIS-gated strategy in this study did none of that. It recognized the trending regime in
+			The RXI-gated strategy in this study did none of that. It recognized the trending regime in
 			the preceding training window, held cash for the full year, and earned 0% while buy-and-hold
 			lost 60&ndash;90%.
 		</p>
@@ -998,10 +998,10 @@
 			</div>
 
 			<div class="border-l-2 border-ochre/60 pl-4">
-				<div class="mb-1 text-[0.72rem] font-semibold uppercase tracking-widest text-ochre-deep">Walk-forward approximation of the FIS</div>
+				<div class="mb-1 text-[0.72rem] font-semibold uppercase tracking-widest text-ochre-deep">Walk-forward approximation of the RXI</div>
 				<p class="text-base leading-relaxed text-slate">
-					The production FIS v2 is a 10-rule Mamdani system with EWMA smoothing and multi-indicator
-					inputs. This walk-forward study approximates FIS behavior via the Hurst exponent threshold
+					The production RXI v2 is a 10-rule Mamdani system with EWMA smoothing and multi-indicator
+					inputs. This walk-forward study approximates RXI behavior via the Hurst exponent threshold
 					alone &mdash; a deliberate simplification. The approximation is directionally accurate but
 					does not capture all the nuance of the production system&rsquo;s regime classification.
 				</p>
@@ -1010,7 +1010,7 @@
 			<div class="border-l-2 border-ochre/60 pl-4">
 				<div class="mb-1 text-[0.72rem] font-semibold uppercase tracking-widest text-ochre-deep">No-entry folds as a confound</div>
 				<p class="text-base leading-relaxed text-slate">
-					11 folds were neither FIS-gated nor active: the grid found fewer than 20 trades because
+					11 folds were neither RXI-gated nor active: the grid found fewer than 20 trades because
 					the starting price landed outside the training-calibrated grid range. These contribute
 					0% return, which is outperformance in bear folds but is not attributable to the strategy&rsquo;s
 					active logic. They are reported separately.
@@ -1049,7 +1049,7 @@
 								{ param: 'Total folds', val: '85 (17 assets × 5 test years)' },
 								{ param: 'Grid levels', val: '55' },
 								{ param: 'Grid spacing', val: '2.59% geometric' },
-								{ param: 'FIS v2 gate', val: 'Hurst ≥ 0.55 on training window → trending regime → grid paused, 0 trades' },
+								{ param: 'RXI v2 gate', val: 'Hurst ≥ 0.55 on training window → trending regime → grid paused, 0 trades' },
 								{ param: 'Variant C lower grace', val: 'OOR lower-bound fires at lowerLimit × 0.80 (not raw lower limit)' },
 								{ param: 'Burst trailing', val: '5-level maximum per trigger' },
 								{ param: 'Cost model', val: 'Retail Binance.US: 0.40% maker / 0.60% taker / 0.05% slippage' },

@@ -1,8 +1,8 @@
 <svelte:head>
 	<title>We Ran a CoinRoc Out-of-Sample Forward Simulation Through a Bear Market — Here's What Happened to Drawdown | Yodacom Research</title>
-	<meta name="description" content="A 74-day out-of-sample forward simulation of CoinRoc's FIS grid sleeve through the April–June 2026 Bitcoin bear market. No look-ahead. The regime detection layer did exactly what it was designed to do." />
+	<meta name="description" content="A 74-day out-of-sample forward simulation of CoinRoc's RXI grid sleeve through the April–June 2026 Bitcoin bear market. No look-ahead. The regime detection layer did exactly what it was designed to do." />
 	<meta property="og:title" content="We Ran a CoinRoc Out-of-Sample Forward Simulation Through a Bear Market — Here's What Happened to Drawdown | Yodacom Research" />
-	<meta property="og:description" content="A 74-day out-of-sample forward simulation of CoinRoc's FIS grid sleeve through the April–June 2026 Bitcoin bear market. No look-ahead. The regime detection layer did exactly what it was designed to do." />
+	<meta property="og:description" content="A 74-day out-of-sample forward simulation of CoinRoc's RXI grid sleeve through the April–June 2026 Bitcoin bear market. No look-ahead. The regime detection layer did exactly what it was designed to do." />
 	<meta property="og:image" content="/research/coinroc-live-bear-market-2026/coinroc_live_sim_stress_final.png" />
 </svelte:head>
 
@@ -17,7 +17,7 @@
 			We Ran a CoinRoc Out-of-Sample Forward Simulation Through a Bear Market &mdash; Here&rsquo;s What Happened to Drawdown
 		</h1>
 		<p class="fade-up d2 mb-2 text-base leading-relaxed text-slate">
-			Out-of-Sample Forward Simulation &middot; FIS Regime Detection &middot; 74-Day Bear Window &middot; April&ndash;June 2026
+			Out-of-Sample Forward Simulation &middot; RXI Regime Detection &middot; 74-Day Bear Window &middot; April&ndash;June 2026
 		</p>
 		<p class="fade-up d3 mb-1 text-base leading-relaxed text-slate">
 			Yodacom Research &middot; Source study: RES-LIVE-SIM-01 (Han Kessel, 2026-06-27)
@@ -26,7 +26,7 @@
 			Published: 2026-06-28 &middot; Updated: 2026-06-29 &middot; Registry ID: LANDO-LIVE-SIM-ARTICLE-02
 		</p>
 		<p class="fade-up d4 max-w-2xl border-l-2 border-ochre/60 pl-4 text-base italic leading-relaxed text-slate">
-			The prior research tested a fixed 2.5-year window. What we had not done was run the FIS regime engine forward in real time, responding to new data as it arrived, with no knowledge of what came next.
+			The prior research tested a fixed 2.5-year window. What we had not done was run the RXI regime engine forward in real time, responding to new data as it arrived, with no knowledge of what came next.
 		</p>
 	</div>
 </section>
@@ -52,7 +52,7 @@
 		</p>
 
 		<p class="mb-5 text-base leading-relaxed text-slate">
-			That question is specifically about the FIS regime detection layer &mdash; the fuzzy inference engine that CoinRoc uses to decide which assets get a live grid, which assets get suspended when market conditions deteriorate, and when to resume. <a href="/research/grid-trading-walk-forward-2026" class="text-ochre-deep underline underline-offset-2 hover:text-ochre transition">The prior study</a> tested a fixed 2.5-year window. What we had not done was run that engine forward in real time, responding to new data as it arrived, with no knowledge of what came next.
+			That question is specifically about the RXI regime detection layer &mdash; the fuzzy inference engine that CoinRoc uses to decide which assets get a live grid, which assets get suspended when market conditions deteriorate, and when to resume. <a href="/research/grid-trading-walk-forward-2026" class="text-ochre-deep underline underline-offset-2 hover:text-ochre transition">The prior study</a> tested a fixed 2.5-year window. What we had not done was run that engine forward in real time, responding to new data as it arrived, with no knowledge of what came next.
 		</p>
 
 		<p class="mb-5 text-base leading-relaxed text-slate">
@@ -78,7 +78,7 @@
 		</p>
 
 		<p class="mb-5 text-base leading-relaxed text-slate">
-			At each 4-hour bar in the simulation, the FIS signal was computed using only the price data available up to and including that bar. Python array slicing enforced this at the code level, not by convention or assumption. The initial grid bounds were set from the 60 days of data before the out-of-sample period began. No future bar entered any calculation.
+			At each 4-hour bar in the simulation, the RXI signal was computed using only the price data available up to and including that bar. Python array slicing enforced this at the code level, not by convention or assumption. The initial grid bounds were set from the 60 days of data before the out-of-sample period began. No future bar entered any calculation.
 		</p>
 
 		<p class="mb-5 text-base leading-relaxed text-slate">
@@ -88,7 +88,7 @@
 		<div class="mb-6 border-l-2 border-ochre/60 pl-4">
 			<div class="mb-1 text-[0.72rem] font-semibold uppercase tracking-widest text-ochre-deep">Honest limitation</div>
 			<p class="text-base leading-relaxed text-slate">
-				The FIS signal engine is a Python reimplementation of the production TypeScript source. The core logic &mdash; Hurst R/S scaling, Wilder-smoothed ADX, Shannon entropy &mdash; matches the original. But floating-point differences between JavaScript and Python may produce small deviations at signal confidence boundaries. Signal direction should be identical; exact confidence figures may differ by &plusmn;1&ndash;2 points at the ranging/trending boundary.
+				The RXI signal engine is a Python reimplementation of the production TypeScript source. The core logic &mdash; Hurst R/S scaling, Wilder-smoothed ADX, Shannon entropy &mdash; matches the original. But floating-point differences between JavaScript and Python may produce small deviations at signal confidence boundaries. Signal direction should be identical; exact confidence figures may differ by &plusmn;1&ndash;2 points at the ranging/trending boundary.
 			</p>
 		</div>
 
@@ -122,7 +122,7 @@
 				<div>
 					<div class="mb-1 text-[0.68rem] uppercase tracking-widest text-slate-light">Grid sleeve</div>
 					<div class="font-semibold text-navy-deep">10 symbols, 10% of P3</div>
-					<div class="text-xs text-slate-light">Independently FIS-rated</div>
+					<div class="text-xs text-slate-light">Independently RXI-rated</div>
 				</div>
 				<div>
 					<div class="mb-1 text-[0.68rem] uppercase tracking-widest text-slate-light">Baseline allocation</div>
@@ -146,41 +146,41 @@
 		</p>
 
 		<p class="mb-5 text-base leading-relaxed text-slate">
-			Ten symbols ran in the grid sleeve, each independently rated by the FIS engine: ZEC, DASH, IOTA, XLM, SKY, TRAC, DOT, AAVE, ETH, BCH. The sleeve constituted 10% of the simulated portfolio (P3). The remaining 90% was allocated to a 60/40 SPY/AGG baseline (P2), the same structure tested in the prior study. This portfolio structure is a modeled construct for research comparison purposes and does not represent a recommended allocation.
+			Ten symbols ran in the grid sleeve, each independently rated by the RXI engine: ZEC, DASH, IOTA, XLM, SKY, TRAC, DOT, AAVE, ETH, BCH. The sleeve constituted 10% of the simulated portfolio (P3). The remaining 90% was allocated to a 60/40 SPY/AGG baseline (P2), the same structure tested in the prior study. This portfolio structure is a modeled construct for research comparison purposes and does not represent a recommended allocation.
 		</p>
 	</section>
 
 	<!-- Section: What the Mechanism Did -->
 	<section class="mb-14">
 		<div class="eyebrow mb-3">What the Mechanism Did</div>
-		<h2 class="mb-6 font-serif text-2xl leading-snug text-navy-ink">The FIS Engine in a Bear Window</h2>
+		<h2 class="mb-6 font-serif text-2xl leading-snug text-navy-ink">The RXI Engine in a Bear Window</h2>
 
 		<!-- Hero GIF -->
 		<div class="not-prose my-8 w-full">
 			<figure>
 				<img
 					src="/research/coinroc-live-bear-market-2026/coinroc_live_sim_stress_zoom.gif"
-					alt="Animated chart showing P3 (CoinRoc portfolio) vs BTC price during the stress window from approximately May 22, 2026 onward. The two lines diverge: BTC trends downward through a sustained drawdown while the P3 portfolio line holds roughly flat, illustrating the FIS suspend mechanism stepping back from crypto exposure during the bear regime."
+					alt="Animated chart showing P3 (CoinRoc portfolio) vs BTC price during the stress window from approximately May 22, 2026 onward. The two lines diverge: BTC trends downward through a sustained drawdown while the P3 portfolio line holds roughly flat, illustrating the RXI suspend mechanism stepping back from crypto exposure during the bear regime."
 					loading="lazy"
 					class="w-full"
 					style="border-radius:6px;display:block;height:auto;"
 				/>
 				<figcaption class="mt-3 text-xs text-slate-light leading-relaxed">
-					<strong class="text-navy-deep font-semibold">Stress-window zoom: P3 vs BTC divergence, approximately May 22 &ndash; June 27, 2026.</strong> This animation shows line shape only &mdash; no numeric performance labels are shown on the y-axis. The visual illustrates the mechanism: FIS suspend logic stepped back from crypto exposure as BTC trended down. This is a hypothetical simulation result. Past simulated performance is not indicative of future results.
+					<strong class="text-navy-deep font-semibold">Stress-window zoom: P3 vs BTC divergence, approximately May 22 &ndash; June 27, 2026.</strong> This animation shows line shape only &mdash; no numeric performance labels are shown on the y-axis. The visual illustrates the mechanism: RXI suspend logic stepped back from crypto exposure as BTC trended down. This is a hypothetical simulation result. Past simulated performance is not indicative of future results.
 				</figcaption>
 			</figure>
 		</div>
 
 		<p class="mb-5 text-base leading-relaxed text-slate">
-			The visual above tells the mechanism story more clearly than numbers can. In the stress window beginning around May 22, 2026, BTC entered a sustained drawdown &mdash; eventually falling approximately 27% from its peak across the out-of-sample period. During this same window, the FIS-rated grid sleeve held roughly flat during this bear-market regime window.
+			The visual above tells the mechanism story more clearly than numbers can. In the stress window beginning around May 22, 2026, BTC entered a sustained drawdown &mdash; eventually falling approximately 27% from its peak across the out-of-sample period. During this same window, the RXI-rated grid sleeve held roughly flat during this bear-market regime window.
 		</p>
 
 		<p class="mb-5 text-base leading-relaxed text-slate">
-			That is the mechanism illustrated, not a return claim. The grid sleeve did not fall with BTC because it was not holding BTC directionally. It was running a rules-based oscillation strategy that the FIS engine actively managed &mdash; suspending exposure when conditions turned trending and hostile to grid mechanics, then resuming when conditions improved.
+			That is the mechanism illustrated, not a return claim. The grid sleeve did not fall with BTC because it was not holding BTC directionally. It was running a rules-based oscillation strategy that the RXI engine actively managed &mdash; suspending exposure when conditions turned trending and hostile to grid mechanics, then resuming when conditions improved.
 		</p>
 
 		<p class="mb-5 text-base leading-relaxed text-slate">
-			Over the 74-day period, the FIS engine fired 92 suspend events and 83 resume events across 10 symbols. One symbol, DASH, ended the period in a suspended state. The rules were firing continuously.
+			Over the 74-day period, the RXI engine fired 92 suspend events and 83 resume events across 10 symbols. One symbol, DASH, ended the period in a suspended state. The rules were firing continuously.
 		</p>
 
 		<!-- Secondary GIF -->
@@ -217,7 +217,7 @@
 			<div class="flex gap-4">
 				<span class="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-ochre"></span>
 				<p class="text-base leading-relaxed text-slate">
-					In a regime where BTC experienced a sustained directional drawdown exceeding 27% peak-to-trough, the FIS suspend logic stepped back systematically &mdash; this is the exact behavior the regime detection layer was designed to produce.
+					In a regime where BTC experienced a sustained directional drawdown exceeding 27% peak-to-trough, the RXI suspend logic stepped back systematically &mdash; this is the exact behavior the regime detection layer was designed to produce.
 				</p>
 			</div>
 			<div class="flex gap-4">
@@ -239,7 +239,7 @@
 		</p>
 
 		<p class="mb-5 text-base leading-relaxed text-slate">
-			The correct interpretation: the FIS regime detection performed as designed in the environment it was designed for.
+			The correct interpretation: the RXI regime detection performed as designed in the environment it was designed for.
 		</p>
 
 		<p class="mb-5 text-base leading-relaxed text-slate">
@@ -260,7 +260,7 @@
 			<div class="border-l-2 border-rule pl-4">
 				<p class="mb-1 text-sm font-semibold text-navy-deep">Window length.</p>
 				<p class="text-base leading-relaxed text-slate">
-					74 days is a short sample. The directional result &mdash; that the FIS suspend logic stepped back during a sustained BTC bear and the sleeve tracked differently from BTC &mdash; is meaningful. The statistical precision of any return figure derived from 74 days is low. Do not read more into this than the mechanism illustration it provides.
+					74 days is a short sample. The directional result &mdash; that the RXI suspend logic stepped back during a sustained BTC bear and the sleeve tracked differently from BTC &mdash; is meaningful. The statistical precision of any return figure derived from 74 days is low. Do not read more into this than the mechanism illustration it provides.
 				</p>
 			</div>
 
@@ -272,7 +272,7 @@
 			</div>
 
 			<div class="border-l-2 border-rule pl-4">
-				<p class="mb-1 text-sm font-semibold text-navy-deep">The FIS engine is not AI.</p>
+				<p class="mb-1 text-sm font-semibold text-navy-deep">The RXI engine is not AI.</p>
 				<p class="text-base leading-relaxed text-slate">
 					The suspend/resume logic is a Mamdani fuzzy inference system: rule-based, interpretable, deterministic given the same inputs. It is not a neural network, not a large language model, not &ldquo;AI-driven protection.&rdquo; The distinction matters for accuracy and for regulatory appropriateness.
 				</p>
@@ -293,9 +293,9 @@
 			</div>
 
 			<div class="border-l-2 border-rule pl-4">
-				<p class="mb-1 text-sm font-semibold text-navy-deep">FIS suspension in live deployment.</p>
+				<p class="mb-1 text-sm font-semibold text-navy-deep">RXI suspension in live deployment.</p>
 				<p class="text-base leading-relaxed text-slate">
-					In a live CoinRoc session, the suspend/resume cycle illustrated in this simulation is automatic and non-optional. When FIS signal conditions are met &mdash; specifically, when the regime classifies as TREND_FOLLOWING at or above the confidence threshold on a 4-hour bar boundary &mdash; the system pauses new capital deployment without a user confirmation step. Users receive an after-the-fact notification; there is no in-session toggle to override it. That is by design: the gate is a deterministic algorithm applied identically to every live session, not a per-user judgment call. Users who activate the bot accept the FIS gate as an integral, non-separable feature of how it operates. Users may terminate a session at any time. The forward simulation modeled this behavior by halting new grid order placement at the signal boundary &mdash; consistent with how the mechanism operates in production.
+					In a live CoinRoc session, the suspend/resume cycle illustrated in this simulation is automatic and non-optional. When RXI signal conditions are met &mdash; specifically, when the regime classifies as TREND_FOLLOWING at or above the confidence threshold on a 4-hour bar boundary &mdash; the system pauses new capital deployment without a user confirmation step. Users receive an after-the-fact notification; there is no in-session toggle to override it. That is by design: the gate is a deterministic algorithm applied identically to every live session, not a per-user judgment call. Users who activate the bot accept the RXI gate as an integral, non-separable feature of how it operates. Users may terminate a session at any time. The forward simulation modeled this behavior by halting new grid order placement at the signal boundary &mdash; consistent with how the mechanism operates in production.
 				</p>
 			</div>
 		</div>
@@ -307,11 +307,11 @@
 		<h2 class="mb-6 font-serif text-2xl leading-snug text-navy-ink">The Mechanism in Plain Language</h2>
 
 		<p class="mb-5 text-base leading-relaxed text-slate">
-			The FIS filter does something simple that is hard to do emotionally: it reduces exposure when conditions deteriorate, and restores it when conditions improve. Over this 74-day window, it held the portfolio roughly flat while BTC lost more than a quarter of its value from peak to trough &mdash; a result specific to this bear-market regime window, not a standing property of the mechanism in all conditions.
+			The RXI filter does something simple that is hard to do emotionally: it reduces exposure when conditions deteriorate, and restores it when conditions improve. Over this 74-day window, it held the portfolio roughly flat while BTC lost more than a quarter of its value from peak to trough &mdash; a result specific to this bear-market regime window, not a standing property of the mechanism in all conditions.
 		</p>
 
 		<p class="mb-5 text-base leading-relaxed text-slate">
-			The mechanism is not prediction. The grid does not need to know where BTC goes. It needs the right conditions &mdash; oscillation within a range, not a trending directional move. The suspend and resume thresholds are fixed rules applied to incoming indicator values. No learning, no model updating, no prediction. When those conditions break, the FIS suspend logic steps back. When they return, it re-engages.
+			The mechanism is not prediction. The grid does not need to know where BTC goes. It needs the right conditions &mdash; oscillation within a range, not a trending directional move. The suspend and resume thresholds are fixed rules applied to incoming indicator values. No learning, no model updating, no prediction. When those conditions break, the RXI suspend logic steps back. When they return, it re-engages.
 		</p>
 
 		<p class="mb-5 text-base leading-relaxed text-slate">
@@ -326,7 +326,7 @@
 		<div class="mt-8 border border-rule bg-paper p-6">
 			<div class="eyebrow mb-2">Related</div>
 			<p class="mb-3 text-sm leading-relaxed text-slate">
-				CoinRoc is the product that uses the FIS regime detection layer described in this research. Learn more at <a href="https://coinroc.com" class="text-ochre-deep underline underline-offset-2 hover:text-ochre transition" target="_blank" rel="noopener noreferrer">coinroc.com</a>.
+				CoinRoc is the product that uses the RXI regime detection layer described in this research. Learn more at <a href="https://coinroc.com" class="text-ochre-deep underline underline-offset-2 hover:text-ochre transition" target="_blank" rel="noopener noreferrer">coinroc.com</a>.
 			</p>
 			<p class="text-sm leading-relaxed text-slate">
 				Cross-reference: <a href="/research/grid-trading-walk-forward-2026" class="text-ochre-deep underline underline-offset-2 hover:text-ochre transition">the prior 2.5-year study (RES-REPOSITION-PORTFOLIO-01)</a> covers a broader range of conditions and should be consulted for longer-run historical context.
@@ -347,7 +347,7 @@
 			Fee assumptions: OKX US Institutional VIP 2 rates (0.06% maker / 0.08% taker) and an assumed slippage floor of max(0.02%, 0.15 &times; ATR/price) per fill side. Results at other fee tiers &mdash; including OKX consumer rates or other exchanges &mdash; would differ materially.
 		</p>
 		<p class="mb-3">
-			The FIS regime suspension described and modeled in this simulation activates automatically when signal conditions are met in a live CoinRoc session. No user approval is required and no user-configurable toggle exists to disable it within a live session. Users receive notification of an active pause after it triggers. CoinRoc does not make individualized or discretionary investment decisions on behalf of any user; the FIS gate is a rules-based, deterministic algorithm with published criteria, applied identically across all sessions regardless of any individual user&rsquo;s account characteristics or preferences.
+			The RXI regime suspension described and modeled in this simulation activates automatically when signal conditions are met in a live CoinRoc session. No user approval is required and no user-configurable toggle exists to disable it within a live session. Users receive notification of an active pause after it triggers. CoinRoc does not make individualized or discretionary investment decisions on behalf of any user; the RXI gate is a rules-based, deterministic algorithm with published criteria, applied identically across all sessions regardless of any individual user&rsquo;s account characteristics or preferences.
 		</p>
 		<p>
 			The regulatory classification of certain digital assets referenced in this article, including XLM, AAVE, and DOT, is subject to ongoing review by US regulatory authorities. No representation is made regarding the securities-law status of any digital asset.

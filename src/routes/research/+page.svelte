@@ -69,7 +69,7 @@
 					</li>
 					<li>
 						<a href="/research/fis-regime-detection-advisors" class="group block">
-							<div class="font-semibold text-navy-deep group-hover:text-navy transition">Paper 3 — FIS Regime Detection for Advisors</div>
+							<div class="font-semibold text-navy-deep group-hover:text-navy transition">Paper 3 — RXI Regime Detection for Advisors</div>
 							<div class="text-xs text-slate-light">June 2026 · Published</div>
 						</a>
 					</li>
@@ -139,7 +139,7 @@
 					</li>
 					<li>
 						<a href="/research/fis-regime-engine" class="group block">
-							<div class="font-semibold text-navy-deep group-hover:text-navy transition">Lesson — How CoinRoc Knows When to Step Aside: The FIS Regime Engine</div>
+							<div class="font-semibold text-navy-deep group-hover:text-navy transition">Lesson — How CoinRoc Knows When to Step Aside: The RXI Regime Engine</div>
 							<div class="text-xs text-slate-light">June 2026 · Published</div>
 						</a>
 					</li>
@@ -183,7 +183,7 @@
 							We ran a walk-forward backtest of an adaptive grid trading strategy across 17 major
 							cryptocurrencies, 13 years of daily data, and 135 valid test folds. The strategy posts
 							a 100% win rate against buy-and-hold in confirmed bear-market folds, with meaningful
-							capital preservation when markets fall. FIS v2 regime gating improved average alpha
+							capital preservation when markets fall. RXI v2 regime gating improved average alpha
 							from &minus;578% to &minus;464%. Forward confidence: 6.5/10.
 						</p>
 
@@ -335,7 +335,7 @@
 							Grid Trading in the Modern Crypto Era: 2019&ndash;2025
 						</h2>
 						<p class="mb-5 text-sm leading-relaxed text-slate">
-							Walk-forward analysis of 85 folds across 17 assets in the modern crypto era. The FIS v2
+							Walk-forward analysis of 85 folds across 17 assets in the modern crypto era. The RXI v2
 							gate held cash during 71.8% of periods &mdash; including all major bear years. Result:
 							100% bear-fold capital protection across all 29 folds where buy-and-hold fell more than
 							20%. Mean max drawdown: 1.0% vs. 25.0% for the always-on baseline.
@@ -382,10 +382,10 @@
 							<span class="text-[0.68rem] uppercase tracking-widest text-slate-light">June 2026</span>
 						</div>
 						<h2 class="mb-4 font-serif text-2xl leading-snug text-navy-ink">
-							The Vault Test: Near-Blind Out-of-Sample Validation of CoinRoc&rsquo;s Three-State FIS, 2023&ndash;2025
+							The Vault Test: Near-Blind Out-of-Sample Validation of CoinRoc&rsquo;s Three-State RXI, 2023&ndash;2025
 						</h2>
 						<p class="mb-5 text-sm leading-relaxed text-slate">
-							FIS thresholds locked before 2023, then run unchanged across 51 out-of-sample folds.
+							RXI thresholds locked before 2023, then run unchanged across 51 out-of-sample folds.
 							Three-state strategy mean: +3.8% vs. +0.6% two-state baseline. Bear-fold win rate:
 							100% (20/20). The direction guard prevents the momentum sleeve from firing into declining
 							markets by design &mdash; the protection story is unchanged from Paper 8.
@@ -409,7 +409,7 @@
 				</div>
 			</article>
 
-			<!-- FIS Advisor Article B1 card -->
+			<!-- RXI Advisor Article B1 card -->
 			<article class="overflow-hidden rounded-sm border border-rule bg-paper shadow-[0_10px_40px_-25px_rgba(20,40,72,0.3)]">
 				<div class="grid grid-cols-5">
 					<!-- Cover -->
@@ -417,7 +417,7 @@
 						<div class="absolute inset-0 bg-topo-faint opacity-10"></div>
 						<div class="relative text-center text-cream">
 							<div class="mb-4 text-[0.6rem] uppercase tracking-[0.3em] text-ochre-soft">Yodacom Research</div>
-							<div class="mb-3 font-serif text-3xl font-500 italic text-cream leading-tight">FIS<br/>Regime</div>
+							<div class="mb-3 font-serif text-3xl font-500 italic text-cream leading-tight">RXI<br/>Regime</div>
 							<div class="mx-auto mb-4 h-px w-12 bg-ochre/70"></div>
 							<div class="text-[0.68rem] uppercase tracking-widest text-cream/60">Paper № 3</div>
 							<div class="mt-6 text-[0.68rem] uppercase tracking-widest text-cream/60">June 2026</div>
@@ -436,9 +436,9 @@
 						</h2>
 						<p class="mb-5 text-sm leading-relaxed text-slate">
 							In 2022, covered call income fell with equity. This paper examines whether crypto grid
-							trading with FIS regime detection offers a structurally different income mechanism &mdash;
+							trading with RXI regime detection offers a structurally different income mechanism &mdash;
 							one where income and risk do not share the same source. The ETH 2018 anchor case:
-							buy-and-hold &minus;82.4%, always-on grid &minus;61.6%, FIS-gated 0%. Written for
+							buy-and-hold &minus;82.4%, always-on grid &minus;61.6%, RXI-gated 0%. Written for
 							financial advisors navigating the income-in-retirement conversation.
 						</p>
 
@@ -446,7 +446,7 @@
 							<dt class="text-slate-light">Author</dt><dd>Jeremy J. Black &middot; Yodacom Research</dd>
 							<dt class="text-slate-light">Window</dt><dd>2017&ndash;2025</dd>
 							<dt class="text-slate-light">Assets / Folds</dt><dd>17 symbols &middot; 135 folds</dd>
-							<dt class="text-slate-light">Key finding</dt><dd>FIS gating: &minus;24.2% avg &#8594; 0% in defensive periods</dd>
+							<dt class="text-slate-light">Key finding</dt><dd>RXI gating: &minus;24.2% avg &#8594; 0% in defensive periods</dd>
 						</dl>
 
 						<a
@@ -482,7 +482,7 @@
 							What the 2020–2025 Crypto Cycle Reveals About Rules-Based Income — And Why 2022 Changed the Conversation
 						</h2>
 						<p class="mb-5 text-sm leading-relaxed text-slate">
-							In 2022, Bitcoin fell 65% and the median crypto asset lost 72.7% of its value. An FIS&#x2122;-gated, rules-based grid system held flat and compounded — finishing the full cycle at $19,609 on a $10,000 start, edging the S&amp;P 500's $18,703. Here is the mechanism and what it means for the advisor conversation.
+							In 2022, Bitcoin fell 65% and the median crypto asset lost 72.7% of its value. An RXI&#x2122;-gated, rules-based grid system held flat and compounded — finishing the full cycle at $19,609 on a $10,000 start, edging the S&amp;P 500's $18,703. Here is the mechanism and what it means for the advisor conversation.
 						</p>
 						<dl class="mb-5 grid grid-cols-2 gap-x-4 gap-y-2 border-y border-rule py-4 text-xs text-slate">
 							<dt class="text-slate-light">Author</dt><dd>Jeremy J. Black, CFP &middot; Yodacom Research</dd>
@@ -563,7 +563,7 @@
 						<dl class="mb-5 grid grid-cols-2 gap-x-4 gap-y-2 border-y border-rule py-4 text-xs text-slate">
 							<dt class="text-slate-light">Author</dt><dd>Lando &middot; Yodacom Research</dd>
 							<dt class="text-slate-light">Audience</dt><dd>Advisors, quant practitioners, DeFi participants</dd>
-							<dt class="text-slate-light">Key finding</dt><dd>B-tier Arbitrum FIS-gated: +15.2% net APY [+14.3%, +16.1% CI]</dd>
+							<dt class="text-slate-light">Key finding</dt><dd>B-tier Arbitrum RXI-gated: +15.2% net APY [+14.3%, +16.1% CI]</dd>
 							<dt class="text-slate-light">Novel finding</dt><dd>Rating inversion: A-tier worst LP candidates, B-tier sweet spot</dd>
 						</dl>
 						<a href="/research/lp-yield-2026" class="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-ochre-deep transition hover:text-ochre">
@@ -596,7 +596,7 @@
 							Inventory-Aware Grid Management: A Regime-Adaptive Circuit Breaker for Crypto Grid Strategies
 						</h2>
 						<p class="mb-5 text-sm leading-relaxed text-slate">
-							FIS v2 monitors market structure from the outside. The inventory circuit breaker monitors the portfolio's own balance sheet from the inside. Walk-forward validation across 17 symbols and 135 folds: zero spurious fires in 28 bull folds; 70.6% detection in 17 confirmed 2022 bear folds; +5.09% average alpha improvement when fired. Five-iteration gate design documented.
+							RXI v2 monitors market structure from the outside. The inventory circuit breaker monitors the portfolio's own balance sheet from the inside. Walk-forward validation across 17 symbols and 135 folds: zero spurious fires in 28 bull folds; 70.6% detection in 17 confirmed 2022 bear folds; +5.09% average alpha improvement when fired. Five-iteration gate design documented.
 						</p>
 						<dl class="mb-5 grid grid-cols-2 gap-x-4 gap-y-2 border-y border-rule py-4 text-xs text-slate">
 							<dt class="text-slate-light">Authors</dt><dd>Han Kessel &middot; Jeremy J. Black, Editor</dd>
@@ -672,12 +672,12 @@
 							We Ran a CoinRoc Out-of-Sample Forward Simulation Through a Bear Market &mdash; Here&rsquo;s What Happened to Drawdown
 						</h2>
 						<p class="mb-5 text-sm leading-relaxed text-slate">
-							A 74-day out-of-sample forward simulation of CoinRoc&rsquo;s FIS grid sleeve through the April&ndash;June 2026 Bitcoin bear market. No real capital. No look-ahead enforced at code level. The FIS engine fired 92 suspend and 83 resume events. The regime detection layer did exactly what it was designed to do.
+							A 74-day out-of-sample forward simulation of CoinRoc&rsquo;s RXI grid sleeve through the April&ndash;June 2026 Bitcoin bear market. No real capital. No look-ahead enforced at code level. The RXI engine fired 92 suspend and 83 resume events. The regime detection layer did exactly what it was designed to do.
 						</p>
 						<dl class="mb-5 grid grid-cols-2 gap-x-4 gap-y-2 border-y border-rule py-4 text-xs text-slate">
 							<dt class="text-slate-light">Author</dt><dd>Yodacom Research</dd>
 							<dt class="text-slate-light">Window</dt><dd>April 14 &ndash; June 27, 2026 (74 days)</dd>
-							<dt class="text-slate-light">Symbols</dt><dd>10 (FIS-rated grid sleeve)</dd>
+							<dt class="text-slate-light">Symbols</dt><dd>10 (RXI-rated grid sleeve)</dd>
 							<dt class="text-slate-light">Type</dt><dd>Out-of-sample forward simulation</dd>
 						</dl>
 						<a href="/research/coinroc-live-bear-market-2026" class="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-ochre-deep transition hover:text-ochre">
@@ -726,14 +726,14 @@
 				</div>
 			</article>
 
-			<!-- FIS Regime Engine Lesson card -->
+			<!-- RXI Regime Engine Lesson card -->
 			<article class="overflow-hidden rounded-sm border border-rule bg-paper shadow-[0_10px_40px_-25px_rgba(20,40,72,0.3)]">
 				<div class="grid grid-cols-5">
 					<div class="col-span-2 relative hidden items-center justify-center border-r border-rule bg-navy-ink p-6 sm:flex">
 						<div class="absolute inset-0 bg-topo-faint opacity-10"></div>
 						<div class="relative text-center text-cream">
 							<div class="mb-4 text-[0.6rem] uppercase tracking-[0.3em] text-ochre-soft">Yodacom Research</div>
-							<div class="mb-3 font-serif text-2xl font-500 italic text-cream leading-tight">FIS<br />Engine</div>
+							<div class="mb-3 font-serif text-2xl font-500 italic text-cream leading-tight">RXI<br />Engine</div>
 							<div class="mx-auto mb-4 h-px w-12 bg-ochre/70"></div>
 							<div class="text-[0.68rem] uppercase tracking-widest text-cream/60">Educational Lesson</div>
 							<div class="mt-6 text-[0.68rem] uppercase tracking-widest text-cream/60">June 2026</div>
@@ -745,15 +745,15 @@
 							<span class="text-[0.68rem] uppercase tracking-widest text-slate-light">June 2026</span>
 						</div>
 						<h2 class="mb-4 font-serif text-2xl leading-snug text-navy-ink">
-							How CoinRoc Knows When to Step Aside: Understanding the FIS Regime Engine
+							How CoinRoc Knows When to Step Aside: Understanding the RXI Regime Engine
 						</h2>
 						<p class="mb-5 text-sm leading-relaxed text-slate">
-							FIS fuses four mathematical signals &mdash; ADX (trend strength), Hurst exponent (mean-reversion vs. persistence), Shannon and Tsallis entropy (order vs. noise), and ATR (volatility scale) &mdash; into a confidence-weighted regime call. When it fires TREND_FOLLOWING, grid deployment pauses automatically, without a user confirmation step. ETH 2018 anchor case: buy-and-hold &minus;82%, always-on grid &minus;62%, FIS-gated 0% (hypothetical, backtested).
+							RXI fuses four mathematical signals &mdash; ADX (trend strength), Hurst exponent (mean-reversion vs. persistence), Shannon and Tsallis entropy (order vs. noise), and ATR (volatility scale) &mdash; into a confidence-weighted regime call. When it fires TREND_FOLLOWING, grid deployment pauses automatically, without a user confirmation step. ETH 2018 anchor case: buy-and-hold &minus;82%, always-on grid &minus;62%, RXI-gated 0% (hypothetical, backtested).
 						</p>
 						<dl class="mb-5 grid grid-cols-2 gap-x-4 gap-y-2 border-y border-rule py-4 text-xs text-slate">
 							<dt class="text-slate-light">Registry ID</dt><dd>FIS-LESSON-01</dd>
 							<dt class="text-slate-light">Audience</dt><dd>CoinRoc users &middot; Financial professionals</dd>
-							<dt class="text-slate-light">Key finding</dt><dd>FIS gating: &minus;24% avg &#8594; 0% in 47 defensive periods</dd>
+							<dt class="text-slate-light">Key finding</dt><dd>RXI gating: &minus;24% avg &#8594; 0% in 47 defensive periods</dd>
 							<dt class="text-slate-light">Channel</dt><dd>yodacom.com/research</dd>
 						</dl>
 						<a href="/research/fis-regime-engine" class="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-ochre-deep transition hover:text-ochre">

@@ -78,7 +78,7 @@
 			</li>
 			<li class="flex gap-3">
 				<span class="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-ochre"></span>
-				<span>FIS v2 regime gating improved alpha from &minus;578% to &minus;464%</span>
+				<span>RXI v2 regime gating improved alpha from &minus;578% to &minus;464%</span>
 			</li>
 			<li class="flex gap-3">
 				<span class="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-ochre"></span>
@@ -143,14 +143,14 @@
 		</div>
 
 		<p class="mb-5 text-base leading-relaxed text-slate">
-			Regime gating is provided by the FIS&trade; (Fuzzy Inference System): a 10-rule Mamdani
+			Regime gating is provided by RXI&trade; (Regime eXecution Intelligence) — built on a 10-rule Mamdani fuzzy-inference
 			engine reading three input signals &mdash; price relative to the 200-day moving average,
 			volatility ratio (current vs. trailing), and momentum &mdash; and producing an engagement
 			scalar from 0.0 (fully disengaged) to 1.0 (fully deployed). When the engagement scalar
 			falls below threshold, the grid does not open new positions.
 		</p>
 		<p class="text-base leading-relaxed text-slate">
-			FIS v2 introduces EWMA volatility decay with a 7-day half-life, replacing the raw-window
+			RXI v2 introduces EWMA volatility decay with a 7-day half-life, replacing the raw-window
 			volatility input used in v1. This change smooths regime transitions and reduces false
 			disengagement signals during short-term volatility spikes that do not represent structural
 			regime shifts.
@@ -232,17 +232,17 @@
 		<p class="text-[0.72rem] italic text-slate-light">Backtested data — not investment advice. Sharpe = (annual return &minus; 0%) / annualized vol; risk-free rate set to 0 for crypto context.</p>
 	</section>
 
-	<!-- ── Section 5: What FIS Gating Does ────────────────────── -->
+	<!-- ── Section 5: What RXI Gating Does ────────────────────── -->
 	<section class="mb-14">
 		<div class="eyebrow mb-3">Section 5</div>
-		<h2 class="mb-6 font-serif text-2xl leading-snug text-navy-ink">What FIS Gating Does</h2>
+		<h2 class="mb-6 font-serif text-2xl leading-snug text-navy-ink">What RXI Gating Does</h2>
 
 		<p class="mb-5 text-base leading-relaxed text-slate">
-			A measurement artifact requires explanation before reading the FIS comparison table.
-			When the FIS gate is applied and the grid is disengaged for a full fold, that fold
+			A measurement artifact requires explanation before reading the RXI comparison table.
+			When the RXI gate is applied and the grid is disengaged for a full fold, that fold
 			produces a return of approximately 0% (cash, no deployment) rather than a deeply negative
 			return. Relative to a buy-and-hold that returned, say, +300% in a bull-run fold, a 0%
-			result is still a loss of alpha. The FIS gate therefore converts bull-run folds from
+			result is still a loss of alpha. The RXI gate therefore converts bull-run folds from
 			"somewhat losing" to "fully losing" on the alpha metric, which mechanically drops the
 			raw win rate from 41.5% to 28.9%. The gate is working correctly &mdash; it is preserving
 			capital in bear folds &mdash; but the win-rate metric penalizes it for not chasing
@@ -261,8 +261,8 @@
 				<tbody>
 					{#each [
 						{ config: 'Always-on (no gate)', wr: '41.5%', alpha: '−578%' },
-						{ config: 'FIS v1 (raw volatility)', wr: '26.7%', alpha: '−486%' },
-						{ config: 'FIS v2 (EWMA vol, hl=7d)', wr: '28.9%', alpha: '−464%' },
+						{ config: 'RXI v1 (raw volatility)', wr: '26.7%', alpha: '−486%' },
+						{ config: 'RXI v2 (EWMA vol, hl=7d)', wr: '28.9%', alpha: '−464%' },
 					] as row (row.config)}
 						<tr class="border-b border-rule/50 last:border-0">
 							<td class="py-2.5 pr-6 font-medium text-navy-deep">{row.config}</td>
@@ -330,7 +330,7 @@
 
 		<p class="mb-5 text-base leading-relaxed text-slate">
 			The optimizer used a hardcoded portfolio volatility assumption of 0.30 (30% annualized).
-			Actual measured volatility for the always-on grid is 20.97% annualized; for the FIS v2
+			Actual measured volatility for the always-on grid is 20.97% annualized; for the RXI v2
 			gated configuration it is 16.07%. The hardcoded figure overstated portfolio volatility
 			by 9&ndash;14 percentage points, causing the mean-variance optimizer to systematically
 			underweight the grid sleeve in multi-asset portfolio construction. The corrected input
@@ -403,7 +403,7 @@
 			holds &mdash; bear markets end and are followed by consolidation and recovery phases where
 			grid performance improves. We are within the historical duration window for a regime shift.
 			Three measurement fixes (alpha demotion, vol correction, Hurst recalibration) improve the
-			strategy's calibration going forward. FIS v2 capital preservation compounds over full
+			strategy's calibration going forward. RXI v2 capital preservation compounds over full
 			market cycles: surviving a bear market with less drawdown means more capital available
 			for the subsequent recovery phase.
 		</p>
@@ -443,7 +443,7 @@
 				<p class="text-base leading-relaxed text-slate">
 					Confirmed bear markets and confirmed uptrends. In both regimes, the directional move
 					dominates the oscillation signal. Grid strategies in sustained trends produce the worst
-					Sharpe readings in this dataset (&minus;1.641 in 2018, &minus;1.291 in 2022). The FIS
+					Sharpe readings in this dataset (&minus;1.641 in 2018, &minus;1.291 in 2022). The RXI
 					gate exists precisely to identify these conditions and preserve capital.
 				</p>
 			</div>
@@ -476,10 +476,10 @@
 			<div class="border-t border-rule px-6 py-5 text-sm leading-relaxed text-slate space-y-3">
 				<p><strong class="text-navy-deep">Strategy:</strong> AdaptiveGrid v3DynamicMode, geometric spacing, 55 grid levels, 2.59% grid spacing. Fill model: GTX (limit orders fill on price cross, not touch).</p>
 				<p><strong class="text-navy-deep">Data:</strong> Tiingo daily bars, 172,588 total observations across 17 symbols from 2011 through 2025. Data sourced directly from Tiingo API; no survivorship adjustment was applied beyond the 17-symbol universe selection, which was fixed prior to the study.</p>
-				<p><strong class="text-navy-deep">Walk-forward structure:</strong> 2-year training window / 1-year test window / 1-year slide. Training window optimizes grid spacing and FIS thresholds. Test window evaluates out-of-sample performance. No parameter re-optimization during the test window.</p>
+				<p><strong class="text-navy-deep">Walk-forward structure:</strong> 2-year training window / 1-year test window / 1-year slide. Training window optimizes grid spacing and RXI thresholds. Test window evaluates out-of-sample performance. No parameter re-optimization during the test window.</p>
 				<p><strong class="text-navy-deep">Cost model:</strong> 0.40% maker / 0.60% taker / 0.05% volatility-conditional slippage, reflecting Binance.US retail tier. All returns are net of these costs.</p>
-				<p><strong class="text-navy-deep">FIS (Fuzzy Inference System):</strong> 10-rule Mamdani engine with centroid defuzzification. Inputs: (1) price vs. 200-day MA, (2) volatility ratio (14-day / 63-day), (3) 20-day momentum. Output: engagement scalar 0.0&ndash;1.0. FIS v2 replaces raw volatility ratio with EWMA-smoothed vol (half-life = 7 days).</p>
-				<p><strong class="text-navy-deep">No look-ahead bias:</strong> All parameter sets are calibrated using only data preceding the test window. FIS rule weights are fixed before the study and not updated during test periods. Regime signals use only data available at the time of each daily bar.</p>
+				<p><strong class="text-navy-deep">RXI&#x2122; (Regime eXecution Intelligence, built on a fuzzy-inference engine):</strong> 10-rule Mamdani engine with centroid defuzzification. Inputs: (1) price vs. 200-day MA, (2) volatility ratio (14-day / 63-day), (3) 20-day momentum. Output: engagement scalar 0.0&ndash;1.0. RXI v2 replaces raw volatility ratio with EWMA-smoothed vol (half-life = 7 days).</p>
+				<p><strong class="text-navy-deep">No look-ahead bias:</strong> All parameter sets are calibrated using only data preceding the test window. RXI rule weights are fixed before the study and not updated during test periods. Regime signals use only data available at the time of each daily bar.</p>
 			</div>
 		</details>
 	</section>

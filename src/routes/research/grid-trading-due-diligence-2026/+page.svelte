@@ -162,7 +162,7 @@
 			</div>
 			<div class="flex gap-4">
 				<span class="mt-1.5 flex-shrink-0 text-sm font-semibold text-navy-deep">2.</span>
-				<p class="text-base leading-relaxed text-slate">Grid engagement score at or below 0.65 (a composite measure of recent price oscillation intensity, derived from the FIS regime signal)</p>
+				<p class="text-base leading-relaxed text-slate">Grid engagement score at or below 0.65 (a composite measure of recent price oscillation intensity, derived from the RXI regime signal)</p>
 			</div>
 			<div class="flex gap-4">
 				<span class="mt-1.5 flex-shrink-0 text-sm font-semibold text-navy-deep">3.</span>
@@ -187,7 +187,7 @@
 		</p>
 
 		<p class="mb-5 text-base leading-relaxed text-slate">
-			Second, it provides a client-communication framework. When both the FIS regime signal and the circuit breaker agree that conditions are unfavorable, the strategy pauses or resets rather than continuing to accumulate inventory in a falling market. That is a sentence a client can understand.
+			Second, it provides a client-communication framework. When both the RXI regime signal and the circuit breaker agree that conditions are unfavorable, the strategy pauses or resets rather than continuing to accumulate inventory in a falling market. That is a sentence a client can understand.
 		</p>
 	</section>
 
@@ -241,7 +241,7 @@
 			<div class="border-l-2 border-rule pl-4">
 				<p class="mb-2 text-sm font-semibold text-navy-deep">1. Position sizing at the portfolio level is the primary risk control.</p>
 				<p class="text-base leading-relaxed text-slate">
-					The circuit breaker protects capital at the grid level. The FIS regime signal reduces grid engagement in trending markets. Neither is a substitute for appropriate position sizing. For contexts where crypto exposure is appropriate, one allocation structure examined in the research placed a satellite grid sleeve at 3&ndash;7% of total portfolio &mdash; a range that keeps worst-case sleeve loss (historically, up to 80&ndash;90% of sleeve capital in severe bear years) within a range the overall portfolio can absorb.
+					The circuit breaker protects capital at the grid level. The RXI regime signal reduces grid engagement in trending markets. Neither is a substitute for appropriate position sizing. For contexts where crypto exposure is appropriate, one allocation structure examined in the research placed a satellite grid sleeve at 3&ndash;7% of total portfolio &mdash; a range that keeps worst-case sleeve loss (historically, up to 80&ndash;90% of sleeve capital in severe bear years) within a range the overall portfolio can absorb.
 				</p>
 			</div>
 

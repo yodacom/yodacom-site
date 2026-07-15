@@ -4,9 +4,9 @@
 
 <svelte:head>
 	<title>What the 2020–2025 Crypto Cycle Reveals About Rules-Based Income | Yodacom Research</title>
-	<meta name="description" content="In 2022, Bitcoin fell 65% and the median crypto asset lost 72.7%. An FIS-gated rules-based grid system held flat and compounded. Here is what that data means for the advisor conversation." />
+	<meta name="description" content="In 2022, Bitcoin fell 65% and the median crypto asset lost 72.7%. An RXI-gated rules-based grid system held flat and compounded. Here is what that data means for the advisor conversation." />
 	<meta property="og:title" content="What the 2020–2025 Crypto Cycle Reveals About Rules-Based Income | Yodacom Research" />
-	<meta property="og:description" content="In 2022, Bitcoin fell 65% and the median crypto asset lost 72.7%. An FIS-gated rules-based grid system held flat and compounded. Here is what that data means for the advisor conversation." />
+	<meta property="og:description" content="In 2022, Bitcoin fell 65% and the median crypto asset lost 72.7%. An RXI-gated rules-based grid system held flat and compounded. Here is what that data means for the advisor conversation." />
 </svelte:head>
 
 <!-- Hero / cover banner -->
@@ -119,7 +119,7 @@
 		What the 2020–2025 Crypto Cycle Reveals About Rules-Based Income — And Why 2022 Changed the Conversation
 	</h1>
 	<p class="mb-6 text-lg leading-relaxed text-slate">
-		In 2022, Bitcoin fell 65% and the median crypto asset lost 72.7% of its value. An FIS&#x2122;-gated, rules-based grid system held flat. Here is the mechanism, the data, and what it means for the advisor conversation.
+		In 2022, Bitcoin fell 65% and the median crypto asset lost 72.7% of its value. An RXI&#x2122;-gated, rules-based grid system held flat. Here is the mechanism, the data, and what it means for the advisor conversation.
 	</p>
 	<dl class="mb-8 grid grid-cols-2 gap-x-6 gap-y-2 border-y border-rule py-5 text-xs text-slate sm:grid-cols-4">
 		<dt class="text-slate-light">Author</dt><dd>Jeremy J. Black, CFP &middot; Yodacom Research</dd>
@@ -167,8 +167,8 @@
 
 <ul>
 <li><strong>L1 — Plain Grid (no regime filter):</strong> Ends at $5,129. CAGR &minus;10.5%.</li>
-<li><strong>L2 — FIS&#x2122;-Gated Grid:</strong> Ends at $12,126. CAGR +3.3%.</li>
-<li><strong>L3 — Full CoinRoc System (FIS&#x2122; + Asset Quality Rating &ge; B-):</strong> Ends at $19,609. CAGR +11.9% (simulated backtest).</li>
+<li><strong>L2 — RXI&#x2122;-Gated Grid:</strong> Ends at $12,126. CAGR +3.3%.</li>
+<li><strong>L3 — Full CoinRoc System (RXI&#x2122; + Asset Quality Rating &ge; B-):</strong> Ends at $19,609. CAGR +11.9% (simulated backtest).</li>
 <li><strong>S&amp;P 500 (buy-and-hold benchmark):</strong> Ends at $18,703. CAGR +11.0% (actual index returns).</li>
 </ul>
 
@@ -178,14 +178,14 @@
 	<figure>
 		<img
 			src="/research/modern-market-2026/coinroc-equity-curves-2020-2025.png"
-			alt="Simulated equity curves 2020–2025: L1 Plain Grid ends at $5,129 (CAGR −10.5%), L2 FIS-Gated Grid ends at $12,126 (CAGR +3.3%), L3 Full CoinRoc System ends at $19,609 (CAGR +11.9%), S&P 500 benchmark ends at $18,703 (CAGR +11.0%). All starting from $10,000."
+			alt="Simulated equity curves 2020–2025: L1 Plain Grid ends at $5,129 (CAGR −10.5%), L2 RXI-Gated Grid ends at $12,126 (CAGR +3.3%), L3 Full CoinRoc System ends at $19,609 (CAGR +11.9%), S&P 500 benchmark ends at $18,703 (CAGR +11.0%). All starting from $10,000."
 			loading="lazy"
 			class="w-full"
 			style="border-radius:8px;display:block;height:auto;"
 		/>
 		<figcaption class="mt-3 text-xs text-slate-light leading-relaxed">
 			<strong class="text-navy-deep font-semibold">Figure: Simulated Equity Curves, 2020–2025 — $10,000 Starting Value</strong><br />
-			Four hypothetical equity curves tracking a $10,000 starting position from January 1, 2020 through December 31, 2025. L1 — Plain Grid (no regime filter): terminal value $5,129, CAGR −10.5%. L2 — FIS&#x2122;-Gated Grid: terminal value $12,126, CAGR +3.3%. L3 — Full CoinRoc System (FIS&#x2122; + Asset Quality Rating ≥ B−): terminal value ~$19,609, CAGR ~+11.9% (estimated; see disclosure). S&amp;P 500 Total Return benchmark: terminal value $18,703, CAGR +11.0%.<br /><br />
+			Four hypothetical equity curves tracking a $10,000 starting position from January 1, 2020 through December 31, 2025. L1 — Plain Grid (no regime filter): terminal value $5,129, CAGR −10.5%. L2 — RXI&#x2122;-Gated Grid: terminal value $12,126, CAGR +3.3%. L3 — Full CoinRoc System (RXI&#x2122; + Asset Quality Rating ≥ B−): terminal value ~$19,609, CAGR ~+11.9% (estimated; see disclosure). S&amp;P 500 Total Return benchmark: terminal value $18,703, CAGR +11.0%.<br /><br />
 			All CoinRoc lines are hypothetical and simulated. Results are derived from a walk-forward backtest run May 2026 across 17 pre-selected cryptocurrency assets using historical price data. L1 returns are directly measured from fold data. L2 and L3 returns are estimated (~) via simulation logic applied to qualifying fold subsets; they cannot be directly extracted from the fold-level JSON and should be understood as bounded approximations, not exact figures. Results are net of estimated Binance.US retail fees (0.40% maker / 0.60% taker / 0.05% volatility-conditional slippage).<br /><br />
 			These curves represent single-asset or per-fold simulation outcomes. They do not represent the results of a multi-asset portfolio sleeve with quarterly rebalancing; see the disclosure note in the Portfolio Construction section of this article for the distinction.<br /><br />
 			Past simulated performance is not indicative of future results. This chart is for educational and illustrative purposes only and does not constitute investment advice or a recommendation to buy or sell any security or investment product.
@@ -197,7 +197,7 @@
 
 <p>L1 falls from approximately $12,034 to $5,090 — losing nearly 58% of its value in a single year. By the end of the study period in 2025, it has not recovered. The compounding math is unforgiving: recovering from a 58% loss requires a 138% subsequent gain just to return to the high-water mark.</p>
 
-<p>L2 and L3 hold flat through 2022 in the simulation — not recovered over two years, not partially mitigated, flat — because the FIS&#x2122; regime detection system classified market conditions as trending-down and moved capital to cash. No deployment. No simulated losses.</p>
+<p>L2 and L3 hold flat through 2022 in the simulation — not recovered over two years, not partially mitigated, flat — because the RXI&#x2122; regime detection system classified market conditions as trending-down and moved capital to cash. No deployment. No simulated losses.</p>
 
 <p>Then L2 and L3 resume and compound through 2023–2025. By the end of the study period, L3 finishes at $19,609 — edging the S&amp;P 500's $18,703 while having experienced zero simulated capital loss in crypto's worst year.</p>
 
@@ -207,13 +207,13 @@
 
 <p>The mechanism behind that 2022 flat line is worth understanding precisely, because it shapes the fiduciary conversation.</p>
 
-<p>FIS&#x2122; (Fuzzy Inference System&#x2122;) is a regime detection system that reads three market inputs continuously: the Hurst exponent, which measures whether a price series is trending or mean-reverting; the moving average position, which identifies directional bias; and volatility momentum, which tracks whether risk is accelerating or stabilizing. When these three inputs combine to indicate a trending or distribution-phase regime, FIS&#x2122; reduces grid engagement toward zero and moves capital to cash.</p>
+<p>RXI&#x2122; (Regime eXecution Intelligence) — a regime detection system built on a Mamdani fuzzy-inference engine — reads three market inputs continuously: the Hurst exponent, which measures whether a price series is trending or mean-reverting; the moving average position, which identifies directional bias; and volatility momentum, which tracks whether risk is accelerating or stabilizing. When these three inputs combine to indicate a trending or distribution-phase regime, RXI&#x2122; reduces grid engagement toward zero and moves capital to cash.</p>
 
-<p>This is a critical distinction: FIS&#x2122; does not predict market direction. It does not forecast that 2022 will be a bear market. It reads what the market is currently doing — and when the answer is "sustained directional trend downward," it steps aside. The grid does not run in those conditions. Capital is held in cash or stablecoins. The strategy earns nothing in that period. But it loses nothing.</p>
+<p>This is a critical distinction: RXI&#x2122; does not predict market direction. It does not forecast that 2022 will be a bear market. It reads what the market is currently doing — and when the answer is "sustained directional trend downward," it steps aside. The grid does not run in those conditions. Capital is held in cash or stablecoins. The strategy earns nothing in that period. But it loses nothing.</p>
 
-<p>The technical language for advisors who want it: at the Hurst exponent level, values above 0.55 indicate trending behavior — the environment where grid trading structurally fails, because the market is moving too consistently in one direction for the grid to complete round-trip oscillations. In our ETH 2018 case study from the 13-year paper, FIS&#x2122; recorded a Hurst exponent of 0.605, well above the 0.55 defensive threshold, and classified the period as trending. Grid engagement dropped to zero. ETH lost 82.4% on a buy-and-hold basis. An unprotected grid still lost 61.6%. The FIS&#x2122;-gated position returned 0%.</p>
+<p>The technical language for advisors who want it: at the Hurst exponent level, values above 0.55 indicate trending behavior — the environment where grid trading structurally fails, because the market is moving too consistently in one direction for the grid to complete round-trip oscillations. In our ETH 2018 case study from the 13-year paper, RXI&#x2122; recorded a Hurst exponent of 0.605, well above the 0.55 defensive threshold, and classified the period as trending. Grid engagement dropped to zero. ETH lost 82.4% on a buy-and-hold basis. An unprotected grid still lost 61.6%. The RXI&#x2122;-gated position returned 0%.</p>
 
-<p>The 2022 case is identical in structure. FIS&#x2122; detected trending-down conditions at the start of the period, moved to cash, and held there through the collapse.</p>
+<p>The 2022 case is identical in structure. RXI&#x2122; detected trending-down conditions at the start of the period, moved to cash, and held there through the collapse.</p>
 
 <hr />
 
@@ -223,11 +223,11 @@
 
 <p><strong>Layer 1 — The grid itself.</strong> Places a ladder of buy and sell orders across a price range. Each time the price oscillates across a grid line, the system completes a round-trip and captures the spread as realized income. No directional prediction required — the strategy earns from oscillation.</p>
 
-<p><strong>Layer 2 — FIS&#x2122; regime detection.</strong> Evaluates whether the current market environment is oscillating (grid-favorable) or trending (grid-hostile). When trending conditions are detected, the system steps to cash. This is the layer that handled 2022.</p>
+<p><strong>Layer 2 — RXI&#x2122; regime detection.</strong> Evaluates whether the current market environment is oscillating (grid-favorable) or trending (grid-hostile). When trending conditions are detected, the system steps to cash. This is the layer that handled 2022.</p>
 
 <p><strong>Layer 3 — Asset quality rating (B- or higher).</strong> Before any asset is considered for active grid deployment, it is scored on a composite index that incorporates raw grid performance history, Sortino ratio, risk-adjusted return, and an Entropy Trading Score that measures behavioral consistency. Only assets in approximately the top 27% of the tradeable universe — those meeting the B- threshold or higher — qualify for deployment. The rating is dynamic: an asset that qualifies in one period may not qualify in the next.</p>
 
-<p>The combination matters. FIS&#x2122; protects against the wrong environment at the macro level. The quality rating protects against the wrong asset at the micro level. Together they produced a 97% fold-level win rate on rated assets in simulation over the 2020–2025 window — meaning in 97 of every 100 test periods where a B- or better asset was deployed, the strategy generated a positive simulated return.</p>
+<p>The combination matters. RXI&#x2122; protects against the wrong environment at the macro level. The quality rating protects against the wrong asset at the micro level. Together they produced a 97% fold-level win rate on rated assets in simulation over the 2020–2025 window — meaning in 97 of every 100 test periods where a B- or better asset was deployed, the strategy generated a positive simulated return.</p>
 
 <p>CoinRoc is currently in pre-launch development; the system described in this article is not yet available for advisor or client use.</p>
 
@@ -243,11 +243,11 @@
 
 <p>Because grid trading earns from price oscillation rather than directional movement, its return profile has near-zero correlation with equity markets across full history — approximately &rho; &asymp; 0.02 across the full walk-forward dataset. The important qualification, which every advisor should understand before applying this to a client portfolio: in loss years specifically — 2018 and 2022 — that correlation rose to approximately &rho; &asymp; +0.76. The diversification benefit is conditional on the grid generating positive returns. In the severe bear years where equity markets also declined, crypto assets and grid strategies moved together.</p>
 
-<p>This is why FIS&#x2122; is load-bearing to any portfolio construction argument. Without regime detection, the correlation in loss years undermines the diversification case precisely when diversification matters most. With FIS&#x2122; active and moving to cash in 2022, the strategy preserved the capital that would have otherwise correlated downward with equities. The client does not experience correlated drawdown in that scenario — they experience cash.</p>
+<p>This is why RXI&#x2122; is load-bearing to any portfolio construction argument. Without regime detection, the correlation in loss years undermines the diversification case precisely when diversification matters most. With RXI&#x2122; active and moving to cash in 2022, the strategy preserved the capital that would have otherwise correlated downward with equities. The client does not experience correlated drawdown in that scenario — they experience cash.</p>
 
 <p>For income-focused portfolios where recovery timelines from meaningful drawdowns are compressed — a characteristic common in later-stage wealth management contexts — the behavioral property of the 2022 result may matter more than the CAGR comparison. A client in drawdown who needs income may be forced to sell at the wrong time. A client in cash who needs income can wait.</p>
 
-<p><strong>Important note on measurement level:</strong> The equity curves in the chart above — including the L3 Full CoinRoc result of $19,609 and +11.9% CAGR — represent asset-level, single-asset simulation outcomes: one position, one rated asset, FIS-gated, held continuously over the 2020–2025 period. These figures do not represent what an advisor would achieve from a multi-asset rated grid sleeve embedded in a blended portfolio with quarterly rebalancing. At retail exchange fee tiers, Yodacom Research's separate portfolio construction study found that the quarterly turnover costs of a 10-symbol sleeve rebalanced four times per year consume the gross grid return entirely. Advisors modeling a portfolio-level allocation should use their own cost-structure analysis rather than applying the single-asset CAGR figures from this chart to a sleeve result.</p>
+<p><strong>Important note on measurement level:</strong> The equity curves in the chart above — including the L3 Full CoinRoc result of $19,609 and +11.9% CAGR — represent asset-level, single-asset simulation outcomes: one position, one rated asset, RXI-gated, held continuously over the 2020–2025 period. These figures do not represent what an advisor would achieve from a multi-asset rated grid sleeve embedded in a blended portfolio with quarterly rebalancing. At retail exchange fee tiers, Yodacom Research's separate portfolio construction study found that the quarterly turnover costs of a 10-symbol sleeve rebalanced four times per year consume the gross grid return entirely. Advisors modeling a portfolio-level allocation should use their own cost-structure analysis rather than applying the single-asset CAGR figures from this chart to a sleeve result.</p>
 
 <p>The appropriate framing for clients is precise and limited: a small allocation to a near-zero-correlation income strategy with active regime protection is a structurally sound diversification argument for the portion of an income allocation that currently carries equity correlation. Not as a portfolio anchor. Not as a crypto speculation vehicle. As a modest, rules-based income source with a different correlation profile and an automatic exit when conditions become hostile.</p>
 
@@ -257,13 +257,13 @@
 
 <p>The advisor's conversation with a crypto-curious client has traditionally had two options: explain why you are not adding it (reasonable but increasingly difficult as allocations proliferate) or add unmanaged exposure (straightforward but leaves the client fully exposed to 2022-style drawdowns).</p>
 
-<p>The data from the 2020–2025 window supports a third option: a rules-based, regime-aware systematic income approach that, in simulation, delivered S&amp;P 500-comparable returns over the complete modern market cycle — with the FIS filter moving capital to cash through 2022 while unprotected grid strategies experienced severe drawdowns.</p>
+<p>The data from the 2020–2025 window supports a third option: a rules-based, regime-aware systematic income approach that, in simulation, delivered S&amp;P 500-comparable returns over the complete modern market cycle — with the RXI filter moving capital to cash through 2022 while unprotected grid strategies experienced severe drawdowns.</p>
 
 <p>That third option has a defensible fiduciary framing — one rooted in portfolio construction theory, not crypto enthusiasm: "This strategy earns income from a different mechanism than your other income assets. When market conditions become unfavorable for grid trading, it moves to cash automatically. We added a small allocation to diversify the income profile of your portfolio."</p>
 
 <p>That sentence is accurate, data-backed, and explainable to any client. It does not require the advisor to have a view on Bitcoin's long-term value. It requires only that the advisor understands the mechanism, the evidence, and the limitations.</p>
 
-<p>The limitations are real and should be disclosed fully. All figures are simulated backtest results. Past simulated performance does not guarantee future results. The strategy can experience drawdowns even with FIS&#x2122; active — the regime filter reduces but does not eliminate downside risk. In extreme risk-off environments where correlations rise across all asset classes, grid trading is not immune. The appropriate allocation for income-focused clients is in the single digits to low double digits as a percentage of total income allocation.</p>
+<p>The limitations are real and should be disclosed fully. All figures are simulated backtest results. Past simulated performance does not guarantee future results. The strategy can experience drawdowns even with RXI&#x2122; active — the regime filter reduces but does not eliminate downside risk. In extreme risk-off environments where correlations rise across all asset classes, grid trading is not immune. The appropriate allocation for income-focused clients is in the single digits to low double digits as a percentage of total income allocation.</p>
 
 <p>With those caveats stated precisely, the modern market data is the foundation for a conversation worth having.</p>
 
@@ -285,12 +285,12 @@
 
 <p>All correlation figures are derived from a limited number of annual observations. Correlation estimates based on small samples carry wide confidence intervals; these figures are directionally informative and should not be treated as statistically precise. The &rho; &asymp; 0.02 and &rho; &asymp; +0.76 figures cited represent full-history and loss-year correlation respectively, derived from the walk-forward simulation dataset.</p>
 
-<p>The FIS&#x2122; regime filter reduces but does not eliminate downside risk. In severe bear-market conditions, the system can classify regime signals in real time and cannot perfectly gate every defensive period before losses occur.</p>
+<p>The RXI&#x2122; regime filter reduces but does not eliminate downside risk. In severe bear-market conditions, the system can classify regime signals in real time and cannot perfectly gate every defensive period before losses occur.</p>
 
 <p>This article is for educational and informational purposes only and does not constitute investment advice, a recommendation to buy or sell any security or investment product, or a solicitation to act. Nothing in this article should be construed as legal, tax, accounting, or regulatory advice. Grid trading in cryptocurrency markets involves substantial risk of loss, including the potential for complete loss of invested capital. Readers should consult a qualified financial professional before making any investment decisions.</p>
 
-<p>CoinRoc indicators — FIS&#x2122;, GSI&#x2122;, and CSI&#x2122; — are proprietary systems developed by Yodacom Research. FIS&#x2122;, GSI&#x2122;, and CSI&#x2122; are trademarks of Yodacom LLC, trademark registration pending with the United States Patent and Trademark Office.</p>
+<p>CoinRoc indicators — RXI&#x2122;, GSI&#x2122;, and CSI&#x2122; — are proprietary systems developed by Yodacom Research. RXI&#x2122;, GSI&#x2122;, and CSI&#x2122; are trademarks of Yodacom LLC, trademark registration pending with the United States Patent and Trademark Office.</p>
 
-<p>CoinRoc is a pre-launch product. No investment in CoinRoc is currently available. CoinRoc and the FIS&#x2122;, GSI&#x2122;, and CSI&#x2122; systems described in this article are in pre-launch development as of the date of publication. This article describes research findings and methodology; it does not describe a currently available product or service.</p>
+<p>CoinRoc is a pre-launch product. No investment in CoinRoc is currently available. CoinRoc and the RXI&#x2122;, GSI&#x2122;, and CSI&#x2122; systems described in this article are in pre-launch development as of the date of publication. This article describes research findings and methodology; it does not describe a currently available product or service.</p>
 
 </article>
