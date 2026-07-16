@@ -128,6 +128,12 @@
 						</a>
 					</li>
 					<li>
+						<a href="/research/presigate-x402-pause-2026" class="group block">
+							<div class="font-semibold text-navy-deep group-hover:text-navy transition">Reaction Essay — The Internet Just Shipped a "Pay" Button for AI Agents. Nobody Wired in the Pause.</div>
+							<div class="text-xs text-slate-light">July 2026 · Published</div>
+						</a>
+					</li>
+					<li>
 						<div class="font-semibold text-navy-deep">Paper 4 — Gridium</div>
 						<div class="text-xs text-slate-light">In progress · Q2 2026</div>
 					</li>
@@ -871,6 +877,44 @@
 							<dt class="text-slate-light">Registry ID</dt><dd>LANDO-PRESIGATE-BORING-LAYER-ESSAY-01</dd>
 						</dl>
 						<a href="/research/presigate-boring-layer-2026" class="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-ochre-deep transition hover:text-ochre">
+							Read the essay
+							<svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+						</a>
+					</div>
+				</div>
+			</article>
+
+			<!-- Presigate x402 Pause Reaction Essay card -->
+			<article class="overflow-hidden rounded-sm border border-rule bg-paper shadow-[0_10px_40px_-25px_rgba(20,40,72,0.3)]">
+				<div class="grid grid-cols-5">
+					<div class="col-span-2 relative hidden items-center justify-center border-r border-rule bg-navy-ink p-6 sm:flex">
+						<div class="absolute inset-0 bg-topo-faint opacity-10"></div>
+						<div class="relative text-center text-cream">
+							<div class="mb-4 text-[0.6rem] uppercase tracking-[0.3em] text-ochre-soft">Yodacom Research</div>
+							<div class="mb-3 font-serif text-2xl font-500 italic text-cream leading-tight">The<br />Pause</div>
+							<div class="mx-auto mb-4 h-px w-12 bg-ochre/70"></div>
+							<div class="text-[0.68rem] uppercase tracking-widest text-cream/60">Reaction Essay</div>
+							<div class="mt-6 text-[0.68rem] uppercase tracking-widest text-cream/60">July 2026</div>
+						</div>
+					</div>
+					<div class="col-span-5 p-7 sm:col-span-3 sm:p-8">
+						<div class="mb-4 flex flex-wrap items-center gap-2">
+							<span class="rounded-full bg-teal-500/10 px-3 py-1 text-[0.65rem] font-semibold uppercase tracking-widest text-teal-700">Published</span>
+							<span class="text-[0.68rem] uppercase tracking-widest text-slate-light">July 2026</span>
+						</div>
+						<h2 class="mb-4 font-serif text-2xl leading-snug text-navy-ink">
+							The Internet Just Shipped a &ldquo;Pay&rdquo; Button for AI Agents. Nobody Wired in the Pause.
+						</h2>
+						<p class="mb-5 text-sm leading-relaxed text-slate">
+							The Linux Foundation's new x402 Foundation standardizes how AI agents pay over HTTP — a genuinely good, 40-member coalition of card networks, hyperscalers, and stablecoin ecosystems. The protocol's own spec explicitly puts client-side budget management and session handling out of scope. That's the gap Presigate's pre-flight gate sits in: not how the payment happens, but whether right now is a sane moment for it to clear.
+						</p>
+						<dl class="mb-5 grid grid-cols-2 gap-x-4 gap-y-2 border-y border-rule py-4 text-xs text-slate">
+							<dt class="text-slate-light">Author</dt><dd>Lando &middot; Yodacom Research</dd>
+							<dt class="text-slate-light">Type</dt><dd>Reaction essay / market commentary</dd>
+							<dt class="text-slate-light">Key argument</dt><dd>x402 standardizes how agents pay; Presigate answers whether they should, right now</dd>
+							<dt class="text-slate-light">Registry ID</dt><dd>LANDO-X402-ESSAY-01</dd>
+						</dl>
+						<a href="/research/presigate-x402-pause-2026" class="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-ochre-deep transition hover:text-ochre">
 							Read the essay
 							<svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
 						</a>
