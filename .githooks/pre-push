@@ -1,0 +1,42 @@
+#!/usr/bin/env bash
+#
+# pre-push: SSR crawlability smoke test ("Obi Gate").
+#
+# Why this exists (added 2026-07-26):
+#   On 2026-07-25 the CoinRoc blog and jjblack.com essays were found
+#   rendering client-side-only (content loaded inside onMount()/$effect,
+#   which never runs during SSR/prerender) — a healthy HTTP 200 masked a
+#   page that was 100% SEO-invisible to crawlers. yodacom-site's research
+#   articles were audited clean (hand-built pages, no dynamic
+#   onMount/$effect loading), but this check guards against that pattern
+#   being introduced later, for the homepage and a sample of /research
+#   articles.
+#
+# Bypass (emergencies only):
+#   git push --no-verify
+#
+# NOTE: this hook only fires if you've run (one-time, per local clone):
+#   git config core.hooksPath .githooks
+
+set -euo pipefail
+
+REPO_ROOT="$(git rev-parse --show-toplevel)"
+cd "$REPO_ROOT"
+
+if ! pnpm test:ssr-smoke:local; then
+	echo ""
+	echo "-----------------------------------------------------------------------"
+	echo "  PUSH BLOCKED: SSR smoke test FAILED (Obi Gate)"
+	echo "-----------------------------------------------------------------------"
+	echo ""
+	echo "  A public page is either not rendering real content server-side"
+	echo "  (skeleton/loading markers found, or content too small) or is"
+	echo "  missing its expected content string."
+	echo ""
+	echo "  Run locally: pnpm test:ssr-smoke:local"
+	echo "  Bypass only in a genuine emergency: git push --no-verify"
+	echo ""
+	exit 1
+fi
+
+exit 0
