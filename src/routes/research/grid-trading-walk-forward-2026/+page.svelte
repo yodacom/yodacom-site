@@ -616,7 +616,8 @@ $effect(() => {
 					callbacks: {
 						label: (tooltipCtx) => {
 							const row = sharpeRows[tooltipCtx.dataIndex];
-							return ` Sharpe ${tooltipCtx.parsed.x >= 0 ? '+' : ''}${tooltipCtx.parsed.x.toFixed(3)} — ${row.context}`;
+							const x = tooltipCtx.parsed.x ?? 0;
+							return ` Sharpe ${x >= 0 ? '+' : ''}${x.toFixed(3)} — ${row.context}`;
 						},
 					},
 				},
@@ -631,7 +632,7 @@ $effect(() => {
 				},
 				y: {
 					grid: { color: 'rgba(255,255,255,0.04)' },
-					ticks: { color: '#94a3b8', font: { size: 11, weight: '600' } },
+					ticks: { color: '#94a3b8', font: { size: 11, weight: 600 } },
 				},
 			},
 		},

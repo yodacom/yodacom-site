@@ -374,7 +374,7 @@
 
 </article>
 
-<script>
+<script lang="ts">
 import { onMount } from 'svelte';
 import { Chart, LinearScale, PointElement, LineElement, BarElement, CategoryScale, Tooltip, Legend, ScatterController, LineController, BarController } from 'chart.js';
 
@@ -453,7 +453,7 @@ onMount(() => {
     header.appendChild(h);
   });
 
-  function corrColor(v) {
+  function corrColor(v: number) {
     if (v >= 0) {
       const t = v;
       return `rgb(${Math.round(20 + (20-20)*t)},${Math.round(41 + (184-41)*t)},${Math.round(53 + (166-53)*t)})`;
@@ -489,10 +489,11 @@ onMount(() => {
 
 // ── CHART 2: EFFICIENT FRONTIER ───────────────────────────────────────
 (function buildEFChart() {
-  const canvas = document.getElementById('efChart');
+  const canvas = document.getElementById('efChart') as HTMLCanvasElement | null;
   if (!canvas) return;
   const ctx = canvas.getContext('2d');
-  const toXY = pts => pts.map(p => ({ x: p[0], y: p[1] }));
+  if (!ctx) return;
+  const toXY = (pts: number[][]) => pts.map(p => ({ x: p[0], y: p[1] }));
 
   new Chart(ctx, {
     type: 'scatter',
@@ -539,7 +540,11 @@ onMount(() => {
           backgroundColor: '#1e293b', borderColor: '#334155', borderWidth: 1,
           titleColor: '#e2e8f0', bodyColor: '#94a3b8',
           callbacks: {
-            label: ctx => ` Vol: ${ctx.parsed.x.toFixed(1)}%  |  Return: ${ctx.parsed.y.toFixed(1)}%  |  Sharpe: ${((ctx.parsed.y - 4.5) / ctx.parsed.x).toFixed(2)}`,
+            label: ctx => {
+              const x = ctx.parsed.x ?? 0;
+              const y = ctx.parsed.y ?? 0;
+              return ` Vol: ${x.toFixed(1)}%  |  Return: ${y.toFixed(1)}%  |  Sharpe: ${((y - 4.5) / x).toFixed(2)}`;
+            },
           },
         },
       },
@@ -563,9 +568,10 @@ onMount(() => {
 
 // ── CHART 3: ANNUAL RETURNS ───────────────────────────────────────────
 (function buildAnnualChart() {
-  const canvas = document.getElementById('annualReturnsChart');
+  const canvas = document.getElementById('annualReturnsChart') as HTMLCanvasElement | null;
   if (!canvas) return;
   const ctx = canvas.getContext('2d');
+  if (!ctx) return;
 
   new Chart(ctx, {
     type: 'bar',
@@ -619,7 +625,10 @@ onMount(() => {
           backgroundColor: '#1e293b', borderColor: '#334155', borderWidth: 1,
           titleColor: '#e2e8f0', bodyColor: '#94a3b8',
           callbacks: {
-            label: ctx => ` ${ctx.dataset.label}: ${ctx.parsed.y >= 0 ? '+' : ''}${ctx.parsed.y.toFixed(1)}%`,
+            label: ctx => {
+              const y = ctx.parsed.y ?? 0;
+              return ` ${ctx.dataset.label}: ${y >= 0 ? '+' : ''}${y.toFixed(1)}%`;
+            },
           },
         },
       },
@@ -639,9 +648,10 @@ onMount(() => {
 
 // ── CHART 4: ALLOCATION SWEEP ─────────────────────────────────────────
 (function buildSweepChart() {
-  const canvas = document.getElementById('sweepChart');
+  const canvas = document.getElementById('sweepChart') as HTMLCanvasElement | null;
   if (!canvas) return;
   const ctx = canvas.getContext('2d');
+  if (!ctx) return;
 
   new Chart(ctx, {
     type: 'line',
@@ -686,7 +696,7 @@ onMount(() => {
           backgroundColor: '#1e293b', borderColor: '#334155', borderWidth: 1,
           titleColor: '#e2e8f0', bodyColor: '#94a3b8',
           callbacks: {
-            label: ctx => ` ${ctx.dataset.label}: Sharpe ${ctx.parsed.y.toFixed(2)}`,
+            label: ctx => ` ${ctx.dataset.label}: Sharpe ${(ctx.parsed.y ?? 0).toFixed(2)}`,
           },
         },
       },
