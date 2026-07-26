@@ -134,6 +134,12 @@
 						</a>
 					</li>
 					<li>
+						<a href="/research/stablecoins-for-autonomous-agents-2026" class="group block">
+							<div class="font-semibold text-navy-deep group-hover:text-navy transition">Thought Leadership — When Machines Transact: Stablecoin Choice as a Risk Decision</div>
+							<div class="text-xs text-slate-light">July 2026 · Published</div>
+						</a>
+					</li>
+					<li>
 						<div class="font-semibold text-navy-deep">Paper 4 — Gridium</div>
 						<div class="text-xs text-slate-light">In progress · Q2 2026</div>
 					</li>
@@ -916,6 +922,44 @@
 						</dl>
 						<a href="/research/presigate-x402-pause-2026" class="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-ochre-deep transition hover:text-ochre">
 							Read the essay
+							<svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+						</a>
+					</div>
+				</div>
+			</article>
+
+			<!-- Stablecoins for Autonomous Agents — Thought Leadership card -->
+			<article class="overflow-hidden rounded-sm border border-rule bg-paper shadow-[0_10px_40px_-25px_rgba(20,40,72,0.3)]">
+				<div class="grid grid-cols-5">
+					<div class="col-span-2 relative hidden items-center justify-center border-r border-rule bg-navy-ink p-6 sm:flex">
+						<div class="absolute inset-0 bg-topo-faint opacity-10"></div>
+						<div class="relative text-center text-cream">
+							<div class="mb-4 text-[0.6rem] uppercase tracking-[0.3em] text-ochre-soft">Yodacom Research</div>
+							<div class="mb-3 font-serif text-2xl font-500 italic text-cream leading-tight">Machines<br />Transact</div>
+							<div class="mx-auto mb-4 h-px w-12 bg-ochre/70"></div>
+							<div class="text-[0.68rem] uppercase tracking-widest text-cream/60">Thought Leadership</div>
+							<div class="mt-6 text-[0.68rem] uppercase tracking-widest text-cream/60">July 2026</div>
+						</div>
+					</div>
+					<div class="col-span-5 p-7 sm:col-span-3 sm:p-8">
+						<div class="mb-4 flex flex-wrap items-center gap-2">
+							<span class="rounded-full bg-teal-500/10 px-3 py-1 text-[0.65rem] font-semibold uppercase tracking-widest text-teal-700">Published</span>
+							<span class="text-[0.68rem] uppercase tracking-widest text-slate-light">July 2026</span>
+						</div>
+						<h2 class="mb-4 font-serif text-2xl leading-snug text-navy-ink">
+							When Machines Transact: Why the Stablecoin Behind an AI Agent&rsquo;s Payment Is a Risk Decision, Not a Technical Default
+						</h2>
+						<p class="mb-5 text-sm leading-relaxed text-slate">
+							x402 today is functionally a USDC rail settling on Base and Solana. But peg-deviation risk (USDC/SVB, March 2023) and issuer/regulatory-state risk (USDT/MiCA delisting, July 2026) are two distinct failure modes that no agent-payment protocol currently checks before it settles. A four-signal framework for the pre-flight check that's missing, tied to Presigate's market-condition-gate positioning.
+						</p>
+						<dl class="mb-5 grid grid-cols-2 gap-x-4 gap-y-2 border-y border-rule py-4 text-xs text-slate">
+							<dt class="text-slate-light">Author</dt><dd>Lando &middot; Yodacom Research</dd>
+							<dt class="text-slate-light">Type</dt><dd>Thought leadership / strategic</dd>
+							<dt class="text-slate-light">Key argument</dt><dd>Peg-deviation risk and issuer/regulatory-state risk are distinct, both unchecked pre-settlement</dd>
+							<dt class="text-slate-light">Registry ID</dt><dd>LANDO-STABLECOIN-AGENTS-YODACOM-01</dd>
+						</dl>
+						<a href="/research/stablecoins-for-autonomous-agents-2026" class="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-ochre-deep transition hover:text-ochre">
+							Read the article
 							<svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
 						</a>
 					</div>
