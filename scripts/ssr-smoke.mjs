@@ -101,9 +101,16 @@ async function checkRoute(route) {
 		}
 	}
 
+	// Strip <style> blocks before scanning for skeleton markers: Tailwind's
+	// dev-mode CSS bundle includes utility keyframe definitions (e.g.
+	// `.animate-pulse`) for classes used ANYWHERE in the app, not just on
+	// this page, which produces false positives against the raw HTML string
+	// match. The markers we actually care about appear as class names on
+	// rendered elements, not in a stylesheet's class definitions.
+	const bodyForMarkerCheck = body.replace(/<style[\s\S]*?<\/style>/gi, '');
 	const forbidden = [...GENERIC_SKELETON_MARKERS, ...(route.mustNotContain ?? [])];
 	for (const marker of forbidden) {
-		if (body.includes(marker)) {
+		if (bodyForMarkerCheck.includes(marker)) {
 			failures.push(`Found skeleton/loading marker in raw HTML: "${marker}"`);
 		}
 	}
