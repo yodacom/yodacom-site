@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Figure 5 — FIS Gating: Loss Frequency Reduction</title>
+<title>Figure 5 — RXI Gating: Loss Frequency Reduction</title>
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body {
@@ -43,8 +43,8 @@
 <div class="figure-wrap">
   <div class="fig-header">
     <div class="fig-label">Figure 5 — Yodacom Research · LPIS Series · 2026-06-15</div>
-    <div class="fig-title">FIS Regime Gating: Loss Frequency Reduction by Tier</div>
-    <div class="fig-subtitle">% of weeks with a net loss (fee income minus IL minus gas &lt; 0) · Always-in passive LP vs. FIS-gated LP · Arbitrum · 5,000-iteration simulation · FIS parameters: 40% ranging frequency, 15% Type I error</div>
+    <div class="fig-title">RXI Regime Gating: Loss Frequency Reduction by Tier</div>
+    <div class="fig-subtitle">% of weeks with a net loss (fee income minus IL minus gas &lt; 0) · Always-in passive LP vs. RXI-gated LP · Arbitrum · 5,000-iteration simulation · RXI parameters: 40% ranging frequency, 15% Type I error</div>
   </div>
 
   <div class="chart-area">
@@ -52,12 +52,12 @@
     <svg viewBox="0 0 840 420" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;margin-bottom:24px;">
       <!--
         Horizontal paired bar chart.
-        4 tiers, each with two bars: Always-in (darker) vs FIS-gated (lighter/colored)
+        4 tiers, each with two bars: Always-in (darker) vs RXI-gated (lighter/colored)
         Loss frequencies:
-          A-tier: Always-in ~42% (implied), FIS-gated 41.7% (small improvement, mostly tail)
-          B-tier: Always-in ~42% (implied from text), FIS-gated 35.0%
-          C-tier: Always-in ~82.9% (ETH), FIS-gated 79.7%  [Arbitrum]
-          D-tier: Always-in ~98.1%, FIS-gated 97.7%
+          A-tier: Always-in ~42% (implied), RXI-gated 41.7% (small improvement, mostly tail)
+          B-tier: Always-in ~42% (implied from text), RXI-gated 35.0%
+          C-tier: Always-in ~82.9% (ETH), RXI-gated 79.7%  [Arbitrum]
+          D-tier: Always-in ~98.1%, RXI-gated 97.7%
 
         Chart area: x=180 to 800, y=30 to 380
         Width = 620px. Scale: 0–100%, px_per_pct = 6.2
@@ -68,24 +68,24 @@
 
         Bar structure per tier:
           Always-in: y=center-17, height=28, width=pct*6.2
-          FIS-gated:  y=center+11, height=28 (top), but let's do side-by-side not stacked
+          RXI-gated:  y=center+11, height=28 (top), but let's do side-by-side not stacked
 
         Actually: let's do horizontal bars with tier on Y axis, two bars per tier
 
         Tier Y centers: 75, 175, 275, 375
         Bar height = 28px each, 6px between them
         Always-in:   y = center - 17   (height 28, so bottom at center+11)
-        FIS-gated:   y = center + 17   (height 28, so bottom at center+45)
+        RXI-gated:   y = center + 17   (height 28, so bottom at center+45)
 
         X: starts at 180, scale 6.2px/%
 
         Always-in loss freqs (implied from context):
-          A-tier: The empirical table shows FIS-gated=41.7%; always-in is described as similar but worse left tail.
+          A-tier: The empirical table shows RXI-gated=41.7%; always-in is described as similar but worse left tail.
                   Per text Section 4: "always-in has similar loss patterns with lower upper tail" so ~44%
-                  Use 44% for always-in A (slightly worse than FIS 41.7%)
+                  Use 44% for always-in A (slightly worse than RXI 41.7%)
           B-tier: "~42% of weeks are loss-generating" for always-in (explicitly stated in synthesis)
-          C-tier: Arbitrum FIS-gated=79.7%; always-in Ethereum is 82.9% — use Arbitrum always-in ~82%
-          D-tier: FIS-gated=97.7%; always-in~98.5%
+          C-tier: Arbitrum RXI-gated=79.7%; always-in Ethereum is 82.9% — use Arbitrum always-in ~82%
+          D-tier: RXI-gated=97.7%; always-in~98.5%
 
         Reduction:
           A: 44% → 41.7% = −2.3pp (small, but tail improvement noted)
@@ -127,13 +127,13 @@
       <rect x="500" y="22" width="14" height="14" fill="#3d444d" rx="2"/>
       <text x="520" y="33" font-family="'SF Pro Text','Helvetica Neue',Arial,sans-serif" font-size="11" fill="#8b949e">Always-In Passive LP</text>
       <rect x="650" y="22" width="14" height="14" fill="#4A7FD4" opacity="0.85" rx="2"/>
-      <text x="670" y="33" font-family="'SF Pro Text','Helvetica Neue',Arial,sans-serif" font-size="11" fill="#4A7FD4">FIS-Gated LP</text>
+      <text x="670" y="33" font-family="'SF Pro Text','Helvetica Neue',Arial,sans-serif" font-size="11" fill="#4A7FD4">RXI-Gated LP</text>
 
       <!-- ===== A-TIER ===== -->
       <!-- Always-in: 44% × 6.2 = 272.8px -->
       <rect x="180" y="55" width="273" height="28" fill="#3d444d" rx="3" opacity="0.8"/>
       <text x="459" y="73" font-family="SF Mono,Fira Code,monospace" font-size="11" fill="#6e7681" dx="6">~44%</text>
-      <!-- FIS-gated: 41.7% × 6.2 = 258.5px -->
+      <!-- RXI-gated: 41.7% × 6.2 = 258.5px -->
       <rect x="180" y="89" width="259" height="28" fill="#4A7FD4" opacity="0.75" rx="3"/>
       <text x="445" y="107" font-family="SF Mono,Fira Code,monospace" font-size="11" fill="#4A7FD4" dx="6">41.7%</text>
 
@@ -147,7 +147,7 @@
       <text x="505" y="75" text-anchor="middle" font-family="SF Mono,Fira Code,monospace" font-size="10" fill="#8b949e">−2.3pp lift</text>
 
       <!-- A-tier commentary -->
-      <text x="560" y="72" font-family="'SF Pro Text','Helvetica Neue',Arial,sans-serif" font-size="10" fill="#6e7681">FIS gate mainly improves tail shape for A-tier,</text>
+      <text x="560" y="72" font-family="'SF Pro Text','Helvetica Neue',Arial,sans-serif" font-size="10" fill="#6e7681">RXI gate mainly improves tail shape for A-tier,</text>
       <text x="560" y="85" font-family="'SF Pro Text','Helvetica Neue',Arial,sans-serif" font-size="10" fill="#6e7681">not mean loss frequency. Mean lift: +1.6–3.7pp.</text>
 
 
@@ -155,7 +155,7 @@
       <!-- Always-in: ~42% × 6.2 = 260.4px -->
       <rect x="180" y="157" width="260" height="28" fill="#3d444d" rx="3" opacity="0.8"/>
       <text x="446" y="175" font-family="SF Mono,Fira Code,monospace" font-size="11" fill="#6e7681" dx="6">~42%</text>
-      <!-- FIS-gated: 35.0% × 6.2 = 217px -->
+      <!-- RXI-gated: 35.0% × 6.2 = 217px -->
       <rect x="180" y="191" width="217" height="28" fill="#4A7FD4" opacity="0.9" rx="3"/>
       <text x="403" y="209" font-family="SF Mono,Fira Code,monospace" font-size="11" fill="#4A7FD4" dx="6">35.0%</text>
 
@@ -175,15 +175,15 @@
 
       <!-- B-tier commentary -->
       <text x="545" y="175" font-family="'SF Pro Text','Helvetica Neue',Arial,sans-serif" font-size="10" fill="#8b949e">Largest measured reduction. However,</text>
-      <text x="545" y="188" font-family="'SF Pro Text','Helvetica Neue',Arial,sans-serif" font-size="10" fill="#8b949e">FIS-gated mean APY is −6.1pp vs. always-in</text>
-      <text x="545" y="201" font-family="'SF Pro Text','Helvetica Neue',Arial,sans-serif" font-size="10" fill="#6e7681">(FIS trades mean return for tail-risk reduction)</text>
+      <text x="545" y="188" font-family="'SF Pro Text','Helvetica Neue',Arial,sans-serif" font-size="10" fill="#8b949e">RXI-gated mean APY is −6.1pp vs. always-in</text>
+      <text x="545" y="201" font-family="'SF Pro Text','Helvetica Neue',Arial,sans-serif" font-size="10" fill="#6e7681">(RXI trades mean return for tail-risk reduction)</text>
 
 
       <!-- ===== C-TIER ===== -->
       <!-- Always-in: ~82% × 6.2 = 508.4px -->
       <rect x="180" y="257" width="508" height="28" fill="#3d444d" rx="3" opacity="0.6"/>
       <text x="694" y="275" font-family="SF Mono,Fira Code,monospace" font-size="11" fill="#6e7681" dx="6">~82%</text>
-      <!-- FIS-gated: 79.7% × 6.2 = 494.1px -->
+      <!-- RXI-gated: 79.7% × 6.2 = 494.1px -->
       <rect x="180" y="291" width="494" height="28" fill="#da3633" opacity="0.55" rx="3"/>
       <text x="680" y="309" font-family="SF Mono,Fira Code,monospace" font-size="11" fill="#da3633" dx="6">79.7%</text>
 
@@ -198,17 +198,17 @@
       <text x="740" y="278" text-anchor="middle" font-family="SF Mono,Fira Code,monospace" font-size="10" fill="#8b949e">−2.3pp lift</text>
 
       <!-- C commentary -->
-      <text x="697" y="305" font-family="'SF Pro Text','Helvetica Neue',Arial,sans-serif" font-size="10" fill="#da3633">FIS gate cannot fix structural IL problem</text>
+      <text x="697" y="305" font-family="'SF Pro Text','Helvetica Neue',Arial,sans-serif" font-size="10" fill="#da3633">RXI gate cannot fix structural IL problem</text>
 
 
       <!-- ===== D-TIER ===== -->
       <!-- Always-in: ~98.5% × 6.2 = 610.7px but chart is 620px wide (100%=620), so cap at 608 -->
       <rect x="180" y="357" width="610" height="28" fill="#3d444d" rx="3" opacity="0.4"/>
       <text x="796" y="375" font-family="SF Mono,Fira Code,monospace" font-size="10" fill="#6e7681" dx="4">~98.5%</text>
-      <!-- FIS-gated: 97.7% × 6.2 = 605.7px -->
+      <!-- RXI-gated: 97.7% × 6.2 = 605.7px -->
       <rect x="180" y="357" width="606" height="28" fill="#da3633" opacity="0.35" rx="3"/>
       <!-- Bars overlap so show as overlaid -->
-      <text x="180" y="352" font-family="SF Mono,Fira Code,monospace" font-size="10" fill="#da3633">D-tier loss frequency is structurally ~98% regardless of FIS gating — no viable LP scenario</text>
+      <text x="180" y="352" font-family="SF Mono,Fira Code,monospace" font-size="10" fill="#da3633">D-tier loss frequency is structurally ~98% regardless of RXI gating — no viable LP scenario</text>
 
       <!-- Tier label -->
       <text x="170" y="372" text-anchor="end" font-family="'SF Pro Display','Helvetica Neue',Arial,sans-serif" font-size="12" font-weight="700" fill="#e6edf3">D-tier</text>
@@ -217,9 +217,9 @@
 
     </svg>
 
-    <!-- FIS gate lift sensitivity table -->
+    <!-- RXI gate lift sensitivity table -->
     <div style="border-top:1px solid #21262d;padding-top:20px;">
-      <div style="font-family:'SF Pro Text','Helvetica Neue',Arial,sans-serif;font-size:11px;color:#6e7681;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:14px;">FIS gate lift sensitivity (A-tier Arbitrum) — measured range from simulation</div>
+      <div style="font-family:'SF Pro Text','Helvetica Neue',Arial,sans-serif;font-size:11px;color:#6e7681;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:14px;">RXI gate lift sensitivity (A-tier Arbitrum) — measured range from simulation</div>
       <div style="overflow-x:auto;">
         <table style="width:100%;border-collapse:collapse;font-family:SF Mono,Fira Code,monospace;font-size:11px;">
           <thead>
@@ -227,7 +227,7 @@
               <th style="font-family:'SF Pro Text','Helvetica Neue',Arial,sans-serif;font-size:10px;text-transform:uppercase;letter-spacing:0.08em;color:#6e7681;padding:6px 10px;text-align:left;">Ranging Frequency</th>
               <th style="font-family:'SF Pro Text','Helvetica Neue',Arial,sans-serif;font-size:10px;text-transform:uppercase;letter-spacing:0.08em;color:#6e7681;padding:6px 10px;text-align:right;">Type I Error Rate</th>
               <th style="font-family:'SF Pro Text','Helvetica Neue',Arial,sans-serif;font-size:10px;text-transform:uppercase;letter-spacing:0.08em;color:#6e7681;padding:6px 10px;text-align:right;">Always-In APY</th>
-              <th style="font-family:'SF Pro Text','Helvetica Neue',Arial,sans-serif;font-size:10px;text-transform:uppercase;letter-spacing:0.08em;color:#6e7681;padding:6px 10px;text-align:right;">FIS-Gated APY</th>
+              <th style="font-family:'SF Pro Text','Helvetica Neue',Arial,sans-serif;font-size:10px;text-transform:uppercase;letter-spacing:0.08em;color:#6e7681;padding:6px 10px;text-align:right;">RXI-Gated APY</th>
               <th style="font-family:'SF Pro Text','Helvetica Neue',Arial,sans-serif;font-size:10px;text-transform:uppercase;letter-spacing:0.08em;color:#6e7681;padding:6px 10px;text-align:right;">Lift</th>
             </tr>
           </thead>
@@ -278,14 +278,14 @@
         </table>
       </div>
       <div style="font-family:'SF Pro Text','Helvetica Neue',Arial,sans-serif;font-size:11px;color:#8b949e;margin-top:10px;line-height:1.5;">
-        <strong style="color:#c9d1d9;">Measured lift range: +1.6pp to +3.7pp on total portfolio return (A-tier, Arbitrum).</strong> This is a risk-reduction benefit, not a return-generation benefit. The FIS gate reduces the probability of catastrophic IL weeks — it does not convert LP into an alpha-generating strategy. Replaces the prior qualitative estimate of +15–35pp, which overstated the effect.
+        <strong style="color:#c9d1d9;">Measured lift range: +1.6pp to +3.7pp on total portfolio return (A-tier, Arbitrum).</strong> This is a risk-reduction benefit, not a return-generation benefit. The RXI gate reduces the probability of catastrophic IL weeks — it does not convert LP into an alpha-generating strategy. Replaces the prior qualitative estimate of +15–35pp, which overstated the effect.
       </div>
     </div>
 
   </div>
 
   <div class="disclaimer">
-    <strong>Simulation disclosure:</strong> Loss frequency = % of simulated weeks where (fee income − IL − gas) &lt; 0. FIS gate parameters: 40% ranging frequency (40% of weeks classified as ranging/mean-reverting), 15% Type I error rate (15% of trending weeks misclassified as ranging), 12% Type II error rate (12% of ranging weeks missed). Always-in A-tier and C/D-tier loss frequencies are implied from the simulation distribution; B-tier always-in loss frequency (~42%) is stated explicitly in RES-LPIS-OPTIMIZE-01, Section 2a. FIS gate lift of −6.1pp mean return for B-tier (FIS-gated +15.2% vs. always-in +21.3%) reflects the opportunity cost of sitting out fee-positive trending weeks at the 0.30% tier — this is a correct and expected finding, not an anomaly. Sensitivity table from RES-LPIS-EMPIRICAL-01, Section 4, Table 4. All Arbitrum chain. <strong>All figures represent 5,000-iteration Monte Carlo simulation outputs, not historical backtest results. Tick-level historical data validation pending (Priority 1, RES-LPIS-EMPIRICAL-01). Not a projection of future performance.</strong>
+    <strong>Simulation disclosure:</strong> Loss frequency = % of simulated weeks where (fee income − IL − gas) &lt; 0. RXI gate parameters: 40% ranging frequency (40% of weeks classified as ranging/mean-reverting), 15% Type I error rate (15% of trending weeks misclassified as ranging), 12% Type II error rate (12% of ranging weeks missed). Always-in A-tier and C/D-tier loss frequencies are implied from the simulation distribution; B-tier always-in loss frequency (~42%) is stated explicitly in RES-LPIS-OPTIMIZE-01, Section 2a. RXI gate lift of −6.1pp mean return for B-tier (RXI-gated +15.2% vs. always-in +21.3%) reflects the opportunity cost of sitting out fee-positive trending weeks at the 0.30% tier — this is a correct and expected finding, not an anomaly. Sensitivity table from RES-LPIS-EMPIRICAL-01, Section 4, Table 4. All Arbitrum chain. <strong>All figures represent 5,000-iteration Monte Carlo simulation outputs, not historical backtest results. Tick-level historical data validation pending (Priority 1, RES-LPIS-EMPIRICAL-01). Not a projection of future performance.</strong>
   </div>
 </div>
 

@@ -93,14 +93,14 @@
   <div class="fig-header">
     <div class="fig-label">Figure 1 — Yodacom Research · LPIS Series · 2026-06-15</div>
     <div class="fig-title">Rating Inversion: Higher-Rated Coins Are Worse LP Candidates</div>
-    <div class="fig-subtitle">FIS-gated net APY on total capital vs. 50/50 HODL benchmark, by CoinRoc coin rating tier · Arbitrum · $5,000 capital · 5,000-iteration Monte Carlo simulation</div>
+    <div class="fig-subtitle">RXI-gated net APY on total capital vs. 50/50 HODL benchmark, by CoinRoc coin rating tier · Arbitrum · $5,000 capital · 5,000-iteration Monte Carlo simulation</div>
   </div>
 
   <div class="chart-area">
     <div class="legend">
       <div class="legend-item">
         <div class="legend-swatch" style="background:#4A7FD4;"></div>
-        <span>FIS-Gated LP Net APY</span>
+        <span>RXI-Gated LP Net APY</span>
       </div>
       <div class="legend-item">
         <div class="legend-swatch" style="background:#3fb950;opacity:0.35;"></div>
@@ -160,19 +160,19 @@
         Bar width per group: 50px each, 8px gap between pair
 
         Values (zero_y=153, px_per_pp=2.667):
-        A: FIS-gated=+3.1%  => y_top=153-3.1*2.667=153-8.3=145, height=8.3
+        A: RXI-gated=+3.1%  => y_top=153-3.1*2.667=153-8.3=145, height=8.3
            Always-in=+4.9%  => y_top=153-4.9*2.667=153-13.1=140, height=13.1
            HODL=+10.9%      => y_hodl=153-10.9*2.667=153-29.1=124
 
-        B: FIS-gated=+15.5% => y_top=153-15.5*2.667=153-41.3=112, height=41.3
+        B: RXI-gated=+15.5% => y_top=153-15.5*2.667=153-41.3=112, height=41.3
            Always-in=+21.3% => y_top=153-21.3*2.667=153-56.8=96, height=56.8
            HODL=+15.8%      => y_hodl=153-15.8*2.667=153-42.1=111
 
-        C: FIS-gated=-24.2% => y_top=153, height=24.2*2.667=64.5, goes DOWN
+        C: RXI-gated=-24.2% => y_top=153, height=24.2*2.667=64.5, goes DOWN
            Always-in=-23.3% => y_top=153, height=62.1
            HODL=+20.7%      => y_hodl=153-20.7*2.667=153-55.2=98
 
-        D: FIS-gated=-60.6% => height=60.6*2.667=161.6 (goes down from 153 to 314.6)
+        D: RXI-gated=-60.6% => height=60.6*2.667=161.6 (goes down from 153 to 314.6)
            Always-in=-53.6% => height=143.1
            HODL=+42.2%      => y_hodl=153-42.2*2.667=153-112.5=41 (near top)
       -->
@@ -180,7 +180,7 @@
       <!-- === TIER A === -->
       <!-- Always-in bar (muted green) -->
       <rect x="150" y="140" width="46" height="13" fill="#3fb950" opacity="0.35" rx="2"/>
-      <!-- FIS-gated bar (blue) -->
+      <!-- RXI-gated bar (blue) -->
       <rect x="200" y="145" width="46" height="8" fill="#4A7FD4" opacity="0.9" rx="2"/>
       <!-- HODL line (orange) -->
       <line x1="140" y1="124" x2="256" y2="124" stroke="#f0883e" stroke-width="2" stroke-dasharray="4,3"/>
@@ -202,7 +202,7 @@
       <!-- === TIER B — THE SWEET SPOT === -->
       <!-- Always-in bar -->
       <rect x="335" y="96" width="46" height="57" fill="#3fb950" opacity="0.35" rx="2"/>
-      <!-- FIS-gated bar -->
+      <!-- RXI-gated bar -->
       <rect x="385" y="112" width="46" height="41" fill="#4A7FD4" opacity="0.9" rx="2"/>
       <!-- HODL line -->
       <line x1="324" y1="111" x2="442" y2="111" stroke="#f0883e" stroke-width="2" stroke-dasharray="4,3"/>
@@ -225,7 +225,7 @@
       <!-- === TIER C === -->
       <!-- Always-in bar (goes negative) -->
       <rect x="520" y="153" width="46" height="62" fill="#3fb950" opacity="0.25" rx="2"/>
-      <!-- FIS-gated bar -->
+      <!-- RXI-gated bar -->
       <rect x="570" y="153" width="46" height="65" fill="#4A7FD4" opacity="0.5" rx="2"/>
       <!-- HODL line -->
       <line x1="509" y1="98" x2="626" y2="98" stroke="#f0883e" stroke-width="2" stroke-dasharray="4,3"/>
@@ -247,7 +247,7 @@
       <!-- === TIER D === -->
       <!-- Always-in bar -->
       <rect x="706" y="153" width="46" height="143" fill="#3fb950" opacity="0.15" rx="2"/>
-      <!-- FIS-gated bar — extends to ~315 -->
+      <!-- RXI-gated bar — extends to ~315 -->
       <rect x="756" y="153" width="44" height="162" fill="#4A7FD4" opacity="0.35" rx="2"/>
       <!-- HODL line (very high +42.2%) -->
       <line x1="695" y1="41" x2="810" y2="41" stroke="#f0883e" stroke-width="2" stroke-dasharray="4,3"/>
@@ -272,7 +272,7 @@
   </div>
 
   <div class="disclaimer">
-    <strong>Simulation disclosure:</strong> Based on 5,000-iteration Monte Carlo simulation calibrated to live GeckoTerminal pool data (2026-06-15). Capital: $5,000 on Arbitrum. Strategy A = always-in passive LP. Strategy B = FIS-gated LP (deploy only in ranging regimes). Strategy C = 50/50 HODL. Net APY on total capital using 3-3-3 model (2/3 deployed). 95% confidence intervals: A-tier FIS-gated [+2.7%, +3.4%]; B-tier FIS-gated [+14.3%, +16.1%]; C-tier FIS-gated [−25.4%, −23.6%]; D-tier FIS-gated [−61.3%, −60.3%]. Tick-level historical data validation pending (Priority 1, RES-LPIS-EMPIRICAL-01). Not a projection of future returns. See full methodology at RES-LPIS-EMPIRICAL-01.
+    <strong>Simulation disclosure:</strong> Based on 5,000-iteration Monte Carlo simulation calibrated to live GeckoTerminal pool data (2026-06-15). Capital: $5,000 on Arbitrum. Strategy A = always-in passive LP. Strategy B = RXI-gated LP (deploy only in ranging regimes). Strategy C = 50/50 HODL. Net APY on total capital using 3-3-3 model (2/3 deployed). 95% confidence intervals: A-tier RXI-gated [+2.7%, +3.4%]; B-tier RXI-gated [+14.3%, +16.1%]; C-tier RXI-gated [−25.4%, −23.6%]; D-tier RXI-gated [−61.3%, −60.3%]. Tick-level historical data validation pending (Priority 1, RES-LPIS-EMPIRICAL-01). Not a projection of future returns. See full methodology at RES-LPIS-EMPIRICAL-01.
   </div>
 </div>
 

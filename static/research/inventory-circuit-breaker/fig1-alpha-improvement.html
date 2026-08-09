@@ -76,9 +76,9 @@
 <body>
 <div class="figure-container">
   <div class="figure-label">Figure 1 &mdash; Yodacom Research | Paper 2: Inventory Circuit Breaker</div>
-  <div class="figure-title">Per-Symbol Alpha Improvement: Inv v5 vs FIS&nbsp;v2 Baseline</div>
+  <div class="figure-title">Per-Symbol Alpha Improvement: Inv v5 vs RXI&nbsp;v2 Baseline</div>
   <div class="figure-subtitle">
-    Net alpha delta (v5 minus FIS&nbsp;v2) for the primary validation set: 17 confirmed 2022 bear folds only.
+    Net alpha delta (v5 minus RXI&nbsp;v2) for the primary validation set: 17 confirmed 2022 bear folds only.
     Symbols where the circuit breaker did not fire in 2022 show zero. Green bars = net improvement; red bars = net degradation.
     Scope: 2022 bear folds (B&amp;H &lt; &minus;20%), the paper&rsquo;s primary validation window.
   </div>
@@ -142,12 +142,12 @@
 // XRPUSD:  2022 +14.64pp (FIRED, drawdown -52.39%, day 130)
 // XTZUSD:  2022 +13.43pp (FIRED, drawdown -42.05%, day 24)
 // ZECUSD:  2022  0.00pp  (no fire — eng=0.66, gate blocked; true delta -1.89pp
-//                          but v5 alpha = FIS v2 alpha since no fire occurred)
+//                          but v5 alpha = RXI v2 alpha since no fire occurred)
 
 // Note on ZECUSD 2022: the validation table shows Δv5 = -1.89pp for ZECUSD 2022,
-// but v5? = no. That delta reflects a marginal FIS v2 recalibration, not a circuit
+// but v5? = no. That delta reflects a marginal RXI v2 recalibration, not a circuit
 // breaker fire. For this chart (which shows circuit breaker contribution), the correct
-// value is 0 (no fire, no circuit breaker effect). The -1.89pp is FIS v2 baseline noise.
+// value is 0 (no fire, no circuit breaker effect). The -1.89pp is RXI v2 baseline noise.
 
 const data = [
   { sym: 'ADAUSD',  delta: 1.95,    fired: true  },

@@ -69,7 +69,7 @@
   <div class="fig-header">
     <div class="fig-label">Figure 6 — Yodacom Research · LPIS Series · 2026-06-15</div>
     <div class="fig-title">Contingency Range: It Earns on a Slow Drift — Not on a Crash</div>
-    <div class="fig-subtitle">Two price path scenarios · Primary LP range + contingency range (pre-set below lower band) · FIS gating determines when contingency deployment is appropriate</div>
+    <div class="fig-subtitle">Two price path scenarios · Primary LP range + contingency range (pre-set below lower band) · RXI gating determines when contingency deployment is appropriate</div>
   </div>
 
   <div class="chart-area">
@@ -163,7 +163,7 @@
           <!-- Phase 2: in contingency range (weeks 9-14) -->
           <rect x="205" y="238" width="130" height="26" fill="#1c2b1a" rx="3" opacity="0.9" stroke="#3fb950" stroke-width="0.75"/>
           <text x="270" y="249" text-anchor="middle" font-family="'SF Pro Text','Helvetica Neue',Arial,sans-serif" font-size="8.5" fill="#3fb950">Contingency LP earns fees</text>
-          <text x="270" y="259" text-anchor="middle" font-family="SF Mono,Fira Code,monospace" font-size="7.5" fill="#3fb950" opacity="0.8">FIS still reads RANGING</text>
+          <text x="270" y="259" text-anchor="middle" font-family="SF Mono,Fira Code,monospace" font-size="7.5" fill="#3fb950" opacity="0.8">RXI still reads RANGING</text>
 
           <!-- Phase 3: mean reversion back -->
           <rect x="325" y="140" width="62" height="26" fill="#1c2b45" rx="3" opacity="0.9"/>
@@ -176,7 +176,7 @@
             </marker>
           </defs>
 
-          <!-- FIS reading during contingency phase -->
+          <!-- RXI reading during contingency phase -->
           <rect x="200" y="265" width="100" height="14" fill="#0d1117" rx="2"/>
           <text x="250" y="274" text-anchor="middle" font-family="SF Mono,Fira Code,monospace" font-size="7.5" fill="#4A7FD4">Hurst&lt;0.5 · ADX&lt;20</text>
 
@@ -188,10 +188,10 @@
         <div style="background:#1c2b1a;border:1px solid #3fb950;border-radius:5px;padding:12px;margin-top:12px;">
           <div style="font-family:'SF Pro Text','Helvetica Neue',Arial,sans-serif;font-size:11px;color:#3fb950;font-weight:700;margin-bottom:6px;">Outcome: Contingency range earns</div>
           <div style="font-family:'SF Pro Text','Helvetica Neue',Arial,sans-serif;font-size:11px;color:#c9d1d9;line-height:1.5;">
-            Price consolidates below primary lower band for several weeks. FIS continues to read RANGING (Hurst &lt;0.5, ADX &lt;20). Contingency LP captures fee income during the consolidation period. Capital in idle primary position is not entirely lost — contingency position is productive.
+            Price consolidates below primary lower band for several weeks. RXI continues to read RANGING (Hurst &lt;0.5, ADX &lt;20). Contingency LP captures fee income during the consolidation period. Capital in idle primary position is not entirely lost — contingency position is productive.
           </div>
           <div style="font-family:'SF Pro Text','Helvetica Neue',Arial,sans-serif;font-size:10px;color:#6e7681;margin-top:6px;">
-            Condition for this outcome: FIS regime signal remains RANGING after price exits primary band.
+            Condition for this outcome: RXI regime signal remains RANGING after price exits primary band.
           </div>
         </div>
       </div>
@@ -285,9 +285,9 @@
           <text x="297" y="277" text-anchor="middle" font-family="'SF Pro Text','Helvetica Neue',Arial,sans-serif" font-size="8.5" fill="#da3633">Both positions below range</text>
           <text x="297" y="288" text-anchor="middle" font-family="SF Mono,Fira Code,monospace" font-size="7.5" fill="#da3633">IL accumulating on full crypto position</text>
 
-          <!-- FIS fires label -->
+          <!-- RXI fires label -->
           <rect x="165" y="191" width="80" height="14" fill="#2d1b1b" rx="2"/>
-          <text x="205" y="200" text-anchor="middle" font-family="SF Mono,Fira Code,monospace" font-size="7.5" fill="#da3633">FIS fires: TRENDING</text>
+          <text x="205" y="200" text-anchor="middle" font-family="SF Mono,Fira Code,monospace" font-size="7.5" fill="#da3633">RXI fires: TRENDING</text>
 
           <!-- X axis label -->
           <text x="210" y="295" text-anchor="middle" font-family="'SF Pro Text','Helvetica Neue',Arial,sans-serif" font-size="9" fill="#6e7681">Time (weeks)</text>
@@ -297,21 +297,21 @@
         <div style="background:#2d1b1b;border:1px solid #da3633;border-radius:5px;padding:12px;margin-top:12px;">
           <div style="font-family:'SF Pro Text','Helvetica Neue',Arial,sans-serif;font-size:11px;color:#da3633;font-weight:700;margin-bottom:6px;">Outcome: Contingency range earns almost nothing</div>
           <div style="font-family:'SF Pro Text','Helvetica Neue',Arial,sans-serif;font-size:11px;color:#c9d1d9;line-height:1.5;">
-            Price crashes straight through the contingency band in approximately 1 week. Fee income from ~1 week at 30% gross APY: ≈0.6% of capital. Meanwhile, IL on primary position (out of range, fully in crypto) is accumulating. FIS fires TRENDING — if contingency was auto-deployed at the lower-band breach, it was a loss-amplifying second position, not a hedge.
+            Price crashes straight through the contingency band in approximately 1 week. Fee income from ~1 week at 30% gross APY: ≈0.6% of capital. Meanwhile, IL on primary position (out of range, fully in crypto) is accumulating. RXI fires TRENDING — if contingency was auto-deployed at the lower-band breach, it was a loss-amplifying second position, not a hedge.
           </div>
           <div style="font-family:'SF Pro Text','Helvetica Neue',Arial,sans-serif;font-size:10px;color:#6e7681;margin-top:6px;">
-            This is why the contingency range must be FIS-gated independently. The breach of the primary lower band does not itself justify deploying the contingency.
+            This is why the contingency range must be RXI-gated independently. The breach of the primary lower band does not itself justify deploying the contingency.
           </div>
         </div>
       </div>
     </div>
 
-    <!-- FIS contingency gating rule -->
+    <!-- RXI contingency gating rule -->
     <div class="fis-rule">
-      <div class="rule-title">FIS-gated contingency deployment logic (proposed, architecturally implementable with existing FuzzyBoundaryController)</div>
-      <div style="color:#3fb950;">IF FIS = RANGING <span style="color:#6e7681;">(Hurst &lt;0.5 AND ADX &lt;20):</span> <span style="color:#e6edf3;">deploy contingency range below primary band → await mean-reversion</span></div>
-      <div style="color:#da3633;margin-top:4px;">IF FIS = TRENDING <span style="color:#6e7681;">(Hurst &gt;0.6 OR ADX &gt;25):</span> <span style="color:#e6edf3;">do NOT deploy contingency; exit primary range; hold USDC</span></div>
-      <div style="color:#E8A820;margin-top:4px;">IF FIS = TRANSITIONAL: <span style="color:#e6edf3;">hold; reassess next week; do not deploy contingency</span></div>
+      <div class="rule-title">RXI-gated contingency deployment logic (proposed, architecturally implementable with existing FuzzyBoundaryController)</div>
+      <div style="color:#3fb950;">IF RXI = RANGING <span style="color:#6e7681;">(Hurst &lt;0.5 AND ADX &lt;20):</span> <span style="color:#e6edf3;">deploy contingency range below primary band → await mean-reversion</span></div>
+      <div style="color:#da3633;margin-top:4px;">IF RXI = TRENDING <span style="color:#6e7681;">(Hurst &gt;0.6 OR ADX &gt;25):</span> <span style="color:#e6edf3;">do NOT deploy contingency; exit primary range; hold USDC</span></div>
+      <div style="color:#E8A820;margin-top:4px;">IF RXI = TRANSITIONAL: <span style="color:#e6edf3;">hold; reassess next week; do not deploy contingency</span></div>
       <div style="margin-top:12px;font-family:'SF Pro Text','Helvetica Neue',Arial,sans-serif;font-size:10.5px;color:#8b949e;line-height:1.5;">
         <strong style="color:#c9d1d9;">Critical clarification:</strong> The contingency range is NOT a hedge. If price falls below the primary band AND below the contingency band, both positions accumulate IL simultaneously — the maximum drawdown is additive, not reduced. The contingency position is a second bet in the same directional regime. It earns only when price consolidates below the primary band in a ranging market; it does not protect against a continuing downtrend.
       </div>
@@ -320,7 +320,7 @@
   </div>
 
   <div class="disclaimer">
-    <strong>Mechanism disclosure:</strong> Contingency range diagram is illustrative — price paths are representative of the two described scenarios (slow drift vs. sharp crash), not derived from specific simulation outputs. Fee income estimate during 1-week contingency transit: 30% gross APY × 1/52 weeks = ~0.58% of LP capital deployed in contingency position. Contingency range FIS-gating logic is architecturally proposed in RES-LPIS-OPTIMIZE-01, Section 2d, as a parameter extension of the existing FuzzyBoundaryController — it requires one new output variable (contingency-range-deploy signal, 0–1) and is not currently implemented in production. The statement that FIS correctly identifies ranging vs. trending conditions approximately 73–85% of the time is based on Type I/II error rate parameters used in the simulation (15% Type I, 12% Type II). The contingency range concept should not be presented as a "hedge" or "downside protection" — it is a conditional income capture on a slow-drift consolidation below the primary range.
+    <strong>Mechanism disclosure:</strong> Contingency range diagram is illustrative — price paths are representative of the two described scenarios (slow drift vs. sharp crash), not derived from specific simulation outputs. Fee income estimate during 1-week contingency transit: 30% gross APY × 1/52 weeks = ~0.58% of LP capital deployed in contingency position. Contingency range RXI-gating logic is architecturally proposed in RES-LPIS-OPTIMIZE-01, Section 2d, as a parameter extension of the existing FuzzyBoundaryController — it requires one new output variable (contingency-range-deploy signal, 0–1) and is not currently implemented in production. The statement that RXI correctly identifies ranging vs. trending conditions approximately 73–85% of the time is based on Type I/II error rate parameters used in the simulation (15% Type I, 12% Type II). The contingency range concept should not be presented as a "hedge" or "downside protection" — it is a conditional income capture on a slow-drift consolidation below the primary range.
   </div>
 </div>
 
