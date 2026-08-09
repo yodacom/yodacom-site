@@ -98,7 +98,7 @@
         2. +10% drift: IL=-2.3%
         3. +30% sustained: IL=-16.6%
         4. -20% drift: IL=-11.4%
-        5. -30% exit lower: IL=-29.4%  [OUT OF RANGE — FIS should fire]
+        5. -30% exit lower: IL=-29.4%  [OUT OF RANGE — RXI should fire]
         6. -50% crash: IL=-46.7%  [OUT OF RANGE — tail risk]
 
         Bar heights (IL magnitude * 4.727):
@@ -141,8 +141,8 @@
       <rect x="573" y="30" width="262" height="265" fill="#da3633" opacity="0.05" rx="0"/>
 
       <!-- Zone labels -->
-      <text x="316" y="22" text-anchor="middle" font-family="'SF Pro Text','Helvetica Neue',Arial,sans-serif" font-size="10" fill="#3fb950" font-weight="600">IN RANGE — FIS may remain deployed</text>
-      <text x="704" y="22" text-anchor="middle" font-family="'SF Pro Text','Helvetica Neue',Arial,sans-serif" font-size="10" fill="#da3633" font-weight="600">OUT OF RANGE — FIS should signal exit</text>
+      <text x="316" y="22" text-anchor="middle" font-family="'SF Pro Text','Helvetica Neue',Arial,sans-serif" font-size="10" fill="#3fb950" font-weight="600">IN RANGE — RXI may remain deployed</text>
+      <text x="704" y="22" text-anchor="middle" font-family="'SF Pro Text','Helvetica Neue',Arial,sans-serif" font-size="10" fill="#da3633" font-weight="600">OUT OF RANGE — RXI should signal exit</text>
       <line x1="573" y1="25" x2="573" y2="295" stroke="#da3633" stroke-width="1" stroke-dasharray="4,3" opacity="0.5"/>
 
       <!-- === SCENARIO 1: FLAT/SIDEWAYS — IL=0% === -->
@@ -169,9 +169,9 @@
       <text x="393" y="24" text-anchor="middle" font-family="SF Mono,Fira Code,monospace" font-size="11" font-weight="700" fill="#da3633">−16.6%</text>
       <text x="393" y="308" text-anchor="middle" font-family="'SF Pro Text','Helvetica Neue',Arial,sans-serif" font-size="10" fill="#c9d1d9">+30% sustained</text>
       <text x="393" y="320" text-anchor="middle" font-family="SF Mono,Fira Code,monospace" font-size="9.5" fill="#6e7681">approaching upper band</text>
-      <!-- annotation: FIS should fire -->
+      <!-- annotation: RXI should fire -->
       <rect x="338" y="115" width="110" height="30" fill="#1c2b45" rx="3" opacity="0.9"/>
-      <text x="393" y="127" text-anchor="middle" font-family="'SF Pro Text','Helvetica Neue',Arial,sans-serif" font-size="9" fill="#4A7FD4">Significant IL — FIS</text>
+      <text x="393" y="127" text-anchor="middle" font-family="'SF Pro Text','Helvetica Neue',Arial,sans-serif" font-size="9" fill="#4A7FD4">Significant IL — RXI</text>
       <text x="393" y="139" text-anchor="middle" font-family="'SF Pro Text','Helvetica Neue',Arial,sans-serif" font-size="9" fill="#4A7FD4">gate should signal exit</text>
 
       <!-- === SCENARIO 4: -20% drift — IL=-11.4% === -->
@@ -192,9 +192,9 @@
       <text x="643" y="24" text-anchor="middle" font-family="SF Mono,Fira Code,monospace" font-size="11" font-weight="700" fill="#da3633">−29.4%</text>
       <text x="643" y="308" text-anchor="middle" font-family="'SF Pro Text','Helvetica Neue',Arial,sans-serif" font-size="10" fill="#c9d1d9">−30% exits lower</text>
       <text x="643" y="320" text-anchor="middle" font-family="SF Mono,Fira Code,monospace" font-size="9.5" fill="#da3633">band — out of range</text>
-      <!-- FIS gate flag -->
+      <!-- RXI gate flag -->
       <rect x="590" y="175" width="106" height="30" fill="#2d1b1b" rx="3" stroke="#da3633" stroke-width="0.5"/>
-      <text x="643" y="187" text-anchor="middle" font-family="'SF Pro Text','Helvetica Neue',Arial,sans-serif" font-size="9" fill="#da3633">FIS gate should trigger</text>
+      <text x="643" y="187" text-anchor="middle" font-family="'SF Pro Text','Helvetica Neue',Arial,sans-serif" font-size="9" fill="#da3633">RXI gate should trigger</text>
       <text x="643" y="199" text-anchor="middle" font-family="'SF Pro Text','Helvetica Neue',Arial,sans-serif" font-size="9" fill="#da3633">exit before this point</text>
 
       <!-- === SCENARIO 6: -50% crash — IL=-46.7% === -->
@@ -205,7 +205,7 @@
       <text x="768" y="320" text-anchor="middle" font-family="SF Mono,Fira Code,monospace" font-size="9.5" fill="#da3633">tail risk</text>
       <!-- Crash annotation -->
       <rect x="712" y="256" width="116" height="30" fill="#2d1b1b" rx="3" stroke="#da3633" stroke-width="1"/>
-      <text x="770" y="268" text-anchor="middle" font-family="'SF Pro Text','Helvetica Neue',Arial,sans-serif" font-size="9" fill="#da3633" font-weight="600">Tail risk — FIS reduces</text>
+      <text x="770" y="268" text-anchor="middle" font-family="'SF Pro Text','Helvetica Neue',Arial,sans-serif" font-size="9" fill="#da3633" font-weight="600">Tail risk — RXI reduces</text>
       <text x="770" y="280" text-anchor="middle" font-family="'SF Pro Text','Helvetica Neue',Arial,sans-serif" font-size="9" fill="#da3633">frequency, not magnitude</text>
 
       <!-- Fee income breakeven reference line -->
@@ -250,14 +250,14 @@
     <div style="background:#2d1b1b;border:1px solid #da3633;border-radius:6px;padding:14px;display:flex;align-items:center;gap:16px;">
       <div style="font-family:SF Mono,Fira Code,monospace;font-size:28px;font-weight:700;color:#da3633;flex-shrink:0;">234%</div>
       <div style="font-family:'SF Pro Text','Helvetica Neue',Arial,sans-serif;font-size:12px;color:#c9d1d9;line-height:1.5;">
-        Gross annual fee APY required to break even against −46.7% IL at a −50% price crash. No fee tier on any DEX approaches this. <strong style="color:#da3633;">A −50% crash cannot be fee-income-hedged.</strong> The FIS gate's job is to reduce the frequency of this scenario — not to protect against it when it occurs. Tail risk remains.
+        Gross annual fee APY required to break even against −46.7% IL at a −50% price crash. No fee tier on any DEX approaches this. <strong style="color:#da3633;">A −50% crash cannot be fee-income-hedged.</strong> The RXI gate's job is to reduce the frequency of this scenario — not to protect against it when it occurs. Tail risk remains.
       </div>
     </div>
 
   </div>
 
   <div class="disclaimer">
-    <strong>Data source:</strong> IL values calculated using exact Uniswap v3 concentrated LP formula (Adams et al. 2021 whitepaper; Atis Elsts 2021 technical note). Range: [Pa = entry × 0.70, Pb = entry × 1.40] (−30% lower / +40% upper). Price scenarios and IL figures from RES-LPIS-VALIDATION-01, Table 2.2, using the tight Fibonacci-derived range. Range width comparison (tight / medium / wide) from RES-LPIS-OPTIMIZE-01, Part 3. The 234% breakeven figure is calculated as: 46.7% IL / annual period = gross fee APY required; actual computation reflects the formula, not a simulation output. Fee breakeven reference line assumes 30% gross APY (B-tier upper bound). FIS loss-frequency reduction measured for B-tier Arbitrum: 35.0% loss-frequency weeks (FIS-gated) vs. ~42% (always-in passive), per RES-LPIS-EMPIRICAL-01, Section 4.
+    <strong>Data source:</strong> IL values calculated using exact Uniswap v3 concentrated LP formula (Adams et al. 2021 whitepaper; Atis Elsts 2021 technical note). Range: [Pa = entry × 0.70, Pb = entry × 1.40] (−30% lower / +40% upper). Price scenarios and IL figures from RES-LPIS-VALIDATION-01, Table 2.2, using the tight Fibonacci-derived range. Range width comparison (tight / medium / wide) from RES-LPIS-OPTIMIZE-01, Part 3. The 234% breakeven figure is calculated as: 46.7% IL / annual period = gross fee APY required; actual computation reflects the formula, not a simulation output. Fee breakeven reference line assumes 30% gross APY (B-tier upper bound). RXI loss-frequency reduction measured for B-tier Arbitrum: 35.0% loss-frequency weeks (RXI-gated) vs. ~42% (always-in passive), per RES-LPIS-EMPIRICAL-01, Section 4.
   </div>
 </div>
 

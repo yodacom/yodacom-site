@@ -80,7 +80,7 @@
   <line x1="80" y1="284" x2="720" y2="284" stroke="url(#me-gridLineGrad)" stroke-width="1"/>
 
   <!-- Subtitle / methodology descriptor -->
-  <text x="80" y="513" font-family="'Inter','Segoe UI',sans-serif" font-size="14" fill="#7A90B0">Walk-Forward Validation of FIS v2 Gated Grid Strategy</text>
+  <text x="80" y="513" font-family="'Inter','Segoe UI',sans-serif" font-size="14" fill="#7A90B0">Walk-Forward Validation of RXI v2 Gated Grid Strategy</text>
   <text x="80" y="533" font-family="'Inter','Segoe UI',sans-serif" font-size="13" fill="#5A7090">17 Assets&#xA0;&#xB7;&#xA0; 85 Folds&#xA0;&#xB7;&#xA0; 2-Year Train / 1-Year Test</text>
 
   <!-- Byline -->
