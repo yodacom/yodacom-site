@@ -25,9 +25,9 @@ pnpm check            # typecheck
 
 | Route | Purpose |
 |---|---|
-| `/` | Home — research house positioning, CoinRoc & VetTheTech cards, founder blurb |
+| `/` | Home — research house positioning, CoinRoc / BeerZap / Presigate cards, founder blurb |
 | `/research` | Published papers list (currently features Gridium as in-progress) |
-| `/products` | CoinRoc, VetTheTech, consulting/partnerships section |
+| `/products` | CoinRoc, BeerZap, Presigate, consulting/partnerships section |
 | `/about` | Jeremy's 40-year career arc, past projects, contact |
 
 ## Brand palette (Tailwind v4 theme tokens)
