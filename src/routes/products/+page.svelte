@@ -120,26 +120,41 @@
 		</div>
 	</div>
 
-	<!-- VetTheTech + Consulting — two-up -->
-	<div class="grid gap-6 md:grid-cols-2">
-		<article class="rounded-sm border border-dashed border-slate-hair bg-cream p-8">
-			<div class="mb-3 flex items-center justify-between">
-				<div class="eyebrow text-slate-light">In development</div>
-				<span class="text-[0.65rem] uppercase tracking-widest text-slate-light">Launch Q3 2026</span>
-			</div>
-			<h2 class="mb-4 font-serif text-3xl leading-tight text-navy-ink">VetTheTech</h2>
-			<p class="mb-4 text-sm leading-relaxed text-slate">
-				Independent verification of trading algorithm claims. Rigorous methodology, vendor-neutral,
-				retail-accessible. Built on the same walk-forward and cost-tier analysis developed for
-				CoinRoc and refined during the Gridium research project.
-			</p>
-			<div class="flex items-center gap-2 text-xs text-slate-light">
-				<span class="h-1.5 w-1.5 animate-pulse rounded-full bg-ochre"></span>
-				Methodology under development
-			</div>
-		</article>
+	<!-- Recently shipped -->
+	<div>
+		<div class="eyebrow mb-1">Recently shipped</div>
+		<p class="mb-6 max-w-2xl text-sm text-slate">Two more products, completed, shipped and deployed.</p>
+		<div class="grid gap-6 md:grid-cols-2">
+			<article class="rounded-sm border border-rule bg-paper p-8">
+				<div class="eyebrow mb-3">Shipped · 2026</div>
+				<h2 class="mb-4 font-serif text-3xl leading-tight text-navy-ink">
+					<a href="https://beerzap.com" class="hover:text-ochre-deep">BeerZap →</a>
+				</h2>
+				<p class="mb-4 text-sm leading-relaxed text-slate">
+					A QR-scan discovery game for beer festivals — SvelteKit on Cloudflare Pages, Supabase/Postgres
+					with row-level security and trigger-enforced business rules, Stripe billing with tiered
+					per-event pricing, sales-rep commission tracking, and a platform-admin console. Completed,
+					shipped and deployed.
+				</p>
+			</article>
 
-		<article class="rounded-sm border border-rule bg-paper p-8">
+			<article class="rounded-sm border border-rule bg-paper p-8">
+				<div class="eyebrow mb-3">Shipped · 2026</div>
+				<h2 class="mb-4 font-serif text-3xl leading-tight text-navy-ink">
+					<a href="https://presigate.com" class="hover:text-ochre-deep">Presigate →</a>
+				</h2>
+				<p class="mb-4 text-sm leading-relaxed text-slate">
+					Execution intelligence for AI agents and automated trading — checks whether now is the
+					right moment to act. Cloudflare Workers, multi-venue market-data failover, and
+					Postgres-enforced API metering. Completed, shipped and deployed.
+				</p>
+			</article>
+		</div>
+	</div>
+
+	<!-- Consulting -->
+	<div class="grid gap-6 md:grid-cols-2">
+		<article class="rounded-sm border border-rule bg-paper p-8 md:col-span-2 md:max-w-2xl">
 			<div class="eyebrow mb-3">Consulting &amp; partnerships</div>
 			<h2 class="mb-4 font-serif text-3xl leading-tight text-navy-ink">Custom research &amp; development</h2>
 			<p class="mb-4 text-sm leading-relaxed text-slate">

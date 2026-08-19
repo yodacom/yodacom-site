@@ -114,8 +114,9 @@
 					Products
 				</h3>
 				<p class="mb-5 text-sm leading-relaxed text-slate">
-					Research-grade methodology, shipped as software. CoinRoc in production, VetTheTech in
-					development, and an RIA decision-support tool in build.
+					Research-grade methodology, shipped as software. CoinRoc in production, plus BeerZap
+					and Presigate — completed, shipped and deployed — and an RIA decision-support tool
+					in build.
 				</p>
 
 				<!-- Nested brand sub-items -->
@@ -133,12 +134,23 @@
 					</li>
 					<li>
 						<a
-							href="/products"
+							href="https://beerzap.com"
 							class="flex items-baseline justify-between gap-2 text-xs text-slate transition hover:text-ochre-deep"
 						>
-							<span class="font-serif text-sm text-navy-ink group-hover:text-ochre-deep">VetTheTech</span>
+							<span class="font-serif text-sm text-navy-ink group-hover:text-ochre-deep">BeerZap</span>
 							<span class="text-[0.65rem] uppercase tracking-wider text-slate-light">
-								In development · Q3 2026 →
+								Shipped · 2026 →
+							</span>
+						</a>
+					</li>
+					<li>
+						<a
+							href="https://presigate.com"
+							class="flex items-baseline justify-between gap-2 text-xs text-slate transition hover:text-ochre-deep"
+						>
+							<span class="font-serif text-sm text-navy-ink group-hover:text-ochre-deep">Presigate</span>
+							<span class="text-[0.65rem] uppercase tracking-wider text-slate-light">
+								Shipped · 2026 →
 							</span>
 						</a>
 					</li>

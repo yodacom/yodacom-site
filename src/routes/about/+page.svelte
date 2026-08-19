@@ -59,7 +59,7 @@
 		{
 			year: '2026',
 			title: 'Yodacom Research',
-			body: 'Formal research-house positioning. Paper 1 (Gridium) in final review. VetTheTech in development.'
+			body: 'Formal research-house positioning. Paper 1 (Gridium) in final review. BeerZap and Presigate — completed, shipped and deployed.'
 		}
 	];
 
@@ -361,29 +361,32 @@
 			</p>
 		</article>
 
-		<article class="rounded-sm border border-dashed border-slate-hair bg-cream p-7">
-			<div class="mb-3 flex items-center justify-between">
-				<div class="eyebrow text-slate-light">In development · Q3 2026</div>
-			</div>
+		<article class="rounded-sm border border-rule bg-paper p-7 transition hover:border-navy-deep/40 hover:shadow-[0_20px_60px_-30px_rgba(20,40,72,0.25)]">
+			<div class="eyebrow mb-3">Product · shipped 2026</div>
 			<h3 class="mb-4 font-serif text-2xl text-navy-ink">
-				<a href="/products" class="hover:text-ochre-deep">VetTheTech →</a>
+				<a href="https://presigate.com" class="hover:text-ochre-deep">Presigate →</a>
 			</h3>
 			<p class="text-sm leading-relaxed text-slate">
-				Independent verification of trading-algorithm claims. A former MPT teacher and
-				multi-manager fund operator, supported by a research house of mathematicians and data
-				engineers, auditing the claims that crypto sellers are rarely asked to defend.
+				Execution intelligence for AI agents and automated trading — a pre-flight gate that checks
+				whether conditions warrant action before an agent trades, deploys capital, or triggers a
+				workflow. Built on the regime-detection and condition-gating work developed for CoinRoc.
+				Completed, shipped and deployed.
 			</p>
 		</article>
 	</div>
 
 	<div class="mt-10 max-w-3xl">
 		<p class="font-serif text-[1.05rem] leading-[1.75] text-slate">
-			Both products publish their underlying research through <strong class="text-navy-ink">Yodacom
+			CoinRoc publishes its underlying research through <strong class="text-navy-ink">Yodacom
 			Research</strong>, our in-house research arm. Papers are written by a team — mathematical
 			leads own the models, editorial leads own the prose, and a single publisher-editor (Jeremy)
 			signs what ships. It is the conventional structure of a serious research firm. We follow it
 			because the alternative is a lone-voice marketing byline, and the field has too much of that
 			already.
+		</p>
+		<p class="mt-4 font-serif text-[1.05rem] leading-[1.75] text-slate">
+			Two more products shipped outside the research pipeline in 2026: BeerZap, a festival
+			discovery platform, and Presigate above. See <a href="/products" class="font-semibold text-navy-deep underline decoration-ochre/70 underline-offset-2 hover:text-ochre-deep">Products</a> for the full list.
 		</p>
 	</div>
 
