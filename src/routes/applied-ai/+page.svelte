@@ -51,7 +51,7 @@
 		{
 			label: 'Yodacom Research — peer-reviewable papers',
 			heading: 'Methodology published, not marketed.',
-			body: 'The umbrella research house publishes methodology papers on fuzzy logic, post-MPT portfolio construction, and hybrid ML architectures. Paper 2 (in progress) documents the fuzzy membership-function design and the reproducibility artifacts behind the CoinRoc production engine.'
+			body: 'Yodacom Research publishes methodology papers on fuzzy logic, post-MPT portfolio construction, and hybrid ML architectures. Paper 2 (in progress) documents the fuzzy membership-function design and the reproducibility artifacts behind the CoinRoc production engine.'
 		},
 		{
 			label: 'RIA decision-support tool — in build',
@@ -83,7 +83,7 @@
 </script>
 
 <svelte:head>
-	<title>Applied AI — Yodacom Research</title>
+	<title>Applied AI — Yodacom</title>
 	<meta
 		name="description"
 		content="Forty years of practitioner depth at the intersection of quantitative finance and emerging technology. Fuzzy logic, hybrid ML, explainable AI for regulated contexts."
@@ -95,7 +95,7 @@
 	<div class="mx-auto max-w-4xl px-6 py-20 sm:py-28">
 		<div class="fade-up eyebrow mb-5 flex items-center gap-3">
 			<span class="rule-ochre"></span>
-			Practice · Yodacom Research
+			Practice · Yodacom
 		</div>
 		<h1
 			class="fade-up d1 mb-8 font-serif font-500 tracking-tight text-navy-ink"

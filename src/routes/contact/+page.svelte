@@ -140,10 +140,10 @@
 </script>
 
 <svelte:head>
-	<title>Contact — Yodacom Research</title>
+	<title>Contact — Yodacom</title>
 	<meta
 		name="description"
-		content="Contact Yodacom Research. Research inquiries, partnership conversations, and press welcome."
+		content="Contact Yodacom. Product inquiries, research conversations, and press welcome."
 	/>
 </svelte:head>
 
@@ -152,7 +152,7 @@
 	<div class="mx-auto max-w-6xl px-6 py-20 sm:py-24">
 		<div class="fade-up eyebrow mb-5 flex items-center gap-3">
 			<span class="rule-ochre"></span>
-			Contact Yodacom Research
+			Contact Yodacom
 		</div>
 		<h1
 			class="fade-up d1 mb-6 max-w-3xl font-serif font-500 leading-[1.06] tracking-tight text-navy-ink"
@@ -184,9 +184,9 @@
 						Thanks — we'll be in touch.
 					</h2>
 					<p class="mb-6 text-sm leading-relaxed text-slate">
-						Your message is on its way to Jeremy and the Yodacom team. You should hear back within
-						1–2 business days. If your inquiry is time-sensitive, you can also reach us directly at
-						the email address listed in the sidebar.
+						Your message is on its way to Jeremy. You should hear back within 1–2 business days. If
+						your inquiry is time-sensitive, you can also reach us directly at the email address
+						listed in the sidebar.
 					</p>
 					<button
 						type="button"
@@ -415,7 +415,7 @@
 <section class="border-t border-rule/60 bg-cream-deep/40">
 	<div class="mx-auto max-w-3xl px-6 py-12 text-center">
 		<p class="font-serif text-lg italic leading-relaxed text-navy-deep">
-			Correspondence welcome. Yodacom Research has been writing long-form letters since 2012.
+			Correspondence welcome. Yodacom has been writing long-form letters since 2012.
 		</p>
 	</div>
 </section>

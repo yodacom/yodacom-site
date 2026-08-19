@@ -35,7 +35,7 @@
 					height="50"
 				/>
 				<span class="hidden text-[0.72rem] font-semibold uppercase tracking-[0.22em] text-slate sm:inline">
-					Research
+					Software Studio
 				</span>
 			</a>
 
@@ -110,7 +110,7 @@
 						class="mb-4 h-9 w-auto"
 					/>
 					<p class="max-w-sm text-sm leading-relaxed text-slate">
-						Independent quantitative research and software products.
+						Independent software studio, grounded in quantitative research.
 						Based in the Rocky Mountains of Silverthorne, Colorado.
 						Operating since 2012.
 					</p>

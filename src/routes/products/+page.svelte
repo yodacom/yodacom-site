@@ -1,5 +1,5 @@
 <svelte:head>
-	<title>Products — Yodacom Research</title>
+	<title>Products — Yodacom</title>
 </svelte:head>
 
 <section class="border-b border-rule/60 bg-topo">
@@ -10,11 +10,11 @@
 				Products &amp; services
 			</div>
 			<h1 class="fade-up d1 mb-6 font-serif text-5xl font-500 leading-[1.05] tracking-tight text-navy-ink sm:text-6xl">
-				Built on the research.
+				Built to ship.
 			</h1>
 			<p class="fade-up d2 max-w-2xl text-lg leading-relaxed text-slate">
-				Research-driven software products, plus consulting engagements for financial platforms
-				that need serious quantitative depth.
+				Software products and consulting engagements — built with the same research discipline
+				behind CoinRoc, applied wherever it's useful.
 			</p>
 		</div>
 	</div>
@@ -158,13 +158,14 @@
 			<div class="eyebrow mb-3">Consulting &amp; partnerships</div>
 			<h2 class="mb-4 font-serif text-3xl leading-tight text-navy-ink">Custom research &amp; development</h2>
 			<p class="mb-4 text-sm leading-relaxed text-slate">
-				Yodacom Research offers consulting and custom development for financial exchanges, crypto
+				Yodacom offers consulting and custom development for financial exchanges, crypto
 				platforms, and research partners. Engagements range from embedded analytics and rating
 				engines to white-label research products and custom quantitative studies.
 			</p>
 			<p class="mb-5 text-sm leading-relaxed text-slate">
-				Implementation work is sub-contracted through a trusted developer network; research and
-				methodology oversight stays in-house. See <a href="/about" class="font-semibold text-navy-deep underline decoration-ochre/70 underline-offset-2 hover:text-ochre-deep">past projects</a> for history.
+				Implementation is led directly by Yodacom's founder, using an AI-augmented development
+				process, with advisory and specialist support brought in where a project calls for it.
+				Research and methodology oversight stays in-house throughout. See <a href="/about" class="font-semibold text-navy-deep underline decoration-ochre/70 underline-offset-2 hover:text-ochre-deep">past projects</a> for history.
 			</p>
 			<a
 				href="mailto:jb@yodacom.com?subject=Yodacom%20Research%20consulting%20inquiry"
