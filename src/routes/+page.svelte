@@ -1,5 +1,5 @@
 <svelte:head>
-	<title>Yodacom Research — Independent Quantitative Research</title>
+	<title>Yodacom — Independent Software Studio</title>
 </svelte:head>
 
 <!-- HERO — editorial, text-first, with a quiet topographic backdrop -->
@@ -11,12 +11,12 @@
 			<div class="md:col-span-8">
 				<div class="fade-up eyebrow mb-6 flex items-center gap-3">
 					<span class="rule-ochre"></span>
-					Yodacom Research · Est. 2012
+					Yodacom · Est. 2012
 				</div>
 				<h1 class="fade-up d1 mb-8 font-serif text-[2.5rem] font-500 leading-[1.04] tracking-tight text-navy-ink sm:text-[3.5rem] md:text-[4rem]">
-					Independent quantitative research.<br />
-					<span class="italic text-ochre-deep">Products</span> built on<br />
-					rigorous methodology.
+					Software, shipped.<br />
+					<span class="italic text-ochre-deep">Research</span>, published.<br />
+					Same standard, both.
 				</h1>
 				<p class="fade-up d2 mb-10 max-w-xl text-lg leading-relaxed text-slate">
 					Yodacom has been building digital products since 2012. Since 2019 our focus has been
@@ -82,7 +82,7 @@
 		<div class="mb-12 max-w-2xl">
 			<div class="eyebrow mb-3"><span class="rule-ochre mr-2"></span>Three practices</div>
 			<h2 class="font-serif text-4xl font-500 leading-tight text-navy-ink">
-				One research house. Three lanes of work.
+				One studio. Three ways in.
 			</h2>
 		</div>
 
@@ -190,7 +190,7 @@
 	<div class="mx-auto max-w-6xl px-6 py-20">
 		<div class="mb-14 max-w-2xl">
 			<div class="eyebrow mb-3"><span class="rule-ochre mr-2"></span>The firm</div>
-			<h2 class="font-serif text-4xl font-500 text-navy-ink">A research house, not a startup.</h2>
+			<h2 class="font-serif text-4xl font-500 text-navy-ink">A studio, not a startup.</h2>
 		</div>
 
 		<div class="grid gap-10 md:grid-cols-3">
@@ -214,8 +214,8 @@
 			<div class="border-t border-ochre/60 pt-6">
 				<h3 class="mb-3 font-serif text-xl text-navy-ink">Location</h3>
 				<p class="text-sm leading-relaxed text-slate">
-					Based in the Rocky Mountains of Silverthorne, Colorado. Research team operating fully
-					remote and asynchronous. Correspondence welcome.
+					Based in the Rocky Mountains of Silverthorne, Colorado. Founder-led, AI-augmented,
+					fully asynchronous. Correspondence welcome.
 				</p>
 			</div>
 		</div>
