@@ -44,7 +44,7 @@ const ROUTES = [
 	{
 		path: '/',
 		label: 'Homepage',
-		mustContain: ['Independent quantitative research'],
+		mustContain: ['Yodacom has been building digital products since 2012.'],
 		minBytes: 5000
 	},
 	{
