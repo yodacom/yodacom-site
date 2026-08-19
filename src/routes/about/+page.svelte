@@ -153,8 +153,8 @@
 				<p class="fade-up d2 max-w-2xl text-lg leading-relaxed text-slate">
 					Yodacom is an independent software studio, grounded in quantitative research discipline,
 					built on a single conviction: the most important ideas in finance are the ones whose time
-					has almost — but not quite — arrived. We have spent forty years standing on that edge. We
-					are still standing there.
+					has almost — but not quite — arrived. Jeremy has spent forty years standing on that edge.
+					He is still standing there.
 				</p>
 			</div>
 
@@ -333,6 +333,18 @@
 				</li>
 			{/each}
 		</ol>
+
+		<div class="mt-10 max-w-3xl">
+			<p class="font-serif text-[1.05rem] leading-[1.75] text-slate">
+				The first decade of this timeline had two names on it: Jeremy and Kenneth Covell, partners
+				on RAMCAP and InfoHiway. Ken is still on Yodacom's advisory bench today — same
+				relationship, different cadence, available when a project calls for it. The research
+				itself was always Jeremy's: forty years of correlation analysis and portfolio theory,
+				developed and validated by hand until 2026, when an AI-augmented process took over the
+				volume of testing one person can't do alone. Partners then. An AI-augmented process now.
+				The same advisor still on call. The constant is Jeremy.
+			</p>
+		</div>
 	</div>
 </section>
 
@@ -436,7 +448,7 @@
 			</p>
 			<p class="font-serif text-xl italic text-navy-ink">
 				We spent forty years waiting for the other side of the arc to catch up. It has. This is
-				what we build next.
+				what Yodacom builds next.
 			</p>
 		</div>
 	</div>
