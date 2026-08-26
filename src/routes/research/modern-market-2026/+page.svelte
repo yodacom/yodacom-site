@@ -122,7 +122,7 @@
 		In 2022, Bitcoin fell 65% and the median crypto asset lost 72.7% of its value. An RXI&#x2122;-gated, rules-based grid system held flat. Here is the mechanism, the data, and what it means for the advisor conversation.
 	</p>
 	<dl class="mb-8 grid grid-cols-2 gap-x-6 gap-y-2 border-y border-rule py-5 text-xs text-slate sm:grid-cols-4">
-		<dt class="text-slate-light">Author</dt><dd>Jeremy J. Black, CFP &middot; Yodacom Research</dd>
+		<dt class="text-slate-light">Author</dt><dd>Jeremy J. Black &middot; Yodacom Research</dd>
 		<dt class="text-slate-light">Window</dt><dd>2020–2025</dd>
 		<dt class="text-slate-light">Assets / Folds</dt><dd>17 symbols &middot; complete modern cycle</dd>
 		<dt class="text-slate-light">Key finding</dt><dd>Full CoinRoc system: +11.9% CAGR vs. S&P 500 +11.0% (simulated)</dd>
@@ -139,7 +139,7 @@
 	prose-blockquote:border-ochre prose-blockquote:text-slate
 	prose-hr:border-rule">
 
-<p><em>By Jeremy Black, CFP | Yodacom Research</em></p>
+<p><em>By Jeremy Black | Yodacom Research</em></p>
 
 <p>Every advisor who had a client with meaningful crypto exposure in 2022 remembers the conversation. Bitcoin fell 65%. Ethereum fell 68%. The median crypto asset lost 72.7% of its value. FTX collapsed. Luna imploded. The question clients were asking was not philosophical — it was immediate: why is this still in my portfolio, and what are we going to do about it?</p>
 

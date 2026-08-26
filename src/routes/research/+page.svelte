@@ -497,7 +497,7 @@
 							In 2022, Bitcoin fell 65% and the median crypto asset lost 72.7% of its value. An RXI&#x2122;-gated, rules-based grid system held flat and compounded — finishing the full cycle at $19,609 on a $10,000 start, edging the S&amp;P 500's $18,703. Here is the mechanism and what it means for the advisor conversation.
 						</p>
 						<dl class="mb-5 grid grid-cols-2 gap-x-4 gap-y-2 border-y border-rule py-4 text-xs text-slate">
-							<dt class="text-slate-light">Author</dt><dd>Jeremy J. Black, CFP &middot; Yodacom Research</dd>
+							<dt class="text-slate-light">Author</dt><dd>Jeremy J. Black &middot; Yodacom Research</dd>
 							<dt class="text-slate-light">Window</dt><dd>2020–2025 (complete modern cycle)</dd>
 							<dt class="text-slate-light">Key finding</dt><dd>L3 +11.9% CAGR vs. S&amp;P 500 +11.0% (simulated)</dd>
 							<dt class="text-slate-light">Audience</dt><dd>Financial advisors / RIAs</dd>
