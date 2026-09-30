@@ -1,53 +1,5 @@
 <script lang="ts">
-	type SubscribeStatus = 'idle' | 'submitting' | 'success' | 'error';
-
-	let email = $state('');
-	let website = $state(''); // honeypot — must stay empty
-	let subscribeStatus = $state<SubscribeStatus>('idle');
-	let subscribeError = $state('');
-
-	const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-	const submitDisabled = $derived(subscribeStatus === 'submitting');
-
-	async function handleSubscribe(event: SubmitEvent) {
-		event.preventDefault();
-		subscribeError = '';
-
-		const emailTrim = email.trim().toLowerCase();
-		if (!EMAIL_RE.test(emailTrim) || emailTrim.length > 254) {
-			subscribeError = 'Please enter a valid email address.';
-			return;
-		}
-
-		subscribeStatus = 'submitting';
-
-		try {
-			const res = await fetch('/api/subscribe', {
-				method: 'POST',
-				headers: { 'Content-Type': 'application/json' },
-				body: JSON.stringify({ email: emailTrim, website })
-			});
-
-			const data = (await res.json().catch(() => ({}))) as {
-				ok?: boolean;
-				error?: string;
-			};
-
-			if (res.ok && data.ok) {
-				subscribeStatus = 'success';
-				email = '';
-				website = '';
-			} else {
-				subscribeStatus = 'error';
-				subscribeError =
-					data.error || 'Something went wrong. Please try again shortly.';
-			}
-		} catch {
-			subscribeStatus = 'error';
-			subscribeError = 'Could not reach the server. Please check your connection.';
-		}
-	}
+	import SubscribeForm from '$lib/components/SubscribeForm.svelte';
 </script>
 
 <svelte:head>
@@ -278,94 +230,18 @@
 				></div>
 
 				<div class="relative">
-					{#if subscribeStatus === 'success'}
-						<div role="status" aria-live="polite">
-							<div class="eyebrow mb-3 text-ochre-soft">Research updates</div>
-							<h2 class="mb-3 font-serif text-2xl text-cream">You are on the list.</h2>
-							<p class="max-w-lg text-sm leading-relaxed text-cream/75">
-								We will send one email when a new brief or paper publishes. No marketing,
-								no sequences. You can unsubscribe at any time.
-							</p>
-						</div>
-					{:else}
-						<div class="eyebrow mb-3 text-ochre-soft">Research updates</div>
-						<h2 class="mb-2 font-serif text-2xl text-cream">
-							Get notified when new research is published.
-						</h2>
-						<p class="mb-5 max-w-lg text-sm leading-relaxed text-cream/75">
-							One email per published brief or paper. No marketing, no drip sequences,
-							no calendar pitches. Unsubscribe removes you instantly.
-						</p>
+					<div class="eyebrow mb-3 text-ochre-soft">Research updates</div>
+					<h2 class="mb-2 font-serif text-2xl text-cream">
+						Get notified when new research is published.
+					</h2>
+					<p class="mb-5 max-w-lg text-sm leading-relaxed text-cream/75">
+						One email per published brief or paper. No marketing, no drip sequences,
+						no calendar pitches. Unsubscribe removes you instantly.
+					</p>
 
-						<form
-							onsubmit={handleSubscribe}
-							novalidate
-							class="max-w-md"
-							aria-describedby={subscribeStatus === 'error' ? 'subscribe-error' : undefined}
-						>
-							<!-- Honeypot — visually hidden, tab-skipped -->
-							<div
-								class="pointer-events-none absolute -left-[9999px] h-0 w-0 overflow-hidden"
-								aria-hidden="true"
-							>
-								<label for="sb-website">Website (leave blank)</label>
-								<input
-									id="sb-website"
-									type="text"
-									name="website"
-									tabindex="-1"
-									autocomplete="off"
-									bind:value={website}
-								/>
-							</div>
-
-							<div class="flex gap-2">
-								<label for="subscribe-email" class="sr-only">Email address</label>
-								<input
-									id="subscribe-email"
-									type="email"
-									name="email"
-									required
-									autocomplete="email"
-									inputmode="email"
-									placeholder="you@firm.com"
-									bind:value={email}
-									class="min-w-0 flex-1 rounded-sm border border-cream/20 bg-cream/5 px-3 py-2 text-sm text-cream placeholder:text-cream/40 focus:border-ochre focus:outline-none focus:ring-2 focus:ring-ochre/30"
-								/>
-								<button
-									type="submit"
-									disabled={submitDisabled}
-									class="rounded-sm bg-ochre px-4 py-2 text-xs font-semibold uppercase tracking-wider text-navy-ink transition hover:bg-ochre-soft disabled:cursor-not-allowed disabled:opacity-60"
-								>
-									{#if subscribeStatus === 'submitting'}
-										<span class="flex items-center gap-1.5">
-											<svg class="h-3.5 w-3.5 animate-spin" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-												<circle cx="12" cy="12" r="10" stroke="currentColor" stroke-opacity="0.25" stroke-width="3"></circle>
-												<path d="M22 12a10 10 0 0 1-10 10" stroke="currentColor" stroke-width="3" stroke-linecap="round"></path>
-											</svg>
-											Wait…
-										</span>
-									{:else}
-										Notify me
-									{/if}
-								</button>
-							</div>
-
-							{#if subscribeStatus === 'error' && subscribeError}
-								<p
-									id="subscribe-error"
-									role="alert"
-									class="mt-2 text-xs text-ochre-soft"
-								>
-									{subscribeError}
-								</p>
-							{/if}
-
-							{#if subscribeError && subscribeStatus === 'idle'}
-								<p class="mt-2 text-xs text-ochre-soft">{subscribeError}</p>
-							{/if}
-						</form>
-					{/if}
+					<div class="max-w-md">
+						<SubscribeForm idPrefix="briefs-subscribe" tone="dark" buttonLabel="Notify me" />
+					</div>
 				</div>
 			</div>
 
