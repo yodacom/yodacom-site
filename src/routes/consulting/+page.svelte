@@ -264,7 +264,7 @@
 		Have an idea, or a process that eats your week? Tell us about it.
 	</h2>
 	<a
-		href="/contact"
+		href="/contact?topic=Consulting%20%E2%80%94%20not%20sure%20yet"
 		class="inline-flex items-center rounded-sm bg-navy-deep px-6 py-3 text-sm font-semibold uppercase tracking-wider text-cream transition hover:bg-navy-ink"
 	>
 		Start a conversation

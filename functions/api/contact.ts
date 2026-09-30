@@ -51,13 +51,20 @@ interface CleanPayload {
 }
 
 const ALLOWED_TOPICS = [
-	'General',
-	'Research Inquiry',
+	'Consulting — AI Readiness workshop',
+	'Consulting — Operations automation',
+	'Consulting — Idea-to-product sprint',
+	'Technology advisory',
+	'Consulting — not sure yet',
+	'Research inquiry',
 	'Products / CoinRoc',
-	'AI Practice / Advisory',
-	'Press / Media',
 	'Enterprise / RIA',
-	'Other'
+	'Press / Media',
+	'General',
+	'Other',
+	// Legacy values: still accepted so a page cached before this change can submit.
+	'Research Inquiry',
+	'AI Practice / Advisory'
 ] as const;
 
 const MIN_DWELL_MS = 2000; // humans take at least 2 seconds to fill out a form

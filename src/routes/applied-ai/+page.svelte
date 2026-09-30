@@ -79,7 +79,7 @@
 		}
 	];
 
-	const contactHref = '/contact?topic=' + encodeURIComponent('AI Practice / Advisory');
+	const contactHref = '/contact?topic=' + encodeURIComponent('Technology advisory');
 </script>
 
 <svelte:head>

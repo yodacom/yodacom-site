@@ -1,24 +1,40 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 
-	type Topic =
-		| 'General'
-		| 'Research Inquiry'
-		| 'Products / CoinRoc'
-		| 'AI Practice / Advisory'
-		| 'Press / Media'
-		| 'Enterprise / RIA'
-		| 'Other';
+	const CONSULTING_TOPICS = [
+		'Consulting — AI Readiness workshop',
+		'Consulting — Operations automation',
+		'Consulting — Idea-to-product sprint',
+		'Technology advisory',
+		'Consulting — not sure yet'
+	] as const;
 
-	const TOPICS: Topic[] = [
-		'General',
-		'Research Inquiry',
+	const RESEARCH_TOPICS = [
+		'Research inquiry',
 		'Products / CoinRoc',
-		'AI Practice / Advisory',
-		'Press / Media',
 		'Enterprise / RIA',
-		'Other'
-	];
+		'Press / Media'
+	] as const;
+
+	const OTHER_TOPICS = ['General', 'Other'] as const;
+
+	type Topic =
+		| (typeof CONSULTING_TOPICS)[number]
+		| (typeof RESEARCH_TOPICS)[number]
+		| (typeof OTHER_TOPICS)[number];
+
+	const TOPICS: Topic[] = [...CONSULTING_TOPICS, ...RESEARCH_TOPICS, ...OTHER_TOPICS];
+
+	// Older links used these values; map them so existing ?topic= URLs keep preselecting.
+	const LEGACY_TOPICS: Record<string, Topic> = {
+		'AI Practice / Advisory': 'Technology advisory',
+		'Research Inquiry': 'Research inquiry'
+	};
+
+	const LANE_DEFAULTS = {
+		consulting: 'Consulting — not sure yet',
+		research: 'Research inquiry'
+	} as const satisfies Record<string, Topic>;
 
 	type Status = 'idle' | 'submitting' | 'success' | 'error';
 
@@ -30,14 +46,21 @@
 	let website = $state(''); // honeypot — must stay empty
 	let pageLoadedAt = $state(Date.now());
 
-	// Preselect topic from ?topic=... query param (used by the Applied AI CTA)
+	// Preselect topic from ?topic=... query param (used by the Applied AI and Consulting CTAs)
 	onMount(() => {
 		const params = new URLSearchParams(window.location.search);
 		const requested = params.get('topic');
 		if (requested && (TOPICS as string[]).includes(requested)) {
 			topic = requested as Topic;
+		} else if (requested && requested in LEGACY_TOPICS) {
+			topic = LEGACY_TOPICS[requested];
 		}
 	});
+
+	function chooseLane(lane: keyof typeof LANE_DEFAULTS) {
+		topic = LANE_DEFAULTS[lane];
+		document.getElementById('topic')?.focus();
+	}
 
 	// --- ui state ---
 	let status = $state<Status>('idle');
@@ -164,6 +187,31 @@
 			We respond to serious correspondence within 1–2 business days. For fastest routing, tell us
 			which of our projects or papers prompted the note.
 		</p>
+
+			<div class="fade-up d3 mt-10 grid max-w-3xl gap-4 sm:grid-cols-2" role="group" aria-label="What is your inquiry about?">
+				<button
+					type="button"
+					onclick={() => chooseLane('consulting')}
+					class="group rounded-sm border border-rule bg-paper p-5 text-left transition hover:border-navy-deep focus:outline-none focus-visible:ring-2 focus-visible:ring-ochre/60"
+				>
+					<span class="eyebrow mb-2 block"><span class="rule-ochre mr-2"></span>Lane 1</span>
+					<span class="block font-serif text-lg text-navy-ink">Consulting &amp; AI projects →</span>
+					<span class="mt-1 block text-sm leading-relaxed text-slate">
+						Technology consulting, AI work, and advisory.
+					</span>
+				</button>
+				<button
+					type="button"
+					onclick={() => chooseLane('research')}
+					class="group rounded-sm border border-rule bg-paper p-5 text-left transition hover:border-navy-deep focus:outline-none focus-visible:ring-2 focus-visible:ring-ochre/60"
+				>
+					<span class="eyebrow mb-2 block"><span class="rule-ochre mr-2"></span>Lane 2</span>
+					<span class="block font-serif text-lg text-navy-ink">Research, CoinRoc &amp; enterprise →</span>
+					<span class="mt-1 block text-sm leading-relaxed text-slate">
+						Research, products, RIA / enterprise, and press.
+					</span>
+				</button>
+			</div>
 	</div>
 </section>
 
@@ -282,9 +330,21 @@
 								aria-describedby={fieldErrors.topic ? 'topic-error' : undefined}
 								class="w-full rounded-sm border border-rule bg-cream px-3.5 py-2.5 text-sm text-navy-deep focus:border-navy focus:outline-none focus:ring-2 focus:ring-ochre/30"
 							>
-								{#each TOPICS as t (t)}
-									<option value={t}>{t}</option>
-								{/each}
+								<optgroup label="Consulting &amp; AI projects">
+									{#each CONSULTING_TOPICS as t (t)}
+										<option value={t}>{t}</option>
+									{/each}
+								</optgroup>
+								<optgroup label="Research, CoinRoc &amp; enterprise">
+									{#each RESEARCH_TOPICS as t (t)}
+										<option value={t}>{t}</option>
+									{/each}
+								</optgroup>
+								<optgroup label="Something else">
+									{#each OTHER_TOPICS as t (t)}
+										<option value={t}>{t}</option>
+									{/each}
+								</optgroup>
 							</select>
 							{#if fieldErrors.topic}
 								<p id="topic-error" class="mt-1.5 text-xs text-ochre-deep">{fieldErrors.topic}</p>
@@ -392,13 +452,20 @@
 				<div class="border-l border-slate-hair pl-5">
 					<div class="eyebrow mb-2">Response time</div>
 					<p class="text-sm leading-relaxed text-slate">
-						1–2 business days for most inquiries. Research collaborations and enterprise /
-						RIA conversations may receive a more detailed reply on a longer cadence.
+						1–2 business days for most inquiries, including consulting and AI project
+						inquiries. Research collaborations and enterprise / RIA conversations may
+						receive a more detailed reply on a longer cadence.
 					</p>
 				</div>
 
 				<div class="border-l border-slate-hair pl-5">
 					<div class="eyebrow mb-2">What gets priority</div>
+					<p class="mb-1.5 text-xs font-semibold uppercase tracking-wider text-slate">Consulting &amp; AI projects</p>
+					<ul class="mb-4 space-y-1.5 text-sm leading-relaxed text-slate">
+						<li>• Consulting and AI project inquiries</li>
+						<li>• Technology advisory questions</li>
+					</ul>
+					<p class="mb-1.5 text-xs font-semibold uppercase tracking-wider text-slate">Research, CoinRoc &amp; enterprise</p>
 					<ul class="space-y-1.5 text-sm leading-relaxed text-slate">
 						<li>• Press and media with a deadline</li>
 						<li>• RIA / enterprise diligence requests</li>
@@ -415,7 +482,7 @@
 <section class="border-t border-rule/60 bg-cream-deep/40">
 	<div class="mx-auto max-w-3xl px-6 py-12 text-center">
 		<p class="font-serif text-lg italic leading-relaxed text-navy-deep">
-			Correspondence welcome. Yodacom has been writing long-form letters since 2012.
+			Based in Silverthorne, Colorado. Every message is read by a person.
 		</p>
 	</div>
 </section>
