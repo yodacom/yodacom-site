@@ -123,6 +123,7 @@
 						<li><a href="/research" class="hover:text-navy-deep">Research</a></li>
 						<li><a href="/products" class="hover:text-navy-deep">Products</a></li>
 						<li><a href="/applied-ai" class="hover:text-navy-deep">Applied AI</a></li>
+						<li><a href="/consulting" class="hover:text-navy-deep">Consulting</a></li>
 						<li><a href="/contact" class="hover:text-navy-deep">Contact</a></li>
 						<li><a href="https://coinroc.com" class="hover:text-navy-deep">CoinRoc.com →</a></li>
 					</ul>
