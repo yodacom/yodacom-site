@@ -181,11 +181,11 @@
 			class="fade-up d1 mb-6 max-w-3xl font-serif font-500 leading-[1.06] tracking-tight text-navy-ink"
 			style="font-size: clamp(2.25rem, 5vw, 3.5rem);"
 		>
-			Research inquiries, partnerships, and press welcome.
+			Start a conversation.
 		</h1>
 		<p class="fade-up d2 max-w-2xl text-lg leading-relaxed text-slate">
 			We respond to serious correspondence within 1–2 business days. For fastest routing, tell us
-			which of our projects or papers prompted the note.
+				what prompted the note.
 		</p>
 
 			<div class="fade-up d3 mt-10 grid max-w-3xl gap-4 sm:grid-cols-2" role="group" aria-label="What is your inquiry about?">
@@ -194,7 +194,6 @@
 					onclick={() => chooseLane('consulting')}
 					class="group rounded-sm border border-rule bg-paper p-5 text-left transition hover:border-navy-deep focus:outline-none focus-visible:ring-2 focus-visible:ring-ochre/60"
 				>
-					<span class="eyebrow mb-2 block"><span class="rule-ochre mr-2"></span>Lane 1</span>
 					<span class="block font-serif text-lg text-navy-ink">Consulting &amp; AI projects →</span>
 					<span class="mt-1 block text-sm leading-relaxed text-slate">
 						Technology consulting, AI work, and advisory.
@@ -205,7 +204,6 @@
 					onclick={() => chooseLane('research')}
 					class="group rounded-sm border border-rule bg-paper p-5 text-left transition hover:border-navy-deep focus:outline-none focus-visible:ring-2 focus-visible:ring-ochre/60"
 				>
-					<span class="eyebrow mb-2 block"><span class="rule-ochre mr-2"></span>Lane 2</span>
 					<span class="block font-serif text-lg text-navy-ink">Research, CoinRoc &amp; enterprise →</span>
 					<span class="mt-1 block text-sm leading-relaxed text-slate">
 						Research, products, RIA / enterprise, and press.
