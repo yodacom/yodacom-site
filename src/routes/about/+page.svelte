@@ -262,8 +262,7 @@
 				>
 					<div class="eyebrow mb-3">{mark.year}</div>
 					<div
-						class="mb-4 font-serif font-500 leading-none tracking-tight text-navy-ink"
-						style="font-size: var(--text-display);"
+						class="mb-4 font-serif font-500 leading-none tracking-tight text-navy-ink text-[length:min(var(--text-display),11vw)] md:text-[length:min(var(--text-display),4.6vw)] xl:text-[length:var(--text-display)]"
 					>
 						{mark.time}
 					</div>
