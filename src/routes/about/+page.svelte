@@ -74,6 +74,7 @@
 		title: string;
 		tag: string;
 		href?: string;
+		caption?: string;
 	};
 
 	// Curated: RompToStomp (charity), HopeHouse (non-profit), reflexology,
@@ -120,7 +121,7 @@
 
 	// Current work: real captures of the live sites' hero sections (1280px viewport).
 	const currentProjects: PastProject[] = [
-		{ src: '/portfolio/coinroc.webp', alt: 'CoinRoc analysis interface', title: 'CoinRoc', tag: 'Crypto analytics platform', href: 'https://coinroc.com' },
+		{ src: '/portfolio/coinroc.webp', alt: 'Illustrative CoinRoc efficient frontier diagram', title: 'CoinRoc', tag: 'Crypto analytics platform', href: 'https://coinroc.com', caption: 'Illustrative methodology diagram. Assets and positions are hypothetical and do not represent actual results, expected returns, or recommendations.' },
 		{ src: '/portfolio/presigate.webp', alt: 'Presigate website hero', title: 'Presigate', tag: 'AI-agent data API', href: 'https://presigate.com' },
 		{ src: '/portfolio/beerzap.webp', alt: 'BeerZap website hero', title: 'BeerZap', tag: 'Festival app', href: 'https://beerzap.com' }
 	];
@@ -578,6 +579,7 @@
 			<div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
 				{#each items as project (project.title)}
 					{#if project.href}
+						<div>
 						<a
 							href={project.href}
 							target="_blank"
@@ -587,6 +589,10 @@
 						>
 							{@render projectCardBody(project)}
 						</a>
+						{#if project.caption}
+							<p class="mt-2 text-xs italic leading-relaxed text-slate-light">{project.caption}</p>
+						{/if}
+						</div>
 					{:else}
 						<figure class="group overflow-hidden rounded-sm border border-rule bg-paper transition hover:border-navy-deep/40 hover:shadow-[0_20px_40px_-25px_rgba(20,40,72,0.3)]">
 							{@render projectCardBody(project)}
@@ -598,6 +604,9 @@
 
 		<div class="mb-4 text-xs uppercase tracking-wider text-slate-light">Current work</div>
 		{@render projectGrid(currentProjects)}
+		<p class="mt-6 max-w-3xl text-xs italic leading-relaxed text-slate-light">
+			Educational content, not investment advice. Digital assets are highly volatile and can lose all value.
+		</p>
 
 		<div class="mb-4 mt-14 text-xs uppercase tracking-wider text-slate-light">Archive · 2012–2019</div>
 		{@render projectGrid(projects)}
