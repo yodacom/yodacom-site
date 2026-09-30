@@ -79,35 +79,42 @@
 	// for research-house positioning.
 	const projects: PastProject[] = [
 		{
-			src: 'https://jjblack.com/images/portfolio/apps/RompToStomp.png',
+			src: '/portfolio/romp-to-stomp.webp',
 			title: 'Romp To Stomp',
 			tag: 'Breast cancer charity · event app'
 		},
 		{
-			src: 'https://jjblack.com/images/portfolio/apps/hopehouse.png',
+			src: '/portfolio/hope-house.webp',
 			title: 'Hope House of Colorado',
 			tag: 'Non-profit support'
 		},
 		{
-			src: 'https://jjblack.com/images/portfolio/apps/reflexology.png',
+			src: '/portfolio/reflexology.webp',
 			title: 'Reflexology',
 			tag: 'Health & wellness'
 		},
 		{
-			src: 'https://jjblack.com/images/portfolio/apps/enneagramQuizHome2.png',
+			src: '/portfolio/enneagram-quiz.webp',
 			title: 'Enneagram Quiz',
 			tag: 'Assessment platform'
 		},
 		{
-			src: 'https://jjblack.com/images/portfolio/apps/ShopRover.png',
+			src: '/portfolio/shoprover.webp',
 			title: 'ShopRover',
 			tag: 'Commerce / discovery'
 		},
 		{
-			src: 'https://jjblack.com/images/portfolio/apps/EFT.png',
+			src: '/portfolio/eft.webp',
 			title: 'EFT',
 			tag: 'Emotional wellness'
 		}
+	];
+
+	// Current work: real captures of the live sites' hero sections (1280px viewport).
+	const currentProjects: PastProject[] = [
+		{ src: '/portfolio/coinroc.webp', title: 'CoinRoc', tag: 'Crypto analytics platform' },
+		{ src: '/portfolio/presigate.webp', title: 'Presigate', tag: 'AI-agent data API' },
+		{ src: '/portfolio/beerzap.webp', title: 'BeerZap', tag: 'Festival app' }
 	];
 
 	type ComputeMark = {
@@ -533,34 +540,43 @@
 	<div class="mx-auto max-w-6xl px-6 py-20">
 		<div class="mb-12 flex items-end justify-between">
 			<div>
-				<div class="eyebrow mb-3"><span class="rule-ochre mr-2"></span>Past projects</div>
-				<h2 class="font-serif text-4xl font-500 text-navy-ink">Yodacom Studio · 2012–2019</h2>
+				<div class="eyebrow mb-3"><span class="rule-ochre mr-2"></span>Projects</div>
+				<h2 class="font-serif text-4xl font-500 text-navy-ink">Current work and the Yodacom Studio archive</h2>
 				<p class="mt-4 max-w-2xl text-sm leading-relaxed text-slate">
-					A selection of public-facing applications Yodacom designed and built for clients between
-					2012 and 2019 — charities, non-profits, assessment tools, commerce platforms. The same
-					studio building CoinRoc, BeerZap, and Presigate today started here.
+					Current work first, then a selection of public-facing applications Yodacom Studio designed
+					and built for clients between 2012 and 2019 — charities, non-profits, assessment tools,
+					commerce platforms. The studio building CoinRoc, BeerZap, and Presigate today started
+					there.
 				</p>
 			</div>
 		</div>
 
-		<div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-			{#each projects as project (project.title)}
-				<figure class="group overflow-hidden rounded-sm border border-rule bg-paper transition hover:border-navy-deep/40 hover:shadow-[0_20px_40px_-25px_rgba(20,40,72,0.3)]">
-					<div class="aspect-[4/3] overflow-hidden border-b border-rule bg-cream-deep">
-						<img
-							src={project.src}
-							alt={project.title}
-							class="h-full w-full object-contain p-4 transition duration-500 group-hover:scale-[1.03]"
-							loading="lazy"
-						/>
-					</div>
-					<figcaption class="p-4">
-						<div class="font-serif text-base text-navy-ink">{project.title}</div>
-						<div class="text-xs uppercase tracking-wider text-slate-light">{project.tag}</div>
-					</figcaption>
-				</figure>
-			{/each}
-		</div>
+		{#snippet projectGrid(items: PastProject[])}
+			<div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+				{#each items as project (project.title)}
+					<figure class="group overflow-hidden rounded-sm border border-rule bg-paper transition hover:border-navy-deep/40 hover:shadow-[0_20px_40px_-25px_rgba(20,40,72,0.3)]">
+						<div class="aspect-[4/3] overflow-hidden border-b border-rule bg-cream-deep">
+							<img
+								src={project.src}
+								alt={project.title}
+								class="h-full w-full object-contain p-4 transition duration-500 group-hover:scale-[1.03]"
+								loading="lazy"
+							/>
+						</div>
+						<figcaption class="p-4">
+							<div class="font-serif text-base text-navy-ink">{project.title}</div>
+							<div class="text-xs uppercase tracking-wider text-slate-light">{project.tag}</div>
+						</figcaption>
+					</figure>
+				{/each}
+			</div>
+		{/snippet}
+
+		<div class="mb-4 text-xs uppercase tracking-wider text-slate-light">Current work</div>
+		{@render projectGrid(currentProjects)}
+
+		<div class="mb-4 mt-14 text-xs uppercase tracking-wider text-slate-light">Archive · 2012–2019</div>
+		{@render projectGrid(projects)}
 
 		<!-- Web collage full-width -->
 		<div class="mt-10 overflow-hidden rounded-sm border border-rule bg-paper">
