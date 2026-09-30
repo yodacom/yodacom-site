@@ -112,7 +112,7 @@
 					<p class="max-w-sm text-sm leading-relaxed text-slate">
 						Independent software studio, grounded in quantitative research.
 						Based in the Rocky Mountains of Silverthorne, Colorado.
-						Operating since 2009.
+						YodaCom LLC formed in 2009.
 					</p>
 				</div>
 

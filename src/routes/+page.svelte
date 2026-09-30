@@ -12,7 +12,7 @@
 			<div class="md:col-span-8">
 				<div class="fade-up eyebrow mb-6 flex items-center gap-3">
 					<span class="rule-ochre"></span>
-					Yodacom · Est. 2012
+					Yodacom · Studio since 2012
 				</div>
 				<h1 class="fade-up d1 mb-8 font-serif text-[2.5rem] font-500 leading-[1.04] tracking-tight text-navy-ink sm:text-[3.5rem] md:text-[4rem]">
 					Software, shipped.<br />

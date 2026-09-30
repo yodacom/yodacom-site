@@ -32,13 +32,18 @@
 			body: "Developed tracking technology for a newly patented sonic device his team created for Spiny Lobster. The deeper story: in the course of the work, the team discovered what they came to call the \"lobster language\" — a previously unknown sonic signal that lobsters reliably respond to. That discovery became the core of the device, combining the embedded sonic signal with RFID tracking for commercial fisheries. A genuine scientific find wrapped inside an entrepreneurial project."
 		},
 		{
+			year: '2009',
+			title: 'YodaCom LLC formed',
+			body: 'YodaCom LLC was formed in 2009.'
+		},
+		{
 			year: '2010',
 			title: 'VP Digital Innovation · Full Circle',
 			body: 'Served as DMTA (Digital Marketing Technology Architect) and VP of Digital Innovation. Created the Click and Call Network — a digital widget that tracked and managed connections between online shoppers, affiliate marketers, and call centers, routing intent in real time.'
 		},
 		{
 			year: '2012',
-			title: 'Founded Yodacom',
+			title: 'Yodacom begins building products',
 			body: 'Research, development and consulting company pulling on the latest in finance and AI to help launch great products and personalities — serving financial advisors, events, non-profits, and local businesses. 10+ shipped products between 2012 and 2019, accumulating 50,000+ downloads across iPhone and Android.'
 		},
 		{
@@ -493,7 +498,7 @@
 			centers, routing purchase intent in real time.
 		</p>
 		<p>
-			He founded <strong class="text-navy-ink">Yodacom</strong> in 2012 as a research, development
+			He formed <strong class="text-navy-ink">YodaCom LLC</strong> in 2009 and in 2012 began building products as a research, development
 			and consulting company pulling on the latest in finance and AI to help launch great products
 			and personalities — serving financial advisors, events, non-profits, and local businesses.
 			Working from Silverthorne, Colorado, Jeremy consulted with organizations navigating the mobile
