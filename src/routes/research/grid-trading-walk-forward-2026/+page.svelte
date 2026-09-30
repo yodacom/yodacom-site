@@ -1,5 +1,6 @@
 <svelte:head>
 	<title>Intelligent Grid Trading: What 13 Years of Crypto Data Actually Shows — Yodacom Research</title>
+	<meta name="description" content="A walk-forward validation of regime-gated grid strategies across 17 assets and 13 years of daily crypto data. Jeremy J. Black, Yodacom Research." />
 </svelte:head>
 
 <!-- Article header -->

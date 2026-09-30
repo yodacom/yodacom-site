@@ -1,5 +1,6 @@
 <svelte:head>
 	<title>Yodacom — Independent Software Studio</title>
+	<meta name="description" content="Yodacom has been building digital products since 2012. Since 2019 our focus has been quantitative research applied to new asset classes." />
 </svelte:head>
 
 <!-- HERO — editorial, text-first, with a quiet topographic backdrop -->

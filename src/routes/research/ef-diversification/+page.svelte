@@ -1,5 +1,6 @@
 <svelte:head>
 	<title>Gridium and the Efficient Frontier — Yodacom Research</title>
+	<meta name="description" content="Does adding a crypto grid trading sleeve to a traditional equity/bond/gold portfolio shift the efficient frontier? Han Kessel and Jeremy J. Black, Yodacom Research." />
 </svelte:head>
 
 <!-- Article header -->

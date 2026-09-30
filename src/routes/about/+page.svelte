@@ -132,6 +132,7 @@
 
 <svelte:head>
 	<title>About — Yodacom</title>
+	<meta name="description" content="Yodacom is an independent software studio, grounded in quantitative research discipline, founded by Jeremy J. Black." />
 </svelte:head>
 
 <!-- HERO — founder photo + Lando's statement headline as display pull quote -->

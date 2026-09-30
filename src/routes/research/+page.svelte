@@ -1,5 +1,6 @@
 <svelte:head>
 	<title>Research — Yodacom Research</title>
+	<meta name="description" content="Yodacom Research publishes quantitative studies on asset-class suitability, execution-cost analysis, and strategy-selection methodologies." />
 </svelte:head>
 
 <!-- Page header -->

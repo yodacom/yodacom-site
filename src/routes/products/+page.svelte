@@ -1,5 +1,6 @@
 <svelte:head>
 	<title>Products — Yodacom</title>
+	<meta name="description" content="Software products and consulting engagements, built with the same research discipline behind CoinRoc, applied wherever it is useful." />
 </svelte:head>
 
 <section class="border-b border-rule/60 bg-topo">

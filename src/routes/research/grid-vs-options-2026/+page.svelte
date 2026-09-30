@@ -4,6 +4,7 @@
 
 <svelte:head>
 	<title>Crypto Grid Trading vs. Options for Income: An Honest Comparison — Yodacom Research</title>
+	<meta name="description" content="CoinRoc RXI-gated grid vs. CBOE PUT/BXM options strategies — Sharpe ratio, tail risk, Calmar ratio, capital requirements, and automation feasibility compared. Kessel &amp; Black, Yodacom Research 2026." />
 	<meta property="og:title" content="Crypto Grid Trading vs. Options for Income: An Honest Comparison" />
 	<meta property="og:description" content="CoinRoc RXI-gated grid vs. CBOE PUT/BXM options strategies — Sharpe ratio, tail risk, Calmar ratio, capital requirements, and automation feasibility compared. Kessel & Black, Yodacom Research 2026." />
 	<meta property="og:image" content="https://yodacom.com/research/grid-vs-options-2026/cover.png" />
