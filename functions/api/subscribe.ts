@@ -37,7 +37,9 @@ interface SubscribePayload {
 	website?: unknown; // honeypot — must be empty
 }
 
-const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+// Same hardened pattern as contact.ts: rejects whitespace, commas, semicolons,
+// angle brackets, quotes, parens, backslashes; exactly one '@'.
+const EMAIL_RE = /^[^\s@,;<>"'()\\[\]:]+@[^\s@,;<>"'()\\[\]:]+\.[^\s@,;<>"'()\\[\]:]+$/;
 
 // --- Simple IP-based rate limiter ---
 const RATE_LIMIT_WINDOW_MS = 10 * 60 * 1000; // 10-minute window

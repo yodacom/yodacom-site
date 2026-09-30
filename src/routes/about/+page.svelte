@@ -328,7 +328,7 @@
 		</div>
 
 		<ol class="relative border-l-2 border-ochre/40 pl-10">
-			{#each timeline as entry (entry.year)}
+			{#each timeline as entry (`${entry.year}-${entry.title}`)}
 				<li class="relative mb-12 last:mb-0">
 					<span class="absolute -left-[2.85rem] flex h-5 w-5 items-center justify-center rounded-full border-2 border-ochre bg-cream">
 						<span class="h-1.5 w-1.5 rounded-full bg-ochre-deep"></span>

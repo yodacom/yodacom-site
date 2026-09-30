@@ -1,6 +1,7 @@
 <script lang="ts">
 	import '../app.css';
 	import { page } from '$app/stores';
+	import SubscribeForm from '$lib/components/SubscribeForm.svelte';
 
 	interface Props {
 		children?: import('svelte').Snippet;
@@ -134,20 +135,7 @@
 					<p class="mb-3 text-sm text-slate">
 						One email per published paper. No marketing.
 					</p>
-					<form class="flex gap-2" onsubmit={(e) => e.preventDefault()}>
-						<input
-							type="email"
-							placeholder="you@firm.com"
-							class="min-w-0 flex-1 rounded-sm border border-rule bg-cream px-3 py-2 text-sm text-navy-deep placeholder:text-slate-light focus:border-navy focus:outline-none"
-						/>
-						<button
-							type="submit"
-							class="rounded-sm bg-navy-deep px-4 py-2 text-xs font-semibold uppercase tracking-wider text-cream transition hover:bg-navy-ink"
-						>
-							Notify
-						</button>
-					</form>
-					<p class="mt-2 text-[0.68rem] text-slate-light">Signup form not yet live.</p>
+					<SubscribeForm idPrefix="footer-subscribe" />
 				</div>
 			</div>
 

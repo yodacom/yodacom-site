@@ -1,3 +1,7 @@
+<script lang="ts">
+	import SubscribeForm from '$lib/components/SubscribeForm.svelte';
+</script>
+
 <svelte:head>
 	<title>Research — Yodacom Research</title>
 	<meta name="description" content="Yodacom Research publishes quantitative studies on asset-class suitability, execution-cost analysis, and strategy-selection methodologies." />
@@ -1043,20 +1047,9 @@
 						One email per paper. No marketing, no drip sequences, no calendar pitches. Unsubscribe
 						removes you instantly.
 					</p>
-					<form class="flex max-w-md gap-2" onsubmit={(e) => e.preventDefault()}>
-						<input
-							type="email"
-							placeholder="you@firm.com"
-							class="min-w-0 flex-1 rounded-sm border border-cream/20 bg-cream/5 px-3 py-2 text-sm text-cream placeholder:text-cream/40 focus:border-ochre focus:outline-none"
-						/>
-						<button
-							type="submit"
-							class="rounded-sm bg-ochre px-4 py-2 text-xs font-semibold uppercase tracking-wider text-navy-ink transition hover:bg-ochre-soft"
-						>
-							Notify me
-						</button>
-					</form>
-					<p class="mt-2 text-[0.68rem] italic text-cream/50">Signup form coming soon.</p>
+					<div class="max-w-md">
+						<SubscribeForm idPrefix="research-subscribe" tone="dark" buttonLabel="Notify me" />
+					</div>
 				</div>
 			</div>
 		</div>
