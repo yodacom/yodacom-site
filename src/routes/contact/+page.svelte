@@ -184,7 +184,7 @@
 			Start a conversation.
 		</h1>
 		<p class="fade-up d2 max-w-2xl text-lg leading-relaxed text-slate">
-			We respond to serious correspondence within 1–2 business days. For fastest routing, tell us
+			We reply to most inquiries within 1–2 business days. For fastest routing, tell us
 				what prompted the note.
 		</p>
 
@@ -192,17 +192,17 @@
 				<button
 					type="button"
 					onclick={() => chooseLane('consulting')}
-					class="group rounded-sm border border-rule bg-paper p-5 text-left transition hover:border-navy-deep focus:outline-none focus-visible:ring-2 focus-visible:ring-ochre/60"
+					class="group flex flex-col justify-start rounded-sm border border-rule bg-paper p-5 text-left transition hover:border-navy-deep focus:outline-none focus-visible:ring-2 focus-visible:ring-ochre/60"
 				>
 					<span class="block font-serif text-lg text-navy-ink">Consulting &amp; AI projects →</span>
 					<span class="mt-1 block text-sm leading-relaxed text-slate">
-						Technology consulting, AI work, and advisory.
+						Technology consulting, AI work, and technology advisory.
 					</span>
 				</button>
 				<button
 					type="button"
 					onclick={() => chooseLane('research')}
-					class="group rounded-sm border border-rule bg-paper p-5 text-left transition hover:border-navy-deep focus:outline-none focus-visible:ring-2 focus-visible:ring-ochre/60"
+					class="group flex flex-col justify-start rounded-sm border border-rule bg-paper p-5 text-left transition hover:border-navy-deep focus:outline-none focus-visible:ring-2 focus-visible:ring-ochre/60"
 				>
 					<span class="block font-serif text-lg text-navy-ink">Research, CoinRoc &amp; enterprise →</span>
 					<span class="mt-1 block text-sm leading-relaxed text-slate">
@@ -284,7 +284,7 @@
 								aria-invalid={fieldErrors.name ? 'true' : undefined}
 								aria-describedby={fieldErrors.name ? 'name-error' : undefined}
 								class="w-full rounded-sm border border-rule bg-cream px-3.5 py-2.5 text-sm text-navy-deep placeholder:text-slate-light focus:border-navy focus:outline-none focus:ring-2 focus:ring-ochre/30"
-								placeholder="Jane Adviser"
+								placeholder="Jane Smith"
 							/>
 							{#if fieldErrors.name}
 								<p id="name-error" class="mt-1.5 text-xs text-ochre-deep">{fieldErrors.name}</p>
