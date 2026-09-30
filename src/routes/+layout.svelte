@@ -29,11 +29,11 @@
 		<div class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
 			<a href="/" class="flex items-center gap-3" onclick={() => (mobileOpen = false)}>
 				<img
-					src="https://res.cloudinary.com/yodacom/image/upload/v1554864573/yodacom/YodaComLogoTrans150x50_3x.png"
-					alt="Yodacom"
+					src="/brand/yodacom-wordmark-light-bg.svg"
+					alt="YodaCom"
 					class="h-8 w-auto"
-					width="150"
-					height="50"
+					width="126"
+					height="32"
 				/>
 				<span class="hidden text-[0.72rem] font-semibold uppercase tracking-[0.22em] text-slate sm:inline">
 					Software Studio
@@ -106,9 +106,11 @@
 			<div class="grid gap-12 md:grid-cols-12">
 				<div class="md:col-span-5">
 					<img
-						src="https://res.cloudinary.com/yodacom/image/upload/v1554864573/yodacom/YodaComLogoTrans150x50_3x.png"
-						alt="Yodacom"
+						src="/brand/yodacom-wordmark-light-bg.svg"
+						alt="YodaCom"
 						class="mb-4 h-9 w-auto"
+						width="142"
+						height="36"
 					/>
 					<p class="max-w-sm text-sm leading-relaxed text-slate">
 						Independent software studio, grounded in quantitative research.
