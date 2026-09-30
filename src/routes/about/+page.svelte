@@ -73,6 +73,7 @@
 		alt: string;
 		title: string;
 		tag: string;
+		href?: string;
 	};
 
 	// Curated: RompToStomp (charity), HopeHouse (non-profit), reflexology,
@@ -119,9 +120,9 @@
 
 	// Current work: real captures of the live sites' hero sections (1280px viewport).
 	const currentProjects: PastProject[] = [
-		{ src: '/portfolio/coinroc.webp', alt: 'CoinRoc logo', title: 'CoinRoc', tag: 'Crypto analytics platform' },
-		{ src: '/portfolio/presigate.webp', alt: 'Presigate website hero', title: 'Presigate', tag: 'AI-agent data API' },
-		{ src: '/portfolio/beerzap.webp', alt: 'BeerZap website hero', title: 'BeerZap', tag: 'Festival app' }
+		{ src: '/portfolio/coinroc.webp', alt: 'CoinRoc analysis interface', title: 'CoinRoc', tag: 'Crypto analytics platform', href: 'https://coinroc.com' },
+		{ src: '/portfolio/presigate.webp', alt: 'Presigate website hero', title: 'Presigate', tag: 'AI-agent data API', href: 'https://presigate.com' },
+		{ src: '/portfolio/beerzap.webp', alt: 'BeerZap website hero', title: 'BeerZap', tag: 'Festival app', href: 'https://beerzap.com' }
 	];
 
 	type ComputeMark = {
@@ -558,23 +559,39 @@
 			</div>
 		</div>
 
+		{#snippet projectCardBody(project: PastProject)}
+			<div class="aspect-[4/3] overflow-hidden border-b border-rule bg-cream-deep">
+				<img
+					src={project.src}
+					alt={project.alt}
+					class="h-full w-full object-contain p-4 transition duration-500 group-hover:scale-[1.03]"
+					loading="lazy"
+				/>
+			</div>
+			<div class="p-4">
+				<div class="font-serif text-base text-navy-ink">{project.title}</div>
+				<div class="text-xs uppercase tracking-wider text-slate-light">{project.tag}</div>
+			</div>
+		{/snippet}
+
 		{#snippet projectGrid(items: PastProject[])}
 			<div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
 				{#each items as project (project.title)}
-					<figure class="group overflow-hidden rounded-sm border border-rule bg-paper transition hover:border-navy-deep/40 hover:shadow-[0_20px_40px_-25px_rgba(20,40,72,0.3)]">
-						<div class="aspect-[4/3] overflow-hidden border-b border-rule bg-cream-deep">
-							<img
-								src={project.src}
-								alt={project.alt}
-								class="h-full w-full object-contain p-4 transition duration-500 group-hover:scale-[1.03]"
-								loading="lazy"
-							/>
-						</div>
-						<figcaption class="p-4">
-							<div class="font-serif text-base text-navy-ink">{project.title}</div>
-							<div class="text-xs uppercase tracking-wider text-slate-light">{project.tag}</div>
-						</figcaption>
-					</figure>
+					{#if project.href}
+						<a
+							href={project.href}
+							target="_blank"
+							rel="noopener noreferrer"
+							aria-label="Visit {project.title} (opens in a new tab)"
+							class="group block overflow-hidden rounded-sm border border-rule bg-paper transition hover:border-navy-deep/40 hover:shadow-[0_20px_40px_-25px_rgba(20,40,72,0.3)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ochre-deep"
+						>
+							{@render projectCardBody(project)}
+						</a>
+					{:else}
+						<figure class="group overflow-hidden rounded-sm border border-rule bg-paper transition hover:border-navy-deep/40 hover:shadow-[0_20px_40px_-25px_rgba(20,40,72,0.3)]">
+							{@render projectCardBody(project)}
+						</figure>
+					{/if}
 				{/each}
 			</div>
 		{/snippet}
