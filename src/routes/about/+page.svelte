@@ -70,6 +70,7 @@
 
 	type PastProject = {
 		src: string;
+		alt: string;
 		title: string;
 		tag: string;
 	};
@@ -80,31 +81,37 @@
 	const projects: PastProject[] = [
 		{
 			src: '/portfolio/romp-to-stomp.webp',
+			alt: 'Romp To Stomp App Store listing',
 			title: 'Romp To Stomp',
 			tag: 'Breast cancer charity · event app'
 		},
 		{
 			src: '/portfolio/hope-house.webp',
+			alt: 'Hope House of Colorado App Store listing',
 			title: 'Hope House of Colorado',
 			tag: 'Non-profit support'
 		},
 		{
 			src: '/portfolio/reflexology.webp',
+			alt: 'Reflexology App Store listing',
 			title: 'Reflexology',
 			tag: 'Health & wellness'
 		},
 		{
 			src: '/portfolio/enneagram-quiz.webp',
+			alt: 'Enneagram Word Quiz web page',
 			title: 'Enneagram Quiz',
 			tag: 'Assessment platform'
 		},
 		{
 			src: '/portfolio/shoprover.webp',
+			alt: 'ShopRover App Store listing',
 			title: 'ShopRover',
 			tag: 'Commerce / discovery'
 		},
 		{
 			src: '/portfolio/eft.webp',
+			alt: 'EFT Tapping Answer iTunes listing',
 			title: 'EFT',
 			tag: 'Emotional wellness'
 		}
@@ -112,9 +119,9 @@
 
 	// Current work: real captures of the live sites' hero sections (1280px viewport).
 	const currentProjects: PastProject[] = [
-		{ src: '/portfolio/coinroc.webp', title: 'CoinRoc', tag: 'Crypto analytics platform' },
-		{ src: '/portfolio/presigate.webp', title: 'Presigate', tag: 'AI-agent data API' },
-		{ src: '/portfolio/beerzap.webp', title: 'BeerZap', tag: 'Festival app' }
+		{ src: '/portfolio/coinroc.webp', alt: 'CoinRoc logo', title: 'CoinRoc', tag: 'Crypto analytics platform' },
+		{ src: '/portfolio/presigate.webp', alt: 'Presigate website hero', title: 'Presigate', tag: 'AI-agent data API' },
+		{ src: '/portfolio/beerzap.webp', alt: 'BeerZap website hero', title: 'BeerZap', tag: 'Festival app' }
 	];
 
 	type ComputeMark = {
@@ -558,7 +565,7 @@
 						<div class="aspect-[4/3] overflow-hidden border-b border-rule bg-cream-deep">
 							<img
 								src={project.src}
-								alt={project.title}
+								alt={project.alt}
 								class="h-full w-full object-contain p-4 transition duration-500 group-hover:scale-[1.03]"
 								loading="lazy"
 							/>
