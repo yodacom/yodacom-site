@@ -166,7 +166,7 @@
 	<title>Contact — Yodacom</title>
 	<meta
 		name="description"
-		content="Contact Yodacom. Product inquiries, research conversations, and press welcome."
+		content="Contact YodaCom about AI consulting projects, research, CoinRoc, or press."
 	/>
 </svelte:head>
 
