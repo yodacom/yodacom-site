@@ -214,8 +214,8 @@
 		>
 			<div class="overflow-hidden bg-navy-ink">
 				<img
-					src="/screenshots/Efficient-Frontier.png"
-					alt="CoinRoc — Efficient Frontier portfolio analysis"
+					src="/screenshots/coinroc-frontier-full-illustrative.webp"
+					alt="Illustrative CoinRoc efficient frontier analysis"
 					class="h-auto w-full object-cover transition duration-500 group-hover:scale-[1.02]"
 					loading="lazy"
 				/>

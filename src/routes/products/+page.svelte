@@ -64,43 +64,44 @@
 	<div class="space-y-4">
 		<div class="eyebrow mb-1">CoinRoc · 2025 platform</div>
 		<p class="max-w-2xl text-sm text-slate">From a price ticker in 2019 to a full research platform. The thesis was always the same — the tooling finally caught up.</p>
-		<div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+		<div class="grid gap-4 sm:grid-cols-2">
 			<figure class="group overflow-hidden rounded-sm border border-rule bg-paper">
 				<div class="aspect-[16/10] overflow-hidden bg-navy-ink/5">
-					<img src="/screenshots/Efficient-Frontier.png" alt="CoinRoc — Efficient Frontier Analysis"
+					<img src="/screenshots/coinroc-frontier-full-illustrative.webp" alt="Illustrative CoinRoc efficient frontier analysis"
 						class="h-full w-full object-cover object-top transition duration-300 group-hover:scale-[1.02]" loading="lazy" />
 				</div>
 				<figcaption class="px-4 py-3 text-[0.72rem] font-semibold uppercase tracking-widest text-slate-light">Efficient Frontier Analysis</figcaption>
 			</figure>
 			<figure class="group overflow-hidden rounded-sm border border-rule bg-paper">
 				<div class="aspect-[16/10] overflow-hidden bg-navy-ink/5">
-					<img src="/screenshots/Discovery-Page.png" alt="CoinRoc — Discovery"
+					<img src="/screenshots/coinroc-discovery-illustrative.webp" alt="Illustrative CoinRoc discovery interface"
 						class="h-full w-full object-cover object-top transition duration-300 group-hover:scale-[1.02]" loading="lazy" />
 				</div>
 				<figcaption class="px-4 py-3 text-[0.72rem] font-semibold uppercase tracking-widest text-slate-light">Discovery</figcaption>
 			</figure>
 			<figure class="group overflow-hidden rounded-sm border border-rule bg-paper">
 				<div class="aspect-[16/10] overflow-hidden bg-navy-ink/5">
-					<img src="/screenshots/Liquidity-Analysis.png" alt="CoinRoc — Liquidity Analysis"
-						class="h-full w-full object-cover object-top transition duration-300 group-hover:scale-[1.02]" loading="lazy" />
-				</div>
-				<figcaption class="px-4 py-3 text-[0.72rem] font-semibold uppercase tracking-widest text-slate-light">Liquidity Analysis</figcaption>
-			</figure>
-			<figure class="group overflow-hidden rounded-sm border border-rule bg-paper">
-				<div class="aspect-[16/10] overflow-hidden bg-navy-ink/5">
-					<img src="/screenshots/Return-Distribution-overtime.png" alt="CoinRoc — Return Distribution Over Time"
+					<img src="/screenshots/coinroc-return-distribution-illustrative.webp" alt="Illustrative CoinRoc return distribution over time"
 						class="h-full w-full object-cover object-top transition duration-300 group-hover:scale-[1.02]" loading="lazy" />
 				</div>
 				<figcaption class="px-4 py-3 text-[0.72rem] font-semibold uppercase tracking-widest text-slate-light">Return Distribution Over Time</figcaption>
 			</figure>
 			<figure class="group overflow-hidden rounded-sm border border-rule bg-paper">
 				<div class="aspect-[16/10] overflow-hidden bg-navy-ink/5">
-					<img src="/screenshots/LTC-Sentiment-Score.png" alt="CoinRoc — Sentiment Score"
+					<img src="/screenshots/coinroc-asset-detail-illustrative.webp" alt="Illustrative CoinRoc asset detail and sentiment score"
 						class="h-full w-full object-cover object-top transition duration-300 group-hover:scale-[1.02]" loading="lazy" />
 				</div>
 				<figcaption class="px-4 py-3 text-[0.72rem] font-semibold uppercase tracking-widest text-slate-light">Sentiment Score</figcaption>
 			</figure>
 		</div>
+		<p class="max-w-3xl text-xs leading-relaxed text-slate-light">Sample screen from CoinRoc's analysis tools, shown to illustrate the interface. Figures are redacted. Nothing shown is a prediction, a recommendation, or a result any user achieved. Educational content, not investment advice.</p>
+		<p class="text-sm">
+			<a href="/research/coinroc-live-bear-market-2026" class="font-semibold text-navy-deep underline decoration-ochre/70 underline-offset-2 hover:text-ochre-deep">See the research →</a>
+			<span class="mx-2 text-slate-light" aria-hidden="true">·</span>
+			<a href="/research/grid-trading-walk-forward-2026" class="font-semibold text-navy-deep underline decoration-ochre/70 underline-offset-2 hover:text-ochre-deep">Walk-forward study →</a>
+			<span class="mx-2 text-slate-light" aria-hidden="true">·</span>
+			<a href="https://coinroc.com/blog" target="_blank" rel="noopener noreferrer" class="font-semibold text-navy-deep underline decoration-ochre/70 underline-offset-2 hover:text-ochre-deep">CoinRoc blog →</a>
+		</p>
 	</div>
 
 	<!-- CoinRoc presentation video -->
