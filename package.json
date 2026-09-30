@@ -9,6 +9,7 @@
     "preview": "vite preview",
     "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
     "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
+    "test:contact": "node --test functions/api/contact.test.ts",
     "test:ssr-smoke": "node scripts/ssr-smoke.mjs",
     "test:ssr-smoke:local": "bash scripts/ssr-smoke-local.sh"
   },

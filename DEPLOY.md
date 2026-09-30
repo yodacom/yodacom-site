@@ -31,6 +31,11 @@ The contact form degrades gracefully: if `LOOPS_API_KEY` or `LOOPS_CONTACT_TEMPL
 missing, the function returns a 503 with a plain-English message asking the visitor to email
 `jb@yodacom.com` directly.
 
+Each inquiry is sent with `source` (`YodaCom Consulting`, `YodaCom Research-CoinRoc` or
+`YodaCom General`, derived from the topic) and `replyTo` (the submitter's email) data variables.
+The Loops template must define both: use `[{DATA_VARIABLE:source}]` in the Subject for Gmail
+filtering and `replyTo` in the Reply field. Tests: `pnpm test:contact`.
+
 ## Custom domain setup (yodacom.com)
 
 1. In Cloudflare Pages project -> Custom domains -> Set up a custom domain.

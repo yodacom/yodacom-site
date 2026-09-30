@@ -9,7 +9,8 @@
  *   3. Honeypot check (the hidden "website" field must be empty)
  *   4. Minimum dwell-time check (timestamp must be >= 2s old, defeats instant-submit bots)
  *   5. Optional Cloudflare Turnstile verification (enabled if TURNSTILE_SECRET_KEY is set)
- *   6. POST to Loops transactional API — delivers an email to the configured CONTACT_DEST_EMAIL
+ *   6. POST to Loops transactional API — delivers an email to CONTACT_DEST_EMAIL (default jb@yodacom.com),
+ *      labelled with a source (YodaCom Consulting / Research-CoinRoc / General)
  *   7. Return JSON { ok: true } or { ok: false, error: string }
  *
  * This file is NOT a SvelteKit endpoint. It is a Cloudflare Pages Function
@@ -19,7 +20,7 @@
  * Required env vars (set in CF Pages → Settings → Environment variables):
  *   - LOOPS_API_KEY               (required)
  *   - LOOPS_CONTACT_TEMPLATE_ID   (required — the transactional template id)
- *   - CONTACT_DEST_EMAIL          (required — destination email for contact submissions)
+ *   - CONTACT_DEST_EMAIL          (optional — defaults to jb@yodacom.com)
  *   - TURNSTILE_SECRET_KEY        (optional — enables CF Turnstile check)
  */
 
@@ -50,26 +51,42 @@ interface CleanPayload {
 	turnstileToken: string;
 }
 
-const ALLOWED_TOPICS = [
+// Single source of truth for topics AND their Gmail source lane. ALLOWED_TOPICS is
+// derived from these groups, so a topic cannot be accepted without being placed in a
+// lane (an unlisted topic is rejected by validate(), never silently filed as General).
+// Keep in sync with the lists in src/routes/contact/+page.svelte.
+export const CONSULTING_LANE = [
 	'Consulting — AI Readiness workshop',
 	'Consulting — Operations automation',
 	'Consulting — Idea-to-product sprint',
 	'Technology advisory',
 	'Consulting — not sure yet',
+	'AI Practice / Advisory' // legacy: still accepted so a cached page can submit
+] as const;
+
+export const RESEARCH_LANE = [
 	'Research inquiry',
 	'Products / CoinRoc',
 	'Enterprise / RIA',
 	'Press / Media',
-	'General',
-	'Other',
-	// Legacy values: still accepted so a page cached before this change can submit.
-	'Research Inquiry',
-	'AI Practice / Advisory'
+	'Research Inquiry' // legacy
 ] as const;
+
+export const GENERAL_LANE = ['General', 'Other'] as const;
+
+const ALLOWED_TOPICS: readonly string[] = [...CONSULTING_LANE, ...RESEARCH_LANE, ...GENERAL_LANE];
+
+export function sourceFor(topic: string): string {
+	if ((CONSULTING_LANE as readonly string[]).includes(topic)) return 'YodaCom Consulting';
+	if ((RESEARCH_LANE as readonly string[]).includes(topic)) return 'YodaCom Research-CoinRoc';
+	return 'YodaCom General';
+}
 
 const MIN_DWELL_MS = 2000; // humans take at least 2 seconds to fill out a form
 const MAX_DWELL_MS = 1000 * 60 * 60 * 6; // 6h — stale page
-const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+// Single plain address only (email is used as a Reply-To header value): no whitespace/CR/LF,
+// commas, semicolons, angle brackets, quotes, parens or backslashes; exactly one '@'.
+const EMAIL_RE = /^[^\s@,;<>"'()\\[\]:]+@[^\s@,;<>"'()\\[\]:]+\.[^\s@,;<>"'()\\[\]:]+$/;
 
 // --- Simple IP-based rate limiter ---
 // Cloudflare Workers/Pages Functions run in a per-isolate context. The Map
@@ -143,7 +160,7 @@ function validate(raw: ContactPayload): { ok: true; data: CleanPayload } | { ok:
 	if (!EMAIL_RE.test(email) || email.length > 254) {
 		return { ok: false, error: 'Please enter a valid email address.' };
 	}
-	if (!ALLOWED_TOPICS.includes(topic as (typeof ALLOWED_TOPICS)[number])) {
+	if (!ALLOWED_TOPICS.includes(topic)) {
 		return { ok: false, error: 'Please choose a topic.' };
 	}
 	if (message.length < 10 || message.length > 2000) {
@@ -188,7 +205,9 @@ async function sendViaLoops(opts: {
 			email: data.email, // surface submitter's email in the template body
 			topic: data.topic,
 			message: data.message,
-			submittedAt
+			submittedAt,
+			source: sourceFor(data.topic), // Loops subject: [{source}] ... (Gmail filter key)
+			replyTo: data.email // Loops template Reply-To
 		}
 	};
 
@@ -273,11 +292,10 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
 	}
 
 	// Send via Loops
-	if (!env.LOOPS_API_KEY || !env.LOOPS_CONTACT_TEMPLATE_ID || !env.CONTACT_DEST_EMAIL) {
+	if (!env.LOOPS_API_KEY || !env.LOOPS_CONTACT_TEMPLATE_ID) {
 		const missing: string[] = [];
 		if (!env.LOOPS_API_KEY) missing.push('LOOPS_API_KEY');
 		if (!env.LOOPS_CONTACT_TEMPLATE_ID) missing.push('LOOPS_CONTACT_TEMPLATE_ID');
-		if (!env.CONTACT_DEST_EMAIL) missing.push('CONTACT_DEST_EMAIL');
 		console.error('[contact] Missing required env vars:', missing.join(', '));
 		return json(
 			{
@@ -291,7 +309,7 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
 	const result = await sendViaLoops({
 		apiKey: env.LOOPS_API_KEY,
 		templateId: env.LOOPS_CONTACT_TEMPLATE_ID,
-		destEmail: env.CONTACT_DEST_EMAIL,
+		destEmail: env.CONTACT_DEST_EMAIL || 'jb@yodacom.com',
 		data
 	});
 
