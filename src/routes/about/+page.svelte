@@ -383,7 +383,7 @@
 		<article class="rounded-sm border border-rule bg-paper p-7 transition hover:border-navy-deep/40 hover:shadow-[0_20px_60px_-30px_rgba(20,40,72,0.25)]">
 			<div class="eyebrow mb-3">Product · since 2019</div>
 			<h3 class="mb-4 font-serif text-2xl text-navy-ink">
-				<a href="https://coinroc.com" class="hover:text-ochre-deep">CoinRoc →</a>
+				<a href="https://coinroc.com" target="_blank" rel="noopener noreferrer" aria-label="CoinRoc (opens in a new tab)" class="hover:text-ochre-deep">CoinRoc →</a>
 			</h3>
 			<p class="text-sm leading-relaxed text-slate">
 				A rating and analysis platform for crypto grid trading, built for income-disciplined
@@ -397,7 +397,7 @@
 		<article class="rounded-sm border border-rule bg-paper p-7 transition hover:border-navy-deep/40 hover:shadow-[0_20px_60px_-30px_rgba(20,40,72,0.25)]">
 			<div class="eyebrow mb-3">Product · shipped 2026</div>
 			<h3 class="mb-4 font-serif text-2xl text-navy-ink">
-				<a href="https://presigate.com" class="hover:text-ochre-deep">Presigate →</a>
+				<a href="https://presigate.com" target="_blank" rel="noopener noreferrer" aria-label="Presigate (opens in a new tab)" class="hover:text-ochre-deep">Presigate →</a>
 			</h3>
 			<p class="text-sm leading-relaxed text-slate">
 				Execution intelligence for AI agents and automated trading — a pre-flight gate that checks
@@ -410,7 +410,7 @@
 		<article class="rounded-sm border border-rule bg-paper p-7 transition hover:border-navy-deep/40 hover:shadow-[0_20px_60px_-30px_rgba(20,40,72,0.25)]">
 			<div class="eyebrow mb-3">Product · shipped 2026</div>
 			<h3 class="mb-4 font-serif text-2xl text-navy-ink">
-				<a href="https://beerzap.com" class="hover:text-ochre-deep">BeerZap →</a>
+				<a href="https://beerzap.com" target="_blank" rel="noopener noreferrer" aria-label="BeerZap (opens in a new tab)" class="hover:text-ochre-deep">BeerZap →</a>
 			</h3>
 			<p class="text-sm leading-relaxed text-slate">
 				A QR-scan discovery game built for beer festivals — real-time redemption, tiered event

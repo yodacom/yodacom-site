@@ -125,6 +125,9 @@
 					<li>
 						<a
 							href="https://coinroc.com"
+							target="_blank"
+							rel="noopener noreferrer"
+							aria-label="CoinRoc (opens in a new tab)"
 							class="flex items-baseline justify-between gap-2 text-xs text-slate transition hover:text-ochre-deep"
 						>
 							<span class="font-serif text-sm text-navy-ink group-hover:text-ochre-deep">CoinRoc</span>
@@ -136,6 +139,9 @@
 					<li>
 						<a
 							href="https://beerzap.com"
+							target="_blank"
+							rel="noopener noreferrer"
+							aria-label="BeerZap (opens in a new tab)"
 							class="flex items-baseline justify-between gap-2 text-xs text-slate transition hover:text-ochre-deep"
 						>
 							<span class="font-serif text-sm text-navy-ink group-hover:text-ochre-deep">BeerZap</span>
@@ -147,6 +153,9 @@
 					<li>
 						<a
 							href="https://presigate.com"
+							target="_blank"
+							rel="noopener noreferrer"
+							aria-label="Presigate (opens in a new tab)"
 							class="flex items-baseline justify-between gap-2 text-xs text-slate transition hover:text-ochre-deep"
 						>
 							<span class="font-serif text-sm text-navy-ink group-hover:text-ochre-deep">Presigate</span>

@@ -54,6 +54,9 @@
 				{/each}
 				<a
 					href="https://coinroc.com"
+					target="_blank"
+					rel="noopener noreferrer"
+					aria-label="CoinRoc.com (opens in a new tab)"
 					class="ml-2 inline-flex items-center rounded-sm border border-navy-deep/80 bg-navy-deep px-4 py-2 text-xs font-semibold uppercase tracking-wider text-cream transition hover:bg-navy-ink"
 				>
 					CoinRoc.com →
@@ -88,6 +91,9 @@
 					{/each}
 					<a
 						href="https://coinroc.com"
+						target="_blank"
+						rel="noopener noreferrer"
+						aria-label="CoinRoc.com (opens in a new tab)"
 						class="mt-4 inline-flex items-center justify-center rounded-sm bg-navy-deep px-4 py-3 text-sm font-semibold uppercase tracking-wider text-cream"
 					>
 						CoinRoc.com →
@@ -128,7 +134,7 @@
 						<li><a href="/applied-ai" class="hover:text-navy-deep">Applied AI</a></li>
 						<li><a href="/consulting" class="hover:text-navy-deep">Consulting</a></li>
 						<li><a href="/contact" class="hover:text-navy-deep">Contact</a></li>
-						<li><a href="https://coinroc.com" class="hover:text-navy-deep">CoinRoc.com →</a></li>
+						<li><a href="https://coinroc.com" target="_blank" rel="noopener noreferrer" aria-label="CoinRoc.com (opens in a new tab)" class="hover:text-navy-deep">CoinRoc.com →</a></li>
 					</ul>
 				</div>
 
