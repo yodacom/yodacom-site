@@ -28,30 +28,33 @@
 			<div class="relative md:col-span-7">
 				<div class="aspect-[16/10] w-full overflow-hidden bg-navy-ink md:aspect-auto md:h-full">
 					<img
-						src="https://res.cloudinary.com/yodacom/image/upload/v1570059114/coinrocSite_worbbi.png"
-						alt="CoinRoc — 2019 original site"
+						src="/brand-history/coinroc-2019-archived.webp"
+						alt="CoinRoc — 2019 original site (archived)"
 						class="h-full w-full object-cover object-top"
 						loading="lazy"
 					/>
 				</div>
 				<div class="absolute bottom-3 left-3 rounded-sm bg-navy-ink/85 px-3 py-1.5 text-[0.62rem] font-semibold uppercase tracking-widest text-cream backdrop-blur">
-					Original CoinRoc site · 2019
+					Original CoinRoc site, 2019 (archived)
 				</div>
 			</div>
 			<div class="md:col-span-5 md:p-10 p-7">
 				<div class="eyebrow mb-3">Flagship · published 2025</div>
 				<h2 class="mb-4 font-serif text-4xl leading-tight text-navy-ink">CoinRoc</h2>
 				<p class="mb-4 text-sm leading-relaxed text-slate">
-					A crypto grid-trading rating engine with honest cost-tier disclosure. Identifies which
-					digital assets are suitable for grid strategies at your actual execution tier —
+					A crypto grid-trading rating engine with honest cost-tier disclosure. Estimates which
+					digital assets have been suitable for grid strategies, under stated assumptions, at a selected execution tier —
 					retail Binance.US, Kraken Pro, Coinbase Advanced, institutional Coinbase Prime, and more.
 				</p>
 				<p class="mb-6 border-l-2 border-ochre/60 pl-4 text-sm italic leading-relaxed text-navy-deep">
-					Every return number is computed under your selected fee tier, not an optimistic VIP model.
-					CoinRoc will tell you when grid trading is the wrong strategy for a given asset.
+					CoinRoc's analysis applies the fee tier you select; research studies state the fee assumptions they use.
+					CoinRoc's analysis can flag assets where grid trading looks unsuitable under its stated assumptions.
 				</p>
 				<a
 					href="https://coinroc.com"
+					target="_blank"
+					rel="noopener noreferrer"
+					aria-label="Visit CoinRoc.com (opens in a new tab)"
 					class="inline-flex items-center rounded-sm bg-navy-deep px-5 py-3 text-xs font-semibold uppercase tracking-wider text-cream transition hover:bg-navy-ink"
 				>
 					Visit CoinRoc.com →
@@ -94,13 +97,13 @@
 				<figcaption class="px-4 py-3 text-[0.72rem] font-semibold uppercase tracking-widest text-slate-light">Sentiment Score</figcaption>
 			</figure>
 		</div>
-		<p class="max-w-3xl text-xs leading-relaxed text-slate-light">Sample screen from CoinRoc's analysis tools, shown to illustrate the interface. Figures are redacted. Nothing shown is a prediction, a recommendation, or a result any user achieved. Educational content, not investment advice.</p>
+		<p class="max-w-3xl text-xs leading-relaxed text-slate-light">Illustrative redraw of screens from CoinRoc's analysis tools, shown to illustrate the interface. Assets and figures are placeholders. Nothing shown is a prediction, a recommendation, or a result any user achieved. Educational content, not investment advice.</p>
 		<p class="text-sm">
-			<a href="/research/coinroc-live-bear-market-2026" class="font-semibold text-navy-deep underline decoration-ochre/70 underline-offset-2 hover:text-ochre-deep">See the research →</a>
+			<a href="/research/coinroc-live-bear-market-2026" class="font-semibold text-navy-deep underline decoration-ochre/70 underline-offset-2 hover:text-ochre-deep">Read the research (includes hypothetical and back-tested analysis) →</a>
 			<span class="mx-2 text-slate-light" aria-hidden="true">·</span>
-			<a href="/research/grid-trading-walk-forward-2026" class="font-semibold text-navy-deep underline decoration-ochre/70 underline-offset-2 hover:text-ochre-deep">Walk-forward study →</a>
+			<a href="/research/grid-trading-walk-forward-2026" class="font-semibold text-navy-deep underline decoration-ochre/70 underline-offset-2 hover:text-ochre-deep">Walk-forward study (back-tested) →</a>
 			<span class="mx-2 text-slate-light" aria-hidden="true">·</span>
-			<a href="https://coinroc.com/blog" target="_blank" rel="noopener noreferrer" class="font-semibold text-navy-deep underline decoration-ochre/70 underline-offset-2 hover:text-ochre-deep">CoinRoc blog →</a>
+			<a href="https://coinroc.com/blog" target="_blank" rel="noopener noreferrer" aria-label="CoinRoc blog (opens in a new tab)" class="font-semibold text-navy-deep underline decoration-ochre/70 underline-offset-2 hover:text-ochre-deep">CoinRoc blog →</a>
 		</p>
 	</div>
 
@@ -122,6 +125,8 @@
 		</div>
 	</div>
 
+	<p class="max-w-3xl text-xs leading-relaxed text-slate-light">Educational content, not investment advice. CoinRoc is research and analytics software; it does not manage money or recommend specific assets. Digital assets are highly volatile and may lose all value. Hypothetical or model-based analysis has inherent limitations and is not a guarantee of future results.</p>
+
 	<!-- Recently shipped -->
 	<div>
 		<div class="eyebrow mb-1">Recently shipped</div>
@@ -130,7 +135,7 @@
 			<article class="rounded-sm border border-rule bg-paper p-8">
 				<div class="eyebrow mb-3">Shipped · 2026</div>
 				<h2 class="mb-4 font-serif text-3xl leading-tight text-navy-ink">
-					<a href="https://beerzap.com" class="hover:text-ochre-deep">BeerZap →</a>
+					<a href="https://beerzap.com" target="_blank" rel="noopener noreferrer" aria-label="BeerZap (opens in a new tab)" class="hover:text-ochre-deep">BeerZap →</a>
 				</h2>
 				<p class="mb-4 text-sm leading-relaxed text-slate">
 					A QR-scan discovery game for beer festivals — SvelteKit on Cloudflare Pages, Supabase/Postgres
@@ -143,7 +148,7 @@
 			<article class="rounded-sm border border-rule bg-paper p-8">
 				<div class="eyebrow mb-3">Shipped · 2026</div>
 				<h2 class="mb-4 font-serif text-3xl leading-tight text-navy-ink">
-					<a href="https://presigate.com" class="hover:text-ochre-deep">Presigate →</a>
+					<a href="https://presigate.com" target="_blank" rel="noopener noreferrer" aria-label="Presigate (opens in a new tab)" class="hover:text-ochre-deep">Presigate →</a>
 				</h2>
 				<p class="mb-4 text-sm leading-relaxed text-slate">
 					Execution intelligence for AI agents and automated trading — checks whether now is the

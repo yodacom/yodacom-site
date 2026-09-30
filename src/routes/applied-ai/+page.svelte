@@ -229,6 +229,7 @@
 				</span>
 			</div>
 		</a>
+		<p class="mt-3 max-w-sm text-xs leading-relaxed text-slate-light">Illustrative redraw of screens from CoinRoc's analysis tools, shown to illustrate the interface. Assets and figures are placeholders. Nothing shown is a prediction, a recommendation, or a result any user achieved. Educational content, not investment advice.</p>
 	</div>
 
 	<div class="mt-10 flex flex-wrap gap-3">
