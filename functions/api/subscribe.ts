@@ -14,8 +14,10 @@
  *   6. Email validity + disposable-domain blocklist
  *   7. Cloudflare Turnstile — FAILS CLOSED: secret missing => 503, token
  *      missing/invalid => 400. Nothing reaches Loops without a passed check.
- *   8. POST to Loops /contacts/create — adds the subscriber to the
- *      research-newsletter mailing list
+ *   8. Double opt-in: CONFIRM_SECRET + LOOPS_CONFIRM_TEMPLATE_ID missing => 503.
+ *      Look the contact up (/contacts/find); already subscribed => no-op.
+ *      Else create with subscribed:false, then send a Loops TRANSACTIONAL email
+ *      with a signed /api/confirm link (48h). /api/confirm sets subscribed:true.
  *   9. Return JSON { ok: true } or { ok: false, error: string }
  *
  * This file is NOT a SvelteKit endpoint. It is a Cloudflare Pages Function.
@@ -25,6 +27,8 @@
  * Required env vars (set in CF Pages → Settings → Environment variables):
  *   - LOOPS_API_KEY                    (required — shared with /api/contact)
  *   - TURNSTILE_SECRET_KEY             (required — form is closed without it)
+ *   - CONFIRM_SECRET                   (required — HMAC key for confirm links)
+ *   - LOOPS_CONFIRM_TEMPLATE_ID        (required — transactional template, data var {confirmUrl})
  *
  * Optional env vars:
  *   - LOOPS_RESEARCH_LIST_ID           (optional — if set, assigns the contact
@@ -33,8 +37,12 @@
  *                                       subscriber in Loops, e.g. "research-briefs")
  */
 
+import { CONFIRM_TTL_SECONDS, signConfirm } from '../lib/confirm-token.ts';
+
 interface Env {
 	LOOPS_API_KEY?: string;
+	CONFIRM_SECRET?: string;
+	LOOPS_CONFIRM_TEMPLATE_ID?: string;
 	TURNSTILE_SECRET_KEY?: string;
 	LOOPS_RESEARCH_LIST_ID?: string;
 	LOOPS_RESEARCH_USER_GROUP?: string;
@@ -262,54 +270,80 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
 		);
 	}
 
-	// Build Loops contact payload
-	// Loops /contacts/create: adds contact and optionally assigns mailing list
-	const loopsBody: Record<string, unknown> = {
-		email,
-		source: 'research-briefs',
-		subscribed: true
+	// Double opt-in: fail closed without the signing secret or the template id
+	if (!env.CONFIRM_SECRET || !env.LOOPS_CONFIRM_TEMPLATE_ID) {
+		console.error('[subscribe] CONFIRM_SECRET or LOOPS_CONFIRM_TEMPLATE_ID not set');
+		return json(
+			{ ok: false, error: 'Signup temporarily unavailable. Please try again later.' },
+			503
+		);
+	}
+
+	const loopsHeaders = {
+		Authorization: `Bearer ${env.LOOPS_API_KEY}`,
+		'Content-Type': 'application/json'
 	};
-
-	if (env.LOOPS_RESEARCH_LIST_ID) {
-		loopsBody.mailingLists = { [env.LOOPS_RESEARCH_LIST_ID]: true };
-	}
-
-	if (env.LOOPS_RESEARCH_USER_GROUP) {
-		loopsBody.userGroup = env.LOOPS_RESEARCH_USER_GROUP;
-	}
+	const unavailable = () =>
+		json({ ok: false, error: 'Could not complete signup. Please try again shortly.' }, 502);
 
 	try {
-		const r = await fetch('https://app.loops.so/api/v1/contacts/create', {
-			method: 'POST',
-			headers: {
-				Authorization: `Bearer ${env.LOOPS_API_KEY}`,
-				'Content-Type': 'application/json'
-			},
-			body: JSON.stringify(loopsBody)
-		});
-
-		if (r.ok) {
-			return json({ ok: true });
-		}
-
-		const text = await r.text();
-		console.error(`[subscribe] Loops error ${r.status}: ${text}`);
-
-		// Loops returns 409 when the contact already exists — treat as success
-		if (r.status === 409) {
-			return json({ ok: true });
-		}
-
-		return json(
-			{ ok: false, error: 'Could not complete signup. Please try again shortly.' },
-			502
+		// 1. Look the contact up first so a confirmed subscriber is never downgraded
+		const find = await fetch(
+			`https://app.loops.so/api/v1/contacts/find?email=${encodeURIComponent(email)}`,
+			{ headers: loopsHeaders }
 		);
+		if (!find.ok) {
+			console.error(`[subscribe] Loops find error ${find.status}: ${await find.text()}`);
+			return unavailable();
+		}
+		const found = (await find.json()) as Array<{ subscribed?: boolean }>;
+		if (Array.isArray(found) && found.some((c) => c.subscribed === true)) {
+			// Already confirmed: nothing to change, nothing to send. Same response either way.
+			return json({ ok: true });
+		}
+
+		// 2. New (or previously unsubscribed) contact: create unsubscribed until confirmed
+		if (!Array.isArray(found) || found.length === 0) {
+			const loopsBody: Record<string, unknown> = {
+				email,
+				source: 'research-briefs',
+				subscribed: false
+			};
+			if (env.LOOPS_RESEARCH_LIST_ID) loopsBody.mailingLists = { [env.LOOPS_RESEARCH_LIST_ID]: true };
+			if (env.LOOPS_RESEARCH_USER_GROUP) loopsBody.userGroup = env.LOOPS_RESEARCH_USER_GROUP;
+			const created = await fetch('https://app.loops.so/api/v1/contacts/create', {
+				method: 'POST',
+				headers: loopsHeaders,
+				body: JSON.stringify(loopsBody)
+			});
+			// 409 = raced with another request; contact exists, carry on
+			if (!created.ok && created.status !== 409) {
+				console.error(`[subscribe] Loops create error ${created.status}: ${await created.text()}`);
+				return unavailable();
+			}
+		}
+
+		// 3. Send the signed confirm link (transactional; addToAudience left off)
+		const expiry = Math.floor(Date.now() / 1000) + CONFIRM_TTL_SECONDS;
+		const t = await signConfirm(email, expiry, env.CONFIRM_SECRET);
+		const confirmUrl = `https://yodacom.com/api/confirm?e=${encodeURIComponent(email)}&x=${expiry}&t=${t}`;
+		const sent = await fetch('https://app.loops.so/api/v1/transactional', {
+			method: 'POST',
+			headers: loopsHeaders,
+			body: JSON.stringify({
+				transactionalId: env.LOOPS_CONFIRM_TEMPLATE_ID,
+				email,
+				dataVariables: { confirmUrl }
+			})
+		});
+		if (!sent.ok) {
+			console.error(`[subscribe] Loops transactional error ${sent.status}: ${await sent.text()}`);
+			return unavailable();
+		}
+		return json({ ok: true });
 	} catch (e) {
 		console.error('[subscribe] Loops network error:', e);
-		return json(
-			{ ok: false, error: 'Network error. Please try again shortly.' },
-			502
-		);
+		return json({ ok: false, error: 'Network error. Please try again shortly.' }, 502);
 	}
 };
 

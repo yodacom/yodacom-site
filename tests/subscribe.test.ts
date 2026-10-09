@@ -5,6 +5,9 @@ import assert from 'node:assert/strict';
 import { onRequestPost } from '../functions/api/subscribe.ts';
 
 type Calls = { turnstile: number; loops: number };
+type LoopsReq = { url: string; method: string; body: any };
+let loopsReqs: LoopsReq[];
+let existing: Array<{ subscribed: boolean }>;
 let calls: Calls;
 let turnstileResult: boolean;
 const realFetch = globalThis.fetch;
@@ -12,8 +15,10 @@ let ipCounter = 0;
 
 beforeEach(() => {
 	calls = { turnstile: 0, loops: 0 };
+	loopsReqs = [];
+	existing = [];
 	turnstileResult = true;
-	globalThis.fetch = (async (url: string | URL | Request) => {
+	globalThis.fetch = (async (url: string | URL | Request, init?: RequestInit) => {
 		const u = String(url);
 		if (u.includes('turnstile')) {
 			calls.turnstile++;
@@ -21,6 +26,12 @@ beforeEach(() => {
 		}
 		if (u.includes('loops.so')) {
 			calls.loops++;
+			loopsReqs.push({
+				url: u,
+				method: init?.method ?? 'GET',
+				body: init?.body ? JSON.parse(String(init.body)) : undefined
+			});
+			if (u.includes('/contacts/find')) return new Response(JSON.stringify(existing));
 			return new Response('{}', { status: 200 });
 		}
 		throw new Error('unexpected fetch ' + u);
@@ -30,7 +41,12 @@ afterEach(() => {
 	globalThis.fetch = realFetch;
 });
 
-const env = { LOOPS_API_KEY: 'k', TURNSTILE_SECRET_KEY: 's' };
+const env = {
+	LOOPS_API_KEY: 'k',
+	TURNSTILE_SECRET_KEY: 's',
+	CONFIRM_SECRET: 'cs',
+	LOOPS_CONFIRM_TEMPLATE_ID: 'tpl'
+};
 
 function good(over: Record<string, unknown> = {}) {
 	return {
@@ -66,7 +82,43 @@ test('valid submission accepted (Turnstile mocked) and reaches Loops', async () 
 	assert.equal(r.status, 200);
 	assert.deepEqual(await r.json(), { ok: true });
 	assert.equal(calls.turnstile, 1);
-	assert.equal(calls.loops, 1);
+	assert.equal(calls.loops, 3); // find, create, transactional
+});
+
+test('subscribe sends a transactional confirm email and does NOT set subscribed:true', async () => {
+	const r = await post(good());
+	assert.equal(r.status, 200);
+	const create = loopsReqs.find((q) => q.url.endsWith('/contacts/create'));
+	assert.equal(create.body.subscribed, false);
+	const tx = loopsReqs.find((q) => q.url.endsWith('/transactional'));
+	assert.equal(tx.body.transactionalId, 'tpl');
+	assert.equal(tx.body.email, 'reader@example.org');
+	const u = new URL(tx.body.dataVariables.confirmUrl);
+	assert.equal(u.pathname, '/api/confirm');
+	assert.equal(u.searchParams.get('e'), 'reader@example.org');
+	assert.ok(Number(u.searchParams.get('x')) > Date.now() / 1000 + 47 * 3600);
+	assert.match(u.searchParams.get('t'), /^[0-9a-f]{64}$/);
+	assert.ok(!loopsReqs.some((q) => q.body?.subscribed === true));
+});
+
+test('already-confirmed contact is not downgraded and gets no email', async () => {
+	existing = [{ subscribed: true }];
+	const r = await post(good());
+	assert.equal(r.status, 200);
+	assert.equal(loopsReqs.length, 1); // find only
+	assert.ok(!loopsReqs.some((q) => q.url.endsWith('/contacts/create') || q.url.endsWith('/transactional')));
+});
+
+test('CONFIRM_SECRET missing fails closed (503, no Loops call)', async () => {
+	const r = await post(good(), { env: { ...env, CONFIRM_SECRET: undefined } });
+	assert.equal(r.status, 503);
+	assert.equal(calls.loops, 0);
+});
+
+test('confirm template id missing fails closed (503, no Loops call)', async () => {
+	const r = await post(good(), { env: { ...env, LOOPS_CONFIRM_TEMPLATE_ID: undefined } });
+	assert.equal(r.status, 503);
+	assert.equal(calls.loops, 0);
 });
 
 test('Turnstile secret missing fails closed (503, no Loops call)', async () => {

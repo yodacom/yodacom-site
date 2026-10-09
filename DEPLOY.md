@@ -27,6 +27,10 @@ Set these in Cloudflare Pages → Settings → Environment variables (Production
 | `CONTACT_DEST_EMAIL`         | no       | Where to route submissions. Defaults to `jb@yodacom.com`    |
 | `TURNSTILE_SECRET_KEY`       | yes (both forms) | Turnstile secret. `/api/subscribe` AND `/api/contact` FAIL CLOSED without it |
 | `VITE_TURNSTILE_SITE_KEY`    | yes (both forms) | Turnstile PUBLIC site key. Read at BUILD time, so set it in the build environment and redeploy. Both forms stay closed without it |
+| `CONFIRM_SECRET`             | yes (`/research-briefs`) | Random 32+ byte secret (HMAC key for signed confirm links). `/api/subscribe` and `/api/confirm` FAIL CLOSED (503) without it |
+| `LOOPS_CONFIRM_TEMPLATE_ID`  | yes (`/research-briefs`) | Loops TRANSACTIONAL template id for the "confirm your email" message; must define data variable `confirmUrl`. `/api/subscribe` returns 503 without it |
+
+Double opt-in: `/api/subscribe` creates the Loops contact with `subscribed: false` and emails a signed `/api/confirm` link (valid 48 h); `/api/confirm` verifies it and sets `subscribed: true`. Already-confirmed contacts are never downgraded. Note: some corporate mail scanners pre-fetch links and can auto-confirm.
 
 **Both `/contact` and `/research-briefs` now require BOTH Turnstile keys. Set them BEFORE deploying: merging or deploying without them closes BOTH forms (503 / "temporarily unavailable"). Merge and deploy only after the keys are set.**
 
