@@ -92,7 +92,7 @@ const DISPOSABLE_DOMAINS = [
 ];
 
 function isDisposableEmail(email: string): boolean {
-	const domain = email.slice(email.lastIndexOf('@') + 1).toLowerCase();
+	const domain = email.slice(email.lastIndexOf('@') + 1).toLowerCase().replace(/\.+$/, '');
 	return DISPOSABLE_DOMAINS.some((d) => domain === d || domain.endsWith('.' + d));
 }
 

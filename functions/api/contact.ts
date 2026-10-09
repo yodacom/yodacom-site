@@ -8,7 +8,7 @@
  *   2. IP-based rate limiting (5 submissions per 10 minutes per IP)
  *   3. Honeypot check (the hidden "website" field must be empty)
  *   4. Minimum dwell-time check (timestamp must be >= 2s old, defeats instant-submit bots)
- *   5. Optional Cloudflare Turnstile verification (enabled if TURNSTILE_SECRET_KEY is set)
+ *   5. Cloudflare Turnstile verification — FAILS CLOSED (secret missing => 503)
  *   6. POST to Loops transactional API — delivers an email to CONTACT_DEST_EMAIL (default jb@yodacom.com),
  *      labelled with a source (YodaCom Consulting / Research-CoinRoc / General)
  *   7. Return JSON { ok: true } or { ok: false, error: string }
@@ -21,7 +21,7 @@
  *   - LOOPS_API_KEY               (required)
  *   - LOOPS_CONTACT_TEMPLATE_ID   (required — the transactional template id)
  *   - CONTACT_DEST_EMAIL          (optional — defaults to jb@yodacom.com)
- *   - TURNSTILE_SECRET_KEY        (optional — enables CF Turnstile check)
+ *   - TURNSTILE_SECRET_KEY        (required — form is closed without it)
  */
 
 interface Env {
@@ -181,7 +181,7 @@ async function verifyTurnstile(token: string, secret: string, ip: string | null)
 			body: form
 		});
 		const data = (await r.json()) as { success?: boolean };
-		return Boolean(data.success);
+		return data.success === true;
 	} catch (e) {
 		console.error('[contact] Turnstile verify failed:', e);
 		return false;
@@ -279,16 +279,21 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
 		return json({ ok: true }); // silent-accept, same as honeypot
 	}
 
-	// Optional Turnstile
-	if (env.TURNSTILE_SECRET_KEY) {
-		if (!data.turnstileToken) {
-			return json({ ok: false, error: 'Captcha required.' }, 400);
-		}
-		const ip = request.headers.get('CF-Connecting-IP');
-		const ok = await verifyTurnstile(data.turnstileToken, env.TURNSTILE_SECRET_KEY, ip);
-		if (!ok) {
-			return json({ ok: false, error: 'Captcha verification failed.' }, 400);
-		}
+	// Turnstile — FAIL CLOSED. No secret configured = form is closed.
+	if (!env.TURNSTILE_SECRET_KEY) {
+		console.error('[contact] TURNSTILE_SECRET_KEY not set — refusing submission');
+		return json(
+			{ ok: false, error: 'The form is temporarily unavailable. Please email jb@yodacom.com directly.' },
+			503
+		);
+	}
+	if (!data.turnstileToken) {
+		return json({ ok: false, error: 'Captcha required.' }, 400);
+	}
+	const ip = request.headers.get('CF-Connecting-IP');
+	const ok = await verifyTurnstile(data.turnstileToken, env.TURNSTILE_SECRET_KEY, ip);
+	if (!ok) {
+		return json({ ok: false, error: 'Captcha verification failed.' }, 400);
 	}
 
 	// Send via Loops

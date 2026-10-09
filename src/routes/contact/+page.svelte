@@ -46,6 +46,48 @@
 	let website = $state(''); // honeypot — must stay empty
 	let pageLoadedAt = $state(Date.now());
 
+	// Turnstile site key is public; set VITE_TURNSTILE_SITE_KEY in the Cloudflare
+	// Pages BUILD environment. Without it the form stays closed (server fails closed too).
+	const TURNSTILE_SITE_KEY = import.meta.env.VITE_TURNSTILE_SITE_KEY as string | undefined;
+
+	interface TurnstileApi {
+		render: (el: HTMLElement, opts: Record<string, unknown>) => string;
+		reset: (id?: string) => void;
+	}
+	const getTurnstile = () => (window as unknown as { turnstile?: TurnstileApi }).turnstile;
+
+	let turnstileToken = $state('');
+	let turnstileEl = $state<HTMLElement | null>(null);
+	let turnstileReady = $state(false);
+	let turnstileWidgetId: string | undefined;
+
+	onMount(() => {
+		if (!TURNSTILE_SITE_KEY) return;
+		if (getTurnstile()) {
+			turnstileReady = true;
+			return;
+		}
+		const sc = document.createElement('script');
+		sc.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit';
+		sc.async = true;
+		sc.onload = () => (turnstileReady = true);
+		document.head.appendChild(sc);
+	});
+
+	// (Re)render the widget whenever its container mounts — the form is torn down
+	// after a successful send and rebuilt by "Send another message".
+	$effect(() => {
+		const ts = getTurnstile();
+		if (!turnstileReady || !turnstileEl || !ts || !TURNSTILE_SITE_KEY) return;
+		turnstileToken = '';
+		turnstileWidgetId = ts.render(turnstileEl, {
+			sitekey: TURNSTILE_SITE_KEY,
+			callback: (t: string) => (turnstileToken = t),
+			'expired-callback': () => (turnstileToken = ''),
+			'error-callback': () => (turnstileToken = '')
+		});
+	});
+
 	// Preselect topic from ?topic=... query param (used by the Applied AI and Consulting CTAs)
 	onMount(() => {
 		const params = new URLSearchParams(window.location.search);
@@ -76,7 +118,7 @@
 
 	const messageChars = $derived(message.length);
 	const messageRemaining = $derived(2000 - messageChars);
-	const submitDisabled = $derived(status === 'submitting');
+	const submitDisabled = $derived(status === 'submitting' || !turnstileToken);
 
 	function validate(): boolean {
 		const errs: typeof fieldErrors = {};
@@ -112,6 +154,12 @@
 			return;
 		}
 
+		if (!turnstileToken) {
+			status = 'error';
+			errorMsg = 'Please complete the verification check.';
+			return;
+		}
+
 		status = 'submitting';
 
 		try {
@@ -124,7 +172,8 @@
 					topic,
 					message: message.trim(),
 					website,
-					ts: pageLoadedAt
+					ts: pageLoadedAt,
+					turnstileToken
 				})
 			});
 
@@ -148,10 +197,15 @@
 				errorMsg =
 					data.error ||
 					'Something went wrong sending your message. Please try again or use the direct email link below.';
+				// Turnstile tokens are single-use
+				turnstileToken = '';
+				getTurnstile()?.reset(turnstileWidgetId);
 			}
 		} catch (e) {
 			console.error('[contact] submit failed:', e);
 			status = 'error';
+			turnstileToken = '';
+			getTurnstile()?.reset(turnstileWidgetId);
 			errorMsg =
 				'Could not reach the server. Please check your connection or use the direct email link below.';
 		}
@@ -380,6 +434,13 @@
 							{/if}
 						</div>
 					</div>
+
+					<div bind:this={turnstileEl} class="mt-6"></div>
+					{#if !TURNSTILE_SITE_KEY}
+						<p class="mt-3 text-xs text-ochre-deep">
+							The form is temporarily unavailable. Please email jb@yodacom.com directly.
+						</p>
+					{/if}
 
 					{#if status === 'error' && errorMsg}
 						<div

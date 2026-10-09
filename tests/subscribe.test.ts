@@ -132,7 +132,8 @@ test('disposable domains rejected (mailchuwee, sigismail, subdomain)', async () 
 	for (const e of [
 		'justina698_smith_1990@mailchuwee.com',
 		'a@sigismail.com',
-		'a@x.mailinator.com'
+		'a@x.mailinator.com',
+		'a@mailinator.com.'
 	]) {
 		const r = await post(good({ email: e }));
 		assert.equal(r.status, 400, e);
