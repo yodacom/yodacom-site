@@ -25,7 +25,8 @@ Set these in Cloudflare Pages → Settings → Environment variables (Production
 | `LOOPS_API_KEY`              | yes      | Loops.so API key (reuse the one from CoinRoc)               |
 | `LOOPS_CONTACT_TEMPLATE_ID`  | yes      | Transactional template id for the contact-form notification |
 | `CONTACT_DEST_EMAIL`         | no       | Where to route submissions. Defaults to `jb@yodacom.com`    |
-| `TURNSTILE_SECRET_KEY`       | no       | If set, enables Cloudflare Turnstile captcha verification   |
+| `TURNSTILE_SECRET_KEY`       | yes (`/api/subscribe`) | Turnstile secret. `/api/subscribe` FAILS CLOSED without it; `/api/contact` treats it as optional |
+| `VITE_TURNSTILE_SITE_KEY`    | yes (`/research-briefs`) | Turnstile PUBLIC site key. Read at BUILD time, so set it in the build environment and redeploy. Form stays closed without it |
 
 The contact form degrades gracefully: if `LOOPS_API_KEY` or `LOOPS_CONTACT_TEMPLATE_ID` is
 missing, the function returns a 503 with a plain-English message asking the visitor to email
