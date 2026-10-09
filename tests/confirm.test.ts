@@ -56,6 +56,17 @@ test('tampered token is rejected', async () => {
 	assert.equal(loops.length, 0);
 });
 
+test('token with only the tail altered (last char, and chars 9+) is rejected', async () => {
+	const x = future();
+	const t = await signConfirm('a@example.org', x, SECRET);
+	const flip = (c: string) => (c === '0' ? '1' : '0');
+	const lastFlipped = t.slice(0, -1) + flip(t.slice(-1));
+	const tailFlipped = t.slice(0, 8) + flip(t[8]) + t.slice(9);
+	assert.equal(loc(await get('a@example.org', x, lastFlipped)), '/subscribe/expired');
+	assert.equal(loc(await get('a@example.org', x, tailFlipped)), '/subscribe/expired');
+	assert.equal(loops.length, 0);
+});
+
 test('tampered (extended) expiry is rejected', async () => {
 	const x = future();
 	const t = await signConfirm('a@example.org', x, SECRET);
