@@ -34,6 +34,7 @@ let ipN = 0;
 beforeEach(() => {
 	calls = [];
 	globalThis.fetch = (async (url: any, init: any) => {
+		if (String(url).includes('turnstile')) return new Response(JSON.stringify({ success: true }));
 		calls.push({ url: String(url), body: init?.body ? JSON.parse(init.body) : null });
 		return new Response('{}', { status: 200 });
 	}) as typeof fetch;
@@ -51,6 +52,7 @@ function post(over: Record<string, unknown> = {}) {
 		message: 'Hello, this is a long enough message.',
 		website: '',
 		ts: Date.now() - 10_000,
+		turnstileToken: 'tok',
 		...over
 	};
 	return new Request('https://x.test/api/contact', {
@@ -59,7 +61,7 @@ function post(over: Record<string, unknown> = {}) {
 		body: JSON.stringify(body)
 	});
 }
-const ENV = { LOOPS_API_KEY: 'k', LOOPS_CONTACT_TEMPLATE_ID: 'tmpl-123' };
+const ENV = { LOOPS_API_KEY: 'k', LOOPS_CONTACT_TEMPLATE_ID: 'tmpl-123', TURNSTILE_SECRET_KEY: 's' };
 
 test('Loops body carries source, replyTo, template id, default destination', async () => {
 	const res = await onRequestPost({ request: post(), env: ENV });
@@ -80,9 +82,9 @@ test('CONTACT_DEST_EMAIL overrides the default; research topic labelled', async 
 });
 
 test('missing template id or api key -> 503, no Loops call', async () => {
-	let res = await onRequestPost({ request: post(), env: { LOOPS_API_KEY: 'k' } });
+	let res = await onRequestPost({ request: post(), env: { ...ENV, LOOPS_CONTACT_TEMPLATE_ID: undefined } });
 	assert.equal(res.status, 503);
-	res = await onRequestPost({ request: post(), env: { LOOPS_CONTACT_TEMPLATE_ID: 't' } });
+	res = await onRequestPost({ request: post(), env: { ...ENV, LOOPS_API_KEY: undefined } });
 	assert.equal(res.status, 503);
 	assert.equal(calls.length, 0);
 });
