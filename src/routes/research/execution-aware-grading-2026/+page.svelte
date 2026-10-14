@@ -61,7 +61,7 @@
 
 <p>When a client asks whether a strategy &ldquo;worked,&rdquo; the honest answer depends on three things the backtest alone cannot tell you: whether the strategy was running during the period you are measuring, whether the market could actually execute the orders, and whether the performance number presented is a simulation or a live result.</p>
 
-<p>Most crypto strategy tools stop at the simulation. CoinRoc's grading system now goes further &mdash; and the methodology behind that decision is worth understanding before recommending or dismissing any grid-based strategy.</p>
+<p>CoinRoc's grading system goes beyond the simulation &mdash; and the methodology behind that decision is worth understanding before recommending or dismissing any grid-based strategy.</p>
 
 <p>This article explains two recent methodology changes to CoinRoc's asset grading system: how grades are now adjusted for regime-gated periods when the strategy is correctly inactive, and how grades are capped when an asset's order book cannot reliably support the execution implied by a clean backtest. Together, these changes represent what Yodacom Research calls execution-aware grading &mdash; a grading methodology that is explicit about when a strategy was running and whether the market can fill it.</p>
 
@@ -74,7 +74,7 @@
 <p>The practical distortion was significant. In the 97-asset catalog analyzed by Yodacom Research, approximately 37 assets were being hidden from Discovery by a performance filter based on this blended return metric (pre-fix, based on simulated blended returns). Earlier versions of this page reported simulated returns; we've withdrawn them while we rebuild our simulator with stricter assumptions.</p>
 
 <div class="my-8 not-prose rounded border border-rule bg-paper px-5 py-4 text-sm italic leading-relaxed text-slate">
-	Figure removed pending correction (2026-07-08) &mdash; the prior chart labeled its regime-classification figures as describing a live cash-hold mechanism for the specific backtest runs shown; that description was inaccurate on two counts (a fabricated mechanism name, and a liquidation claim the live engine does not do -- it pauses new buys, it does not hold to cash). A corrected figure will be republished once relabeled. See the interactive explainer below and the methodology paper for the current, accurate description.
+	Figure removed pending correction (2026-07-08) &mdash; the prior chart labeled its regime-classification figures as describing a live cash-hold mechanism for the specific backtest runs shown; that description was inaccurate on two counts (a fabricated mechanism name, and a liquidation claim the live engine does not do -- it pauses new buys, it does not hold to cash). We intend to republish a corrected figure once it is relabeled. See the interactive explainer below and the methodology paper for the current, accurate description.
 </div>
 
 <p>For due-diligence purposes: the appropriate question to ask about any grid strategy grade is not &ldquo;what was the portfolio return over this period?&rdquo; but &ldquo;what was the grid mechanism's return during the windows when it was running?&rdquo; These can diverge substantially in trending markets. A grade that blends the two gives you a number that corresponds to neither question cleanly.</p>
@@ -93,8 +93,8 @@
 
 <div class="my-8 not-prose">
 	<div class="text-xs font-semibold uppercase tracking-wider text-slate-light mb-2">Figure &mdash; Liquidity Score and Grade Cap</div>
-	<img src="/research/execution-aware-grading-2026/fig-liquidity-cap.png" alt="Backtest score vs. execution-adjusted score for 5 thin-liquidity assets, with B- cap ceiling shown" class="w-full rounded border border-rule" />
-	<div class="text-xs text-slate-light mt-2 italic">Illustrative values for explanation only; not CoinRoc results. Backtest vs. execution-adjusted score, B- cap ceiling at composite score 64. Yodacom Research.</div>
+	<img src="/research/execution-aware-grading-2026/fig-liquidity-cap.png" alt="Hypothetical, simulated backtest score vs. execution-adjusted score for 5 thin-liquidity assets, with B- cap ceiling shown" class="w-full rounded border border-rule" />
+	<div class="text-xs text-slate-light mt-2 italic">Simulated scores for five named assets as of 2026-06-13, produced by a simulator that is being rebuilt. Shown only to illustrate how the grade cap works; hypothetical, not a result any account achieved. B- cap ceiling at composite score 64. Yodacom Research.</div>
 </div>
 
 <div class="my-8 not-prose">
@@ -113,8 +113,8 @@
 
 <div class="my-8 not-prose">
 	<div class="text-xs font-semibold uppercase tracking-wider text-slate-light mb-2">Figure &mdash; Thin-Liquidity Flag Composite</div>
-	<img src="/research/execution-aware-grading-2026/fig-thin-flag.png" alt="Composite weight breakdown, volume threshold bands, and 32-of-97 catalog stat panel" class="w-full rounded border border-rule" />
-	<div class="text-xs text-slate-light mt-2 italic">Simulated / Illustrative Data. Composite weights, volume threshold bands, 32/97 catalog breakdown. Yodacom Research.</div>
+	<img src="/research/execution-aware-grading-2026/fig-thin-flag.png" alt="Hypothetical, simulated composite weight breakdown, volume threshold bands, and 32-of-97 catalog flag count panel" class="w-full rounded border border-rule" />
+	<div class="text-xs text-slate-light mt-2 italic">The composite weights and volume bands describe the method. The 32/97 count is a catalog flag count, not a performance figure. Yodacom Research.</div>
 </div>
 
 <div class="my-8 not-prose">
@@ -143,7 +143,7 @@
 
 <p>The documentation driving these changes &mdash; published in full in the Yodacom Research report &mdash; quantifies precisely what changed, why the previous metric was measuring the wrong thing, and where the current methodology still has limitations. The 30-day volume proxy is documented as a single-day snapshot pending accumulation of collection history. The flat-slippage assumption in the backtest engine is explicitly bounded. The RXI regime accuracy question is named as a separate validation problem that remains open.</p>
 
-<p>That level of disclosure is uncommon in crypto strategy tools. It is also what a fiduciary standard requires: understanding the assumptions and their limits, not just the headline number.</p>
+<p>That level of disclosure is also what a fiduciary standard requires: understanding the assumptions and their limits, not just the headline number.</p>
 
 <p>Execution-aware grading is not a claim that the system predicts actual returns. It is a claim that the grade measures what it says it measures &mdash; and documents clearly where it cannot.</p>
 

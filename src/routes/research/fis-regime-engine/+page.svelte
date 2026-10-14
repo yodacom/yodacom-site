@@ -252,7 +252,7 @@
 			<div class="space-y-2 text-sm leading-relaxed text-slate">
 				<p><a href="/research/fis-regime-detection-advisors" class="text-ochre-deep underline underline-offset-2 hover:text-ochre transition">Paper 3 &mdash; RXI Regime Detection for Advisors</a> &mdash; the full research paper written for financial advisors</p>
 				<p><a href="/research/grid-trading-walk-forward-2026" class="text-ochre-deep underline underline-offset-2 hover:text-ochre transition">Paper 1 &mdash; Walk-Forward Grid Validation</a> &mdash; the foundational 2.5-year study</p>
-				<p><a href="/research/coinroc-live-bear-market-2026" class="text-ochre-deep underline underline-offset-2 hover:text-ochre transition">Live Sim &mdash; CoinRoc in a Bear Market (Results Withdrawn)</a> &mdash; simulation results withdrawn</p>
+				<p><a href="/research/coinroc-live-bear-market-2026" class="text-ochre-deep underline underline-offset-2 hover:text-ochre transition">Forward Simulation &mdash; CoinRoc in a Bear Market (Results Withdrawn)</a> &mdash; simulation results withdrawn</p>
 				<p>Product: <a href="https://coinroc.com" class="text-ochre-deep underline underline-offset-2 hover:text-ochre transition" target="_blank" rel="noopener noreferrer">coinroc.com</a></p>
 			</div>
 		</div>

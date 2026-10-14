@@ -38,7 +38,7 @@
 <article class="mx-auto max-w-3xl px-6 sm:px-10 pb-20">
 	<div class="rounded-xl border border-ochre/40 bg-ochre/10 p-5 text-sm leading-relaxed text-slate space-y-3">
 		<p>
-			Earlier versions of this page reported simulated returns; we've withdrawn them while we rebuild our simulator with stricter assumptions.
+			Withdrawn October 2026. Earlier versions of this page reported simulated returns; we've withdrawn them while we rebuild our simulator with stricter assumptions.
 		</p>
 		<p>
 			Nothing on this page should be read as a statement about how any CoinRoc method, rating, or strategy has performed or will perform.

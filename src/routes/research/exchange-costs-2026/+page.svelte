@@ -23,7 +23,7 @@
 		Exchange Costs and Maker/Taker Execution for Grid Trading
 	</h1>
 	<p class="mb-6 text-lg leading-relaxed text-slate">
-		This paper explains the maker/taker execution gap in retail grid trading. Fee figures on this page have been withdrawn: several exchanges changed their fee schedules in 2026 and our dollar estimates used an inconsistent volume basis. We will republish with current, sourced fee schedules. Simulated return results have also been withdrawn.
+		This paper explains the maker/taker execution gap in retail grid trading. Fee figures on this page have been withdrawn: several exchanges changed their fee schedules in 2026 and our dollar estimates used an inconsistent volume basis. We intend to republish with current, sourced fee schedules. Simulated return results have also been withdrawn.
 	</p>
 	<dl class="mb-8 grid grid-cols-2 gap-x-6 gap-y-2 border-y border-rule py-5 text-xs text-slate sm:grid-cols-4">
 		<dt class="text-slate-light">Authors</dt><dd>Han Kessel &middot; Jeremy J. Black, Editor</dd>
@@ -47,7 +47,7 @@
 	prose-code:text-navy-deep prose-code:bg-cream/60 prose-code:px-1 prose-code:py-0.5 prose-code:rounded
 	prose-hr:border-rule">
 
-<p><strong>Fee figures on this page have been withdrawn: several exchanges changed their fee schedules in 2026 and our dollar estimates used an inconsistent volume basis. We will republish with current, sourced fee schedules.</strong></p>
+<p><strong>Fee figures on this page have been withdrawn: several exchanges changed their fee schedules in 2026 and our dollar estimates used an inconsistent volume basis. We intend to republish with current, sourced fee schedules.</strong></p>
 
 <hr />
 
@@ -59,7 +59,7 @@
 
 <h2>1. Why Grid Strategies Are Maker Strategies</h2>
 
-<p>A grid strategy places limit orders at predetermined price levels. A limit buy order placed below the current market price rests in the order book, and when price falls to it, the order executes as a maker fill. That is the theory. The practice differs in one specific scenario: if price has moved past a level between bars, then under GTC (Good Till Cancelled) order type the order executes immediately against existing book liquidity, as a taker fill. The maker fee assumption is wrong for that fill, and nothing in a standard adapter flags it.</p>
+<p>A grid strategy places limit orders at predetermined price levels. A limit buy order placed below the current market price rests in the order book, and when price falls to it, the order executes as a maker fill. That is the theory. In a bar-based workflow, the practice differs in one specific scenario: if price has moved past a level between bars, then under GTC (Good Till Cancelled) order type the order executes immediately against existing book liquidity, as a taker fill. The maker fee assumption is wrong for that fill, and nothing in a standard adapter flags it.</p>
 
 <p>The GTX (post-only) order type corrects this: the exchange rejects orders that would execute as taker before accepting them. The open question is the net effect of those rejections on portfolio performance, and that is not something we can state today.</p>
 

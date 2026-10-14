@@ -110,7 +110,7 @@
 					</li>
 					<li>
 						<a href="/research/coinroc-live-bear-market-2026" class="group block">
-							<div class="font-semibold text-navy-deep group-hover:text-navy transition">Live Sim — CoinRoc in a Bear Market (Results Withdrawn)</div>
+							<div class="font-semibold text-navy-deep group-hover:text-navy transition">Forward Simulation — CoinRoc in a Bear Market (Results Withdrawn)</div>
 							<div class="text-xs text-slate-light">June 2026 · Published</div>
 						</a>
 					</li>
@@ -506,14 +506,14 @@
 					</div>
 					<div class="col-span-5 p-7 sm:col-span-3 sm:p-8">
 						<div class="mb-4 flex flex-wrap items-center gap-2">
-							<span class="rounded-full bg-teal-500/10 px-3 py-1 text-[0.65rem] font-semibold uppercase tracking-widest text-teal-700">Published</span>
+							<span class="rounded-full bg-teal-500/10 px-3 py-1 text-[0.65rem] font-semibold uppercase tracking-widest text-teal-700">Results withdrawn</span>
 							<span class="text-[0.68rem] uppercase tracking-widest text-slate-light">June 2026</span>
 						</div>
 						<h2 class="mb-4 font-serif text-2xl leading-snug text-navy-ink">
 							Exchange Costs and Maker/Taker Execution for Grid Trading
 						</h2>
 						<p class="mb-5 text-sm leading-relaxed text-slate">
-							How standard GTC orders can fill as taker in retail grid trading, and what post-only execution changes. Fee figures and simulated returns have been withdrawn while we republish with current, sourced fee schedules and a rebuilt simulator.
+							How standard GTC orders can fill as taker in retail grid trading, and what post-only execution changes. Fee figures and simulated returns have been withdrawn while we intend to republish with current, sourced fee schedules and a rebuilt simulator.
 						</p>
 						<dl class="mb-5 grid grid-cols-2 gap-x-4 gap-y-2 border-y border-rule py-4 text-xs text-slate">
 							<dt class="text-slate-light">Authors</dt><dd>Han Kessel &middot; Jeremy J. Black</dd>
@@ -543,11 +543,11 @@
 					</div>
 					<div class="col-span-5 p-7 sm:col-span-3 sm:p-8">
 						<div class="mb-4 flex flex-wrap items-center gap-2">
-							<span class="rounded-full bg-teal-500/10 px-3 py-1 text-[0.65rem] font-semibold uppercase tracking-widest text-teal-700">Published</span>
+							<span class="rounded-full bg-teal-500/10 px-3 py-1 text-[0.65rem] font-semibold uppercase tracking-widest text-teal-700">Results withdrawn</span>
 							<span class="text-[0.68rem] uppercase tracking-widest text-slate-light">June 2026</span>
 						</div>
 						<h2 class="mb-4 font-serif text-2xl leading-snug text-navy-ink">
-							Your LP Yield Calculator Is Lying to You: Impermanent Loss, Continuous Fee Income, and the CoinRoc Optimization Framework
+							Concentrated Liquidity Provision: Fee Income, Impermanent Loss, and What a Yield Calculator Leaves Out
 						</h2>
 						<p class="mb-5 text-sm leading-relaxed text-slate">
 							Uniswap v3 shows gross fee APY. It omits impermanent loss. Loesch et al. (2021) found LPs earned $199M in fees but incurred $260M in IL — net &minus;$61M. Simulated results from this paper have been withdrawn while CoinRoc rebuilds its simulator with stricter assumptions.
@@ -555,7 +555,7 @@
 						<dl class="mb-5 grid grid-cols-2 gap-x-4 gap-y-2 border-y border-rule py-4 text-xs text-slate">
 							<dt class="text-slate-light">Author</dt><dd>Lando &middot; Yodacom Research</dd>
 							<dt class="text-slate-light">Audience</dt><dd>Advisors, quant practitioners, DeFi participants</dd>
-							<dt class="text-slate-light">Key finding</dt><dd>Monte Carlo simulation of LP fee income; hypothetical, not a forecast</dd>
+							<dt class="text-slate-light">Method</dt><dd>Monte Carlo simulation of LP fee income; hypothetical, not a forecast</dd>
 						</dl>
 						<a href="/research/lp-yield-2026" class="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-ochre-deep transition hover:text-ochre">
 							Read research
@@ -641,14 +641,14 @@
 				</div>
 			</article>
 
-			<!-- Live Sim — CoinRoc Bear Market 2026 card -->
+			<!-- Forward Simulation — CoinRoc Bear Market 2026 card -->
 			<article class="overflow-hidden rounded-sm border border-rule bg-paper shadow-[0_10px_40px_-25px_rgba(20,40,72,0.3)]">
 				<div class="grid grid-cols-5">
 					<div class="col-span-2 relative hidden items-center justify-center border-r border-rule bg-navy-ink p-6 sm:flex">
 						<div class="absolute inset-0 bg-topo-faint opacity-10"></div>
 						<div class="relative text-center text-cream">
 							<div class="mb-4 text-[0.6rem] uppercase tracking-[0.3em] text-ochre-soft">Yodacom Research</div>
-							<div class="mb-3 font-serif text-2xl font-500 italic text-cream leading-tight">Live<br />Sim</div>
+							<div class="mb-3 font-serif text-2xl font-500 italic text-cream leading-tight">Forward<br />Simulation</div>
 							<div class="mx-auto mb-4 h-px w-12 bg-ochre/70"></div>
 							<div class="text-[0.68rem] uppercase tracking-widest text-cream/60">Bear Market 2026</div>
 							<div class="mt-6 text-[0.68rem] uppercase tracking-widest text-cream/60">June 2026</div>
@@ -656,23 +656,22 @@
 					</div>
 					<div class="col-span-5 p-7 sm:col-span-3 sm:p-8">
 						<div class="mb-4 flex flex-wrap items-center gap-2">
-							<span class="rounded-full bg-teal-500/10 px-3 py-1 text-[0.65rem] font-semibold uppercase tracking-widest text-teal-700">Published</span>
+							<span class="rounded-full bg-teal-500/10 px-3 py-1 text-[0.65rem] font-semibold uppercase tracking-widest text-teal-700">Results withdrawn</span>
 							<span class="text-[0.68rem] uppercase tracking-widest text-slate-light">June 2026</span>
 						</div>
 						<h2 class="mb-4 font-serif text-2xl leading-snug text-navy-ink">
 							CoinRoc in a Bear Market: An Out-of-Sample Forward Simulation
 						</h2>
 						<p class="mb-5 text-sm leading-relaxed text-slate">
-							This article has been withdrawn while we rebuild our simulator with stricter assumptions. Earlier versions reported simulated results from a 74-day window; we are not presenting them.
+							This article has been withdrawn while we rebuild our simulator with stricter assumptions. Earlier versions reported simulated results; we are not presenting them.
 						</p>
 						<dl class="mb-5 grid grid-cols-2 gap-x-4 gap-y-2 border-y border-rule py-4 text-xs text-slate">
 							<dt class="text-slate-light">Author</dt><dd>Yodacom Research</dd>
-							<dt class="text-slate-light">Window</dt><dd>April 14 &ndash; June 27, 2026 (74 days)</dd>
-							<dt class="text-slate-light">Symbols</dt><dd>10 (RXI-rated grid sleeve)</dd>
-							<dt class="text-slate-light">Type</dt><dd>Out-of-sample forward simulation</dd>
+							<dt class="text-slate-light">Status</dt><dd>Results withdrawn</dd>
+							<dt class="text-slate-light">Type</dt><dd>Out-of-sample forward simulation (withdrawn)</dd>
 						</dl>
 						<a href="/research/coinroc-live-bear-market-2026" class="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-ochre-deep transition hover:text-ochre">
-							Read live sim article
+							Read withdrawal notice
 							<svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
 						</a>
 					</div>
