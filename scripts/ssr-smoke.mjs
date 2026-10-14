@@ -39,6 +39,8 @@ const GENERIC_SKELETON_MARKERS = [
 ];
 
 const MIN_ARTICLE_BYTES = 15000;
+// Withdrawal stubs render the full site chrome (~11 KB) but little body; a skeleton shell is smaller.
+const MIN_STUB_BYTES = 8000;
 
 const ROUTES = [
 	{
@@ -60,10 +62,24 @@ const ROUTES = [
 		minBytes: MIN_ARTICLE_BYTES
 	},
 	{
-		path: '/research/grid-trading-walk-forward-2026',
-		label: 'Research article — grid-trading-walk-forward-2026',
-		mustContain: ['What 13 Years of Crypto Data Actually Shows'],
+		// Full (non-stub) article: guards the "real article ships with no SSR content" class.
+		path: '/research/execution-aware-grading-methodology-2026',
+		label: 'Research article — execution-aware-grading-methodology-2026',
+		mustContain: ['Execution-Aware'],
 		minBytes: MIN_ARTICLE_BYTES
+	},
+	{
+		// INTENTIONAL withdrawal stub (ResearchWithdrawn.svelte, Oct 2026). Short by design,
+		// so it gets a lower byte floor but MUST server-render the title + withdrawal text:
+		// an empty/skeleton shell would lack these strings and still fail.
+		path: '/research/grid-trading-walk-forward-2026',
+		label: 'Research STUB — grid-trading-walk-forward-2026 (ResearchWithdrawn)',
+		mustContain: [
+			'What 13 Years of Crypto Data Actually Shows',
+			'Withdrawn October 2026',
+			'withdrawn them while we rebuild our simulator'
+		],
+		minBytes: MIN_STUB_BYTES
 	}
 ];
 
