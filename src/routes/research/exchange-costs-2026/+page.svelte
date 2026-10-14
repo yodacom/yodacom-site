@@ -23,7 +23,7 @@
 		Exchange Costs and Maker/Taker Execution for Grid Trading
 	</h1>
 	<p class="mb-6 text-lg leading-relaxed text-slate">
-		This paper explains the maker/taker execution gap in retail grid trading. Fee figures on this page have been withdrawn: several exchanges changed their fee schedules in 2026 and our dollar estimates used an inconsistent volume basis. We intend to republish with current, sourced fee schedules. Simulated return results have also been withdrawn.
+		This paper explains the maker/taker execution gap in retail grid trading. Fee figures on this page have been withdrawn: exchange fee schedules change often, and our dollar estimates used an inconsistent volume basis. We intend to republish with current, sourced fee schedules. Simulated return results have also been withdrawn.
 	</p>
 	<dl class="mb-8 grid grid-cols-2 gap-x-6 gap-y-2 border-y border-rule py-5 text-xs text-slate sm:grid-cols-4">
 		<dt class="text-slate-light">Authors</dt><dd>Han Kessel &middot; Jeremy J. Black, Editor</dd>
@@ -47,7 +47,7 @@
 	prose-code:text-navy-deep prose-code:bg-cream/60 prose-code:px-1 prose-code:py-0.5 prose-code:rounded
 	prose-hr:border-rule">
 
-<p><strong>Fee figures on this page have been withdrawn: several exchanges changed their fee schedules in 2026 and our dollar estimates used an inconsistent volume basis. We intend to republish with current, sourced fee schedules.</strong></p>
+<p><strong>Fee figures on this page have been withdrawn: exchange fee schedules change often, and our dollar estimates used an inconsistent volume basis. We intend to republish with current, sourced fee schedules.</strong></p>
 
 <hr />
 

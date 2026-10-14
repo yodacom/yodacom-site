@@ -87,13 +87,13 @@
 					<li>
 						<a href="/research/exchange-costs-2026" class="group block">
 							<div class="font-semibold text-navy-deep group-hover:text-navy transition">Paper B5 — Exchange Costs: The Hidden Variable</div>
-							<div class="text-xs text-slate-light">June 2026 · Published</div>
+							<div class="text-xs text-slate-light">Results withdrawn</div>
 						</a>
 					</li>
 					<li>
 						<a href="/research/lp-yield-2026" class="group block">
-							<div class="font-semibold text-navy-deep group-hover:text-navy transition">Research — LP Yield: Your Calculator Is Lying to You</div>
-							<div class="text-xs text-slate-light">June 2026 · Published</div>
+							<div class="font-semibold text-navy-deep group-hover:text-navy transition">Research — What a Yield Calculator Leaves Out</div>
+							<div class="text-xs text-slate-light">Results withdrawn</div>
 						</a>
 					</li>
 					<li>
@@ -111,7 +111,7 @@
 					<li>
 						<a href="/research/coinroc-live-bear-market-2026" class="group block">
 							<div class="font-semibold text-navy-deep group-hover:text-navy transition">Forward Simulation — CoinRoc in a Bear Market (Results Withdrawn)</div>
-							<div class="text-xs text-slate-light">June 2026 · Published</div>
+							<div class="text-xs text-slate-light">Results withdrawn</div>
 						</a>
 					</li>
 					<li>
