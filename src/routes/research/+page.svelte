@@ -110,7 +110,7 @@
 					</li>
 					<li>
 						<a href="/research/coinroc-live-bear-market-2026" class="group block">
-							<div class="font-semibold text-navy-deep group-hover:text-navy transition">Live Sim — CoinRoc in a Bear Market: What Happened to Drawdown</div>
+							<div class="font-semibold text-navy-deep group-hover:text-navy transition">Live Sim — CoinRoc in a Bear Market (Results Withdrawn)</div>
 							<div class="text-xs text-slate-light">June 2026 · Published</div>
 						</a>
 					</li>
@@ -551,7 +551,7 @@
 							Your LP Yield Calculator Is Lying to You: Impermanent Loss, Continuous Fee Income, and the CoinRoc Optimization Framework
 						</h2>
 						<p class="mb-5 text-sm leading-relaxed text-slate">
-							Uniswap v3 shows gross fee APY. It omits impermanent loss. Loesch et al. (2021) found LPs earned $199M in fees but incurred $260M in IL — net &minus;$61M. This paper presents the structured approach to concentrated LP that generates real fee income while keeping IL quantifiable. 5,000-iteration Monte Carlo. 9 data figures.
+							Uniswap v3 shows gross fee APY. It omits impermanent loss. Loesch et al. (2021) found LPs earned $199M in fees but incurred $260M in IL — net &minus;$61M. Simulated results from this paper have been withdrawn while CoinRoc rebuilds its simulator with stricter assumptions.
 						</p>
 						<dl class="mb-5 grid grid-cols-2 gap-x-4 gap-y-2 border-y border-rule py-4 text-xs text-slate">
 							<dt class="text-slate-light">Author</dt><dd>Lando &middot; Yodacom Research</dd>

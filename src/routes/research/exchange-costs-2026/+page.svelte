@@ -50,7 +50,7 @@
 
 <h2>Abstract</h2>
 
-<p>Exchange fee structures and order execution type are two of the most controllable cost variables in a retail grid trading strategy, yet they are systematically underweighted in most trading decisions. This paper compares US exchange fee schedules and documents the maker/taker execution gap; the walk-forward return results it once reported have been withdrawn. At the Coinbase Advanced retail cost tier (0.40% maker / 0.60% taker), the annual fee drag on a $10,000 grid trading at two round-trips per day ranges from $117 at the cheapest available exchange (OKX US, maker rate) to $4,380 at the most expensive (Coinbase Advanced, taker rate) — a 37-fold difference. A GTX post-only (maker-only) execution study across 36 walk-forward folds shows that 35.2% of grid limit orders would fill as taker under standard GTC order type. Earlier versions of this page reported simulated returns; we've withdrawn them while we rebuild our simulator with stricter assumptions. Implementation of GTX in the CoinRoc BinanceUSAdapter is documented.</p>
+<p>Exchange fee structures and order execution type are two of the most controllable cost variables in a retail grid trading strategy, yet they are systematically underweighted in most trading decisions. This paper compares US exchange fee schedules and documents the maker/taker execution gap; the walk-forward return results it once reported have been withdrawn. At the Coinbase Advanced retail cost tier (0.40% maker / 0.60% taker), the annual fee drag on a $10,000 grid trading at two round-trips per day ranges from $584 at the cheapest available exchange (OKX US, maker rate) to $4,380 at the most expensive (Coinbase Advanced, taker rate) — about 7.5 times, on the same fill-volume basis. A GTX post-only (maker-only) execution study across 36 walk-forward folds was designed to measure how often grid limit orders would fill as taker under standard GTC order type; its simulated results have been withdrawn. Earlier versions of this page reported simulated returns; we've withdrawn them while we rebuild our simulator with stricter assumptions. Implementation of GTX in the CoinRoc BinanceUSAdapter is documented.</p>
 
 <hr />
 
@@ -134,17 +134,19 @@
 
 <p>A $10,000 grid portfolio executing two full round-trip fills per day generates the following annual fee burden. The model uses average fill size = $100 per leg, 365 days/year, and assumes all fills execute at maker rate when post-only is enforced.</p>
 
-<p><strong>Table 3: Annual Fee Burden by Exchange and Order Type — $10,000 Portfolio (the Mixed column uses the 35.2% taker share from the simulator's fill model)</strong></p>
+<p>Basis note: every all-maker and all-taker figure in Table 3 equals the fee rate multiplied by $730,000 of annual fill volume. The per-fill assumptions above produce $146,000, so the dollar figures should be read as a comparison between rows (the ratios are independent of volume), not as an absolute cost estimate, until the volume basis is reconciled.</p>
+
+<p><strong>Table 3: Annual Fee Burden by Exchange and Order Type — $10,000 Portfolio</strong></p>
 
 <div class="overflow-x-auto my-6">
 <table>
-<thead><tr><th>Exchange</th><th>All Maker</th><th>All Taker</th><th>Mixed (35.2% taker)</th><th>Coinbase One (USDC)</th></tr></thead>
+<thead><tr><th>Exchange</th><th>All Maker</th><th>All Taker</th><th>Coinbase One (USDC)</th></tr></thead>
 <tbody>
-<tr><td>Coinbase Advanced</td><td>$2,920</td><td>$4,380</td><td>$3,215</td><td>$0</td></tr>
-<tr><td>Binance.US</td><td>$730</td><td>$1,168</td><td>$861</td><td>N/A</td></tr>
-<tr><td>OKX US</td><td>$584</td><td>$730</td><td>$635</td><td>N/A</td></tr>
-<tr><td>Kraken</td><td>$1,168</td><td>$1,898</td><td>$1,369</td><td>N/A</td></tr>
-<tr><td>Hyperliquid (ref)</td><td>$109</td><td>$328</td><td>$183</td><td>N/A</td></tr>
+<tr><td>Coinbase Advanced</td><td>$2,920</td><td>$4,380</td><td>$0</td></tr>
+<tr><td>Binance.US</td><td>$730</td><td>$1,168</td><td>N/A</td></tr>
+<tr><td>OKX US</td><td>$584</td><td>$730</td><td>N/A</td></tr>
+<tr><td>Kraken</td><td>$1,168</td><td>$1,898</td><td>N/A</td></tr>
+<tr><td>Hyperliquid (ref)</td><td>$109</td><td>$328</td><td>N/A</td></tr>
 </tbody>
 </table>
 </div>
@@ -178,7 +180,7 @@
 
 <p>A grid strategy places limit orders at predetermined price levels. A limit buy order placed at $62,000 on BTC is, by design, resting in the order book below current market price. When price falls to $62,000, the order executes as a maker fill. This is the theory. The practice differs in one specific scenario: if the price has moved past a level between bars, then under GTC order type, the order executes immediately against existing book liquidity — a taker fill. The maker fee assumption is wrong.</p>
 
-<p>In the simulator's fill model, this is not an edge case. In crypto markets, which exhibit strong opening gap behavior at daily bar resolution, a meaningful fraction of grid buy orders are placed at levels the price has already passed at bar open. The GTX (Post-Only) order type corrects this: the exchange rejects orders that would execute as taker before acceptance. The question the study asked was: what is the net effect of those rejections on portfolio performance? Its simulated answer has been withdrawn (see 3.4).</p>
+<p>The GTX (Post-Only) order type corrects this: the exchange rejects orders that would execute as taker before acceptance. The question the study asked was: what is the net effect of those rejections on portfolio performance? Its simulated answer has been withdrawn (see 3.4).</p>
 
 <h3>3.2 Study Design</h3>
 
@@ -193,25 +195,9 @@
 <li><strong>Regime classification:</strong> test-window buy-and-hold return (bull &gt;+20%, bear &lt;&minus;20%, sideways = &plusmn;20%)</li>
 </ul>
 
-<h3>3.3 Rejection Rate Findings</h3>
+<h3>3.3 Rejection Rate Findings (Withdrawn)</h3>
 
-<p>Of 12,645 total buy fills simulated under GTC, 4,452 would be rejected under GTX enforcement. In the simulator's fill model, the aggregate rejection rate is <strong>35.2%</strong>.</p>
-
-<p><strong>Table 5: GTX Rejection Rate by Symbol (in the simulator's fill model)</strong></p>
-
-<div class="overflow-x-auto my-6">
-<table>
-<thead><tr><th>Symbol</th><th>Folds</th><th>Avg Rejection Rate</th><th>Notes</th></tr></thead>
-<tbody>
-<tr><td>BTCUSD</td><td>13</td><td>33.5%</td><td>Most consistent across regimes</td></tr>
-<tr><td>ETHUSD</td><td>9</td><td>33.6%</td><td>Similar to BTC</td></tr>
-<tr><td>ADAUSD</td><td>7</td><td>25.8%</td><td>Lower — fewer gap events in ADA</td></tr>
-<tr><td>STXUSD</td><td>7</td><td>40.5%</td><td>Higher — illiquid small-cap with frequent gaps</td></tr>
-</tbody>
-</table>
-</div>
-
-<p>The rejection rate is remarkably consistent across regimes: 33.51% in bull folds, 33.59% in bear folds, 32.35% in sideways folds. Gap behavior at bar open is driven by illiquidity and event-driven price moves, not by the direction of the trend.</p>
+<p>Earlier versions of this page reported a GTX rejection rate and a per-symbol rejection table. We have withdrawn them: the rates came from a simulator that places orders once per daily bar, so they reflect the simulator's order-placement timing rather than a measured property of live markets. We will publish a rate only if the rebuilt simulator, or live order data, can support it.</p>
 
 <h3>3.4 Simulated Return Results</h3>
 
@@ -271,7 +257,7 @@
 
 <p><strong>Exchange selection:</strong> On a $10,000 portfolio executing two round-trip fills per day, annual fee costs range from $0 (Coinbase One USDC pairs) to $4,380 (Coinbase Advanced all-taker). The maker rate differential between OKX US (0.08%) and Coinbase Advanced (0.40%) is 5x.</p>
 
-<p><strong>Maker/taker execution:</strong> 35.2% of grid limit orders fill as taker under standard GTC order type in the simulator's fill model, measured across 36 walk-forward folds and four symbols. Earlier versions of this page reported simulated returns; we've withdrawn them while we rebuild our simulator with stricter assumptions.</p>
+<p><strong>Maker/taker execution:</strong> The share of grid limit orders that would fill as taker under standard GTC order type has not been established; the earlier simulated rate has been withdrawn. Earlier versions of this page reported simulated returns; we've withdrawn them while we rebuild our simulator with stricter assumptions.</p>
 
 <p><strong>OKX US as the US cost floor.</strong> Among the four accessible US exchanges in this study, OKX US base tier represents the lowest per-fill cost floor: $584/year for a $10,000 all-maker portfolio at 2 fills/day. This is 20% below Binance.US, 59% below Kraken, and 80% below Coinbase Advanced.</p>
 
