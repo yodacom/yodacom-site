@@ -99,8 +99,6 @@
 		</div>
 		<p class="max-w-3xl text-xs leading-relaxed text-slate-light">Illustrative redraw of screens from CoinRoc's analysis tools, shown to illustrate the interface. Assets and figures are placeholders. Nothing shown is a prediction, a recommendation, or a result any user achieved. Educational content, not investment advice.</p>
 		<p class="text-sm">
-			<a href="/research/coinroc-live-bear-market-2026" class="font-semibold text-navy-deep underline decoration-ochre/70 underline-offset-2 hover:text-ochre-deep">Read the research (includes hypothetical and back-tested analysis) →</a>
-			<span class="mx-2 text-slate-light" aria-hidden="true">·</span>
 			<a href="/research/grid-trading-walk-forward-2026" class="font-semibold text-navy-deep underline decoration-ochre/70 underline-offset-2 hover:text-ochre-deep">Walk-forward study (back-tested) →</a>
 			<span class="mx-2 text-slate-light" aria-hidden="true">·</span>
 			<a href="https://coinroc.com/blog" target="_blank" rel="noopener noreferrer" aria-label="CoinRoc blog (opens in a new tab)" class="font-semibold text-navy-deep underline decoration-ochre/70 underline-offset-2 hover:text-ochre-deep">CoinRoc blog →</a>
