@@ -556,8 +556,7 @@
 						<dl class="mb-5 grid grid-cols-2 gap-x-4 gap-y-2 border-y border-rule py-4 text-xs text-slate">
 							<dt class="text-slate-light">Author</dt><dd>Lando &middot; Yodacom Research</dd>
 							<dt class="text-slate-light">Audience</dt><dd>Advisors, quant practitioners, DeFi participants</dd>
-							<dt class="text-slate-light">Key finding</dt><dd>B-tier Arbitrum RXI-gated: +15.2% net APY [+14.3%, +16.1% CI]</dd>
-							<dt class="text-slate-light">Novel finding</dt><dd>Rating inversion: A-tier worst LP candidates, B-tier sweet spot</dd>
+							<dt class="text-slate-light">Key finding</dt><dd>Monte Carlo simulation of LP fee income; hypothetical, not a forecast</dd>
 						</dl>
 						<a href="/research/lp-yield-2026" class="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-ochre-deep transition hover:text-ochre">
 							Read research

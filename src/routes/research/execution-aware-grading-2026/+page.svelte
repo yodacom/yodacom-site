@@ -71,7 +71,7 @@
 
 <p>The problem arose in how the previous grading system evaluated performance: it used a blended full-period return &mdash; total portfolio return across the entire evaluation window, including periods when the RXI had correctly paused new buys. For an asset that trended down 40% while the RXI was in a paused state, the blended return absorbed that 40% directional move even though the grid strategy had deliberately not participated in it.</p>
 
-<p>The practical distortion was significant. In the 97-asset catalog analyzed by Yodacom Research, approximately 37 assets were being hidden from Discovery by a performance filter based on this blended return metric. Earlier versions of this page reported simulated returns; we've withdrawn them while we rebuild our simulator with stricter assumptions.</p>
+<p>The practical distortion was significant. In the 97-asset catalog analyzed by Yodacom Research, approximately 37 assets were being hidden from Discovery by a performance filter based on this blended return metric (pre-fix, based on simulated blended returns). Earlier versions of this page reported simulated returns; we've withdrawn them while we rebuild our simulator with stricter assumptions.</p>
 
 <div class="my-8 not-prose rounded border border-rule bg-paper px-5 py-4 text-sm italic leading-relaxed text-slate">
 	Figure removed pending correction (2026-07-08) &mdash; the prior chart labeled its regime-classification figures as describing a live cash-hold mechanism for the specific backtest runs shown; that description was inaccurate on two counts (a fabricated mechanism name, and a liquidation claim the live engine does not do -- it pauses new buys, it does not hold to cash). A corrected figure will be republished once relabeled. See the interactive explainer below and the methodology paper for the current, accurate description.
@@ -94,7 +94,7 @@
 <div class="my-8 not-prose">
 	<div class="text-xs font-semibold uppercase tracking-wider text-slate-light mb-2">Figure &mdash; Liquidity Score and Grade Cap</div>
 	<img src="/research/execution-aware-grading-2026/fig-liquidity-cap.png" alt="Backtest score vs. execution-adjusted score for 5 thin-liquidity assets, with B- cap ceiling shown" class="w-full rounded border border-rule" />
-	<div class="text-xs text-slate-light mt-2 italic">Simulated / Illustrative Data. Backtest vs. execution-adjusted score, B- cap ceiling at composite score 64. Yodacom Research.</div>
+	<div class="text-xs text-slate-light mt-2 italic">Illustrative values for explanation only; not CoinRoc results. Backtest vs. execution-adjusted score, B- cap ceiling at composite score 64. Yodacom Research.</div>
 </div>
 
 <div class="my-8 not-prose">
@@ -137,7 +137,7 @@
 
 <p>A B- with a thin-liquidity disclosure does not mean the asset is unsuitable. It means the simulated return should be treated as an optimistic scenario; actual execution at meaningful position sizes may produce worse fills. For a client running a smaller grid configuration, the asset may be entirely appropriate &mdash; the grade is calibrated to a general execution risk level, not a specific capital amount. A deployment-time warning that accounts for the interaction between position size and order book depth is on the methodology roadmap.</p>
 
-<p>An asset hidden from Discovery with the label &ldquo;Grid underperforms at your fee tier even in favorable market conditions&rdquo; is a genuine grid mechanism failure &mdash; not a victim of market direction during a paused period. That distinction matters for the client conversation: the first category is an asset worth investigating at different configurations; the second category failed the grid's own test when it had every opportunity to succeed.</p>
+<p>An asset hidden with the label &ldquo;Grid underperforms at your fee tier even in favorable market conditions&rdquo; had a simulated active-period return below the filter threshold under the then-current simulator. That is a different category from an asset hidden only because of market direction during a paused period.</p>
 
 <h2>Methodology Transparency as a Fiduciary Signal</h2>
 

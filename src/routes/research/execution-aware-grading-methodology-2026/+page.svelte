@@ -95,7 +95,7 @@ threshold: -25% unchanged</code></pre>
 
 <p><strong>Impact on the 97-symbol catalog (retail-binance-us tier, Year 2 forward test):</strong></p>
 
-<p>Prior to the fix, approximately 48 assets were visible on Discovery. Approximately 37 were hidden by the -25% blended return filter.</p>
+<p>Prior to the fix, approximately 48 assets were visible on Discovery. Approximately 37 were hidden by the -25% blended return filter (pre-fix, based on simulated blended returns).</p>
 
 <p>Earlier versions of this page reported simulated returns; we've withdrawn them while we rebuild our simulator with stricter assumptions.</p>
 

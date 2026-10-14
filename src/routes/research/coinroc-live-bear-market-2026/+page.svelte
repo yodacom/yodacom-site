@@ -1,9 +1,8 @@
 <svelte:head>
 	<title>We Ran a CoinRoc Out-of-Sample Forward Simulation Through a Bear Market — Here's What Happened to Drawdown | Yodacom Research</title>
-	<meta name="description" content="A 74-day out-of-sample forward simulation of CoinRoc's RXI grid sleeve through the April–June 2026 Bitcoin bear market. No look-ahead. The regime detection layer did exactly what it was designed to do." />
+	<meta name="description" content="A 74-day out-of-sample forward simulation of CoinRoc's RXI grid sleeve through the April–June 2026 Bitcoin bear market. No look-ahead. Hypothetical simulation; results withdrawn while CoinRoc rebuilds its simulator with stricter assumptions." />
 	<meta property="og:title" content="We Ran a CoinRoc Out-of-Sample Forward Simulation Through a Bear Market — Here's What Happened to Drawdown | Yodacom Research" />
-	<meta property="og:description" content="A 74-day out-of-sample forward simulation of CoinRoc's RXI grid sleeve through the April–June 2026 Bitcoin bear market. No look-ahead. The regime detection layer did exactly what it was designed to do." />
-	<meta property="og:image" content="/research/coinroc-live-bear-market-2026/coinroc_live_sim_stress_final.png" />
+	<meta property="og:description" content="A 74-day out-of-sample forward simulation of CoinRoc's RXI grid sleeve through the April–June 2026 Bitcoin bear market. No look-ahead. Hypothetical simulation; results withdrawn while CoinRoc rebuilds its simulator with stricter assumptions." />
 </svelte:head>
 
 <!-- Article header -->
@@ -42,6 +41,10 @@
 		<svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 8H3M7 12l-4-4 4-4"/></svg>
 		Back to Research
 	</a>
+
+	<p class="mb-10 rounded-lg border border-rule bg-paper p-4 text-sm leading-relaxed text-slate">
+		Earlier versions of this page reported simulated returns; we&rsquo;ve withdrawn them while we rebuild our simulator with stricter assumptions. The results shown are hypothetical and were produced by a simulator that is being rebuilt with stricter assumptions. Hypothetical results have inherent limitations, including the benefit of hindsight, and no representation is made that any account will achieve similar results.
+	</p>
 
 	<!-- Section: The Question -->
 	<section class="mb-14">
@@ -110,16 +113,6 @@
 					<div class="text-xs text-slate-light">74 calendar days (&asymp; 0.20 years)</div>
 				</div>
 				<div>
-					<div class="mb-1 text-[0.68rem] uppercase tracking-widest text-slate-light">BTC close-to-close</div>
-					<div class="font-semibold text-navy-deep">~&minus;16%</div>
-					<div class="text-xs text-slate-light">$71,954 &rarr; $60,262</div>
-				</div>
-				<div>
-					<div class="mb-1 text-[0.68rem] uppercase tracking-widest text-slate-light">BTC peak-to-trough</div>
-					<div class="font-semibold text-navy-deep">~&minus;27%</div>
-					<div class="text-xs text-slate-light">Drawdown during the window</div>
-				</div>
-				<div>
 					<div class="mb-1 text-[0.68rem] uppercase tracking-widest text-slate-light">Grid sleeve</div>
 					<div class="font-semibold text-navy-deep">10 symbols, 10% of P3</div>
 					<div class="text-xs text-slate-light">Independently RXI-rated</div>
@@ -160,7 +153,7 @@
 			<figure>
 				<img
 					src="/research/coinroc-live-bear-market-2026/coinroc_live_sim_stress_zoom.gif"
-					alt="Animated chart showing P3 (CoinRoc portfolio) vs BTC price during the stress window from approximately May 22, 2026 onward. The two lines diverge: BTC trends downward through a sustained drawdown while the P3 portfolio line holds roughly flat, illustrating the RXI suspend mechanism stepping back from crypto exposure during the bear regime."
+					alt="Animated chart showing P3 (CoinRoc portfolio) vs BTC price during the stress window from approximately May 22, 2026 onward. The chart shows line shape only, with no numeric labels, and illustrates the RXI suspend mechanism in a simulated bear-market window. It is a hypothetical simulation result, not a statement of what any account earned."
 					loading="lazy"
 					class="w-full"
 					style="border-radius:6px;display:block;height:auto;"
@@ -172,7 +165,7 @@
 		</div>
 
 		<p class="mb-5 text-base leading-relaxed text-slate">
-			The visual above tells the mechanism story more clearly than numbers can. In the stress window beginning around May 22, 2026, BTC entered a sustained drawdown &mdash; eventually falling approximately 27% from its peak across the out-of-sample period. During this same window, the RXI-rated grid sleeve held roughly flat during this bear-market regime window.
+			The visual above tells the mechanism story more clearly than numbers can. In the stress window beginning around May 22, 2026, BTC entered a sustained drawdown. The chart shows how the simulated grid sleeve behaved over that same window; we are not stating a figure for either line while we rebuild our simulator.
 		</p>
 
 		<p class="mb-5 text-base leading-relaxed text-slate">
@@ -188,7 +181,7 @@
 			<figure>
 				<img
 					src="/research/coinroc-live-bear-market-2026/coinroc_live_sim_branded.gif"
-					alt="Animated chart showing the full four-line race from April 14 through June 27, 2026: P3 (CoinRoc portfolio), P2 (60/40 baseline), BTC buy-and-hold, and a fourth tracked position. The four lines separate over time, with BTC declining materially while the grid sleeve tracks a different path."
+					alt="Animated chart showing the full four-line race from April 14 through June 27, 2026: P3 (CoinRoc portfolio), P2 (60/40 baseline), BTC buy-and-hold, and a fourth tracked position. The chart shows relative trajectory only, with no numeric labels. It is a hypothetical simulation result."
 					loading="lazy"
 					class="w-full"
 					style="border-radius:6px;display:block;height:auto;"
@@ -217,7 +210,7 @@
 			<div class="flex gap-4">
 				<span class="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-ochre"></span>
 				<p class="text-base leading-relaxed text-slate">
-					In a regime where BTC experienced a sustained directional drawdown exceeding 27% peak-to-trough, the RXI suspend logic stepped back systematically &mdash; this is the exact behavior the regime detection layer was designed to produce.
+					In a regime where BTC experienced a sustained directional drawdown, the RXI suspend logic stepped back systematically &mdash; this is the exact behavior the regime detection layer was designed to produce.
 				</p>
 			</div>
 			<div class="flex gap-4">
@@ -288,7 +281,7 @@
 			<div class="border-l-2 border-rule pl-4">
 				<p class="mb-1 text-sm font-semibold text-navy-deep">Simulation, not a live track record.</p>
 				<p class="text-base leading-relaxed text-slate">
-					This is a simulated result using realistic friction. It is not a GIPS-compliant verified return. It is the most rigorous simulation we know how to run at this stage. It is still a simulation.
+					This is a simulated result using realistic friction. It is not a GIPS-compliant verified return. It is still a simulation.
 				</p>
 			</div>
 
@@ -307,7 +300,7 @@
 		<h2 class="mb-6 font-serif text-2xl leading-snug text-navy-ink">The Mechanism in Plain Language</h2>
 
 		<p class="mb-5 text-base leading-relaxed text-slate">
-			The RXI filter does something simple that is hard to do emotionally: it reduces exposure when conditions deteriorate, and restores it when conditions improve. Over this 74-day window, it held the portfolio roughly flat while BTC lost more than a quarter of its value from peak to trough &mdash; a result specific to this bear-market regime window, not a standing property of the mechanism in all conditions.
+			The RXI filter does something simple that is hard to do emotionally: it reduces exposure when conditions deteriorate, and restores it when conditions improve. In this 74-day simulated window the suspend logic fired repeatedly while BTC fell &mdash; a result specific to this bear-market regime window, not a standing property of the mechanism in all conditions.
 		</p>
 
 		<p class="mb-5 text-base leading-relaxed text-slate">

@@ -134,7 +134,7 @@
 
 <p>A $10,000 grid portfolio executing two full round-trip fills per day generates the following annual fee burden. The model uses average fill size = $100 per leg, 365 days/year, and assumes all fills execute at maker rate when post-only is enforced.</p>
 
-<p><strong>Table 3: Annual Fee Burden by Exchange and Order Type — $10,000 Portfolio</strong></p>
+<p><strong>Table 3: Annual Fee Burden by Exchange and Order Type — $10,000 Portfolio (the Mixed column uses the 35.2% taker share from the simulator's fill model)</strong></p>
 
 <div class="overflow-x-auto my-6">
 <table>
@@ -178,7 +178,7 @@
 
 <p>A grid strategy places limit orders at predetermined price levels. A limit buy order placed at $62,000 on BTC is, by design, resting in the order book below current market price. When price falls to $62,000, the order executes as a maker fill. This is the theory. The practice differs in one specific scenario: if the price has moved past a level between bars, then under GTC order type, the order executes immediately against existing book liquidity — a taker fill. The maker fee assumption is wrong.</p>
 
-<p>This is not an edge case. In crypto markets, which exhibit strong opening gap behavior at daily bar resolution, a meaningful fraction of grid buy orders are placed at levels the price has already passed at bar open. The GTX (Post-Only) order type corrects this: the exchange rejects orders that would execute as taker before acceptance. The question the study asked was: what is the net effect of those rejections on portfolio performance? Its simulated answer has been withdrawn (see 3.4).</p>
+<p>In the simulator's fill model, this is not an edge case. In crypto markets, which exhibit strong opening gap behavior at daily bar resolution, a meaningful fraction of grid buy orders are placed at levels the price has already passed at bar open. The GTX (Post-Only) order type corrects this: the exchange rejects orders that would execute as taker before acceptance. The question the study asked was: what is the net effect of those rejections on portfolio performance? Its simulated answer has been withdrawn (see 3.4).</p>
 
 <h3>3.2 Study Design</h3>
 
@@ -195,9 +195,9 @@
 
 <h3>3.3 Rejection Rate Findings</h3>
 
-<p>Of 12,645 total buy fills simulated under GTC, 4,452 would be rejected under GTX enforcement. The aggregate rejection rate is <strong>35.2%</strong>.</p>
+<p>Of 12,645 total buy fills simulated under GTC, 4,452 would be rejected under GTX enforcement. In the simulator's fill model, the aggregate rejection rate is <strong>35.2%</strong>.</p>
 
-<p><strong>Table 5: GTX Rejection Rate by Symbol</strong></p>
+<p><strong>Table 5: GTX Rejection Rate by Symbol (in the simulator's fill model)</strong></p>
 
 <div class="overflow-x-auto my-6">
 <table>
