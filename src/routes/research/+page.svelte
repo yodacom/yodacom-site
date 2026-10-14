@@ -513,13 +513,12 @@
 							Exchange Costs and Maker/Taker Execution for Grid Trading
 						</h2>
 						<p class="mb-5 text-sm leading-relaxed text-slate">
-							US exchange fee schedules compared for retail grid trading, and how standard GTC orders can fill as taker. Earlier versions of this page reported simulated returns; we've withdrawn them while we rebuild our simulator with stricter assumptions.
+							How standard GTC orders can fill as taker in retail grid trading, and what post-only execution changes. Fee figures and simulated returns have been withdrawn while we republish with current, sourced fee schedules and a rebuilt simulator.
 						</p>
 						<dl class="mb-5 grid grid-cols-2 gap-x-4 gap-y-2 border-y border-rule py-4 text-xs text-slate">
 							<dt class="text-slate-light">Authors</dt><dd>Han Kessel &middot; Jeremy J. Black</dd>
-							<dt class="text-slate-light">Window</dt><dd>2013–2025</dd>
-							<dt class="text-slate-light">Assets / Folds</dt><dd>4 symbols · 36 folds</dd>
-							<dt class="text-slate-light">Key finding</dt><dd>Simulated results withdrawn</dd>
+							<dt class="text-slate-light">Status</dt><dd>Fee figures withdrawn</dd>
+							<dt class="text-slate-light">Results</dt><dd>Simulated results withdrawn</dd>
 						</dl>
 						<a href="/research/exchange-costs-2026" class="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-ochre-deep transition hover:text-ochre">
 							Read paper B5
@@ -661,10 +660,10 @@
 							<span class="text-[0.68rem] uppercase tracking-widest text-slate-light">June 2026</span>
 						</div>
 						<h2 class="mb-4 font-serif text-2xl leading-snug text-navy-ink">
-							We Ran a CoinRoc Out-of-Sample Forward Simulation Through a Bear Market &mdash; Here&rsquo;s What Happened to Drawdown
+							CoinRoc in a Bear Market: An Out-of-Sample Forward Simulation
 						</h2>
 						<p class="mb-5 text-sm leading-relaxed text-slate">
-							A 74-day out-of-sample forward simulation of CoinRoc&rsquo;s RXI grid sleeve through the April&ndash;June 2026 Bitcoin bear market. No real capital. No look-ahead enforced at code level. The RXI engine fired 92 suspend and 83 resume events. The regime detection layer did exactly what it was designed to do.
+							This article has been withdrawn while we rebuild our simulator with stricter assumptions. Earlier versions reported simulated results from a 74-day window; we are not presenting them.
 						</p>
 						<dl class="mb-5 grid grid-cols-2 gap-x-4 gap-y-2 border-y border-rule py-4 text-xs text-slate">
 							<dt class="text-slate-light">Author</dt><dd>Yodacom Research</dd>
