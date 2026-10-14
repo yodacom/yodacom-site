@@ -172,46 +172,14 @@
 	<!-- What the research shows -->
 	<section class="mb-14">
 		<div class="eyebrow mb-3">What the Research Shows</div>
-		<h2 class="mb-6 font-serif text-2xl leading-snug text-navy-ink">Eight Years of Walk-Forward Simulation Across 17 Assets</h2>
+		<h2 class="mb-6 font-serif text-2xl leading-snug text-navy-ink">Simulated Results Withdrawn</h2>
 
 		<div class="mb-6 rounded-sm border border-rule bg-paper p-5 text-sm text-slate">
-			<p class="font-semibold text-navy-deep">Simulated results only &mdash; read this first</p>
-			<p class="mt-1">All results described below are from simulated backtesting only. CoinRoc has not yet deployed live trading sessions for any user account. No actual user capital has been traded using these strategies.</p>
+			<p class="mt-1">Earlier versions of this page reported simulated returns; we've withdrawn them while we rebuild our simulator with stricter assumptions. CoinRoc has not yet deployed live trading sessions for any user account, and no actual user capital has been traded using these strategies.</p>
 		</div>
 
 		<p class="mb-5 text-base leading-relaxed text-slate">
-			CoinRoc&rsquo;s backtesting program ran walk-forward simulations across eight years of historical data (2017&ndash;2025) covering 17 cryptocurrency assets and 135 valid annual test periods. Walk-forward testing is a methodologically rigorous approach that tests each period on data the model had not previously seen &mdash; it is the closest backtesting can get to simulating real-world deployment.
-		</p>
-
-		<p class="mb-5 text-base leading-relaxed text-slate">
-			One case from CoinRoc’s broader research program illustrates, concretely, what a regime-based approach can do in a severe historical test scenario.
-		</p>
-
-		<p class="mb-5 text-base leading-relaxed text-slate">
-			This case comes from a research-stage regime-classification model CoinRoc tested but has not deployed to its live product — a different, more complex classifier than the RXI engine described above, using a Hurst-exponent gate combined with trend and volatility-pattern signals rather than the ADX/Hurst/Shannon-entropy scoring described earlier on this page.
-		</p>
-
-		<p class="mb-5 text-base leading-relaxed text-slate">
-			During the 2018 ETH bear market, the asset fell approximately 82% on a buy-and-hold basis. An always-on grid running through that same period still lost approximately 62% &mdash; because even with the income mechanism active, the sustained one-directional decline overwhelmed the grid&rsquo;s ability to complete profitable round trips. The grid kept catching the knife.
-		</p>
-
-		<p class="mb-5 text-base leading-relaxed text-slate">
-			In this one research backtest — where the tested classifier’s Hurst-exponent gate read 0.605, above its 0.55 defensive threshold — the classifier correctly identified the period as trending, and simulated capital that would have been deployed into new grid levels was moved to cash. No new buy orders would have been placed.
-		</p>
-
-		<div class="mb-6 border border-rule bg-paper p-6">
-			<div class="mb-2 text-[0.72rem] font-semibold uppercase tracking-widest text-navy-deep">Hypothetical backtested result for RXI-gated strategy during ETH 2018: approximately 0%</div>
-			<p class="text-sm leading-relaxed text-slate">
-				The ~0% figure reflects the performance of that reserved capital, not liquidation of pre-existing positions &mdash; the soft pause does not close existing holdings. A user who held an open ETH position entering that period would still carry that position at a loss; RXI stops new capital from being added into the decline, it does not unwind what was already deployed.
-			</p>
-		</div>
-
-		<p class="mb-5 text-base leading-relaxed text-slate">
-			This is a real, correctly classified single case — not a representative outcome. Tested across the same 135-fold dataset this case is drawn from, this classification method underperformed an always-on, ungated grid on average: overall win rate fell from 41.5% to 26.7%, and win rate in bear-market folds specifically (buy-and-hold losses worse than ‒20%) fell from 100% to 69.8%. Most of the periods this method classified as “defensive” were bull-market periods where it sidelined capital from gains rather than protecting against losses — the mean buy-and-hold return across all 47 defensive-classified folds was <strong class="text-navy-deep">+253.6%</strong>. ETH 2018 is the exception that worked as designed in the single hardest test case, not the average outcome. We are showing both the case and the aggregate result here because a single favorable example, without the aggregate finding next to it, would overstate what this backtest actually demonstrated.
-		</p>
-
-		<p class="mb-5 text-base leading-relaxed text-slate">
-			Across the full dataset, this classifier flagged 47 of 135 valid test periods as defensive. The always-on grid’s mean return across those 47 periods was approximately −6%; within that set, the subset of periods with negative always-on returns averaged approximately −28%. As noted above, this same classifier’s aggregate win rate across the full dataset was lower than an always-on, ungated grid’s — not higher — so this figure should be read alongside that finding, not in isolation.
+			This page explains how the RXI engine works. It does not present a performance result for RXI or for any CoinRoc method, rating, or strategy.
 		</p>
 	</section>
 
@@ -246,14 +214,14 @@
 			<div class="border-l-2 border-rule pl-4">
 				<p class="mb-2 text-sm font-semibold text-navy-deep">If you are a CoinRoc user:</p>
 				<p class="text-base leading-relaxed text-slate">
-					RXI is the mechanism that makes a hands-off grid strategy more resilient across varying market conditions. Without it, you would need to monitor the market constantly and pause your bot manually during trends. With it, the system reads regime conditions continuously and manages deployment automatically &mdash; and when conditions warrant a pause, that pause fires without waiting for your input. You are not relying on instinct or timing. You are relying on a rules-based system backed by quantitative research, with a regime gate that is an integral part of the product you activated.
+					RXI is the mechanism that makes a hands-off grid strategy more resilient across varying market conditions. Without it, you would need to monitor the market constantly and pause your bot manually during trends. With it, the system reads regime conditions continuously and manages deployment automatically &mdash; and when conditions warrant a pause, that pause fires without waiting for your input. You are not relying on instinct or timing. You are relying on a rules-based system, with a regime gate that is an integral part of the product you activated.
 				</p>
 			</div>
 
 			<div class="border-l-2 border-rule pl-4">
 				<p class="mb-2 text-sm font-semibold text-navy-deep">A financial advisor evaluating CoinRoc</p>
 				<p class="text-base leading-relaxed text-slate">
-					would find a documented response to the question clients often raise &mdash; &ldquo;what does this do in a sustained sell-off?&rdquo; The answer is a rules-based, multi-indicator regime filter with a documented walk-forward simulation history of reducing simulated tail exposure in the scenarios that most stress-test it. The logic is explainable, the methodology is published, and the backtesting is structured and disclosed &mdash; elements that support the kind of documented, transparent process advisors typically require when evaluating any systematic tool.
+					would find a documented response to the question clients often raise &mdash; &ldquo;what does this do in a sustained sell-off?&rdquo; The answer is a rules-based, multi-indicator regime filter. The logic is explainable and the methodology is published &mdash; elements that support the kind of documented, transparent process advisors typically require when evaluating any systematic tool.
 				</p>
 			</div>
 		</div>
@@ -272,8 +240,7 @@
 				RXI is CoinRoc&rsquo;s market-regime detection engine. It combines trend strength (ADX), price-series memory (Hurst exponent), and information entropy (Shannon) into a weighted, tiered regime classification. When conditions indicate a trending market, it soft-pauses grid deployment automatically and without a user confirmation step, holding capital in reserve rather than buying into a directional decline. Users accept this behavior as a non-separable feature of the product when they activate a session.
 			</p>
 			<p class="mt-4 text-base leading-relaxed text-slate">
-				CoinRoc’s broader research program includes a walk-forward-tested regime-classification model — illustrated by the ETH 2018 scenario above — that correctly sidelined capital ahead of a severe drawdown in that one case. As detailed above, that same research-stage model underperformed an always-on grid on average across the full dataset it was tested on, so this scenario illustrates the mechanism’s design intent in one severe historical condition, not a demonstrated net benefit. It is not a guarantee. It is one documented research result, not a track record.
-			</p>
+				Earlier versions of this page reported simulated returns; we've withdrawn them while we rebuild our simulator with stricter assumptions.</p>
 			<p class="mt-4 text-base leading-relaxed text-slate">
 				That is what RXI is. That is what it does. And that is why it is the first layer in how CoinRoc approaches risk.
 			</p>
@@ -298,16 +265,10 @@
 			All performance figures, scenarios, and return estimates referenced on this page are derived from simulated, hypothetical, walk-forward backtesting conducted by Yodacom Research. <strong>These results do not represent actual trading by any user account. CoinRoc has not yet deployed live trading sessions; no actual user capital has been traded using these strategies.</strong> Backtested results are not a guarantee, projection, or estimate of future performance. Past simulated performance does not predict future results. Actual results will vary materially &mdash; and potentially substantially &mdash; from any simulated results.
 		</p>
 		<p class="mb-3">
-			The walk-forward simulation referenced covers the period 2017&ndash;2025 across 17 pre-selected cryptocurrency assets using historical OHLCV price data. Cryptocurrency assets selected for inclusion were identified based on data availability and liquidity thresholds; this selection process may not be representative of all available assets. Results are net of estimated exchange fees based on modeled retail-tier pricing. Actual costs, execution quality, slippage, and fill rates in live trading may differ materially from simulation assumptions.
-		</p>
-		<p class="mb-3">
-			The RXI soft-pause mechanism limits new grid order placement during detected trending market regimes. <strong>It does not liquidate or close existing open positions. It does not guarantee protection from loss. The ~0% backtested figure for the ETH 2018 scenario reflects capital that would have been held in reserve rather than deployed into new grid levels during that period &mdash; it does not reflect the outcome for capital already deployed in open positions prior to the regime signal.</strong> Losses are possible and have occurred in historical simulations during periods when regime classification was delayed relative to the onset of a trend or when a trend reversed rapidly.
+			The RXI soft-pause mechanism limits new grid order placement during detected trending market regimes. <strong>It does not liquidate or close existing open positions. It does not guarantee protection from loss.</strong> Losses are possible and have occurred in historical simulations during periods when regime classification was delayed relative to the onset of a trend or when a trend reversed rapidly.
 		</p>
 		<p class="mb-3">
 			The RXI regime suspension activates automatically when the signal conditions described above are met. No user approval is required and no user-configurable toggle exists to disable it within a live session. Users receive notification of an active pause after it triggers. CoinRoc does not make individualized or discretionary investment decisions on behalf of any user; the RXI gate is a rules-based, deterministic algorithm with published criteria, applied identically across all sessions regardless of any individual user&rsquo;s account characteristics or preferences.
-		</p>
-		<p class="mb-3">
-			The three-scenario comparison (approximately &minus;82% / &minus;62% / 0%) is derived from a single asset (ETH) during a single historical period (2018 bear market), using a research-stage regime-classification model tested by CoinRoc but not deployed to its live product. It is presented as an illustration of the mechanism under extreme conditions and is not representative of typical or expected results. Tested across the full 135-fold dataset this case is drawn from, this same classification method underperformed an always-on, ungated grid on average — overall win rate 41.5% vs. 26.7%, bear-fold win rate 100% vs. 69.8% — and most periods it classified as defensive were bull-market periods where it sidelined capital from gains rather than protecting against losses. Results across other assets, time periods, and classification methods varied significantly.
 		</p>
 		<p class="mb-3">
 			Grid trading in cryptocurrency markets involves substantial risk of loss, including the potential for complete loss of invested capital. Digital assets are highly volatile and speculative instruments. Regulatory treatment of digital assets is evolving and uncertain; future regulatory developments may materially affect the value, legality, or accessibility of digital assets.

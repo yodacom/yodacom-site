@@ -28,7 +28,7 @@
 	<dl class="mb-8 grid grid-cols-2 gap-x-6 gap-y-2 border-y border-rule py-5 text-xs text-slate sm:grid-cols-4">
 		<dt class="text-slate-light">Author</dt><dd>Han Kessel &middot; Trading/Algorithm Specialist, Yodacom Research</dd>
 		<dt class="text-slate-light">Scope</dt><dd>Sections 1&ndash;6 &middot; 97-symbol catalog, Year 2 blind forward test</dd>
-		<dt class="text-slate-light">Key finding</dt><dd>27/37 wrongly-hidden assets restored; 32/97 flagged thin liquidity</dd>
+		<dt class="text-slate-light">Key finding</dt><dd>32/97 flagged thin liquidity</dd>
 		<dt class="text-slate-light">Advisor summary</dt><dd><a href="/research/execution-aware-grading-2026" class="text-ochre-deep hover:text-ochre">Read the advisor article &rarr;</a></dd>
 	</dl>
 </header>
@@ -47,7 +47,7 @@
 
 <h2>Abstract</h2>
 
-<p>Standard backtesting-based grading systems evaluate a trading strategy's simulated performance under idealized assumptions: fills at the grid price, unlimited order-book depth, and no distinction between periods when the strategy is active versus when it is correctly holding cash. We document two systematic biases this introduces and the methodology used to correct them in CoinRoc's asset grading system. First, the <strong>blended-return bias</strong>: grading assets on their total portfolio return across a full evaluation window &mdash; including periods where the Adaptive Grid RXI (fuzzy inference system) correctly de-activated the grid &mdash; penalizes assets for market-level drawdowns the grid strategy was not responsible for. Second, the <strong>liquidity-optimism bias</strong>: presenting a grade derived from a clean backtest on an asset with a thin order book implies an execution quality the order book may not be able to support at the simulated scale. We describe the corrections shipped on 2026-06-12 and 2026-06-13, quantify their impact on the 97-symbol catalog, and bound the assumptions and data gaps that limit the strength of the current methodology. The unifying principle: a grade should represent what a strategy's simulated historical behavior in active windows suggests about its grid mechanism, not what a simulation with unlimited liquidity and no regime awareness would produce.</p>
+<p>Standard backtesting-based grading systems evaluate a trading strategy's simulated performance under idealized assumptions: fills at the grid price, unlimited order-book depth, and no distinction between periods when the strategy is active versus when it is correctly holding cash. We document two systematic biases this introduces and the methodology used to correct them in CoinRoc's asset grading system. First, the <strong>blended-return bias</strong>: grading assets on their total portfolio return across a full evaluation window &mdash; including periods where the Adaptive Grid RXI (fuzzy inference system) correctly de-activated the grid &mdash; penalizes assets for market-level drawdowns the grid strategy was not responsible for. Second, the <strong>liquidity-optimism bias</strong>: presenting a grade derived from a clean backtest on an asset with a thin order book implies an execution quality the order book may not be able to support at the simulated scale. We describe the corrections shipped on 2026-06-12 and 2026-06-13, describe their impact on the 97-symbol catalog, and bound the assumptions and data gaps that limit the strength of the current methodology. The unifying principle: a grade should represent what a strategy's simulated historical behavior in active windows suggests about its grid mechanism, not what a simulation with unlimited liquidity and no regime awareness would produce.</p>
 
 <h2>1. Introduction</h2>
 
@@ -73,7 +73,7 @@
 
 <p>The <code>grid_return_active_pct</code> column, added in migration 108, computes the grid strategy's return across only those sub-windows where gridEngagement &gt;= 0.65. This is the metric that answers the correct question: <strong>when the grid was running, how did it perform?</strong></p>
 
-<p>The active-period figures reported in &sect;2.3 below were computed by a separate, retrospective classification pass over historical candles. They are not derived from the live <code>gridEngagement</code> circuit-breaker described above; the specific backtest runs referenced in this section used a fixed engagement setting across all symbols for this test window.</p>
+<p>The active-period figures previously reported in &sect;2.3 (now withdrawn) were computed by a separate, retrospective classification pass over historical candles. They are not derived from the live <code>gridEngagement</code> circuit-breaker described above; the specific backtest runs referenced in this section used a fixed engagement setting across all symbols for this test window.</p>
 
 <h3>2.2 Methodology</h3>
 
@@ -97,46 +97,15 @@ threshold: -25% unchanged</code></pre>
 
 <p>Prior to the fix, approximately 48 assets were visible on Discovery. Approximately 37 were hidden by the -25% blended return filter.</p>
 
-<p>SQL analysis of the 37 hidden assets against the active-period metric:</p>
+<p>Earlier versions of this page reported simulated returns; we've withdrawn them while we rebuild our simulator with stricter assumptions.</p>
 
-<table>
-<thead><tr><th>Category</th><th>Count</th></tr></thead>
-<tbody>
-<tr><td>Total hidden by blended filter</td><td>37</td></tr>
-<tr><td>Would pass active-period filter (active &gt;= -25%)</td><td>27 (73%)</td></tr>
-<tr><td>Genuinely failing on both metrics (active &lt; -25%)</td><td>10 (27%)</td></tr>
-<tr><td>Active-period return is positive (grid was profitable in active windows)</td><td>6</td></tr>
-</tbody>
-</table>
-
-<p>Selected assets from the named-major review:</p>
-
-<p>Note: the Regime-Active % column is the retrospective classification described in &sect;2.1, not the live <code>gridEngagement</code> gate. The Blended Return and Active Return figures for all nine symbols below come from backtest runs that used a fixed grid-engagement setting, not the live RXI decision.</p>
-
-<table>
-<thead><tr><th>Symbol</th><th>Blended Return</th><th>Active Return</th><th>Regime-Active % (Yr2, retrospective classifier — see &sect;2.1 note)</th><th>Verdict</th></tr></thead>
-<tbody>
-<tr><td>SOLUSDT</td><td>-45.5%</td><td>-9.8%</td><td>77.0%</td><td>Wrongly hidden</td></tr>
-<tr><td>LINKUSDT</td><td>-39.6%</td><td>+2.1%</td><td>71.2%</td><td>Wrongly hidden</td></tr>
-<tr><td>ALGOUSDT</td><td>-38.5%</td><td>-12.2%</td><td>71.2%</td><td>Wrongly hidden</td></tr>
-<tr><td>HBARUSDT</td><td>-35.5%</td><td>+0.8%</td><td>67.4%</td><td>Wrongly hidden</td></tr>
-<tr><td>DOGEUSDT</td><td>-30.1%</td><td>-5.1%</td><td>71.2%</td><td>Wrongly hidden</td></tr>
-<tr><td>BCHUSDT</td><td>-27.9%</td><td>+3.9%</td><td>86.3%</td><td>Wrongly hidden</td></tr>
-<tr><td>ADAUSDT</td><td>-43.4%</td><td>-25.8%</td><td>55.6%</td><td>Genuinely failing</td></tr>
-<tr><td>BTCUSDT</td><td>-31.8%</td><td>-40.2%</td><td>100.0%</td><td>Genuinely failing</td></tr>
-<tr><td>SHIBUSDT</td><td>-25.7%</td><td>-28.8%</td><td>82.7%</td><td>Genuinely failing</td></tr>
-</tbody>
-</table>
-
-<p><strong>The BTC case is instructive as a sanity check.</strong> BTC's blended and active-period returns are identical (-40.2% both) because the retrospective classifier found no candles in Year 2 it would exclude from the active window &mdash; not because BTC's simulation run itself avoided a pause state (this test's engagement setting was fixed, not live-gated; see &sect;2.1). This numeric equivalence is still a valid sanity check on the active-period metric's construction: since no candles were excluded, no distortion could have been introduced by the exclusion step, regardless of what generated the underlying P&amp;L. The -40.2% active return is a genuine grid mechanism failure, and BTC is correctly filtered from Discovery regardless of which metric is used.</p>
-
-<p><strong>Post-fix state:</strong> Visible assets on Discovery moved from approximately 48 to approximately 75 (of 97), with genuinely failing assets shown in the <code>hiddenAtTier</code> section with explicit reason labels.</p>
+<p><strong>Post-fix state:</strong> Assets that fail the active-period filter are shown in the <code>hiddenAtTier</code> section with explicit reason labels.</p>
 
 <h3>2.4 Interpretation Constraints</h3>
 
 <p>The active-period return metric answers a narrower question than the blended return does &mdash; and that narrowness is the point. It does not answer &ldquo;how would a portfolio perform if held for all of Year 2 with this strategy?&rdquo; It answers &ldquo;how did the grid mechanism perform when the RXI chose to run it?&rdquo;</p>
 
-<p>These are different questions. A user considering CoinRoc's grid strategy is implicitly accepting the RXI's judgment about when to run. If the RXI is correct in its regime classification, the active-period return is the better predictor of what the user will experience during active windows. If the RXI is wrong (it classifies trending markets as ranging, engages the grid, and loses), the blended return and active return converge &mdash; as they do for BTC.</p>
+<p>These are different questions. A user considering CoinRoc's grid strategy is implicitly accepting the RXI's judgment about when to run. If the RXI is correct in its regime classification, the active-period return is the better predictor of what the user will experience during active windows. If the RXI is wrong (it classifies trending markets as ranging, engages the grid, and loses), the blended return and active return converge.</p>
 
 <p>The split between the two metrics is therefore also a signal about RXI regime accuracy, which is a separate validation question not addressed in this paper.</p>
 
@@ -287,7 +256,7 @@ threshold: -25% unchanged</code></pre>
 
 <p>The switch to active-period return assumes that the RXI is correctly classifying market regimes &mdash; that paused periods genuinely represent market conditions where the grid strategy should not run. If the RXI has systematic classification errors (e.g., it pauses too long in mildly trending markets that a grid could profitably navigate), the active-period return would overstate the grid mechanism's quality by excluding windows where the RXI was wrong to step aside.</p>
 
-<p>Validating RXI regime accuracy is a separate research question. The active-period metric is preferable to the blended metric under the assumption that the RXI is reasonably calibrated. The BTC case provides a partial validation of the metric's construction, though not of live RXI behavior: BTC's active and blended returns are identical (-40.2% both) because the retrospective classifier found no candles to exclude for BTC in Year 2 &mdash; not because a live grid-engagement gate ran the strategy on BTC throughout the period (this test's engagement setting was fixed, not live-gated; see &sect;2.1).</p>
+<p>Validating RXI regime accuracy is a separate research question. The active-period metric is preferable to the blended metric under the assumption that the RXI is reasonably calibrated.</p>
 
 <h3>5.5 Year 2 Forward Test as a Single Walk-Forward Fold</h3>
 
@@ -297,7 +266,7 @@ threshold: -25% unchanged</code></pre>
 
 <p>CoinRoc's grading system now applies two corrections that together constitute execution-aware grading: evaluation on the active-period window when the grid strategy is running, and a liquidity cap when the order book cannot deliver the execution quality implied by the backtest.</p>
 
-<p>The empirical results are substantively meaningful. Applying the active-period filter restored approximately 27 of 37 wrongly-hidden assets to Discovery &mdash; including major assets like LINK, SOL, DOGE, BCH, and HBAR &mdash; while correctly preserving the hidden status of assets like BTC and SHIB that fail on the grid mechanism's own terms. Applying liquidity-aware grading flagged 32 of 97 assets as thin, capped none of the major assets, and disclosed the execution gap explicitly to users.</p>
+<p>Earlier versions of this page reported simulated returns; we've withdrawn them while we rebuild our simulator with stricter assumptions. Applying liquidity-aware grading flagged 32 of 97 assets as thin, capped none of the major assets, and disclosed the execution gap explicitly to users.</p>
 
 <p>Both corrections share a design property that is worth naming explicitly: they surface more information rather than less. Assets are not hidden because they are hard to explain. The genuinely failing assets are shown, with their reason for exclusion. The thin-liquidity assets are shown, with their execution ceiling disclosed. The system becomes more honest, not less, about the limits of its own analysis.</p>
 

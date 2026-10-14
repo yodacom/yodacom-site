@@ -197,18 +197,14 @@
 							Intelligent Grid Trading: What 13 Years of Crypto Data Actually Shows
 						</h2>
 						<p class="mb-5 text-sm leading-relaxed text-slate">
-							We ran a walk-forward backtest of an adaptive grid trading strategy across 17 major
-							cryptocurrencies, 13 years of daily data, and 135 valid test folds. The strategy posts
-							a 100% win rate against buy-and-hold in confirmed bear-market folds, with meaningful
-							capital preservation when markets fall. RXI v2 regime gating improved average alpha
-							from &minus;578% to &minus;464%. Forward confidence: 6.5/10.
+							This paper asked how an adaptive grid trading strategy performs in a walk-forward backtest across 17 cryptocurrencies, and how regime gating changes the picture. Earlier versions of this page reported simulated returns; we've withdrawn them while we rebuild our simulator with stricter assumptions.
 						</p>
 
 						<dl class="mb-5 grid grid-cols-2 gap-x-4 gap-y-2 border-y border-rule py-4 text-xs text-slate">
 							<dt class="text-slate-light">Authors</dt><dd>Jeremy J. Black &middot; Yodacom Research AI Team</dd>
 							<dt class="text-slate-light">Window</dt><dd>2011&ndash;2025</dd>
 							<dt class="text-slate-light">Assets / Folds</dt><dd>17 symbols · 135 folds</dd>
-							<dt class="text-slate-light">Key finding</dt><dd>100% bear-fold win rate</dd>
+							<dt class="text-slate-light">Key finding</dt><dd>Simulated results withdrawn</dd>
 						</dl>
 
 						<a
@@ -248,20 +244,14 @@
 							Gridium and the Efficient Frontier: Diversification Benefits Across Asset Classes
 						</h2>
 						<p class="mb-5 text-sm leading-relaxed text-slate">
-							We examine whether adding a crypto grid trading sleeve to a traditional equity/bond/gold
-							portfolio produces a measurable shift in the efficient frontier. Across nine
-							portfolio-years (2017–2025), we find near-zero correlation between grid strategy returns
-							and equity markets (&rho;&nbsp;=&nbsp;0.02 vs.&nbsp;SPY). The diversification benefit
-							is real but conditional: a 10–20% grid allocation improves portfolio Sharpe in
-							forward-looking scenarios where the strategy generates positive returns, with regime
-							filtering reducing crash-year exposure.
+							This note asked whether adding a crypto grid trading sleeve to an equity, bond, and gold portfolio shifts the efficient frontier. Earlier versions of this page reported simulated returns; we've withdrawn them while we rebuild our simulator with stricter assumptions.
 						</p>
 
 						<dl class="mb-5 grid grid-cols-2 gap-x-4 gap-y-2 border-y border-rule py-4 text-xs text-slate">
 							<dt class="text-slate-light">Authors</dt><dd>Han Kessel, Jeremy J. Black</dd>
 							<dt class="text-slate-light">Window</dt><dd>2017–2025</dd>
 							<dt class="text-slate-light">Assets / Folds</dt><dd>17 symbols · 135 folds</dd>
-							<dt class="text-slate-light">Key finding</dt><dd>&rho;&nbsp;=&nbsp;0.02 vs. SPY</dd>
+							<dt class="text-slate-light">Key finding</dt><dd>Simulated results withdrawn</dd>
 						</dl>
 
 						<a
@@ -301,18 +291,14 @@
 							Crypto Grid Trading vs. Options for Income: An Honest Comparison
 						</h2>
 						<p class="mb-5 text-sm leading-relaxed text-slate">
-							Options strategies achieve higher Sharpe ratios than our grid strategy. We confirm this
-							and explain why Sharpe is the least interesting fact in this comparison. The complete
-							picture &mdash; tail risk, automation feasibility, capital requirements, and crisis
-							behavior &mdash; tells a more nuanced story. Neither strategy dominates; which one fits
-							depends on the investor.
+							This paper asked how crypto grid trading compares with systematic options-for-income strategies on risk-adjusted return, tail risk, capital requirements, and automation. Earlier versions of this page reported simulated returns; we've withdrawn them while we rebuild our simulator with stricter assumptions.
 						</p>
 
 						<dl class="mb-5 grid grid-cols-2 gap-x-4 gap-y-2 border-y border-rule py-4 text-xs text-slate">
 							<dt class="text-slate-light">Authors</dt><dd>Han Kessel &middot; Jeremy J. Black</dd>
 							<dt class="text-slate-light">Window</dt><dd>2013&ndash;2025 (grid); 1986&ndash;2025 (options)</dd>
 							<dt class="text-slate-light">Assets / Folds</dt><dd>17 symbols &middot; 135 folds</dd>
-							<dt class="text-slate-light">Key finding</dt><dd>Sharpe gap is partly arithmetic, not alpha</dd>
+							<dt class="text-slate-light">Key finding</dt><dd>Simulated results withdrawn</dd>
 						</dl>
 
 						<a
@@ -352,17 +338,14 @@
 							Grid Trading in the Modern Crypto Era: 2019&ndash;2025
 						</h2>
 						<p class="mb-5 text-sm leading-relaxed text-slate">
-							Walk-forward analysis of 85 folds across 17 assets in the modern crypto era. The RXI v2
-							gate held cash during 71.8% of periods &mdash; including all major bear years. Result:
-							100% bear-fold capital protection across all 29 folds where buy-and-hold fell more than
-							20%. Mean max drawdown: 1.0% vs. 25.0% for the always-on baseline.
+							This paper asked how a regime-gated grid strategy behaves in a walk-forward study of the 2019–2025 market era. Earlier versions of this page reported simulated returns; we've withdrawn them while we rebuild our simulator with stricter assumptions.
 						</p>
 
 						<dl class="mb-5 grid grid-cols-2 gap-x-4 gap-y-2 border-y border-rule py-4 text-xs text-slate">
 							<dt class="text-slate-light">Authors</dt><dd>Han Kessel &middot; Jeremy J. Black</dd>
 							<dt class="text-slate-light">Window</dt><dd>2019&ndash;2025</dd>
 							<dt class="text-slate-light">Assets / Folds</dt><dd>17 symbols &middot; 85 folds</dd>
-							<dt class="text-slate-light">Key finding</dt><dd>100% bear-fold win rate, 1.0% mean drawdown</dd>
+							<dt class="text-slate-light">Key finding</dt><dd>Simulated results withdrawn</dd>
 						</dl>
 
 						<a
@@ -402,17 +385,14 @@
 							The Vault Test: Near-Blind Out-of-Sample Validation of CoinRoc&rsquo;s Three-State RXI, 2023&ndash;2025
 						</h2>
 						<p class="mb-5 text-sm leading-relaxed text-slate">
-							RXI thresholds locked before 2023, then run unchanged across 51 out-of-sample folds.
-							Three-state strategy mean: +3.8% vs. +0.6% two-state baseline. Bear-fold win rate:
-							100% (20/20). The direction guard prevents the momentum sleeve from firing into declining
-							markets by design &mdash; the protection story is unchanged from Paper 8.
+							This study asked whether regime thresholds fixed before 2023 held up when applied unchanged to 2023–2025 data. Earlier versions of this page reported simulated returns; we've withdrawn them while we rebuild our simulator with stricter assumptions.
 						</p>
 
 						<dl class="mb-5 grid grid-cols-2 gap-x-4 gap-y-2 border-y border-rule py-4 text-xs text-slate">
 							<dt class="text-slate-light">Authors</dt><dd>Han Kessel &middot; Lando (editorial)</dd>
 							<dt class="text-slate-light">Window</dt><dd>2023&ndash;2025 (out-of-sample)</dd>
 							<dt class="text-slate-light">Assets / Folds</dt><dd>17 symbols &middot; 51 folds</dd>
-							<dt class="text-slate-light">Key finding</dt><dd>+3.2 pp mean improvement, 100% bear-fold win rate</dd>
+							<dt class="text-slate-light">Key finding</dt><dd>Simulated results withdrawn</dd>
 						</dl>
 
 						<a
@@ -452,18 +432,14 @@
 							When the Market Trends Hard, Your Income Strategy Should Step Aside: A Rules-Based Regime Filter for Crypto Income
 						</h2>
 						<p class="mb-5 text-sm leading-relaxed text-slate">
-							In 2022, covered call income fell with equity. This paper examines whether crypto grid
-							trading with RXI regime detection offers a structurally different income mechanism &mdash;
-							one where income and risk do not share the same source. The ETH 2018 anchor case:
-							buy-and-hold &minus;82.4%, always-on grid &minus;61.6%, RXI-gated 0%. Written for
-							financial advisors navigating the income-in-retirement conversation.
+							This paper asked whether crypto grid trading with RXI regime detection offers an income mechanism that is structurally different from equity-linked income strategies. Earlier versions of this page reported simulated returns; we've withdrawn them while we rebuild our simulator with stricter assumptions.
 						</p>
 
 						<dl class="mb-5 grid grid-cols-2 gap-x-4 gap-y-2 border-y border-rule py-4 text-xs text-slate">
 							<dt class="text-slate-light">Author</dt><dd>Jeremy J. Black &middot; Yodacom Research</dd>
 							<dt class="text-slate-light">Window</dt><dd>2017&ndash;2025</dd>
 							<dt class="text-slate-light">Assets / Folds</dt><dd>17 symbols &middot; 135 folds</dd>
-							<dt class="text-slate-light">Key finding</dt><dd>RXI gating: &minus;24.2% avg &#8594; 0% in defensive periods</dd>
+							<dt class="text-slate-light">Key finding</dt><dd>Simulated results withdrawn</dd>
 						</dl>
 
 						<a
@@ -499,12 +475,12 @@
 							What the 2020–2025 Crypto Cycle Reveals About Rules-Based Income — And Why 2022 Changed the Conversation
 						</h2>
 						<p class="mb-5 text-sm leading-relaxed text-slate">
-							In 2022, Bitcoin fell 65% and the median crypto asset lost 72.7% of its value. An RXI&#x2122;-gated, rules-based grid system held flat and compounded — finishing the full cycle at $19,609 on a $10,000 start, edging the S&amp;P 500's $18,703. Here is the mechanism and what it means for the advisor conversation.
+							This article asked how a rules-based, regime-gated grid system would have behaved through the 2020–2025 crypto cycle, and what that means for the advisor conversation. Earlier versions of this page reported simulated returns; we've withdrawn them while we rebuild our simulator with stricter assumptions.
 						</p>
 						<dl class="mb-5 grid grid-cols-2 gap-x-4 gap-y-2 border-y border-rule py-4 text-xs text-slate">
 							<dt class="text-slate-light">Author</dt><dd>Jeremy J. Black &middot; Yodacom Research</dd>
 							<dt class="text-slate-light">Window</dt><dd>2020–2025 (complete modern cycle)</dd>
-							<dt class="text-slate-light">Key finding</dt><dd>L3 +11.9% CAGR vs. S&amp;P 500 +11.0% (simulated)</dd>
+							<dt class="text-slate-light">Key finding</dt><dd>Simulated results withdrawn</dd>
 							<dt class="text-slate-light">Audience</dt><dd>Financial advisors / RIAs</dd>
 						</dl>
 						<a href="/research/modern-market-2026" class="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-ochre-deep transition hover:text-ochre">
@@ -534,16 +510,16 @@
 							<span class="text-[0.68rem] uppercase tracking-widest text-slate-light">June 2026</span>
 						</div>
 						<h2 class="mb-4 font-serif text-2xl leading-snug text-navy-ink">
-							Exchange Costs, Maker/Taker Execution, and Their Quantified Impact on Grid Trading Returns
+							Exchange Costs and Maker/Taker Execution for Grid Trading
 						</h2>
 						<p class="mb-5 text-sm leading-relaxed text-slate">
-							A 37-fold difference in annual fees. A 35.2% taker fill rate under standard GTC orders. GTX post-only enforcement improved average grid returns from &minus;9.99% to +4.73% — with the mechanism being crash prevention, not fee saving. Full walk-forward study across 4 symbols, 36 folds, 2013–2025.
+							US exchange fee schedules compared for retail grid trading, and how standard GTC orders can fill as taker. Earlier versions of this page reported simulated returns; we've withdrawn them while we rebuild our simulator with stricter assumptions.
 						</p>
 						<dl class="mb-5 grid grid-cols-2 gap-x-4 gap-y-2 border-y border-rule py-4 text-xs text-slate">
 							<dt class="text-slate-light">Authors</dt><dd>Han Kessel &middot; Jeremy J. Black</dd>
 							<dt class="text-slate-light">Window</dt><dd>2013–2025</dd>
 							<dt class="text-slate-light">Assets / Folds</dt><dd>4 symbols · 36 folds</dd>
-							<dt class="text-slate-light">Key finding</dt><dd>GTX: &minus;9.99% &rarr; +4.73% avg return (+14.7pp)</dd>
+							<dt class="text-slate-light">Key finding</dt><dd>Simulated results withdrawn</dd>
 						</dl>
 						<a href="/research/exchange-costs-2026" class="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-ochre-deep transition hover:text-ochre">
 							Read paper B5
@@ -613,13 +589,13 @@
 							Inventory-Aware Grid Management: A Regime-Adaptive Circuit Breaker for Crypto Grid Strategies
 						</h2>
 						<p class="mb-5 text-sm leading-relaxed text-slate">
-							RXI v2 monitors market structure from the outside. The inventory circuit breaker monitors the portfolio's own balance sheet from the inside. Walk-forward validation across 17 symbols and 135 folds: zero spurious fires in 28 bull folds; 70.6% detection in 17 confirmed 2022 bear folds; +5.09% average alpha improvement when fired. Five-iteration gate design documented.
+							This paper asked whether a rule that monitors a grid's own inventory and drawdown could limit losses in sustained downtrends without interfering in rising markets. Earlier versions of this page reported simulated returns; we've withdrawn them while we rebuild our simulator with stricter assumptions.
 						</p>
 						<dl class="mb-5 grid grid-cols-2 gap-x-4 gap-y-2 border-y border-rule py-4 text-xs text-slate">
 							<dt class="text-slate-light">Authors</dt><dd>Han Kessel &middot; Jeremy J. Black, Editor</dd>
 							<dt class="text-slate-light">Window</dt><dd>2013&ndash;2025</dd>
 							<dt class="text-slate-light">Assets / Folds</dt><dd>17 symbols · 135 folds</dd>
-							<dt class="text-slate-light">Key finding</dt><dd>Zero spurious bull fires; +5.09% avg alpha in bear folds</dd>
+							<dt class="text-slate-light">Key finding</dt><dd>Simulated results withdrawn</dd>
 						</dl>
 						<a href="/research/inventory-circuit-breaker" class="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-ochre-deep transition hover:text-ochre">
 							Read paper B6
@@ -651,13 +627,13 @@
 							Cross-Asset Efficient Frontier: Grid Trading as a Portfolio Diversifier
 						</h2>
 						<p class="mb-5 text-sm leading-relaxed text-slate">
-							Near-zero correlation with US equities (&rho;&nbsp;&asymp;&nbsp;+0.02 over nine backtested years). The full allocation sweep shows no Sharpe-positive grid allocation in the 9-year historical dataset — and shows a marginal +0.03 improvement at 10&ndash;20% under a +8% forward-return scenario. Both stories presented together, as Matlock requires.
+							This paper asked whether adding a crypto grid sleeve to a traditional portfolio changes the portfolio's risk and return. Earlier versions of this page reported simulated returns; we've withdrawn them while we rebuild our simulator with stricter assumptions.
 						</p>
 						<dl class="mb-5 grid grid-cols-2 gap-x-4 gap-y-2 border-y border-rule py-4 text-xs text-slate">
 							<dt class="text-slate-light">Authors</dt><dd>Han Kessel &middot; Jeremy J. Black</dd>
 							<dt class="text-slate-light">Window</dt><dd>2017&ndash;2025 (9 years)</dd>
 							<dt class="text-slate-light">Assets / Folds</dt><dd>17 symbols · 135 folds</dd>
-							<dt class="text-slate-light">Key finding</dt><dd>&rho;&nbsp;=&nbsp;0.02 vs. SPY; conditional diversification benefit</dd>
+							<dt class="text-slate-light">Key finding</dt><dd>Simulated results withdrawn</dd>
 						</dl>
 						<a href="/research/cross-asset-ef" class="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-ochre-deep transition hover:text-ochre">
 							Read paper B7
@@ -727,13 +703,13 @@
 							Does Algorithmic Grid Trading Belong in a Satellite Allocation? A Due-Diligence Evaluation Framework
 						</h2>
 						<p class="mb-5 text-sm leading-relaxed text-slate">
-							Near-zero correlation with equities (&rho;&nbsp;&asymp;&nbsp;+0.02 over nine observation years) and specific fee structure implications set grid trading apart from passive crypto exposure. Post-only enforcement improved average returns from &minus;9.99% to +4.73% &mdash; the single largest return driver in the research. Five questions a rigorous evaluation would address. The honest version of the allocation case.
+							This article asked what a rigorous due-diligence process would ask about an algorithmic grid trading strategy considered for a satellite allocation. Earlier versions of this page reported simulated returns; we've withdrawn them while we rebuild our simulator with stricter assumptions.
 						</p>
 						<dl class="mb-5 grid grid-cols-2 gap-x-4 gap-y-2 border-y border-rule py-4 text-xs text-slate">
 							<dt class="text-slate-light">Author</dt><dd>Jeremy J. Black, Founder, Yodacom</dd>
 							<dt class="text-slate-light">Window</dt><dd>2013&ndash;2025 (walk-forward)</dd>
 							<dt class="text-slate-light">Assets / Folds</dt><dd>17 symbols · 135 folds</dd>
-							<dt class="text-slate-light">Key finding</dt><dd>Post-only enforcement: +14.7pp avg return improvement</dd>
+							<dt class="text-slate-light">Key finding</dt><dd>Simulated results withdrawn</dd>
 						</dl>
 						<a href="/research/grid-trading-due-diligence-2026" class="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-ochre-deep transition hover:text-ochre">
 							Read article B2
@@ -765,12 +741,12 @@
 							How CoinRoc Knows When to Step Aside: Understanding the RXI Regime Engine
 						</h2>
 						<p class="mb-5 text-sm leading-relaxed text-slate">
-							RXI fuses four mathematical signals &mdash; ADX (trend strength), Hurst exponent (mean-reversion vs. persistence), Shannon and Tsallis entropy (order vs. noise), and ATR (volatility scale) &mdash; into a confidence-weighted regime call. When it fires TREND_FOLLOWING, grid deployment pauses automatically, without a user confirmation step. ETH 2018 anchor case: buy-and-hold &minus;82%, always-on grid &minus;62%, RXI-gated 0% (hypothetical, backtested).
+							RXI fuses four mathematical signals — ADX (trend strength), Hurst exponent (mean-reversion vs. persistence), Shannon and Tsallis entropy (order vs. noise), and ATR (volatility scale) — into a confidence-weighted regime call. When it fires TREND_FOLLOWING, grid deployment pauses automatically, without a user confirmation step. Earlier versions of this page reported simulated returns; we've withdrawn them while we rebuild our simulator with stricter assumptions.
 						</p>
 						<dl class="mb-5 grid grid-cols-2 gap-x-4 gap-y-2 border-y border-rule py-4 text-xs text-slate">
 							<dt class="text-slate-light">Registry ID</dt><dd>FIS-LESSON-01</dd>
 							<dt class="text-slate-light">Audience</dt><dd>CoinRoc users &middot; Financial professionals</dd>
-							<dt class="text-slate-light">Key finding</dt><dd>RXI gating: &minus;24% avg &#8594; 0% in 47 defensive periods</dd>
+							<dt class="text-slate-light">Key finding</dt><dd>Simulated results withdrawn</dd>
 							<dt class="text-slate-light">Channel</dt><dd>yodacom.com/research</dd>
 						</dl>
 						<a href="/research/fis-regime-engine" class="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-ochre-deep transition hover:text-ochre">
@@ -808,7 +784,7 @@
 						<dl class="mb-5 grid grid-cols-2 gap-x-4 gap-y-2 border-y border-rule py-4 text-xs text-slate">
 							<dt class="text-slate-light">Author</dt><dd>Lando &middot; Yodacom Research</dd>
 							<dt class="text-slate-light">Audience</dt><dd>Financial advisors, RIAs, wealth managers</dd>
-							<dt class="text-slate-light">Key finding</dt><dd>27/37 wrongly-hidden assets restored to Discovery</dd>
+							<dt class="text-slate-light">Key finding</dt><dd>Active-period return replaces blended return</dd>
 							<dt class="text-slate-light">Novel finding</dt><dd>32/97 assets flagged thin liquidity; 0 majors capped</dd>
 						</dl>
 						<a href="/research/execution-aware-grading-2026" class="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-ochre-deep transition hover:text-ochre">

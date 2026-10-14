@@ -71,39 +71,11 @@
 
 <p>The problem arose in how the previous grading system evaluated performance: it used a blended full-period return &mdash; total portfolio return across the entire evaluation window, including periods when the RXI had correctly paused new buys. For an asset that trended down 40% while the RXI was in a paused state, the blended return absorbed that 40% directional move even though the grid strategy had deliberately not participated in it.</p>
 
-<p>The practical distortion was significant. In the 97-asset catalog analyzed by Yodacom Research, approximately 37 assets were being hidden from Discovery by a performance filter based on this blended return metric. SQL analysis against the corrected active-period return (grid performance evaluated only in windows when the RXI classified the market as grid-appropriate) found that 27 of those 37 assets &mdash; 73% &mdash; would pass the filter under the correct metric. Six of those 27 showed positive active-period grid returns despite strongly negative blended returns.</p>
+<p>The practical distortion was significant. In the 97-asset catalog analyzed by Yodacom Research, approximately 37 assets were being hidden from Discovery by a performance filter based on this blended return metric. Earlier versions of this page reported simulated returns; we've withdrawn them while we rebuild our simulator with stricter assumptions.</p>
 
 <div class="my-8 not-prose rounded border border-rule bg-paper px-5 py-4 text-sm italic leading-relaxed text-slate">
 	Figure removed pending correction (2026-07-08) &mdash; the prior chart labeled its regime-classification figures as describing a live cash-hold mechanism for the specific backtest runs shown; that description was inaccurate on two counts (a fabricated mechanism name, and a liquidation claim the live engine does not do -- it pauses new buys, it does not hold to cash). A corrected figure will be republished once relabeled. See the interactive explainer below and the methodology paper for the current, accurate description.
 </div>
-
-<div class="my-8 not-prose">
-	<div class="text-xs font-semibold uppercase tracking-wider text-slate-light mb-2">Interactive Explainer &mdash; Active vs. Blended Return</div>
-	<iframe
-		src="/research/execution-aware-grading-2026/explainer-active-vs-blended.html"
-		title="Interactive explainer — active vs. blended return"
-		class="w-full rounded border border-rule"
-		style="height: 640px; border: none;"
-		loading="lazy"
-		scrolling="no"
-	></iframe>
-</div>
-
-<table>
-<thead><tr><th>Symbol</th><th>Blended Return</th><th>Active-Period Return</th><th>Regime-Active % (retrospective classifier)</th></tr></thead>
-<tbody>
-<tr><td>SOL/USDT</td><td>-45.5%</td><td>-9.8%</td><td>77.0%</td></tr>
-<tr><td>LINK/USDT</td><td>-39.6%</td><td>+2.1%</td><td>71.2%</td></tr>
-<tr><td>BCH/USDT</td><td>-27.9%</td><td>+3.9%</td><td>86.3%</td></tr>
-<tr><td>DOGE/USDT</td><td>-30.1%</td><td>-5.1%</td><td>71.2%</td></tr>
-</tbody>
-</table>
-
-<p class="text-xs text-slate-light italic">Regime-Active % is computed by a separate, after-the-fact classification pass over historical candles &mdash; not the gate that determined trading activity in the backtests shown here.</p>
-
-<p><em>All figures are simulated backtest results from a Year 2 blind forward test. Past simulated performance is not indicative of future results. All figures reflect the retail-binance-us fee tier, Year 2 blind forward test window, under a specific grid strategy configuration. Results will differ at other fee tiers, capital sizes, or grid configurations.</em></p>
-
-<p>The BTC case provides a useful validation. BTC's active-period return equals its blended return (-40.2% both) because the retrospective regime classifier used to compute the active-period window found no candles in the period it would exclude &mdash; not because the simulation itself paused the strategy. (The specific backtests referenced in this article used a fixed grid-engagement setting across all symbols; see the methodology paper, &sect;2.1, for the distinction between that test configuration and the RXI's designed pause-and-resume behavior.) BTC is correctly hidden regardless of which metric is used. The corrected methodology rescues assets that were wrongly penalized; it does not rescue assets that genuinely fail on the grid mechanism's own terms.</p>
 
 <p>For due-diligence purposes: the appropriate question to ask about any grid strategy grade is not &ldquo;what was the portfolio return over this period?&rdquo; but &ldquo;what was the grid mechanism's return during the windows when it was running?&rdquo; These can diverge substantially in trending markets. A grade that blends the two gives you a number that corresponds to neither question cleanly.</p>
 
