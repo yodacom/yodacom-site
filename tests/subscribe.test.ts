@@ -283,7 +283,7 @@ test('siteverify: sends only secret + response (never remoteip)', async () => {
 	assert.deepEqual(keys, ['response', 'secret']);
 });
 
-test('dummy Turnstile secret is refused on the production host (503, no siteverify)', async () => {
+test('dummy Turnstile secret is refused off localhost (503, no siteverify)', async () => {
 	const r = await post(good(), { env: { ...env, TURNSTILE_SECRET_KEY: '1x0000000000000000000000000000000AA' } });
 	assert.equal(r.status, 503);
 	assert.equal(calls.turnstile, 0);

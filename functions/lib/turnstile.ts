@@ -13,8 +13,9 @@ export const TURNSTILE_TOKEN_MAX = 2048; // Cloudflare's documented maximum toke
 
 /** Hostnames siteverify may report for a token minted on our pages. */
 export const TURNSTILE_ALLOWED_HOSTNAMES: readonly string[] = ['yodacom.com', 'www.yodacom.com'];
-/** Hostnames that count as "production" for the dummy-secret guard. */
-const PROD_HOSTS = new Set(TURNSTILE_ALLOWED_HOSTNAMES);
+/** The only hosts where a dummy/placeholder secret is tolerated (local development). */
+const LOCAL_HOSTS = new Set(['localhost', '127.0.0.1']);
+const SITEVERIFY_TIMEOUT_MS = 5000;
 
 /** Must equal the `action` passed to turnstile.render() in the matching form. */
 export type TurnstileAction = 'subscribe' | 'contact';
@@ -22,7 +23,7 @@ export type TurnstileAction = 'subscribe' | 'contact';
 /**
  * Cloudflare's documented dummy secret keys (public). Their siteverify answer is fixed
  * (hostname "localhost", action "test"), so hostname/action are skipped only for these,
- * and only off the production host. Real secrets are always strict.
+ * and callers refuse them on every host except localhost/127.0.0.1 (isMisconfiguredSecret). Real secrets are always strict.
  */
 export const DUMMY_SECRETS = new Set([
 	'1x0000000000000000000000000000000AA',
@@ -38,7 +39,7 @@ export function isDummyOrPlaceholderSecret(secret: string): boolean {
 	return DUMMY_SECRETS.has(s) || PLACEHOLDER_SECRET.test(s);
 }
 
-/** True when the request is for a production hostname AND the secret is a test key or placeholder. */
+/** True when the secret is a test key or placeholder and the request is NOT on localhost/127.0.0.1 (any other host, incl. pages.dev, is refused). */
 export function isMisconfiguredSecret(requestUrl: string, secret: string): boolean {
 	let host = '';
 	try {
@@ -46,7 +47,7 @@ export function isMisconfiguredSecret(requestUrl: string, secret: string): boole
 	} catch {
 		return true; // unparseable URL: fail closed
 	}
-	return PROD_HOSTS.has(host) && isDummyOrPlaceholderSecret(secret);
+	return !LOCAL_HOSTS.has(host) && isDummyOrPlaceholderSecret(secret);
 }
 
 /**
@@ -66,7 +67,7 @@ export async function verifyTurnstile(
 		const r = await fetch(SITEVERIFY_URL, {
 			method: 'POST',
 			body: form,
-			signal: AbortSignal.timeout(5000)
+			signal: AbortSignal.timeout(SITEVERIFY_TIMEOUT_MS)
 		});
 		if (!r.ok) return false;
 		const data = (await r.json()) as { success?: unknown; action?: unknown; hostname?: unknown };
