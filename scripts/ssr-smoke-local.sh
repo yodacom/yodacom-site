@@ -15,7 +15,11 @@ set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 REPO_ROOT="$(dirname "$SCRIPT_DIR")"
-PORT=4173
+# Ask the OS for a free port. A fixed port let a foreign dev server (another
+# repo's `vite preview` on 4173) answer in place of ours: our strictPort preview
+# exited, the readiness curl hit the stranger, and the smoke test then failed
+# with misleading 404s against the wrong site.
+PORT="$(node -e "const s=require('net').createServer();s.listen(0,'127.0.0.1',()=>{console.log(s.address().port);s.close()})")"
 BASE_URL="http://localhost:${PORT}"
 
 cd "$REPO_ROOT"
@@ -34,6 +38,11 @@ trap cleanup EXIT
 
 ready=0
 for _ in $(seq 1 20); do
+	if ! kill -0 "$PREVIEW_PID" 2>/dev/null; then
+		echo "ssr-smoke-local: preview server exited early (port $PORT)."
+		cat /tmp/yodacom-ssr-smoke-preview.log || true
+		exit 1
+	fi
 	if curl -s -o /dev/null "$BASE_URL"; then
 		ready=1
 		break
