@@ -38,6 +38,7 @@
  */
 
 import { CONFIRM_TTL_SECONDS, signConfirm } from '../lib/confirm-token.ts';
+import { isMisconfiguredSecret, verifyTurnstile } from '../lib/turnstile.ts';
 
 interface Env {
 	LOOPS_API_KEY?: string;
@@ -111,24 +112,6 @@ function isAllowedOrigin(request: Request): boolean {
 		const u = new URL(source);
 		return u.protocol === 'https:' && ALLOWED_HOSTS.has(u.hostname);
 	} catch {
-		return false;
-	}
-}
-
-async function verifyTurnstile(token: string, secret: string, ip: string | null): Promise<boolean> {
-	try {
-		const form = new FormData();
-		form.append('secret', secret);
-		form.append('response', token);
-		if (ip) form.append('remoteip', ip);
-		const r = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
-			method: 'POST',
-			body: form
-		});
-		const data = (await r.json()) as { success?: boolean };
-		return data.success === true;
-	} catch (e) {
-		console.error('[subscribe] Turnstile verify failed:', e);
 		return false;
 	}
 }
@@ -245,15 +228,18 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
 			503
 		);
 	}
+	if (isMisconfiguredSecret(request.url, env.TURNSTILE_SECRET_KEY)) {
+		console.error('[subscribe] TURNSTILE_SECRET_KEY is a test/placeholder value on a production host — refusing');
+		return json(
+			{ ok: false, error: 'Signup temporarily unavailable. Please try again later.' },
+			503
+		);
+	}
 	const token = typeof raw.turnstileToken === 'string' ? raw.turnstileToken : '';
 	if (!token) {
 		return json({ ok: false, error: 'Captcha required.' }, 400);
 	}
-	const turnstileOk = await verifyTurnstile(
-		token,
-		env.TURNSTILE_SECRET_KEY,
-		request.headers.get('CF-Connecting-IP')
-	);
+	const turnstileOk = await verifyTurnstile(token, env.TURNSTILE_SECRET_KEY, 'subscribe');
 	if (!turnstileOk) {
 		return json({ ok: false, error: 'Captcha verification failed.' }, 400);
 	}

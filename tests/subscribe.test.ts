@@ -9,6 +9,9 @@ type LoopsReq = { url: string; method: string; body: any };
 let loopsReqs: LoopsReq[];
 let existing: Array<{ subscribed: boolean }>;
 let calls: Calls;
+let tsExtra = { hostname: 'yodacom.com', action: 'subscribe' };
+let tsInit;
+let tsStatus = 200;
 let turnstileResult: boolean;
 const realFetch = globalThis.fetch;
 let ipCounter = 0;
@@ -18,11 +21,15 @@ beforeEach(() => {
 	loopsReqs = [];
 	existing = [];
 	turnstileResult = true;
+	tsExtra = { hostname: 'yodacom.com', action: 'subscribe' };
+	tsInit = undefined;
+	tsStatus = 200;
 	globalThis.fetch = (async (url: string | URL | Request, init?: RequestInit) => {
 		const u = String(url);
 		if (u.includes('turnstile')) {
 			calls.turnstile++;
-			return new Response(JSON.stringify({ success: turnstileResult }));
+			tsInit = init;
+			return new Response(JSON.stringify({ success: turnstileResult, ...tsExtra }), { status: tsStatus });
 		}
 		if (u.includes('loops.so')) {
 			calls.loops++;
@@ -226,4 +233,61 @@ test('existing rate limit still enforced (11th from same IP -> 429)', async () =
 		last = (await onRequestPost({ request: req, env })).status;
 	}
 	assert.equal(last, 429);
+});
+
+// --- siteverify hardening: hostname, action, no remoteip, dummy-secret guard ---
+test('siteverify: token minted for another hostname is rejected', async () => {
+	tsExtra = { hostname: 'beerzap.com', action: 'subscribe' };
+	const r = await post(good());
+	assert.equal(r.status, 400);
+	assert.equal(calls.loops, 0);
+});
+
+test('siteverify: www.yodacom.com hostname is accepted', async () => {
+	tsExtra = { hostname: 'WWW.yodacom.com', action: 'subscribe' };
+	const r = await post(good());
+	assert.equal(r.status, 200);
+});
+
+test('siteverify: token from the other form (wrong action) is rejected', async () => {
+	tsExtra = { hostname: 'yodacom.com', action: 'contact' };
+	const r = await post(good());
+	assert.equal(r.status, 400);
+	assert.equal(calls.loops, 0);
+});
+
+test('siteverify: missing action / hostname in the verdict is rejected', async () => {
+	tsExtra = { hostname: 'yodacom.com' };
+	assert.equal((await post(good())).status, 400);
+	tsExtra = { action: 'subscribe' };
+	assert.equal((await post(good())).status, 400);
+});
+
+test('siteverify: non-2xx from Cloudflare fails closed', async () => {
+	tsStatus = 500;
+	const r = await post(good());
+	assert.equal(r.status, 400);
+	assert.equal(calls.loops, 0);
+});
+
+test('siteverify: oversize token is rejected without calling Cloudflare', async () => {
+	const r = await post(good({ turnstileToken: 'x'.repeat(2049) }));
+	assert.equal(r.status, 400);
+	assert.equal(calls.turnstile, 0);
+});
+
+test('siteverify: sends only secret + response (never remoteip)', async () => {
+	await post(good());
+	assert.equal(calls.turnstile, 1);
+	const keys = [...tsInit.body.keys()].sort();
+	assert.deepEqual(keys, ['response', 'secret']);
+});
+
+test('dummy Turnstile secret is refused off localhost (503, no siteverify)', async () => {
+	const r = await post(good(), { env: { ...env, TURNSTILE_SECRET_KEY: '1x0000000000000000000000000000000AA' } });
+	assert.equal(r.status, 503);
+	assert.equal(calls.turnstile, 0);
+	assert.equal(calls.loops, 0);
+	const p = await post(good(), { env: { ...env, TURNSTILE_SECRET_KEY: 'placeholder' } });
+	assert.equal(p.status, 503);
 });

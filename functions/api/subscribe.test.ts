@@ -13,7 +13,7 @@ beforeEach(() => {
 	calls = [];
 	globalThis.fetch = (async (url: any, init: any) => {
 		const u = String(url);
-		if (u.includes('turnstile')) return new Response(JSON.stringify({ success: true })); // not a Loops call
+		if (u.includes('turnstile')) return new Response(JSON.stringify({ success: true, hostname: 'yodacom.com', action: 'subscribe' })); // not a Loops call
 		calls.push({ url: u, init, body: init?.body ? JSON.parse(init.body) : null });
 		if (u.includes('/contacts/find')) return new Response('[]', { status: 200 });
 		return new Response('{}', { status: 200 });
