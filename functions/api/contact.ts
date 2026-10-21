@@ -24,6 +24,8 @@
  *   - TURNSTILE_SECRET_KEY        (required — form is closed without it)
  */
 
+import { isMisconfiguredSecret, verifyTurnstile } from '../lib/turnstile.ts';
+
 interface Env {
 	LOOPS_API_KEY?: string;
 	LOOPS_CONTACT_TEMPLATE_ID?: string;
@@ -170,24 +172,6 @@ function validate(raw: ContactPayload): { ok: true; data: CleanPayload } | { ok:
 	return { ok: true, data: { name, email, topic, message, website, ts, turnstileToken } };
 }
 
-async function verifyTurnstile(token: string, secret: string, ip: string | null): Promise<boolean> {
-	try {
-		const form = new FormData();
-		form.append('secret', secret);
-		form.append('response', token);
-		if (ip) form.append('remoteip', ip);
-		const r = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
-			method: 'POST',
-			body: form
-		});
-		const data = (await r.json()) as { success?: boolean };
-		return data.success === true;
-	} catch (e) {
-		console.error('[contact] Turnstile verify failed:', e);
-		return false;
-	}
-}
-
 async function sendViaLoops(opts: {
 	apiKey: string;
 	templateId: string;
@@ -287,11 +271,17 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
 			503
 		);
 	}
+	if (isMisconfiguredSecret(request.url, env.TURNSTILE_SECRET_KEY)) {
+		console.error('[contact] TURNSTILE_SECRET_KEY is a test/placeholder value on a production host — refusing');
+		return json(
+			{ ok: false, error: 'The form is temporarily unavailable. Please email jb@yodacom.com directly.' },
+			503
+		);
+	}
 	if (!data.turnstileToken) {
 		return json({ ok: false, error: 'Captcha required.' }, 400);
 	}
-	const ip = request.headers.get('CF-Connecting-IP');
-	const ok = await verifyTurnstile(data.turnstileToken, env.TURNSTILE_SECRET_KEY, ip);
+	const ok = await verifyTurnstile(data.turnstileToken, env.TURNSTILE_SECRET_KEY, 'contact');
 	if (!ok) {
 		return json({ ok: false, error: 'Captcha verification failed.' }, 400);
 	}

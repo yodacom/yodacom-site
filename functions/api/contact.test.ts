@@ -34,7 +34,7 @@ let ipN = 0;
 beforeEach(() => {
 	calls = [];
 	globalThis.fetch = (async (url: any, init: any) => {
-		if (String(url).includes('turnstile')) return new Response(JSON.stringify({ success: true }));
+		if (String(url).includes('turnstile')) return new Response(JSON.stringify({ success: true, hostname: 'yodacom.com', action: 'contact' }));
 		calls.push({ url: String(url), body: init?.body ? JSON.parse(init.body) : null });
 		return new Response('{}', { status: 200 });
 	}) as typeof fetch;

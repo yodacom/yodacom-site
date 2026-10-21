@@ -64,6 +64,7 @@
 				if (!ts || !turnstileEl) return;
 				turnstileWidgetId = ts.render(turnstileEl, {
 					sitekey: TURNSTILE_SITE_KEY,
+					action: 'subscribe',
 					callback: (t: string) => (turnstileToken = t),
 					'expired-callback': () => (turnstileToken = ''),
 					'error-callback': () => (turnstileToken = '')

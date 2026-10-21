@@ -32,6 +32,8 @@ Set these in Cloudflare Pages → Settings → Environment variables (Production
 
 Double opt-in: `/api/subscribe` creates the Loops contact with `subscribed: false` and emails a signed `/api/confirm` link (valid 48 h); `/api/confirm` verifies it and sets `subscribed: true`. Already-confirmed contacts are never downgraded. Note: some corporate mail scanners pre-fetch links and can auto-confirm.
 
+**Turnstile verification is strict.** `functions/lib/turnstile.ts` requires siteverify `success`, `hostname` in {`yodacom.com`, `www.yodacom.com`} and `action` = `subscribe` (SubscribeForm) / `contact` (/contact). The widget is shared with other sites, so a token minted elsewhere is rejected. No `remoteip` is sent. A Cloudflare dummy/placeholder `TURNSTILE_SECRET_KEY` on the production host closes both forms (503). The action is set in the form's `turnstile.render()`, so ship server and client in the same deploy.
+
 **Both `/contact` and `/research-briefs` now require BOTH Turnstile keys. Set them BEFORE deploying: merging or deploying without them closes BOTH forms (503 / "temporarily unavailable"). Merge and deploy only after the keys are set.**
 
 The contact form degrades gracefully: if `LOOPS_API_KEY` or `LOOPS_CONTACT_TEMPLATE_ID` is

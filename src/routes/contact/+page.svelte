@@ -82,6 +82,7 @@
 		turnstileToken = '';
 		turnstileWidgetId = ts.render(turnstileEl, {
 			sitekey: TURNSTILE_SITE_KEY,
+			action: 'contact',
 			callback: (t: string) => (turnstileToken = t),
 			'expired-callback': () => (turnstileToken = ''),
 			'error-callback': () => (turnstileToken = '')
