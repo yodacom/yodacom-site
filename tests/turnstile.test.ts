@@ -47,8 +47,9 @@ test('siteverify request carries an abort signal with a ~5 s timeout', async () 
 
 test('a hung siteverify aborts and fails closed', async () => {
 	const realTimeout = AbortSignal.timeout;
+	let requestedMs;
 	AbortSignal.timeout = (ms) => {
-		assert.equal(ms, 5000);
+		requestedMs = ms;
 		const c = new AbortController();
 		setTimeout(() => c.abort(), 20); // ref'd timer keeps the event loop alive
 	};
@@ -56,6 +57,7 @@ test('a hung siteverify aborts and fails closed', async () => {
 		globalThis.fetch = (_u, init) =>
 			new Promise((_res, rej) => init.signal.addEventListener('abort', () => rej(new Error('aborted'))));
 		assert.equal(await verifyTurnstile('tok', '0x4AAAAreal', 'contact'), false);
+		assert.equal(requestedMs, 5000);
 	} finally {
 		AbortSignal.timeout = realTimeout;
 	}
