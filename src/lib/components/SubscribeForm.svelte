@@ -180,7 +180,7 @@
 
 	<p id="{idPrefix}-status" role="status" aria-live="polite" class="mt-2 min-h-[1.1rem] text-xs">
 		{#if status === 'success'}
-			<span class={okClass}>Check your inbox to confirm. We just sent a link (valid 48 hours); check spam if you do not see it.</span>
+			<span class={okClass}>Thanks. If this address is not already subscribed, we just sent a confirmation link (valid 48 hours); check spam if you do not see it. If you already confirmed, you are all set.</span>
 		{:else if status === 'error' && message}
 			<span class={errClass}>{message}</span>
 		{/if}
