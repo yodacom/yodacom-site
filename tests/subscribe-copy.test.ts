@@ -1,3 +1,4 @@
+// @ts-nocheck -- runs under node --test; repo has no @types/node
 // Pins the SubscribeForm success copy. The /api/subscribe handler returns the
 // identical { ok: true } for a new subscriber (email sent) and an already-confirmed
 // one (nothing sent), so the UI must not claim an unconditional send.
