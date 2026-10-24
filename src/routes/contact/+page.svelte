@@ -83,6 +83,7 @@
 		turnstileWidgetId = ts.render(turnstileEl, {
 			sitekey: TURNSTILE_SITE_KEY,
 			action: 'contact',
+			appearance: 'interaction-only',
 			callback: (t: string) => (turnstileToken = t),
 			'expired-callback': () => (turnstileToken = ''),
 			'error-callback': () => (turnstileToken = '')
@@ -119,7 +120,7 @@
 
 	const messageChars = $derived(message.length);
 	const messageRemaining = $derived(2000 - messageChars);
-	const submitDisabled = $derived(status === 'submitting' || !turnstileToken);
+	const submitDisabled = $derived(status === 'submitting');
 
 	function validate(): boolean {
 		const errs: typeof fieldErrors = {};
@@ -157,7 +158,7 @@
 
 		if (!turnstileToken) {
 			status = 'error';
-			errorMsg = 'Please complete the verification check.';
+			errorMsg = 'Still verifying your browser. If a check appears, complete it, then press the button again.';
 			return;
 		}
 

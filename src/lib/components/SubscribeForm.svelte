@@ -65,6 +65,7 @@
 				turnstileWidgetId = ts.render(turnstileEl, {
 					sitekey: TURNSTILE_SITE_KEY,
 					action: 'subscribe',
+					appearance: 'interaction-only',
 					callback: (t: string) => (turnstileToken = t),
 					'expired-callback': () => (turnstileToken = ''),
 					'error-callback': () => (turnstileToken = '')
@@ -76,7 +77,7 @@
 			});
 	});
 
-	const submitDisabled = $derived(status === 'submitting' || !turnstileToken);
+	const submitDisabled = $derived(status === 'submitting');
 
 	const inputClass = $derived(
 		tone === 'dark'
@@ -105,7 +106,7 @@
 
 		if (!turnstileToken) {
 			status = 'error';
-			message = 'Please complete the verification check.';
+			message = 'Still verifying your browser. If a check appears, complete it, then press the button again.';
 			return;
 		}
 
